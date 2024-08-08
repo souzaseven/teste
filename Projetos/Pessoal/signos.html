@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Signos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            flex: 1;
+        }
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        .btn-classic {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-classic:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+        .result img {
+            max-width: 100px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Calculadora de Signos</h1>
+    <div class="box">
+        <div class="block">
+            <div class="legenda">Indique a data de nascimento</div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <select name="dia" class="form-control" id="dia">
+                        <!-- Gerando dias dinamicamente -->
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="mes" class="form-control" id="mes">
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                </div>
+                <button class="btn btn-classic" id="calcular">Calcular</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="result panel panel-success">
+        <div class="panel-heading">O Signo do Zodíaco é:</div>
+        <ul class="list-group">
+            <li class="list-group-item"><b id="signo">---</b></li>
+        </ul>
+        <img id="signo-img" src="" alt="Imagem do Signo">
+    </div>
+</div>
+
+<script>
+    document.getElementById('calcular').addEventListener('click', function() {
+        const dia = parseInt(document.getElementById('dia').value);
+        const mes = parseInt(document.getElementById('mes').value);
+
+        // Verifica se os valores são válidos
+        if (isNaN(dia) || isNaN(mes) || dia < 1 || mes < 1 || mes > 12) {
+            document.getElementById('signo').textContent = 'Data inválida!';
+            document.querySelector('.result').style.display = 'block';
+            return;
+        }
+
+        // Verifica o número de dias no mês
+        const diasNoMes = new Date(2024, mes, 0).getDate();
+        if (dia > diasNoMes) {
+            document.getElementById('signo').textContent = 'Data inválida!';
+            document.querySelector('.result').style.display = 'block';
+            return;
+        }
+
+        const signo = getSigno(dia, mes);
+        const imagem = getImagemSigno(signo);
+
+        document.getElementById('signo').textContent = signo;
+        document.getElementById('signo-img').src = imagem;
+        document.querySelector('.result').style.display = 'block';
+    });
+
+    function getSigno(dia, mes) {
+        const signos = [
+            { signo: 'Capricórnio', dataInicio: [22, 12], dataFim: [19, 1] },
+            { signo: 'Aquário', dataInicio: [20, 1], dataFim: [18, 2] },
+            { signo: 'Peixes', dataInicio: [19, 2], dataFim: [20, 3] },
+            { signo: 'Áries', dataInicio: [21, 3], dataFim: [19, 4] },
+            { signo: 'Touro', dataInicio: [20, 4], dataFim: [20, 5] },
+            { signo: 'Gêmeos', dataInicio: [21, 5], dataFim: [20, 6] },
+            { signo: 'Câncer', dataInicio: [21, 6], dataFim: [22, 7] },
+            { signo: 'Leão', dataInicio: [23, 7], dataFim: [22, 8] },
+            { signo: 'Virgem', dataInicio: [23, 8], dataFim: [22, 9] },
+            { signo: 'Libra', dataInicio: [23, 9], dataFim: [22, 10] },
+            { signo: 'Escorpião', dataInicio: [23, 10], dataFim: [21, 11] },
+            { signo: 'Sagitário', dataInicio: [22, 11], dataFim: [21, 12] },
+        ];
+
+        for (const s of signos) {
+            const [diaInicio, mesInicio] = s.dataInicio;
+            const [diaFim, mesFim] = s.dataFim;
+
+            const dataInicio = new Date(2024, mesInicio - 1, diaInicio);
+            const dataFim = new Date(2024, mesFim - 1, diaFim);
+
+            if ((mes === mesInicio && dia >= diaInicio) || (mes === mesFim && dia <= diaFim)) {
+                return s.signo;
+            }
+        }
+
+        return 'Desconhecido';
+    }
+
+    function getImagemSigno(signo) {
+        const imagens = {
+            'Capricórnio': 'https://example.com/capricornio.png',
+            'Aquário': 'https://example.com/aquario.png',
+            'Peixes': 'https://example.com/peixes.png',
+            'Áries': 'https://example.com/aries.png',
+            'Touro': 'https://example.com/touro.png',
+            'Gêmeos': 'https://example.com/gemeos.png',
+            'Câncer': 'https://example.com/cancer.png',
+            'Leão': 'https://example.com/leao.png',
+            'Virgem': 'https://example.com/virgem.png',
+            'Libra': 'https://example.com/libra.png',
+            'Escorpião': 'https://example.com/escorpiao.png',
+            'Sagitário': 'https://example.com/sagitario.png'
+        };
+
+        return imagens[signo] || 'https://example.com/default.png';
+    }
+</script>
+
+</body>
+</html>

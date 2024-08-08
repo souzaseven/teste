@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Dígito de Boleto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .field {
+            flex: 1 1 45%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .field span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn-clear {
+            background-color: #f44336;
+        }
+
+        .btn-clear:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Dígito de Boleto</h1>
+        <form id="boleto-form">
+            <label for="linha-digitavel">Linha Digitável:</label>
+            <input type="text" id="linha-digitavel" required>
+            <button type="submit">Verificar</button>
+            <button type="button" class="btn-clear" id="clear-button">Limpar</button>
+        </form>
+        <div class="result" id="result">
+            <!-- Os resultados serão exibidos aqui -->
+        </div>
+    </div>
+
+    <script>
+        function parseBoleto(linhaDigitavel) {
+            const codigoBanco = linhaDigitavel.substring(0, 3);
+            const codigoMoeda = linhaDigitavel.substring(3, 4);
+            const comOuSemRegistro = linhaDigitavel.substring(4, 5);
+            const tipoCarteira = linhaDigitavel.substring(5, 6);
+            const nossoNumero = linhaDigitavel.substring(6, 14);
+            const dvNossoNumero = linhaDigitavel.substring(14, 15);
+            const dvPrimeiroCampo = linhaDigitavel.substring(15, 16);
+            const cooperativa = linhaDigitavel.substring(16, 20);
+            const dvSegundoCampo = linhaDigitavel.substring(20, 21);
+            const ua = linhaDigitavel.substring(21, 23);
+            const cedente = linhaDigitavel.substring(23, 28);
+            const comOuSemValor = linhaDigitavel.substring(28, 29);
+            const campoFixo = linhaDigitavel.substring(29, 30);
+            const dvCampoLivre = linhaDigitavel.substring(30, 31);
+            const dvTerceiroCampo = linhaDigitavel.substring(31, 32);
+            const dvGeral = linhaDigitavel.substring(32, 33);
+            const fatorVencimento = linhaDigitavel.substring(33, 37);
+            const valorDocumento = linhaDigitavel.substring(37, 47);
+
+            return {
+                codigoBanco,
+                codigoMoeda,
+                comOuSemRegistro,
+                tipoCarteira,
+                nossoNumero,
+                dvNossoNumero,
+                dvPrimeiroCampo,
+                cooperativa,
+                dvSegundoCampo,
+                ua,
+                cedente,
+                comOuSemValor,
+                campoFixo,
+                dvCampoLivre,
+                dvTerceiroCampo,
+                dvGeral,
+                fatorVencimento,
+                valorDocumento,
+            };
+        }
+
+        function cleanLinhaDigitavel(linhaDigitavel) {
+            return linhaDigitavel.replace(/[^0-9]/g, '');
+        }
+
+        function displayResults(parsedBoleto) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="field"><span>Código do Banco:</span> ${parsedBoleto.codigoBanco}</div>
+                <div class="field"><span>Código da Moeda:</span> ${parsedBoleto.codigoMoeda}</div>
+                <div class="field"><span>COM ou SEM Registro:</span> ${parsedBoleto.comOuSemRegistro}</div>
+                <div class="field"><span>Tipo de Carteira:</span> ${parsedBoleto.tipoCarteira}</div>
+                <div class="field"><span>Nosso Número:</span> ${parsedBoleto.nossoNumero}</div>
+                <div class="field"><span>DV - Nosso Número:</span> ${parsedBoleto.dvNossoNumero}</div>
+                <div class="field"><span>DV - do 1º Campo:</span> ${parsedBoleto.dvPrimeiroCampo}</div>
+                <div class="field"><span>Cooperativa:</span> ${parsedBoleto.cooperativa}</div>
+                <div class="field"><span>DV - do 2º Campo:</span> ${parsedBoleto.dvSegundoCampo}</div>
+                <div class="field"><span>UA:</span> ${parsedBoleto.ua}</div>
+                <div class="field"><span>Cedente:</span> ${parsedBoleto.cedente}</div>
+                <div class="field"><span>Com ou SEM Valor:</span> ${parsedBoleto.comOuSemValor}</div>
+                <div class="field"><span>Campo FIXO:</span> ${parsedBoleto.campoFixo}</div>
+                <div class="field"><span>DV - Campo Livre:</span> ${parsedBoleto.dvCampoLivre}</div>
+                <div class="field"><span>DV - de 3º Campo:</span> ${parsedBoleto.dvTerceiroCampo}</div>
+                <div class="field"><span>DV - Geral:</span> ${parsedBoleto.dvGeral}</div>
+                <div class="field"><span>Fator de Vencimento:</span> ${parsedBoleto.fatorVencimento}</div>
+                <div class="field"><span>Data de vencimento:</span> ${new Date(1997, 9, 7 + parseInt(parsedBoleto.fatorVencimento)).toLocaleDateString('pt-BR')}</div>
+                <div class="field"><span>Valor do Documento:</span> R$ ${(parseInt(parsedBoleto.valorDocumento) / 100).toFixed(2)}</div>
+            `;
+        }
+
+        document.getElementById('linha-digitavel').addEventListener('input', function(event) {
+            let linhaDigitavel = event.target.value;
+            linhaDigitavel = cleanLinhaDigitavel(linhaDigitavel);
+            event.target.value = linhaDigitavel;
+        });
+
+        document.getElementById('boleto-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let linhaDigitavel = document.getElementById('linha-digitavel').value;
+            linhaDigitavel = cleanLinhaDigitavel(linhaDigitavel);
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (linhaDigitavel.length !== 47) {
+                resultDiv.innerHTML = '<p style="color: red;">A linha digitável deve conter 47 caracteres.</p>';
+                return;
+            }
+
+            const parsedBoleto = parseBoleto(linhaDigitavel);
+            displayResults(parsedBoleto);
+        });
+
+        document.getElementById('clear-button').addEventListener('click', function() {
+            document.getElementById('linha-digitavel').value = '';
+            document.getElementById('result').innerHTML = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de Palavras e Caracteres</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #007bff;
+        color: #fff;
+    }
+    .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    .result {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+    h2 {
+        color: #333;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contador de Palavras e Caracteres</h2>
+        <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
+        <div id="resultado" class="result">Número de palavras: 0<br>Número de caracteres: 0</div>
+    </div>
+
+    <script>
+        document.getElementById('texto').addEventListener('input', contarPalavrasECaracteres);
+
+        function contarPalavrasECaracteres() {
+            const texto = document.getElementById('texto').value;
+            const palavras = texto.trim().split(/\s+/).filter(Boolean);
+            const numeroDePalavras = palavras.length;
+            const numeroDeCaracteres = texto.length;
+
+            document.getElementById('resultado').innerHTML = `Número de palavras: ${numeroDePalavras}<br>Número de caracteres: ${numeroDeCaracteres}`;
+        }
+    </script>
+</body>
+</html>

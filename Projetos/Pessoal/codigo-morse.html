@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Morse</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .legenda {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-control {
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .btn-classic {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn-classic:hover {
+            background-color: #0056b3;
+        }
+        .lbl {
+            margin-left: 5px;
+            color: #333;
+        }
+        .apply-margin {
+            margin-top: 15px;
+        }
+        .highlight {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; color: #007bff;">Código Morse</h2>
+        <div class="box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="legenda">Texto para codificar:</div>
+                    <textarea name="texto" spellcheck="false" class="form-control origem" id="texto"></textarea>
+                    <div class="apply-margin">
+                        <input type="checkbox" name="sound" id="sound" value="sound">
+                        <label for="sound" class="lbl"> Tocar som</label>
+                    </div>
+                </div>
+                <div class="apply-margin visible-xs"></div>
+                <div class="col-sm-12">
+                    <div class="legenda">Código morse para decodificar:</div>
+                    <textarea name="morse" spellcheck="false" class="form-control destino" id="morse"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+            'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+            'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+            '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ' ': ' '
+        };
+
+        const morseToText = Object.fromEntries(Object.entries(morseCode).map(([k, v]) => [v, k]));
+
+        function encode() {
+            const text = document.getElementById('texto').value.toUpperCase();
+            let morse = '';
+
+            for (let char of text) {
+                if (morseCode[char]) {
+                    morse += morseCode[char] + ' ';
+                }
+            }
+
+            document.getElementById('morse').value = morse.trim();
+        }
+
+        function decode() {
+            const morse = document.getElementById('morse').value;
+            let text = '';
+            const soundCheckbox = document.getElementById('sound').checked;
+
+            morse.split(' ').forEach(code => {
+                if (morseToText[code]) {
+                    text += morseToText[code];
+                } else {
+                    text += '?'; // símbolo para código desconhecido
+                }
+            });
+
+            document.getElementById('texto').value = text;
+
+            if (soundCheckbox) {
+                playSound(morse);
+            }
+        }
+
+        function playSound(morse) {
+            const morseArray = morse.split(' ');
+            let index = 0;
+            const beep = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            const textArea = document.getElementById('texto');
+            const originalText = textArea.value;
+
+            function playNext() {
+                if (index < morseArray.length) {
+                    textArea.value = highlightCharacter(originalText, index);
+                    beep.play();
+                    index++;
+                    setTimeout(playNext, 500);
+                } else {
+                    textArea.value = originalText;
+                }
+            }
+
+            playNext();
+        }
+
+        function highlightCharacter(text, index) {
+            const parts = text.split('');
+            parts[index] = `<span class="highlight">${parts[index]}</span>`;
+            return parts.join('');
+        }
+
+        document.getElementById('texto').addEventListener('input', encode);
+        document.getElementById('morse').addEventListener('input', decode);
+    </script>
+</body>
+</html>
