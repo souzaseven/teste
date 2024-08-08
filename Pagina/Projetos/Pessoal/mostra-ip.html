@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir IP</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .box {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .display {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .light {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .meu-ip {
+            font-weight: normal;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Exibir IP</h1>
+        <div class="display">
+            <span class="light">Meu IP Local: </span><span class="meu-ip">Carregando...</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ipElement = document.querySelector('.meu-ip');
+
+            // Função para obter o IP local do usuário
+            function fetchLocalIP() {
+                fetch('http://localhost:3000/get-local-ip')
+                    .then(response => response.json())
+                    .then(data => {
+                        ipElement.textContent = data.ip;
+                    })
+                    .catch(error => {
+                        ipElement.textContent = 'Não foi possível obter o IP.';
+                        console.error('Erro ao buscar IP:', error);
+                    });
+            }
+
+            // Chama a função para obter o IP ao carregar a página
+            fetchLocalIP();
+        });
+
+        // server.js
+const express = require('express');
+const os = require('os');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+app.get('/get-local-ip', (req, res) => {
+    const networkInterfaces = os.networkInterfaces();
+    let localIp = 'Não foi possível obter o IP local.';
+
+    for (const interfaceKey in networkInterfaces) {
+        const interface = networkInterfaces[interfaceKey];
+        for (const alias of interface) {
+            if (alias.family === 'IPv4' && !alias.internal) {
+                localIp = alias.address;
+                break;
+            }
+        }
+    }
+
+    res.json({ ip: localIp });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+    </script>
+</body>
+</html>

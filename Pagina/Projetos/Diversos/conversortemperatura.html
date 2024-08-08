@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #007bff 25%, #00c4ff 100%);
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #007bff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1rem;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .result {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Temperatura</h2>
+        <form id="converterForm">
+            <label for="tempCelsius">Temperatura em Celsius:</label>
+            <input type="number" id="tempCelsius" name="tempCelsius" oninput="converterParaFahrenheit()">
+            <label for="tempFahrenheit">Temperatura em Fahrenheit:</label>
+            <input type="number" id="tempFahrenheit" name="tempFahrenheit" oninput="converterParaCelsius()">
+        </form>
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function converterParaFahrenheit() {
+            let tempCelsius = parseFloat(document.getElementById('tempCelsius').value);
+            if (!isNaN(tempCelsius)) {
+                let tempFahrenheit = (tempCelsius * 9/5) + 32;
+                document.getElementById('tempFahrenheit').value = tempFahrenheit.toFixed(2);
+                document.getElementById('resultado').textContent = `${tempCelsius}°C é igual a ${tempFahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById('tempFahrenheit').value = '';
+                document.getElementById('resultado').textContent = '';
+            }
+        }
+
+        function converterParaCelsius() {
+            let tempFahrenheit = parseFloat(document.getElementById('tempFahrenheit').value);
+            if (!isNaN(tempFahrenheit)) {
+                let tempCelsius = (tempFahrenheit - 32) * 5/9;
+                document.getElementById('tempCelsius').value = tempCelsius.toFixed(2);
+                document.getElementById('resultado').textContent = `${tempFahrenheit}°F é igual a ${tempCelsius.toFixed(2)}°C`;
+            } else {
+                document.getElementById('tempCelsius').value = '';
+                document.getElementById('resultado').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

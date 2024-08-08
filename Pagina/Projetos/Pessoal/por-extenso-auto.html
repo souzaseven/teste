@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escrever Números por Extenso </title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .resultado {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .copy-btn {
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #333; text-align: center;">Números por Extenso</h1>
+        <div class="input-group">
+            <label for="numero">Digite um número:</label>
+            <input type="text" id="numero" class="form-control" placeholder="Exemplo: 123456" oninput="convertToWords()">
+        </div>
+        
+        <div class="resultado">
+            <span id="extenso"></span><!--
+            <button class="copy-btn" onclick="copyToClipboard()">Copiar</button>
+        </div>-->
+    </div>
+
+    <script>
+        function convertToWords() {
+            const numero = parseInt(document.getElementById('numero').value, 10);
+            const extenso = document.getElementById('extenso');
+            if (isNaN(numero)) {
+                extenso.textContent = "Por favor, digite um número válido.";
+                return;
+            }
+
+            extenso.textContent = numberToWords(numero);
+        }
+
+        function numberToWords(num) {
+            if (num === 0) return "zero";
+            if (num > 999999) return "Número fora do intervalo permitido (0-999999)";
+
+            const belowTwenty = ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"];
+            const tens = ["", "", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"];
+            const hundreds = ["", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"];
+            const thousands = ["mil", "mil"];
+
+            function parts(n, joiner = " e ") {
+                let words = [];
+                if (n >= 1000) {
+                    const m = Math.floor(n / 1000);
+                    const r = n % 1000;
+                    if (m > 1) words.push(parts(m));
+                    words.push(thousands[m > 1 ? 1 : 0]);
+                    if (r) words.push(parts(r));
+                } else if (n >= 100) {
+                    const h = Math.floor(n / 100);
+                    const r = n % 100;
+                    words.push(h === 1 && r === 0 ? "cem" : hundreds[h]);
+                    if (r) words.push(parts(r));
+                } else if (n >= 20) {
+                    const t = Math.floor(n / 10);
+                    const r = n % 10;
+                    words.push(tens[t]);
+                    if (r) words.push(parts(r));
+                } else if (n > 0) {
+                    words.push(belowTwenty[n]);
+                }
+                return words.join(joiner);
+            }
+
+            return parts(num);
+        }
+
+        function copyToClipboard() {
+            const textToCopy = document.getElementById('extenso').textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Texto copiado com sucesso!");
+            }, (err) => {
+                alert("Erro ao copiar: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
+
+

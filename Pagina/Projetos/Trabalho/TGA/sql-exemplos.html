@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #answer {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SQL Bot</h1>
+        <input type="text" id="question" placeholder="Faça uma pergunta sobre SQL">
+        <button id="ask">Perguntar</button>
+        <div id="answer"></div>
+    </div>
+   
+    <script>
+        const sqlExamples = {
+            'como fazer um select': 'SELECT * FROM tabela;',
+            'como fazer um insert': 'INSERT INTO tabela (coluna1, coluna2) VALUES (valor1, valor2);',
+            'como fazer um update': 'UPDATE tabela SET coluna = valor WHERE condicao;',
+            'como fazer um delete': 'DELETE FROM tabela WHERE condicao;',
+            'como fazer um select com condição': 'SELECT coluna1, coluna2 FROM tabela WHERE condicao;',
+            'como fazer um select com ordenação': 'SELECT coluna1, coluna2 FROM tabela ORDER BY coluna ASC/DESC;',
+            'como fazer um select com junção': 'SELECT t1.coluna1, t2.coluna2 FROM tabela1 AS t1 INNER JOIN tabela2 AS t2 ON t1.id = t2.id;',
+            'como fazer um select com agrupamento': 'SELECT coluna1, COUNT(*) FROM tabela GROUP BY coluna1;',
+            'como fazer um select com limitação de resultados': 'SELECT * FROM tabela LIMIT 10;',
+            'como fazer um select com filtragem por data': 'SELECT * FROM tabela WHERE data BETWEEN \'2022-01-01\' AND \'2022-12-31\';',
+            'como fazer um select com subconsulta': 'SELECT coluna1 FROM tabela WHERE coluna2 IN (SELECT coluna2 FROM outra_tabela WHERE condicao);',
+            'como fazer um select com função de agregação': 'SELECT AVG(coluna) FROM tabela;',
+            'como fazer um select com operador LIKE': 'SELECT * FROM tabela WHERE coluna LIKE \'%valor%\';',
+            'como fazer um select com operador NOT': 'SELECT * FROM tabela WHERE NOT coluna = valor;'
+        };
+
+        document.getElementById('ask').addEventListener('click', function() {
+            const userInput = document.getElementById('question').value.toLowerCase().trim();
+
+            if (userInput === 'exemplo') {
+                mostrarTodosExemplos();
+            } else if (sqlExamples[userInput]) {
+                mostrarExemplo(userInput);
+            } else {
+                mostrarMensagemErro();
+            }
+        });
+
+        function mostrarTodosExemplos() {
+            let todosExemplos = '<h2>Exemplos Disponíveis:</h2>';
+            for (const exemplo in sqlExamples) {
+                todosExemplos += `<p><strong>${exemplo}</strong>: ${sqlExamples[exemplo]}</p>`;
+            }
+            document.getElementById('answer').innerHTML = todosExemplos;
+        }
+
+        function mostrarExemplo(exemplo) {
+            const message = `<p><strong>${exemplo}</strong>: ${sqlExamples[exemplo]}</p>`;
+            document.getElementById('answer').innerHTML = message;
+        }
+
+        function mostrarMensagemErro() {
+            document.getElementById('answer').innerHTML = '<p>Comando não reconhecido. Por favor, tente novamente.</p>';
+        }
+    </script>
+</body>
+</html>
