@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+     crossorigin="anonymous"></script>
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Textos</title>
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .resultwrap {
+            margin-top: 20px;
+        }
+        .diff {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .diff th, .diff td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .diff .replace {
+            background-color: #fdd;
+        }
+        .diff .insert {
+            background-color: #dfd;
+        }
+        .diff .unchanged {
+            background-color: #fff;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparar Textos</h1>
+        <div class="box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="legenda">Texto Base:</div>
+                    <textarea name="origem" class="form-control" id="baseText" placeholder="Digite o texto base aqui..."></textarea>
+                </div>
+                <div class="col-sm-12">
+                    <div class="legenda">Novo Texto:</div>
+                    <textarea name="destino" class="form-control" id="newText" placeholder="Digite o novo texto aqui..."></textarea>
+                </div>
+                <div class="resultwrap">
+                    <div id="diffoutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('baseText').addEventListener('input', compareTexts);
+        document.getElementById('newText').addEventListener('input', compareTexts);
+
+        function compareTexts() {
+            const baseText = document.getElementById('baseText').value;
+            const newText = document.getElementById('newText').value;
+
+            const baseLines = baseText.split('\n');
+            const newLines = newText.split('\n');
+            let outputHtml = '<table class="diff"><thead><tr><th>Texto Base</th><th>Novo Texto</th></tr></thead><tbody>';
+
+            baseLines.forEach((line, index) => {
+                const newLine = newLines[index] || '';
+                if (line !== newLine) {
+                    outputHtml += `<tr><td class="replace">${highlightDifferences(line, newLine)}</td><td class="replace">${highlightDifferences(newLine, line)}</td></tr>`;
+                } else {
+                    outputHtml += `<tr><td class="unchanged">${line}</td><td class="unchanged">${newLine}</td></tr>`;
+                }
+            });
+
+            newLines.slice(baseLines.length).forEach(line => {
+                outputHtml += `<tr><td class="insert"></td><td class="insert">${line}</td></tr>`;
+            });
+
+            outputHtml += '</tbody></table>';
+            document.getElementById('diffoutput').innerHTML = outputHtml;
+        }
+
+        function highlightDifferences(text1, text2) {
+            const words1 = text1.split(' ');
+            const words2 = text2.split(' ');
+
+            return words1.map((word, index) => {
+                if (word !== words2[index]) {
+                    return `<span class="highlight">${word}</span>`;
+                }
+                return word;
+            }).join(' ');
+        }
+    </script>
+</body>
+</html>

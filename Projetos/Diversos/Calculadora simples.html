@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #333;
+            width: 300px;
+        }
+
+        .calculator input[type="number"] {
+            width: 80px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .calculator button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #36A7DE;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .calculator button:hover {
+            background-color: #2d91c8;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        .operations {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora Simples</h1>
+        <input type="number" id="num1" placeholder="Número 1" oninput="updateCalculations()">
+        <input type="number" id="num2" placeholder="Número 2" oninput="updateCalculations()">
+        <div class="result" id="result">Resultado: 0</div>
+        <div class="operations" id="operations"></div>
+    </div>
+
+    <script>
+        function updateCalculations() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Resultado: Por favor, insira números válidos.';
+                document.getElementById('operations').innerHTML = 'Por favor, insira números válidos.';
+                return;
+            }
+
+            const add = num1 + num2;
+            const subtract = num1 - num2;
+            const multiply = num1 * num2;
+            const divide = num2 !== 0 ? num1 / num2 : 'Erro: Divisão por zero';
+
+            document.getElementById('result').textContent = `Resultado: ${add}`;
+            document.getElementById('operations').innerHTML = `
+                ${num1} + ${num2} = ${add}<br>
+                ${num1} - ${num2} = ${subtract}<br>
+                ${num1} * ${num2} = ${multiply}<br>
+                ${num1} / ${num2} = ${divide}
+            `;
+        }
+    </script>
+</body>
+</html>

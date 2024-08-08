@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Descontos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #007ced;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .container h1 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .container input[type="number"] {
+            padding: 15px;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: 2px solid #ddd;
+            width: 100%;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .container input[type="number"]:focus {
+            border-color: #007bff;
+        }
+
+        .result {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Descontos</h1>
+        <input type="number" id="originalPrice" placeholder="Valor Original">
+        <input type="number" id="discountPercentage" placeholder="Porcentagem de Desconto">
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        const originalPriceInput = document.getElementById('originalPrice');
+        const discountPercentageInput = document.getElementById('discountPercentage');
+        const resultDiv = document.getElementById('result');
+
+        function calcularDesconto() {
+            const originalPrice = parseFloat(originalPriceInput.value);
+            const discountPercentage = parseFloat(discountPercentageInput.value);
+
+            if (isNaN(originalPrice) || isNaN(discountPercentage) || originalPrice <= 0 || discountPercentage < 0) {
+                resultDiv.innerText = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            const discountAmount = (originalPrice * discountPercentage) / 100;
+            const finalPrice = originalPrice - discountAmount;
+
+            resultDiv.innerText = `Valor com Desconto: R$ ${finalPrice.toFixed(2)}`;
+        }
+
+        // Adiciona event listeners aos inputs
+        originalPriceInput.addEventListener('input', calcularDesconto);
+        discountPercentageInput.addEventListener('input', calcularDesconto);
+    </script>
+</body>
+</html>

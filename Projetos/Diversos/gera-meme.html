@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Memes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #0056b3;
+        }
+
+        .meme-generator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .meme-generator h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .meme-generator input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 30px;
+            border: 2px solid #ddd;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .meme-generator input:focus {
+            border-color: #007bff;
+        }
+
+        .meme-generator button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .meme-generator button:hover {
+            background-color: #0056b3;
+        }
+
+        .meme-canvas {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="meme-generator">
+        <h2>Gerador de Memes</h2>
+        <input type="file" id="imageInput">
+        <input type="text" id="topText" placeholder="Texto Superior">
+        <input type="text" id="bottomText" placeholder="Texto Inferior">
+        <button onclick="generateMeme()">Gerar Meme</button>
+        <button onclick="downloadMeme()">Baixar Meme</button>
+        <canvas id="memeCanvas" class="meme-canvas" width="500" height="300"></canvas>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const topText = document.getElementById('topText');
+        const bottomText = document.getElementById('bottomText');
+        const memeCanvas = document.getElementById('memeCanvas');
+        const ctx = memeCanvas.getContext('2d');
+        let image = new Image();
+
+        imageInput.addEventListener('change', () => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                image.src = reader.result;
+                image.onload = () => {
+                    drawMeme();
+                };
+            };
+            reader.readAsDataURL(imageInput.files[0]);
+        });
+
+        function drawMeme() {
+            const width = memeCanvas.width;
+            const height = memeCanvas.height;
+
+            ctx.clearRect(0, 0, width, height);
+            ctx.drawImage(image, 0, 0, width, height);
+            ctx.font = '36px Impact';
+            ctx.fillStyle = 'white';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.textAlign = 'center';
+            ctx.fillText(topText.value, width / 2, 50);
+            ctx.strokeText(topText.value, width / 2, 50);
+            ctx.fillText(bottomText.value, width / 2, height - 20);
+            ctx.strokeText(bottomText.value, width / 2, height - 20);
+        }
+
+        function generateMeme() {
+            if (image.src) {
+                drawMeme();
+            } else {
+                alert('Por favor, selecione uma imagem.');
+            }
+        }
+
+        function downloadMeme() {
+            const link = document.createElement('a');
+            link.download = 'meme.png';
+            link.href = memeCanvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>

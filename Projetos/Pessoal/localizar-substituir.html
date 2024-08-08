@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizar e Substituir</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: none;
+        }
+        .mini {
+            height: 80px;
+        }
+        .medium {
+            height: 150px;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        mark {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Localizar e Substituir</h1>
+        <div class="box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="legenda">Seu texto:</div>
+                    <div contenteditable="true" class="form-control medium" id="text"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="legenda">Localizar:</div>
+                    <textarea name="find" class="form-control mini" id="find"></textarea>
+                </div>
+                <div class="col-sm-12">
+                    <div class="legenda">Substituir por:</div>
+                    <textarea name="replace" class="form-control mini" id="replace"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn" id="replace-btn">Substituir</button>
+                    <button type="button" class="btn" id="process">Localizar e Substituir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function highlight(text, search) {
+            const regex = new RegExp(`(${search})`, 'gi');
+            return text.replace(regex, '<mark>$1</mark>');
+        }
+
+        function locateText() {
+            const findText = document.getElementById('find').value;
+            const textDiv = document.getElementById('text');
+            const originalText = textDiv.textContent; // Use textContent to avoid highlighting issues
+
+            if (findText) {
+                const highlightedText = highlight(originalText, findText);
+                textDiv.innerHTML = highlightedText;
+            } else {
+                textDiv.innerHTML = originalText;
+            }
+        }
+
+        document.getElementById('find').addEventListener('input', locateText);
+
+        document.getElementById('replace-btn').addEventListener('click', function() {
+            const findText = document.getElementById('find').value;
+            const replaceText = document.getElementById('replace').value;
+            const textDiv = document.getElementById('text');
+            const originalText = textDiv.innerHTML;
+
+            if (findText) {
+                const regex = new RegExp(findText, 'gi');
+                const updatedText = originalText.replace(regex, replaceText);
+                textDiv.innerHTML = updatedText;
+            }
+        });
+
+        document.getElementById('process').addEventListener('click', function() {
+            const findText = document.getElementById('find').value;
+            const replaceText = document.getElementById('replace').value;
+            const textDiv = document.getElementById('text');
+            const originalText = textDiv.innerHTML;
+
+            if (findText) {
+                const regex = new RegExp(findText, 'gi');
+                const highlightedText = highlight(originalText, findText);
+                const updatedText = highlightedText.replace(regex, replaceText);
+                textDiv.innerHTML = updatedText;
+            }
+        });
+    </script>
+</body>
+</html>

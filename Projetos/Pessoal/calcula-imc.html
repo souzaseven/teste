@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px;
+            text-align: center;
+        }
+        .btn-classic {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-classic:hover {
+            background-color: #0056b3;
+        }
+        .btn-default {
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-default:hover {
+            background-color: #eee;
+        }
+        .alert {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .table-bordered th, .table-bordered td {
+            text-align: center;
+        }
+        .description {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .description dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .description dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+        .btn-toggle {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .btn-toggle:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Calculadora de IMC</h1>
+    <div class="form-group">
+        <label for="peso">Peso (kg)</label>
+        <input type="text" class="form-control" id="peso" placeholder="Digite seu peso">
+    </div>
+    <div class="form-group">
+        <label for="altura">Altura (cm)</label>
+        <input type="text" class="form-control" id="altura" placeholder="Digite sua altura">
+    </div>
+    <button class="btn btn-classic" id="calcular">Calcular</button>
+    <button class="btn btn-default" id="limpar">Limpar</button>
+
+    <div class="block-result alert alert-info" role="alert" style="display:none;">
+        <p class="imc"></p>
+        <p class="msg"></p>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Resultado</th>
+                <th>Situação</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Abaixo de 18,5</td>
+                <td>Abaixo do peso ideal</td> 
+            </tr>
+            <tr>
+                <td>Entre 18,5 e 24,9</td>
+                <td>Peso ideal</td> 
+            </tr>
+            <tr>
+                <td>Entre 25,0 e 29,9</td>
+                <td>Sobrepeso</td> 
+            </tr>
+            <tr>
+                <td>Entre 30,0 e 34,9</td>
+                <td>Obesidade grau I</td> 
+            </tr>
+            <tr>
+                <td>Entre 35,0 e 39,9</td>
+                <td>Obesidade grau II</td> 
+            </tr>
+            <tr>
+                <td>40 e acima</td>
+                <td>Obesidade grau III</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn-toggle" id="toggle-description">Ver mais</button>
+    <div class="description" id="description" style="display:none;">
+        <h3>O que cada faixa de IMC significa</h3>
+        <dl>
+            <dt>Abaixo de 18,5</dt>
+            <dd>Considerado abaixo do peso ideal. Pode indicar desnutrição ou outras condições que precisam ser abordadas com um profissional de saúde.</dd>
+            <dt>Entre 18,5 e 24,9</dt>
+            <dd>Considerado peso ideal. Significa que o peso está dentro da faixa saudável para a altura.</dd>
+            <dt>Entre 25,0 e 29,9</dt>
+            <dd>Considerado sobrepeso. Pode aumentar o risco de problemas de saúde e recomenda-se procurar orientação para melhorar a saúde e o bem-estar.</dd>
+            <dt>Entre 30,0 e 34,9</dt>
+            <dd>Considerado obesidade grau I. Pode ter implicações mais sérias para a saúde e é recomendado buscar orientação médica para gerenciamento e tratamento.</dd>
+            <dt>Entre 35,0 e 39,9</dt>
+            <dd>Considerado obesidade grau II. A condição é mais grave e requer acompanhamento e tratamento especializado.</dd>
+            <dt>40 e acima</dt>
+            <dd>Considerado obesidade grau III. Conhecido como obesidade mórbida. Pode apresentar sérios riscos para a saúde e geralmente requer intervenção médica significativa.</dd>
+        </dl>
+    </div>
+</div>
+
+<script>
+    document.getElementById('calcular').addEventListener('click', function() {
+        var peso = parseFloat(document.getElementById('peso').value.replace(',', '.'));
+        var altura = parseFloat(document.getElementById('altura').value.replace(',', '.')) / 100;
+
+        if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+            document.querySelector('.block-result').style.display = 'none';
+            alert('Por favor, insira valores válidos para peso e altura.');
+            return;
+        }
+
+        var imc = peso / (altura * altura);
+        var resultado, mensagem;
+
+        if (imc < 18.5) {
+            resultado = 'Abaixo de 18,5';
+            mensagem = 'Você está abaixo do peso ideal.';
+        } else if (imc >= 18.5 && imc < 25) {
+            resultado = 'Entre 18,5 e 24,9';
+            mensagem = 'Parabéns, você está em seu peso ideal.';
+        } else if (imc >= 25 && imc < 30) {
+            resultado = 'Entre 25,0 e 29,9';
+            mensagem = 'Você está com sobrepeso.';
+        } else if (imc >= 30 && imc < 35) {
+            resultado = 'Entre 30,0 e 34,9';
+            mensagem = 'Você está com obesidade grau I.';
+        } else if (imc >= 35 && imc < 40) {
+            resultado = 'Entre 35,0 e 39,9';
+            mensagem = 'Você está com obesidade grau II.';
+        } else {
+            resultado = '40 e acima';
+            mensagem = 'Você está com obesidade grau III.';
+        }
+
+        document.querySelector('.block-result').style.display = 'block';
+        document.querySelector('.imc').textContent = 'IMC: ' + imc.toFixed(2).replace('.', ',');
+        document.querySelector('.msg').textContent = mensagem;
+    });
+
+    document.getElementById('limpar').addEventListener('click', function() {
+        document.getElementById('peso').value = '';
+        document.getElementById('altura').value = '';
+        document.querySelector('.block-result').style.display = 'none';
+    });
+
+    document.getElementById('toggle-description').addEventListener('click', function() {
+        var description = document.getElementById('description');
+        if (description.style.display === 'none') {
+            description.style.display = 'block';
+            this.textContent = 'Esconder';
+        } else {
+            description.style.display = 'none';
+            this.textContent = 'Ver mais';
+        }
+    });
+</script>
+
+</body>
+</html>
