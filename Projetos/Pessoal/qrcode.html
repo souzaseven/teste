@@ -1,201 +1,216 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de QR Code</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #007bff;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            background-color: #007ced;
         }
+
         .container {
-            max-width: 800px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 600px;
         }
-        .btn-classic {
+
+        .container h1 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-group label {
+            flex-basis: 100%;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            width: calc(50% - 10px);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+        }
+
+        .color-picker-wrapper {
+            position: relative;
+            width: calc(50% - 10px);
+        }
+
+        .color-picker {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .color-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .color-picker-wrapper input[type="color"] {
+            display: none;
+        }
+
+        .container button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
             background-color: #007bff;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
         }
-        .btn-classic:hover {
+
+        .container button:hover {
             background-color: #0056b3;
         }
-        .form-control {
-            margin-bottom: 10px;
+
+        #qrcode {
+            margin-top: 30px;
+            text-align: center;
         }
-        .result {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-top: 20px;
-            padding: 10px;
-        }
-        .btn-group {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-around;
+
+        .container .qr-title {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Gerador de QR Code</h1>
-        <div class="box">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <label for="tamanho">Tamanho</label>
-                        <select name="tamanho" class="form-control" id="tamanho">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected>5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="errorlevel">Nível de erro</label>
-                        <select name="errorlevel" class="form-control" id="errorlevel">
-                            <option value="L">L (7%)</option>
-                            <option value="M" selected>M (15%)</option>
-                            <option value="Q">Q (25%)</option>
-                            <option value="H">H (30%)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="corqr">Cor <small class="text-muted">(aceita hexadecimal)</small></label>
-                        <input type="text" name="corqr" class="form-control" id="corqr" value="#000000">
-                    </div>
-                    <div class="form-group">
-                        <label for="corbg">Cor do fundo <small class="text-muted">(aceita hexadecimal)</small></label>
-                        <input type="text" name="corbg" class="form-control" id="corbg" value="#ffffff">
-                    </div>
-                    <div class="form-group">
-                        <label for="qrcodetxt">Texto</label>
-                        <textarea name="codigo" class="form-control qrcodetxt" id="qrcodetxt" rows="4"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-classic" id="gerar">Gerar Imagem</button>
-                </div>
-                <div class="col-sm-14 col-sm-offset-2">
-                    <div class="visible-xs space"></div>
-                    <div class="legenda">Resultado:</div>
-                    <div class="form-control result" id="resultado"></div>
-                    <div class="btn-group">
-                        <button class="btn btn-classic" id="copiar">Copiar</button>
-                        <button class="btn btn-classic" id="salvar">Salvar</button>
-                        <button class="btn btn-classic" id="imprimir">Imprimir</button>
-                        <button class="btn btn-classic" id="compartilhar">Compartilhar</button>
-                    </div>
-                </div>
+        <div class="form-group">
+            <select id="tamanho">
+                <option value="1">Tamanho: 1</option>
+                <option value="2">Tamanho: 2</option>
+                <option value="3">Tamanho: 3</option>
+                <option value="4">Tamanho: 4</option>
+                <option value="5" selected>Tamanho: 5</option>
+                <option value="6">Tamanho: 6</option>
+                <option value="7">Tamanho: 7</option>
+                <option value="8">Tamanho: 8</option>
+                <option value="9">Tamanho: 9</option>
+                <option value="10">Tamanho: 10</option>
+            </select>
+
+            <select id="errorlevel">
+                <option value="L">Nível de erro: L (7%)</option>
+                <option value="M" selected>Nível de erro: M (15%)</option>
+                <option value="Q">Nível de erro: Q (25%)</option>
+                <option value="H">Nível de erro: H (30%)</option>
+            </select>
+
+            <div class="color-picker-wrapper">
+                <input type="text" id="corqr" class="color-picker" placeholder="Cor (#000000)">
+                <input type="color" id="colorqrpicker">
+                <i class="fa fa-palette color-icon" onclick="document.getElementById('colorqrpicker').click()"></i>
             </div>
+
+            <div class="color-picker-wrapper">
+                <input type="text" id="corbg" class="color-picker" placeholder="Cor do fundo (#ffffff)">
+                <input type="color" id="colorbgpicker">
+                <i class="fa fa-palette color-icon" onclick="document.getElementById('colorbgpicker').click()"></i>
+            </div>
+
+            <input type="text" id="qrcodetxt" placeholder="Texto">
         </div>
+        <button onclick="generateQRCode()">Gerar QR Code</button>
+        <div id="qrcode"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
-        let qrcode;
+        document.getElementById('colorqrpicker').addEventListener('input', function() {
+            document.getElementById('corqr').value = this.value;
+        });
 
-        document.getElementById('gerar').addEventListener('click', function() {
-            const tamanho = document.getElementById('tamanho').value;
+        document.getElementById('colorbgpicker').addEventListener('input', function() {
+            document.getElementById('corbg').value = this.value;
+        });
+
+        function generateQRCode() {
+            const qrCodeContainer = document.getElementById('qrcode');
+            qrCodeContainer.innerHTML = '';
+            const text = document.getElementById('qrcodetxt').value;
+            const size = parseInt(document.getElementById('tamanho').value) * 50;
             const errorLevel = document.getElementById('errorlevel').value;
-            const corqr = document.getElementById('corqr').value;
-            const corbg = document.getElementById('corbg').value;
-            const texto = document.getElementById('qrcodetxt').value;
-            const resultadoDiv = document.getElementById('resultado');
+            const colorDark = document.getElementById('corqr').value || "#000000";
+            const colorLight = document.getElementById('corbg').value || "#ffffff";
 
-            resultadoDiv.innerHTML = ''; // Limpa o conteúdo anterior
+            if (text) {
+                const qr = qrcode(0, errorLevel);
+                qr.addData(text);
+                qr.make();
 
-            qrcode = new QRCode(resultadoDiv, {
-                text: texto,
-                width: tamanho * 50, // Ajusta o tamanho do QR Code
-                height: tamanho * 50,
-                colorDark: corqr,
-                colorLight: corbg,
-                correctLevel: QRCode.CorrectLevel[errorLevel]
-            });
-        });
+                const canvas = document.createElement("canvas");
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext("2d");
 
-        document.getElementById('copiar').addEventListener('click', function() {
-            const resultadoDiv = document.getElementById('resultado').querySelector('img');
-            if (resultadoDiv) {
-                const range = document.createRange();
-                range.selectNode(resultadoDiv);
-                window.getSelection().removeAllRanges(); 
-                window.getSelection().addRange(range); 
-                document.execCommand('copy');
-                window.getSelection().removeAllRanges(); 
-                alert('Imagem copiada para a área de transferência');
+                const tileW = canvas.width  / qr.getModuleCount();
+                const tileH = canvas.height / qr.getModuleCount();
+
+                ctx.fillStyle = colorLight;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                for (let row = 0; row < qr.getModuleCount(); row++) {
+                    for (let col = 0; col < qr.getModuleCount(); col++) {
+                        ctx.fillStyle = qr.isDark(row, col) ? colorDark : colorLight;
+                        ctx.fillRect(col * tileW, row * tileH, tileW, tileH);
+                    }
+                }
+
+                qrCodeContainer.appendChild(canvas);
             }
-        });
-
-        document.getElementById('salvar').addEventListener('click', function() {
-            const img = document.getElementById('resultado').querySelector('img');
-            if (img) {
-                const link = document.createElement('a');
-                link.href = img.src;
-                link.download = 'qrcode.png';
-                link.click();
-            }
-        });
-
-        document.getElementById('imprimir').addEventListener('click', function() {
-            const img = document.getElementById('resultado').querySelector('img');
-            if (img) {
-                const win = window.open();
-                win.document.write('<img src="' + img.src + '" onload="window.print();window.close()" />');
-                win.focus();
-            }
-        });
-
-        document.getElementById('compartilhar').addEventListener('click', function() {
-            const img = document.getElementById('resultado').querySelector('img');
-            if (img && navigator.share) {
-                fetch(img.src)
-                    .then(res => res.blob())
-                    .then(blob => {
-                        const file = new File([blob], 'qrcode.png', { type: blob.type });
-                        navigator.share({
-                            title: 'Meu QR Code',
-                            files: [file]
-                        }).catch(console.error);
-                    });
-            } else {
-                alert('Seu navegador não suporta compartilhamento de arquivos.');
-            }
-        });
+        }
     </script>
+    <!-- Adiciona Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
