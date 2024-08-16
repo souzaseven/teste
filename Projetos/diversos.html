@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
-    
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos Diversos</title>
@@ -584,26 +583,6 @@
                         }
                     </style>
                 </a>
-
-            </div>
-
-            <div class="project-item">
-                <a href="https://exemplo.com/projeto4">
-                    <img src="https://via.placeholder.com/300" alt="Projeto 4">
-                    <h6 class="blinking">EM BREVE</h6>
-                    <style>
-                        @keyframes blink {
-                            50% {
-                                opacity: 0;
-                            }
-                        }
-
-                        .blinking {
-                            animation: blink 1.5s linear infinite;
-                            color: #007ced;  /* Ou qualquer cor que deseje para o texto */
-                        }
-                    </style>
-                </a>
             </div> 
         </div>
     </section>
@@ -632,7 +611,63 @@
                     </style>
                 </a>
             </div>
+
+            
         </div>
+        <section>
+            <h1 class="heading">Projetos com <span class="js-yellow">Java</span><span id="typed"></span> <img src="./imagens/IMG PROJETOS/js.png" alt="JavaScript Logo" class="js-logo"></h1>
+            <style>
+                .heading {
+                    color: black; 
+                    background-color: #007ced; 
+                    text-align: center; 
+                    margin: 40px 0 10px;
+                    font-weight: bold; 
+                }
+                .js-yellow {
+                    color: yellow;
+                    animation: jump 1s infinite;
+                }
+                .js-logo {
+                    vertical-align: middle;
+                    width: 50px; 
+                    animation: slide 5s infinite alternate;
+                }
+                @keyframes slide {
+                    from {
+                        transform: translateX(0);
+                    }
+                    to {
+                        transform: translateX(100%);
+                    }
+                }
+                @keyframes jump {
+                    0%, 100% {
+                        transform: translateY(0);
+                    }
+                    50% {
+                        transform: translateY(-10px);
+                    }
+                }
+            </style>
+            <br>
     </section>
+    
+    <!-- Script do Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.10"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var options = {
+                strings: ["Script"],
+                typeSpeed: 500, // 0.5 segundo por letra
+                backSpeed: 50,
+                startDelay: 1000,
+                backDelay: 3000, // Espera 3 segundos antes de apagar
+                loop: true, // Continua o loop infinito
+                showCursor: true,
+            };
+            new Typed('#typed', options);
+        });
+    </script>
 </body>
 </html>
