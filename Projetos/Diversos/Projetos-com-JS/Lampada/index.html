@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #555; /* Cor de fundo inicial */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            transition: background 0.5s; /* Suaviza a transição de cor de fundo */
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            width: 100px; /* Ajuste conforme necessário */
+            margin: 20px 0;
+        }
+        button {
+            width: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        button:active {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Controle da Lâmpada</h1>
+    </header>
+    <main>
+        <div>
+            <!-- Definindo a imagem inicial como a lâmpada desligada -->
+            <img src="/Git Hub/Projetos/imagens/IMG PROJETOS/pic_bulboff.gif" alt="Lâmpada" id='lamp'>
+        </div>
+        <div>
+            <button id='turnOn'>Ligar</button>
+            <button id='turnOff'>Desligar</button>
+        </div>
+    </main>
+   
+    <script>
+        const turnOn = document.getElementById('turnOn');
+        const turnOff = document.getElementById('turnOff');
+        const lamp = document.getElementById('lamp');
+        const body = document.body; // Referência ao corpo do documento
+
+        function isLampBroken() {
+            return lamp.src.indexOf('quebrada') > -1;
+        }
+
+        function lampOn() {
+            if (!isLampBroken()) {
+                lamp.src = '/Git Hub/Projetos/imagens/IMG PROJETOS/pic_bulbon.gif'; // Caminho quando ligada
+                body.style.background = '#f0f8ff'; // Fundo claro
+            }
+        }
+
+        function lampOff() {
+            if (!isLampBroken()) {
+                lamp.src = '/Git Hub/Projetos/imagens/IMG PROJETOS/pic_bulboff.gif'; // Caminho quando desligada
+                body.style.background = '#555'; // Fundo escuro
+            }
+        }
+
+        turnOn.addEventListener('click', lampOn);
+        turnOff.addEventListener('click', lampOff);
+    </script>
+</body>
+</html>
