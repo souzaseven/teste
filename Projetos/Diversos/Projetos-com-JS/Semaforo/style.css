@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+}
+.button {
+    width: 80px;
+}
+
+.buttonred {
+    background-color: red;
+}
+
+.buttonyellow {
+    background-color: yellow;
+    color: black;
+}
+
+.buttongreen {
+    background-color: green;
+    color: white;
+}
+
+.buttonaut{
+    background: linear-gradient(to right, red, yellow, greenyellow); /* Define um gradiente linear com as três cores */
+}
