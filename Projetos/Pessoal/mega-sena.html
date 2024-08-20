@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
-
-
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerar Números Aleatórios</title>
+    <title>Gerar Números Aleatórios com Favoritos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -36,11 +34,8 @@
             justify-content: center;
             margin-bottom: 20px;
         }
-        .form-control {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .form-control, .btn {
+            margin: 5px;
         }
         .btn {
             padding: 10px 20px;
@@ -50,17 +45,9 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-left: 10px;
             transition: background-color 0.3s;
         }
         .btn:hover {
-            background-color: #0056b3;
-        }
-        .btn-classic {
-            background-color: #007bff;
-            color: white;
-        }
-        .btn-classic:hover {
             background-color: #0056b3;
         }
         .result, .log, .full-log {
@@ -75,24 +62,21 @@
         .full-log {
             display: none;
         }
+        .tooltip-inner {
+            background-color: black;
+             /* Cor branca com transparência */
+            color: white; /* Cor do texto */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Gerar Números Aleatórios</h1>
         <div class="form-inline">
-            <select class="form-control" id="numeros">
-                <option value="6">6 Números</option>
-                <option value="7">7 Números</option>
-                <option value="8">8 Números</option>
-                <option value="9">9 Números</option>
-                <option value="10">10 Números</option>
-                <option value="11">11 Números</option>
-                <option value="12">12 Números</option>
-                <option value="13">13 Números</option>
-                <option value="14">14 Números</option>
-                <option value="15">15 Números</option>
-            </select>
+            <input type="number" id="numeros" class="form-control" placeholder="Quantidade de Números" min="1" max="20">
+            <input type="number" id="maxValue" class="form-control" placeholder="Máximo Número" min="1" max="100" title="Mega Sena: 6 de 60, Lotofácil: 15 de 25" data-toggle="tooltip" data-placement="top">
+            <input type="text" id="favoritos" class="form-control" placeholder="Números Favoritos (separados por vírgula)">
+
             <button type="button" class="btn btn-classic" id="gerar">Gerar</button>
         </div>
         <div class="result" id="resultado"></div>
@@ -108,79 +92,13 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        const logContainer = document.getElementById('log');
-        const fullLogContainer = document.getElementById('fullLog');
-        const logEntries = new Set(); // Use a Set to avoid duplicate sequences
-        const fullLogEntries = [];
-
-        document.getElementById('gerar').addEventListener('click', function() {
-            const qtd = parseInt(document.getElementById('numeros').value);
-            const resultadoDiv = document.getElementById('resultado');
-            
-            // Clear previous result
-            resultadoDiv.innerHTML = '';
-
-            const numeros = [];
-            while (numeros.length < qtd) {
-                const num = Math.floor(Math.random() * 60) + 1;
-                if (!numeros.includes(num)) {
-                    numeros.push(num);
-                }
-            }
-
-            // Sort the numbers for better readability
-            numeros.sort((a, b) => a - b);
-
-            const resultStr = numeros.join(' - ');
-
-            // Display the result
-            resultadoDiv.innerHTML = `<strong>Números Gerados:</strong><br>${resultStr}`;
-
-            // Add to log
-            if (!logEntries.has(resultStr)) {
-                logEntries.add(resultStr);
-                fullLogEntries.push(resultStr);
-                updateLogDisplay();
-            }
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
         });
-
-        document.getElementById('limparLog').addEventListener('click', function() {
-            logEntries.clear(); // Clear the log entries set
-            fullLogEntries.length = 0; // Clear the full log entries array
-            updateLogDisplay();
-            updateFullLogDisplay();
-        });
-
-        document.getElementById('mostrarLog').addEventListener('click', function() {
-            const isFullLogVisible = fullLogContainer.style.display === 'block';
-            fullLogContainer.style.display = isFullLogVisible ? 'none' : 'block';
-            updateFullLogDisplay();
-        });
-
-        function updateLogDisplay() {
-            logContainer.innerHTML = '<strong>Histórico:</strong>';
-
-            const entriesToShow = Array.from(logEntries).slice(-10); // Show only the last 10 entries
-
-            entriesToShow.forEach(entry => {
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-item';
-                logEntry.textContent = entry;
-                logContainer.appendChild(logEntry);
-            });
-        }
-
-        function updateFullLogDisplay() {
-            fullLogContainer.innerHTML = '<strong>Histórico Completo:</strong>';
-
-            fullLogEntries.forEach(entry => {
-                const logEntry = document.createElement('div');
-                logEntry.className = 'full-log-item';
-                logEntry.textContent = entry;
-                fullLogContainer.appendChild(logEntry);
-            });
-        }
     </script>
 </body>
 </html>
