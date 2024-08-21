@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            height: 100vh; 
+            background: linear-gradient(120deg, );
+            background: linear-gradient(to right, rgb(15, 208, 15, 10), yellow, blue, white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+/* Estilos padrão */
+.body {
+    width: 100%; /* Largura total */
+}
+
+/* Estilos para telas maiores que 768px */
+@media screen and (min-width: 768px) {
+    .body {
+        width: 50%; /* Reduz a largura para 80% da tela */
+        margin: 0 auto; /* Centraliza o conteúdo */
+    }
+}
+
+
+        .relogio {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /**/
+            justify-content: space-around;
+            height: 250px;
+            width: 1000px;
+            background: transparent;
+            border-radius: 100px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, .5)
+        }
+
+        .relogio div {
+            height: 170px;
+            width: 15%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: rgba(5, 5, 5, .9);
+            box-shadow: 5px 5px 15px rgb(0, 0, 0, .7);
+            border-radius: 100px;
+            letter-spacing: 8px;
+        }
+
+        .relogio span {
+            font-weight: bolder;
+            font-size: 30px;
+        }
+
+        .relogio span.tempo {
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="relogio">
+        <div>
+            <span id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+
+        <div>
+            <span id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+
+        <div>
+            <span id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+   
+        <div>
+        <span id="dia">00</span>
+        <span class="tempo">Dia</span>
+    </div>
+
+    <div>
+        <span id="mes">00</span>
+        <span class="tempo">Mês</span>
+    </div>
+
+    <div>
+        <span id="ano">0000</span>
+        <span class="tempo">Ano</span>
+    </div>
+</div>
+
+
+<script>
+const dia = document.getElementById('dia');
+const mes = document.getElementById('mes');
+const ano = document.getElementById('ano');
+
+
+const horas = document.getElementById('horas');
+const minutos = document.getElementById('minutos');
+const segundos = document.getElementById('segundos');
+
+const relogio = setInterval(function time() {
+    let dateToday = new Date();
+
+    let diaAtual = dateToday.getDate();
+    let mesAtual = dateToday.getMonth() + 1; // Os meses começam do zero, então adicionamos 1
+    let anoAtual = dateToday.getFullYear();
+
+    let hr = dateToday.getHours();
+    let min = dateToday.getMinutes();
+    let s = dateToday.getSeconds();
+
+    if (diaAtual < 10) diaAtual = '0' + diaAtual;
+
+    if (mesAtual < 10) mesAtual = '0' + mesAtual;
+
+
+    if (hr < 10) hr = '0' + hr;
+
+    if (min < 10) min = '0' + min;
+
+    if (s < 10) s = '0' + s;
+
+    dia.textContent = diaAtual;
+    mes.textContent = mesAtual;
+    ano.textContent = anoAtual;
+
+    horas.textContent = hr;
+    minutos.textContent = min;
+    segundos.textContent = s;
+
+})
+</script>
+
+
+</body>
+</html>
+
+<!-- ANDERSON DE SOUZA -->
+
+<!--
+
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            box-sizing: border-box; /* Adiciona o tamanho da borda e preenchimento ao cálculo da largura */
+        }
+
+        body {
+            background: linear-gradient(to right, rgb(15, 208, 15, 10), yellow, blue, white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Mínimo de altura da tela inteira */
+        }
+
+        .relogio {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os elementos fluam para a próxima linha */
+            justify-content: space-around;
+            width: 90%; /* Use porcentagem para garantir a responsividade */
+            max-width: 800px; /* Defina uma largura máxima */
+            padding: 20px; /* Adicione algum espaço ao redor do relógio */
+            background: rgba(5, 5, 5, .9);
+            border-radius: 50%; /* Um círculo */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+            text-align: center; /* Centralize o conteúdo */
+        }
+
+        .relogio div {
+            flex: 1 0 30%; /* Distribui igualmente o espaço disponível */
+            margin: 10px; /* Espaço entre os elementos */
+            color: #fff;
+        }
+
+        .relogio span {
+            font-weight: bolder;
+            font-size: 3vw; /* Tamanho de fonte responsivo */
+        }
+
+        .relogio span.tempo {
+            font-size: 1.5vw; /* Tamanho de fonte responsivo */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="relogio">
+        <div>
+            <span id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+
+        <div>
+            <span id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+
+        <div>
+            <span id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+   
+        <div>
+            <span id="dia">00</span>
+            <span class="tempo">Dia</span>
+        </div>
+
+        <div>
+            <span id="mes">00</span>
+            <span class="tempo">Mês</span>
+        </div>
+
+        <div>
+            <span id="ano">0000</span>
+            <span class="tempo">Ano</span>
+        </div>
+    </div>
+
+    <script>
+        const dia = document.getElementById('dia');
+        const mes = document.getElementById('mes');
+        const ano = document.getElementById('ano');
+
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+
+        function updateTime() {
+            const dateToday = new Date();
+
+            const diaAtual = dateToday.getDate();
+            const mesAtual = dateToday.getMonth() + 1; // Os meses começam do zero, então adicionamos 1
+            const anoAtual = dateToday.getFullYear();
+
+            const hr = dateToday.getHours();
+            const min = dateToday.getMinutes();
+            const s = dateToday.getSeconds();
+
+            dia.textContent = diaAtual < 10 ? '0' + diaAtual : diaAtual;
+            mes.textContent = mesAtual < 10 ? '0' + mesAtual : mesAtual;
+            ano.textContent = anoAtual;
+
+            horas.textContent = hr < 10 ? '0' + hr : hr;
+            minutos.textContent = min < 10 ? '0' + min : min;
+            segundos.textContent = s < 10 ? '0' + s : s;
+        }
+
+        updateTime(); // Atualize a hora imediatamente
+
+        // Atualize a hora a cada segundo
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
+
+
+-->
