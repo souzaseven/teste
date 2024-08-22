@@ -329,6 +329,36 @@
             font-family: 'Poppins', sans-serif;
             color: white;
         }
+
+        .project-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+            
+                .project-item img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+            
+                .button-container {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-top: 1px;
+                }
+            
+                .left-button, .right-button {
+                    background-color: #007ced;
+                    color: white;
+                    border: none;
+                    align-items: center;
+                    border-radius: 5px;
+                    padding: 0.1px 1px;
+                    cursor: pointer;
+                }
     </style>
 </head>
 <body>
@@ -712,7 +742,7 @@
                 </a>
             </div>
 
-            <div class="project-item">
+              <div class="project-item">
                 <a href="./Pessoal/Jogos/Jogo-Da-Velha/index.html">
                     <img src="./imagens/IMG PROJETOS/jogodavelha.webp" alt="Projeto 4">
                     <h6>Jogo da Velha</h6>
@@ -737,6 +767,21 @@
                     </style>
                 </a>
             </div>
+
+            <div class="project-item">
+                <a href="./Pessoal/Jogos/Bingo/index.html">
+                    <img src="./Pessoal/Jogos/Bingo/bingo.webp" alt="Projeto 4">
+                </a>
+                <div class="button-container">
+                    <a href="./Pessoal/Jogos/Bingo/sorteio.html">
+                        <button class="left-button">Sorteio</button>
+                    </a>
+                    <a href="./Pessoal/Jogos/Bingo/cartela.html">
+                        <button class="right-button">Cartela</button>
+                    </a>
+                </div>
+            </div>
+
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
                     <img src="https://via.placeholder.com/300" alt="Projeto 4">
