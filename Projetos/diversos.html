@@ -346,6 +346,76 @@
                 margin: 0 auto; /* Centraliza o elemento dentro do seu contêiner pai */
                 font-size: 2.0rem; /* Aumenta o tamanho da fonte */
             }
+
+            .project-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+            
+                .project-item img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+            
+                .button-container {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-top: 1px;
+                }
+            
+                .left-button, .right-button {
+                    background-color: #007ced;
+                    color: white;
+                    border: none;
+                    align-items: center;
+                    border-radius: 5px;
+                    padding: 0.1px 1px;
+                    cursor: pointer;
+                }
+            
+                .center-text {
+                    flex: 1;
+                    text-align: center;
+                    margin: 0;
+                    align-self: center;
+                }
+
+                .heading {
+                    color: black; 
+                    background-color: #007ced; 
+                    text-align: center; 
+                    margin: 40px 0 10px;
+                    font-weight: bold; 
+                }
+                .js-yellow {
+                    color: yellow;
+                    animation: jump 1s infinite;
+                }
+                .js-logo {
+                    vertical-align: middle;
+                    width: 50px; 
+                    animation: slide 5s infinite alternate;
+                }
+                @keyframes slide {
+                    from {
+                        transform: translateX(0);
+                    }
+                    to {
+                        transform: translateX(100%);
+                    }
+                }
+                @keyframes jump {
+                    0%, 100% {
+                        transform: translateY(0);
+                    }
+                    50% {
+                        transform: translateY(-10px);
+                    }
+                }
     </style>
 </head>
 <body>
@@ -595,33 +665,39 @@
                 </a>
             </div>
 
+            <div class="project-item">
+                <a href="./Pessoal/Jogos/Bingo/index.html">
+                    <img src="./Pessoal/Jogos/Bingo/bingo.webp" alt="Projeto 4">
+                </a>
+                <div class="button-container">
+                    <a href="./Pessoal/Jogos/Bingo/sorteio.html">
+                        <button class="left-button">Sorteio</button>
+                    </a>
+                    <a href="./Pessoal/Jogos/Bingo/cartela.html">
+                        <button class="right-button">Cartela</button>
+                    </a>
+                </div>
+            </div>
             
+            
+            
+            
+
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
                     <img src="./imagens/IMG PROJETOS/em construção.webp" alt="Projeto 4">
                     <h6 class="blinking">EM BREVE</h6>
-                    <style>
-                        @keyframes blink {
-                            50% {
-                                opacity: 0;
-                            }
-                        }
-    
-                        .blinking {
-                            animation: blink 1.5s linear infinite;
-                            color: #007ced;  /* Ou qualquer cor que deseje para o texto */
-                        }
-                    </style>
                 </a>
             </div>
 
+            <!--
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
                     <img src="https://via.placeholder.com/300" alt="Projeto 4">
                     <h6></h6>
                 </a>
             </div>
-
+        -->
           
             
         </div>
@@ -630,40 +706,7 @@
     <!------------------------------------------------------>
         <section>
             <h1 class="heading">Projetos com <span class="js-yellow">Java</span><span id="typed"></span> <img src="./imagens/IMG PROJETOS/js.png" alt="JavaScript Logo" class="js-logo"></h1>
-            <style>
-                .heading {
-                    color: black; 
-                    background-color: #007ced; 
-                    text-align: center; 
-                    margin: 40px 0 10px;
-                    font-weight: bold; 
-                }
-                .js-yellow {
-                    color: yellow;
-                    animation: jump 1s infinite;
-                }
-                .js-logo {
-                    vertical-align: middle;
-                    width: 50px; 
-                    animation: slide 5s infinite alternate;
-                }
-                @keyframes slide {
-                    from {
-                        transform: translateX(0);
-                    }
-                    to {
-                        transform: translateX(100%);
-                    }
-                }
-                @keyframes jump {
-                    0%, 100% {
-                        transform: translateY(0);
-                    }
-                    50% {
-                        transform: translateY(-10px);
-                    }
-                }
-            </style>
+    
             <br>
     </section>
 
