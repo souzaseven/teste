@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #007ced; /* Alterado para a cor de fundo desejada */
+            background-color: #007ced;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -17,7 +17,7 @@
             height: 100vh;
         }
         .container {
-            max-width: 1000px; /* Aumentado para acomodar o campo maior */
+            max-width: 1000px;
             padding: 20px;
             background: white;
             border-radius: 8px;
@@ -35,17 +35,17 @@
             margin-right: 10px;
             border-radius: 4px;
             border: 1px solid #ddd;
-            font-size: 1.5rem; /* Aumentado para melhor legibilidade */
-            width: 100%; /* Ajustado para largura total */
-            max-width: 1000px; /* Ajustado para o tamanho máximo */
+            font-size: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
             box-sizing: border-box;
-            padding: 5px; /* Aumentado para um melhor espaçamento interno */
+            padding: 5px;
         }
         @media (min-width: 576px) {
             .form-inline .form-control {
                 display: inline-block;
                 vertical-align: middle;
-                width: 70%; /* Comentado conforme seu código */
+                width: 70%;
             }
         }
         .btn {
@@ -79,28 +79,6 @@
             color: #007ced;
             margin-bottom: 20px;
         }
-        .info-box {
-            display: inline-block;
-            margin: 5px;
-            padding: 5px;
-            background-color: #f1f1f1;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: #333;
-            position: relative;
-        }
-        .info-box:hover::after {
-            content: attr(data-info);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 5px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
         .tooltip-box {
             position: absolute;
             background-color: #333;
@@ -117,13 +95,7 @@
             font-size: 18px;
             color: #333;
             text-align: center;
-            display: none; /* Inicialmente oculto */
-        }
-        .labelConsulta {
-            display: block;
-            font-size: 1.0rem;
-            color: black;
-            margin-bottom: 10px;
+            display: none;
         }
         .format-chaves {
             display: flex;
@@ -139,6 +111,24 @@
             border: 1px solid #ddd;
             margin: 10px 0;
             border-radius: 4px;
+            position: relative;
+        }
+        .format-chaves div::after {
+            content: attr(data-info);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            display: none;
+            z-index: 1000;
+        }
+        .format-chaves div:hover::after {
+            display: block;
         }
     </style>
 </head>
@@ -214,19 +204,21 @@
 
         function updateFormatChaves(chave) {
             const sections = [
-                { label: 'cUF', value: chave.slice(0, 2) },
-                { label: 'AAMM', value: chave.slice(2, 6) },
-                { label: 'CNPJ', value: chave.slice(6, 20) },
-                { label: 'mod', value: chave.slice(20, 22) },
-                { label: 'série', value: chave.slice(22, 25) },
-                { label: 'nNF', value: chave.slice(25, 34) },
-                { label: 'tpEmis', value: chave.slice(34, 35) },
-                { label: 'cNF', value: chave.slice(35, 43) },
-                { label: 'cDV', value: chave.slice(43) }
+                { label: 'cUF', value: chave.slice(0, 2), info: 'UF (estado do emitente da nota)' },
+                { label: 'AAMM', value: chave.slice(2, 6), info: 'Ano e mês que a nota foi gerada' },
+                { label: 'CNPJ', value: chave.slice(6, 20), info: 'CNPJ da empresa emitente da nota' },
+                { label: 'mod', value: chave.slice(20, 22), info: 'Modelo da NF-e (ex.: 55 — NF-e)' },
+                { label: 'série', value: chave.slice(22, 25), info: 'Série da NF-e' },
+                { label: 'nNF', value: chave.slice(25, 34), info: 'Número da NF-e' },
+                { label: 'tpEmis', value: chave.slice(34, 35), info: 'Tipo de emissão do documento (contingência = 9, autorizada = 1)' },
+                { label: 'cNF', value: chave.slice(35, 43), info: 'Código numérico da Chave de Acesso' },
+                { label: 'cDV', value: chave.slice(43), info: 'Dígito verificador da Chave de Acesso' }
             ];
 
             formatChavesDiv.innerHTML = sections.map(section => `
-                <div><strong>${section.label}:</strong> ${section.value}</div>
+                <div data-info="${section.info}">
+                    <strong>${section.label}:</strong> ${section.value}
+                </div>
             `).join('');
         }
 
@@ -264,15 +256,15 @@
 
         function getTooltipMessage(position) {
             const messages = {
-                'cUF': 'É o código do estado onde está a empresa emitente da NF-e (2 dígitos).',
-                'AAMM': 'Representam o ano e mês da emissão da NF-e (4 dígitos).',
-                'CNPJ': 'Trata-se do CNPJ da empresa emitente (14 dígitos).',
-                'mod': 'É a identificação do modelo da NF-e (2 dígitos).',
-                'série': 'Define a série da NF-e (3 dígitos).',
-                'nNF': 'É o número da nota fiscal eletrônica (9 dígitos).',
-                'tpEmis': 'Trata-se do tipo de emissão do documento (1 dígito).',
-                'cNF': 'É o código numérico da chave, (8 dígitos).',
-                'cDV': 'É o dígito verificador da chave de acesso da NFe (1 dígito).'
+                'cUF': 'UF (estado do emitente da nota).',
+                'AAMM': 'Ano e mês que a nota foi gerada.',
+                'CNPJ': 'CNPJ da empresa emitente da nota.',
+                'mod': 'Modelo da NF-e (ex.: 55 — NF-e).',
+                'série': 'Série da NF-e.',
+                'nNF': 'Número da NF-e.',
+                'tpEmis': 'Tipo de emissão do documento (contingência = 9, autorizada = 1).',
+                'cNF': 'Código numérico da Chave de Acesso.',
+                'cDV': 'Dígito verificador da Chave de Acesso.'
             };
             return messages[position] || '';
         }
