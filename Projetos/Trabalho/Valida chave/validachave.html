@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Chave de Acesso NF-e / NFC-e</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007ced; /* Alterado para a cor de fundo desejada */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .form-inline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            text-align: left;
+        }
+        .result span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .error {
+            color: red;
+        }
+        h1 {
+            color: #007ced;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Validador de Chave de Acesso NF-e / NFC-e</h1>
+        <div class="form-inline">
+            <input type="text" id="chave" class="form-control" placeholder="Digite a Chave de Acesso (44 dígitos)" maxlength="44">
+            <button type="button" class="btn" id="validar">Validar</button>
+        </div>
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        document.getElementById('validar').addEventListener('click', function() {
+            const chave = document.getElementById('chave').value.trim();
+
+            if (validateChave(chave)) {
+                const formattedChave = formatChave(chave);
+                document.getElementById('resultado').innerHTML = `<strong>Detalhes da Chave:</strong><br>${formattedChave}`;
+            } else {
+                document.getElementById('resultado').innerHTML = `<span class="error">Chave inválida! A chave deve ter 44 dígitos e ser válida.</span>`;
+            }
+        });
+
+        function validateChave(chave) {
+            // Verifica se a chave possui exatamente 44 dígitos
+            return chave.length === 44 && /^\d+$/.test(chave);
+        }
+
+        function formatChave(chave) {
+            return `
+                <strong>cUF:</strong> ${chave.slice(0, 2)}<br>
+                <strong>AAMM:</strong> ${chave.slice(2, 6)}<br>
+                <strong>CNPJ:</strong> ${chave.slice(6, 20)}<br>
+                <strong>mod:</strong> ${chave.slice(20, 22)}<br>
+                <strong>série:</strong> ${chave.slice(22, 25)}<br>
+                <strong>nNF:</strong> ${chave.slice(25, 34)}<br>
+                <strong>tpEmis:</strong> ${chave.slice(34, 35)}<br>
+                <strong>cNF:</strong> ${chave.slice(35, 43)}<br>
+                <strong>cDV:</strong> ${chave.slice(43)}
+            `;
+        }
+    </script>
+</body>
+</html>
