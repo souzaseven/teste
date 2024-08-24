@@ -13,9 +13,10 @@
             padding: 10px 30px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
             box-sizing: border-box;
+            min-height: 100vh;
+            overflow-y: auto; /* Permitir rolagem vertical */
         }
         .container {
             display: flex;
@@ -170,9 +171,15 @@
             height: auto;
         }
         @media (max-width: 768px) {
+            body {
+                padding: 10px 10px;
+                height: auto;
+            }
             .container {
                 flex-direction: column;
                 padding: 10px;
+                max-width: 100%;
+                margin-top: 20px;
             }
             .left-container {
                 margin-bottom: 20px;
@@ -330,9 +337,9 @@
                     case '55':
                         return 'NF-e = Nota Fiscal Eletrônica';
                     case '65':
-                        return 'NFC-e = Cupom Fiscal Eletrônico)';
+                        return 'NFC-e = Cupom Fiscal Eletrônico';
                     case '57':
-                        return 'CT-e = Conhecimento de Transporte Eletrônico)';
+                        return 'CT-e = Conhecimento de Transporte Eletrônico';
                     default:
                         return 'Modelo Desconhecido';
                 }
