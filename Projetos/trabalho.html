@@ -403,6 +403,19 @@
                             animation: blink 1.5s linear infinite;
                             color: #007ced;  /* Ou qualquer cor que deseje para o texto */
                         }
+
+                          /* Estilo para o campo de pesquisa */
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
@@ -428,6 +441,11 @@
                 </nav>
             </header>
     
+            <!-- Campo de Pesquisa -->
+            <div class="search-container">
+                <input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..." onkeyup="filterProjects()">
+            </div>
+
     <!-- Projects Section -->
     <div class="projects-section">
         <div class="wrapper">
@@ -520,6 +538,37 @@
 
         </div>
     </section>
+
+    <script>
+        function filterProjects() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const projectItems = document.querySelectorAll('.project-item');
+            let found = false;
+
+            projectItems.forEach(function(item) {
+                const text = item.textContent.toLowerCase();
+                item.classList.remove('highlighted');
+
+                if (text.includes(input)) {
+                    if (!found) {
+                        found = true;
+                        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        item.classList.add('highlighted-temp');
+                    }
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            setTimeout(function() {
+                document.querySelectorAll('.highlighted-temp').forEach(function(item) {
+                    item.classList.remove('highlighted-temp');
+                    item.classList.add('highlighted');
+                });
+            }, 2000); // O tempo pode ser ajustado
+        }
+    </script>
 
 </body>
 </html>
