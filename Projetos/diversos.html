@@ -14,6 +14,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 <link rel="stylesheet" href="./CSS/diversos.css">
+
+<style>
+      .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+</style>
 </head>
 
 <body>
@@ -38,6 +52,11 @@
                     </ul>
                 </nav>
             </header>
+
+             <!-- Campo de Pesquisa -->
+             <div class="search-container">
+                <input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..." onkeyup="filterProjects()">
+            </div>
 
             <!-- Projects Section -->
             <div class="projects-section">
@@ -437,6 +456,66 @@
                                     </a>
                                 </div>
 
+
+                                    <!---------------------------------------------------------
+    <!------------------------------------------------------>
+                            <section></section>
+                            <h1 class="heading"
+                                style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
+                                Hello World
+                            </h1>
+                            <section>
+                                <br>
+
+                                <div class="projects-container">
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/alert.html">
+                                            <img src="" alt="">
+                                            <h6>Alert</h6>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/console.log.html">
+                                            <img src="" alt="">
+                                            <h6>Console.log</h6>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/document.write.html">
+                                            <img src="" alt="">
+                                            <h6>document.write</h6>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/innerhtml.html">
+                                            <img src="" alt="">
+                                            <h6>Innerhtml</h6>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/innertext.html">
+                                            <img src="" alt="">
+                                            <h6>innertext</h6>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="./Diversos/Projetos-com-JS/JS/Hello world/window.prompt.html">
+                                            <img src="" alt="">
+                                            <h6>window prompt</h6>
+
+                                        </a>
+                                    </div>
+
                                 <!--
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
@@ -476,6 +555,27 @@
                                 };
                                 new Typed('#typed', options);
                             });
+
+                            function filterProjects() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const projectItems = document.querySelectorAll('.project-item');
+            let found = false;
+
+            projectItems.forEach(function(item) {
+                const text = item.textContent.toLowerCase();
+                item.classList.remove('highlighted');
+
+                if (text.includes(input)) {
+                    if (!found) {
+                        found = true;
+                        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        item.classList.add('highlighted-temp');
+                    }
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });}
                         </script>
 </body>
 
