@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Média do Aluno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #007ced;
+            color: white;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            color: #007ced;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h1>Cálculo da Média do Aluno</h1>
+    <input type="number" id="nota1" placeholder="Nota 1" min="0" max="10">
+    <input type="number" id="nota2" placeholder="Nota 2" min="0" max="10">
+    <input type="number" id="nota3" placeholder="Nota 3" min="0" max="10">
+    <input type="number" id="nota4" placeholder="Nota 4" min="0" max="10">
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    // Adiciona event listeners para calcular a média automaticamente
+    document.getElementById('nota1').addEventListener('input', calcularMedia);
+    document.getElementById('nota2').addEventListener('input', calcularMedia);
+    document.getElementById('nota3').addEventListener('input', calcularMedia);
+    document.getElementById('nota4').addEventListener('input', calcularMedia);
+
+    function calcularMedia() {
+        const nota1 = parseFloat(document.getElementById('nota1').value) || 0;
+        const nota2 = parseFloat(document.getElementById('nota2').value) || 0;
+        const nota3 = parseFloat(document.getElementById('nota3').value) || 0;
+        const nota4 = parseFloat(document.getElementById('nota4').value) || 0;
+
+        const media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+        document.getElementById('result').innerText = `A média do aluno é: ${media.toFixed(2)}`;
+    }
+</script>
+
+</body>
+</html>
