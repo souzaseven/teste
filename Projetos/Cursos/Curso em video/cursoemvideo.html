@@ -416,90 +416,6 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
-
-        /* Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.8); /* Black with opacity */
-}
-
-.modal iframe {
-    width: 80%;
-    height: 80%;
-    margin: 2.5% auto;
-    display: block;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: #fff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: #bbb;
-}
-
-.section {
-    display: flex; /* Usado para alinhar os itens no centro vertical e horizontalmente */
-    align-items: center; /* Alinha os itens verticalmente no centro */
-    justify-content: center; /* Alinha os itens horizontalmente no centro */
-    text-align: center; /* Alinha o texto no centro */
-    margin: 0 auto; /* Centraliza o elemento horizontalmente */
-    max-width: 80%; /* Define a largura máxima da seção (ajuste conforme necessário) */
-    padding: 20px; /* Adiciona espaçamento interno (opcional) */
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
-}
-
-.vpdf {
-    position: relative; /* Necessário para posicionar o ícone de olho dentro do botão */
-    display: inline-flex;
-    align-items: center;
-    background-color: #333; /* Cor de fundo inicial do botão */
-    color: #fff; /* Cor do texto do botão */
-    font-size: 16px; /* Tamanho da fonte */
-    font-weight: bold;
-    padding: 10px 15px; /* Espaçamento interno */
-    border: none;
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao botão */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transições suaves */
-}
-
-.vpdf:hover {
-    background-color: transparent; /* Torna a cor de fundo transparente ao passar o mouse */
-    color: #333; /* Cor do texto quando o fundo é transparente */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Intensifica a sombra ao passar o mouse */
-}
-
-.vpdf .eye-icon {
-    position: absolute;
-    right: 10px; /* Posiciona o ícone de olho dentro do botão */
-    top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente */
-    font-size: 18px; /* Tamanho do ícone */
-    cursor: pointer;
-    color: #fff; /* Cor do ícone */
-    transition: color 0.3s; /* Transição suave para a cor do ícone */
-}
-
-.vpdf:hover .eye-icon {
-    color: #333; /* Altera a cor do ícone ao passar o mouse */
-}
-
-
     </style>
 </head>
 <body>
@@ -571,238 +487,27 @@
         <section>
             <section></section>
            <h1 class="heading" style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
-               Exercicios com Html
+               Cursos
            </h1>
     
         <div class="projects-container">
             <div class="project-item">
-                <a href="">
-                    <img src="./imagens/01.png" alt="">
-                    <h6>01</h6>
+                <a href="./html/index.html">
+                    <img src="./html/logo.jpg" alt="">
+                    <h6>Html5</h6>
                 </a>
             </div>
 
-            <div class="project-item">
-                <a href="">
-                    <img src="./imagens/02.png" alt="">
-                    <h6>02</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="">
-                    <img src="./imagens/03.png" alt="">
-                    <h6>03</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="">
-                    <img src="./imagens/04.png" alt="">
-                    <h6>04</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="">
-                    <img src="./imagens/05.png" alt="">
-                    <h6>05</h6>
-                </a>
-            </div>
-<!--
-            <div class="project-item">
-                <a href="">
-                    <img src="" alt="">
-                    <h6></h6>
-                </a>
-            </div>
-            -->
-        <!--
-            <section>
-                <h1 class="heading">Exercícios em PDF</h1>
-                <div class="pdf-viewer-container">
-                    <iframe class="pdf-viewer" src="./100 exercicios-algoritmos pdf.pdf"></iframe>
-               
-                </div>
-            </section>
--->
-
-
-            <!-- Modal for PDF Viewer -->
-<div id="pdf-modal" class="modal">
-    <span class="close-btn">&times;</span>
-    <iframe id="pdf-modal-content" class="pdf-viewer" src=""></iframe>
-</div>
-
-<section class="vpdf">
-    <h1 class="vpdf">
-    <div class="pdf-viewer-container">
-        <a href="./100 exercicios-algoritmos pdf.pdf">👀 Ver PDF</a>
-    </h1> </div>
-</section>
-
-            <div class="project-item">
-                <a href="">
-                    <img src="" alt="">
-                    <h6></h6>
-                </a>
-            </div>
-
-            <section>
-                <section></section>
-               <h1 class="heading" style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
-                   100 Desafios com Html5
-               </h1>
         
-            <div class="projects-container">
-                <div class="project-item">
-                    <a href="">
-                        <img src="./imagens/01.png" alt="">
-                        <h6>01</h6>
-                    </a>
-                </div>[
-                
-                <div class="project-item">
-                    <a href="">
-                        <img src="./imagens/02.png" alt="">
-                        <h6>02</h6>
-                    </a>
-                </div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="./imagens/03.png" alt="">
-                        <h6>03</h6>
-                    </a>
-                </div>
+            <div class="project-item">
+                <a href="./Diversos/qrcode.html">
+                    <img src="" alt="">
+                    <h6></h6>
+                </a>
+            </div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="./imagens/04.png" alt="">
-                        <h6>04</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="./imagens/05.png" alt="">
-                        <h6>05</h6>
-                    </a>
-                </div>
-<!--
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>06</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>07</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>08</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>09</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>10</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>11</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>12</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>13</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>14</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>15</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>16</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>17</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>18</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>19</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>20</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6></h6>
-                    </a>
-                </div>
-              
-             -->
+             
   <!---------------------------------------------------------
   
             <div class="project-item">
@@ -844,39 +549,6 @@
                 });
             }, 2000); // O tempo pode ser ajustado
         }
-
-        // Get the modal
-const modal = document.getElementById('pdf-modal');
-const modalContent = document.getElementById('pdf-modal-content');
-const closeBtn = document.querySelector('.close-btn');
-
-// Function to open the modal with a specific PDF
-function openPdfModal(pdfSrc) {
-    modal.style.display = 'block';
-    modalContent.src = pdfSrc;
-}
-
-// Function to close the modal
-function closeModal() {
-    modal.style.display = 'none';
-}
-
-// Attach event listeners
-closeBtn.onclick = closeModal;
-window.onclick = function(event) {
-    if (event.target === modal) {
-        closeModal();
-    }
-};
-
-// Add click event to PDF link to open the modal
-document.querySelectorAll('.pdf-viewer-container a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        openPdfModal(this.getAttribute('href'));
-    });
-});
-
     </script>
 
 </body>
