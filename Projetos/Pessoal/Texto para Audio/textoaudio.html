@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Texto para Áudio</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #007ced; /* Fundo azul */
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Usa toda a altura da janela */
+            margin: 0;
+            color: #fff;
+        }
+        
+        h1 {
+            color: black; /* Define a cor do texto como preto */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+            font-style: italic; /* Torna o texto em itálico */
+        }
+
+        .container {
+            text-align: center;
+            background: #fff; /* Fundo branco para a área de entrada */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        #playButton {
+            padding: 10px 20px;
+            background-color: #007ced; /* Azul */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #playButton:hover {
+            background-color: #005bb5; /* Azul escuro */
+        }
+        .voice-select {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Texto para Áudio</h1>
+        <div class="input-group">
+            <label for="textInput">Digite o texto:</label>
+            <textarea id="textInput" placeholder="Digite seu texto aqui..."></textarea>
+        </div>
+        <div class="voice-select">
+            <label for="voiceSelect">Escolha a voz:</label>
+            <select id="voiceSelect">
+                <option value="">Selecionar...</option>
+            </select>
+        </div>
+        <button id="playButton">Ouvir</button>
+    </div>
+
+    <script>
+        const voiceSelect = document.getElementById('voiceSelect');
+        let voices = [];
+
+        function populateVoiceList() {
+            voices = window.speechSynthesis.getVoices();
+            voiceSelect.innerHTML = '';
+
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+
+                if (voice.default) {
+                    option.textContent += ' [default]';
+                }
+
+                option.setAttribute('data-lang', voice.lang);
+                option.setAttribute('data-name', voice.name);
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        document.getElementById('playButton').addEventListener('click', () => {
+            const textInput = document.getElementById('textInput').value;
+
+            if (textInput) {
+                const speech = new SpeechSynthesisUtterance(textInput);
+                const selectedVoice = voiceSelect.selectedOptions[0].getAttribute('data-name');
+                speech.voice = voices.find(voice => voice.name === selectedVoice);
+
+                speech.lang = 'pt-BR'; // Definindo o idioma para Português do Brasil
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert('Por favor, digite algum texto antes de ouvir.');
+            }
+        });
+    </script>
+</body>
+</html>
