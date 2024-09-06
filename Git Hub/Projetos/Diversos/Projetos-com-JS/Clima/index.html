@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clima agora!</title>
+    <!-- Google Fonts -->
+    <style>
+        /* Geral */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, rgba(89, 76, 238, 1) 0%, #8dd0f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.hide {
+  display: none !important;
+}
+
+.container {
+  background-color: #5c54ed;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  color: #fdfdfd;
+  border-radius: 1rem;
+  max-width: 400px;
+}
+
+/* Form */
+.form h3 {
+  margin-bottom: 1rem;
+}
+
+.form-input-container {
+  display: flex;
+}
+
+.form input {
+  padding: 0.8rem;
+  border: none;
+  flex: 1;
+  border-radius: 4px;
+}
+
+.form button {
+  padding: 0.8rem;
+  min-width: 50px;
+  margin-left: 8px;
+  background-color: #8dd0f5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Clima */
+#weather-data,
+#error-message,
+#loader,
+#suggestions {
+  border-top: 1px solid #fff;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+#weather-data h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+#weather-data h2 i {
+  font-size: 1rem;
+}
+
+#weather-data span {
+  margin: 0.6rem;
+}
+
+#temperature {
+  font-size: 4rem;
+}
+
+#country {
+  height: 15px;
+}
+
+#description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.6rem 0;
+}
+
+#description {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+#details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#details-container #umidity {
+  border-right: 1px solid #fff;
+  margin: 0.6rem;
+  padding: 0.6rem;
+}
+
+/* Loader */
+#loader i {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sugestões */
+#suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#suggestions button {
+  min-width: 150px;
+  margin: 0.8rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10rem;
+  border: none;
+  background-color: #8dd0f5;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: 0.4s;
+}
+
+#suggestions button:hover {
+  opacity: 1;
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <h3>Confira o clima de uma cidade:</h3>
+        <div class="form-input-container">
+          <input
+          type="text"
+          placeholder="Digite o nome da cidade"
+          id="city-input"
+        />
+        <button id="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        </div>
+      </div>
+      <div id="weather-data" class="hide">
+        <h2><i class="fa-solid fa-location-dot"></i> <span id="city"></span> <img id="country"></img></h2>
+        <p id="temperature"><span></span>&deg;C</p>
+        <div id="description-container">
+          <p id="description"></p>
+          <img id="weather-icon" src="" alt="Condições atuais">
+        </div>
+        <div id="details-container">
+          <p id="umidity">
+            <i class="fa-solid fa-droplet"></i> 
+            <span></span>
+          </p>
+          <p id="wind">
+            <i class="fa-solid fa-wind"></i>
+            <span></span>
+          </p>
+        </div>
+      </div>
+      <div id="error-message" class="hide">
+        <p>Não foi possível encontrar o clima de uma cidade com este nome.</p>
+      </div>
+      <div id="loader" class="hide">
+        <i class="fa-solid fa-spinner"></i>
+      </div>
+      <div id="suggestions">
+        <button id="viena">Viena</button>
+        <button id="copenhague">Copenhague</button>
+        <button id="zurique">Zurique</button>
+        <button id="vancouver">Vancouver</button>
+        <button id="genebra">Genebra</button>
+        <button id="frankfurt">Frankfurt</button>
+        <button id="osaka">Osaka</button>
+        <button id="maceio">Maceió</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const apiKey = "";
+const apiCountryURL = "https://countryflagsapi.com/png/";
+const apiUnsplash = "https://source.unsplash.com/1600x900/?";
+
+const cityInput = document.querySelector("#city-input");
+const searchBtn = document.querySelector("#search");
+
+const cityElement = document.querySelector("#city");
+const tempElement = document.querySelector("#temperature span");
+const descElement = document.querySelector("#description");
+const weatherIconElement = document.querySelector("#weather-icon");
+const countryElement = document.querySelector("#country");
+const umidityElement = document.querySelector("#umidity span");
+const windElement = document.querySelector("#wind span");
+
+const weatherContainer = document.querySelector("#weather-data");
+
+const errorMessageContainer = document.querySelector("#error-message");
+const loader = document.querySelector("#loader");
+
+const suggestionContainer = document.querySelector("#suggestions");
+const suggestionButtons = document.querySelectorAll("#suggestions button");
+
+// Loader
+const toggleLoader = () => {
+  loader.classList.toggle("hide");
+};
+
+const getWeatherData = async (city) => {
+  toggleLoader();
+
+  const apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
+
+  const res = await fetch(apiWeatherURL);
+  const data = await res.json();
+
+  toggleLoader();
+
+  return data;
+};
+
+// Tratamento de erro
+const showErrorMessage = () => {
+  errorMessageContainer.classList.remove("hide");
+};
+
+const hideInformation = () => {
+  errorMessageContainer.classList.add("hide");
+  weatherContainer.classList.add("hide");
+
+  suggestionContainer.classList.add("hide");
+};
+
+const showWeatherData = async (city) => {
+  hideInformation();
+
+  const data = await getWeatherData(city);
+
+  if (data.cod === "404") {
+    showErrorMessage();
+    return;
+  }
+
+  cityElement.innerText = data.name;
+  tempElement.innerText = parseInt(data.main.temp);
+  descElement.innerText = data.weather[0].description;
+  weatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+  );
+  countryElement.setAttribute("src", apiCountryURL + data.sys.country);
+  umidityElement.innerText = `${data.main.humidity}%`;
+  windElement.innerText = `${data.wind.speed}km/h`;
+
+  // Change bg image
+  document.body.style.backgroundImage = `url("${apiUnsplash + city}")`;
+
+  weatherContainer.classList.remove("hide");
+};
+
+searchBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const city = cityInput.value;
+
+  showWeatherData(city);
+});
+
+cityInput.addEventListener("keyup", (e) => {
+  if (e.code === "Enter") {
+    const city = e.target.value;
+
+    showWeatherData(city);
+  }
+});
+
+// Sugestões
+suggestionButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const city = btn.getAttribute("id");
+
+    showWeatherData(city);
+  });
+});
+  </script>
+</html>

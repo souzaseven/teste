@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tela de Login e Cadastro</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            width: 300px; /* Largura fixa */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+            width: calc(100% - 20px); /* Ajusta a largura para considerar o padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" placeholder="Email" id="login-email" required>
+                <input type="password" placeholder="Senha" id="login-password" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>Cadastro</h2>
+            <form id="signup-form">
+                <input type="text" placeholder="Nome" id="signup-name" required>
+                <input type="email" placeholder="Email" id="signup-email" required>
+                <input type="password" placeholder="Senha" id="signup-password" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var email = document.getElementById("login-email").value;
+            var password = document.getElementById("login-password").value;
+            // Adicione a lógica de autenticação do login aqui
+            console.log("Login Email:", email, "Senha:", password);
+        });
+
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("signup-name").value;
+            var email = document.getElementById("signup-email").value;
+            var password = document.getElementById("signup-password").value;
+            // Adicione a lógica de cadastro do usuário aqui
+            console.log("Cadastro Nome:", name, "Email:", email, "Senha:", password);
+        });
+    </script>
+</body>
+</html>
