@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Salário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007ced;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #007ced;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        h3 {
+            color: #007ced;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cálculo de Salário</h2>
+        <label for="salario">Digite o salário mensal: </label>
+        <input type="number" id="salario" placeholder="Ex: 3000" oninput="calcularSalario()" />
+
+        <h3>Resultado:</h3>
+        <p id="mensal"></p>
+        <p id="semanal"></p>
+        <p id="diario"></p>
+        <p id="hora"></p>
+        <p id="minuto"></p>
+    </div>
+
+    <script>
+        function calcularSalario() {
+            const salarioMensal = parseFloat(document.getElementById("salario").value);
+            if (isNaN(salarioMensal)) {
+                document.getElementById("mensal").innerText = "";
+                document.getElementById("semanal").innerText = "";
+                document.getElementById("diario").innerText = "";
+                document.getElementById("hora").innerText = "";
+                document.getElementById("minuto").innerText = "";
+                return;
+            }
+
+            const diasPorMes = 30;
+            const diasPorSemana = 7;
+            const horasPorDia = 8;
+            const minutosPorHora = 60;
+
+            const salarioDiario = salarioMensal / diasPorMes;
+            const salarioSemanal = salarioDiario * diasPorSemana;
+            const salarioPorHora = salarioDiario / horasPorDia;
+            const salarioPorMinuto = salarioPorHora / minutosPorHora;
+
+            document.getElementById("mensal").innerText = `Salário Mensal: R$ ${salarioMensal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById("semanal").innerText = `Salário Semanal: R$ ${salarioSemanal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById("diario").innerText = `Salário Diário: R$ ${salarioDiario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById("hora").innerText = `Salário por Hora: R$ ${salarioPorHora.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById("minuto").innerText = `Salário por Minuto: R$ ${salarioPorMinuto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+    </script>
+</body>
+</html>
