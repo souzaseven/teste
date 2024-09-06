@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #007ced; /* Cor de fundo padrão */
+            color: white; /* Cor do texto para melhor contraste */
+        }
+        .converter {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            color: #007ced; /* Cor do texto interna para combinar com o tema */
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="converter">
+    <h1>Conversor de Unidades</h1>
+    <input type="number" id="inputValue" placeholder="Insira o valor">
+    <select id="inputUnit">
+        <option value="metros">Metros</option>
+        <option value="kilometros">Quilômetros</option>
+        <option value="miles">Milhas</option>
+        <option value="pes">Pés</option>
+    </select>
+    <select id="outputUnit">
+        <option value="metros">Metros</option>
+        <option value="kilometros">Quilômetros</option>
+        <option value="miles">Milhas</option>
+        <option value="pes">Pés</option>
+    </select>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    document.getElementById('inputValue').addEventListener('input', convert);
+    document.getElementById('inputUnit').addEventListener('change', convert);
+    document.getElementById('outputUnit').addEventListener('change', convert);
+
+    function convert() {
+        const inputValue = parseFloat(document.getElementById('inputValue').value);
+        const inputUnit = document.getElementById('inputUnit').value;
+        const outputUnit = document.getElementById('outputUnit').value;
+
+        if (isNaN(inputValue)) {
+            document.getElementById('result').innerText = 'Por favor, insira um valor numérico válido.';
+            return;
+        }
+
+        if (inputUnit === outputUnit) {
+            document.getElementById('result').innerText = `${inputValue} ${inputUnit} é igual a ${inputValue} ${outputUnit}.`;
+            return;
+        }
+
+        let valoremmetros;
+
+        // Converte a unidade de entrada para metros
+        switch(inputUnit) {
+            case 'metros':
+                valoremmetros = inputValue;
+                break;
+            case 'kilometros':
+                valoremmetros = inputValue * 1000;
+                break;
+            case 'miles':
+                valoremmetros = inputValue * 1609.34;
+                break;
+            case 'pes':
+                valoremmetros = inputValue * 0.3048;
+                break;
+            default:
+                valoremmetros = inputValue;
+        }
+
+        let outputValue;
+
+        // Converte de metros para a unidade de saída desejada
+        switch(outputUnit) {
+            case 'metros':
+                outputValue = valoremmetros;
+                break;
+            case 'kilometros':
+                outputValue = valoremmetros / 1000;
+                break;
+            case 'miles':
+                outputValue = valoremmetros / 1609.34;
+                break;
+            case 'pes':
+                outputValue = valoremmetros / 0.3048;
+                break;
+            default:
+                outputValue = valoremmetros;
+        }
+
+        document.getElementById('result').innerText = `${inputValue} ${inputUnit} é igual a ${outputValue.toFixed(2)} ${outputUnit}.`;
+    }
+</script>
+
+</body>
+</html>
