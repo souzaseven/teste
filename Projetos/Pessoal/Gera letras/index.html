@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Números</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gerador de Letras</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div>
-            <h1>Gerador de Números</h1>
+            <h1>Gerador de Letras</h1>
             <div class="input-group">
-                <label for="number">Número:</label>
-                <input type="number" id="number" min="0" value="1">
+                <label for="textInput">Texto:</label>
+                <input type="text" id="textInput" value="A" maxlength="10">
             </div>
             <div class="input-group">
                 <label for="circleColor">Cor do Círculo:</label>
                 <input type="color" id="circleColor" value="#007ced">
             </div>
             <div class="input-group">
-                <label for="numberColor">Cor do Número:</label>
-                <input type="color" id="numberColor" value="#ffffff">
+                <label for="textColor">Cor do Texto:</label>
+                <input type="color" id="textColor" value="#ffffff">
             </div>
-            <a id="downloadLink" href="#" download="number.png">
+            <a id="downloadLink" href="#" download="letter.png">
                 <button class="btn" id="downloadButton">Baixar Imagem</button>
             </a>
-            <a id="iconDownloadLink" href="#" download="number.ico">
+            <a id="iconDownloadLink" href="#" download="icon.ico">
                 <button class="btn" id="iconDownloadButton">Baixar Ícone</button>
             </a>
         </div>
         <canvas id="canvas"></canvas>
     </div>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
