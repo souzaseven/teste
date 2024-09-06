@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+
+    <link rel="shortcut icon" href="./icone relogio.png" type="image/x-icon">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background-color: #007ced; /* Cor de fundo padrão */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px; /* Espaço entre as linhas */
+    }
+
+    .relogio {
+        display: flex;
+        justify-content: space-around;
+        width: 650px;
+        background: transparent;
+        border-radius: 5px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, .5);
+    }
+
+    .time-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: rgba(5, 5, 5, .9);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+        border-radius: 10px;
+        padding: 20px;
+        letter-spacing: 2px;
+        width: 150px; /* Tamanho uniforme para todas as caixas */
+        height: 150px; /* Altura uniforme para todas as caixas */
+    }
+
+    .time-unit span {
+        font-weight: bolder;
+        font-size: 40px; /* Tamanho do texto ajustado */
+    }
+
+    .time-unit span.tempo-label {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .time-unit:not(:last-child) {
+        margin-right: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="relogio">
+        <div class="time-unit">
+            <span id="horas">00</span>
+            <span class="tempo-label">Horas</span>
+        </div>
+
+        <div class="time-unit">
+            <span id="minutos">00</span>
+            <span class="tempo-label">Minutos</span>
+        </div>
+
+        <div class="time-unit">
+            <span id="segundos">00</span>
+            <span class="tempo-label">Segundos</span>
+        </div>
+    </div>
+
+    <div class="relogio">
+        <div class="time-unit">
+            <span id="dia">00</span>
+            <span class="tempo-label">Dia</span>
+        </div>
+
+        <div class="time-unit">
+            <span id="mes">00</span>
+            <span class="tempo-label">Mês</span>
+        </div>
+
+        <div class="time-unit">
+            <span id="ano">0000</span>
+            <span class="tempo-label">Ano</span>
+        </div>
+    </div>
+
+    <script>
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+        const dia = document.getElementById('dia');
+        const mes = document.getElementById('mes');
+        const ano = document.getElementById('ano');
+
+        const relogio = setInterval(function time() {
+            let dateToday = new Date();
+            let hr = dateToday.getHours();
+            let min = dateToday.getMinutes();
+            let s = dateToday.getSeconds();
+            let d = dateToday.getDate();
+            let m = dateToday.getMonth() + 1; // Meses começam do zero, então adicione 1
+            let y = dateToday.getFullYear();
+
+            if (hr < 10) hr = '0' + hr;
+            if (min < 10) min = '0' + min;
+            if (s < 10) s = '0' + s;
+            if (d < 10) d = '0' + d;
+            if (m < 10) m = '0' + m;
+
+            horas.textContent = hr;
+            minutos.textContent = min;
+            segundos.textContent = s;
+            dia.textContent = d;
+            mes.textContent = m;
+            ano.textContent = y;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download de Vídeo do YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .downloader {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .downloader h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-block {
+            display: flex;
+        }
+        .tarea-wrap {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .submit {
+            padding: 10px 20px;
+            background-color: #007ced;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit:hover {
+            background-color: #005bb5;
+        }
+        .terms__string {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="downloader">
+    <h1>Download de Vídeo do YouTube</h1>
+    <!-- Formulário principal -->
+    <form action="/download-video" method="POST" class="sf-form link-form" target="sf_frame" id="sf_form">
+        <div class="form-block">
+            <div class="tarea-wrap">
+                <input type="text" name="video_url" placeholder="Cole o link do seu vídeo aqui" id="video_url">
+            </div>
+            <div class="r-box">
+                <button type="submit" name="submit" class="submit">Baixar</button>
+            </div>
+        </div>
+    </form>
+
+    <iframe name="sf_frame" id="sf_frame" width="100" height="150" style="display: none;"></iframe>
+
+  
+</div>
+
+</body>
+</html>

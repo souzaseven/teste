@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #007ced; /* Fundo azul */
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Usa toda a altura da janela */
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff; /* Fundo branco para a área de entrada */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input, .input-group select {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #canvas {
+            border: 1px solid #ddd;
+            max-width: 50vw; /* Ajusta o canvas para caber na tela */
+            max-height: 80vh; /* Ajusta o canvas para caber na tela */
+            background-color: transparent; /* Fundo transparente */
+            display: block;
+            margin-left: 20px; /* Espaço entre o canvas e os campos de entrada */
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007ced;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Gerador de Números</h1>
+            <div class="input-group">
+                <label for="number">Número:</label>
+                <input type="number" id="number" min="0" value="1">
+            </div>
+            <div class="input-group">
+                <label for="circleColor">Cor do Círculo:</label>
+                <input type="color" id="circleColor" value="#007ced">
+            </div>
+            <div class="input-group">
+                <label for="numberColor">Cor do Número:</label>
+                <input type="color" id="numberColor" value="#ffffff">
+            </div>
+            <a id="downloadLink" href="#" download="number.png">
+                <button class="btn" id="downloadButton">Baixar Imagem</button>
+            </a>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+    
+    <script>
+        function generateImage() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            const number = document.getElementById('number').value;
+            const circleColor = document.getElementById('circleColor').value;
+            const numberColor = document.getElementById('numberColor').value;
+            
+            // Set canvas size to fit the display area
+            canvas.width = 512;
+            canvas.height = 512;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw circle
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, Math.PI * 2, false);
+            ctx.fillStyle = circleColor;
+            ctx.fill();
+            
+            // Determine font size based on number length
+            let fontSize = 200; // Default font size
+            if (number.length > 3) {
+                fontSize = Math.max(50, 200 - (number.length - 3) * 20); // Adjust size if more than 3 digits
+            }
+            
+            // Draw number
+            ctx.fillStyle = numberColor;
+            ctx.font = `bold ${fontSize}px Arial`; // Font size adjusted dynamically
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(number, canvas.width / 2, canvas.height / 2);
+            
+            // Set up download link
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = canvas.toDataURL('image/png');
+        }
+
+        // Event listeners for automatic updates
+        document.getElementById('number').addEventListener('input', generateImage);
+        document.getElementById('circleColor').addEventListener('input', generateImage);
+        document.getElementById('numberColor').addEventListener('input', generateImage);
+
+        // Initial image generation
+        generateImage();
+    </script>
+</body>
+</html>

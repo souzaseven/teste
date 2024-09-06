@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cartão de Crédito</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #007bff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-classic {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .btn-classic:hover {
+            background-color: #0056b3;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .form-resultado {
+            margin-top: 20px;
+        }
+        .form-resultado input {
+            background-color: #f8f9fa;
+        }
+        .card-preview {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            background: url('https://via.placeholder.com/400x200') no-repeat center/cover;
+            border-radius: 10px;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card-number, .card-expiry, .card-cvv {
+            margin-top: 20px;
+        }
+        .card-back {
+            background: url('https://via.placeholder.com/400x200?text=Verso') no-repeat center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Cartão de Crédito</h1>
+        <div class="form-group">
+            <label for="bandeira">Selecione a Bandeira:</label>
+            <select class="form-control" id="bandeira">
+                <option value="visa16">Visa 16 Dígitos</option>
+                <option value="visa13">Visa 13 Dígitos (antigo)</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="amex">American Express</option>
+                <option value="discover">Discover</option>
+                <option value="diners">Diners Club</option>
+                <option value="enroute">enRoute</option>
+                <option value="jcb">JCB</option>
+                <option value="voyager">Voyager</option>
+            </select>
+        </div>
+        <button class="btn btn-classic" id="gerar">Gerar Cartão de Crédito</button>
+        <div class="form-resultado">
+            <div class="form-group">
+                <label for="numero">Número do Cartão</label>
+                <input type="text" class="form-control" id="numero" readonly>
+            </div>
+            <div class="form-group">
+                <label for="validade">Data de Validade</label>
+                <input type="text" class="form-control" id="validade" readonly>
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código de Segurança</label>
+                <input type="text" class="form-control" id="codigo" readonly>
+            </div>
+        </div>
+        <div class="card-preview" id="cardFront">
+            <div class="card-number" id="cardNumber">XXXX XXXX XXXX XXXX</div>
+            <div class="card-expiry" id="cardExpiry">XX/XX</div>
+        </div>
+        <div class="card-preview card-back" id="cardBack">
+            <div class="card-cvv" id="cardCVVBack">CVV: XXX</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('gerar').addEventListener('click', generateCard);
+
+        function generateCard() {
+            var bandeira = document.getElementById('bandeira').value;
+            var cardNumber, cvv;
+
+            switch(bandeira) {
+                case 'visa16':
+                    cardNumber = generateCardNumber(16, '4');
+                    cvv = generateCVV(3);
+                    break;
+                case 'visa13':
+                    cardNumber = generateCardNumber(13, '4');
+                    cvv = generateCVV(3);
+                    break;
+                case 'mastercard':
+                    cardNumber = generateCardNumber(16, '5');
+                    cvv = generateCVV(3);
+                    break;
+                case 'amex':
+                    cardNumber = generateCardNumber(15, '3');
+                    cvv = generateCVV(4);
+                    break;
+                case 'discover':
+                    cardNumber = generateCardNumber(16, '6');
+                    cvv = generateCVV(3);
+                    break;
+                case 'diners':
+                    cardNumber = generateCardNumber(14, '3');
+                    cvv = generateCVV(3);
+                    break;
+                case 'enroute':
+                    cardNumber = generateCardNumber(15, '2');
+                    cvv = generateCVV(3);
+                    break;
+                case 'jcb':
+                    cardNumber = generateCardNumber(16, '3');
+                    cvv = generateCVV(3);
+                    break;
+                case 'voyager':
+                    cardNumber = generateCardNumber(15, '8');
+                    cvv = generateCVV(3);
+                    break;
+                default:
+                    cardNumber = 'N/A';
+                    cvv = 'N/A';
+            }
+
+            var expiryDate = generateExpiryDate();
+
+            document.getElementById('numero').value = cardNumber;
+            document.getElementById('validade').value = expiryDate;
+            document.getElementById('codigo').value = cvv;
+
+            updateCardPreview(cardNumber, expiryDate, cvv, bandeira);
+        }
+
+        function generateCardNumber(length, prefix) {
+            var number = prefix;
+            for (var i = 0; i < length - prefix.length - 1; i++) {
+                number += Math.floor(Math.random() * 10);
+            }
+            number += calculateLuhnCheckDigit(number);
+            return number;
+        }
+
+        function calculateLuhnCheckDigit(number) {
+            var sum = 0;
+            for (var i = 0; i < number.length; i++) {
+                var digit = parseInt(number[number.length - 1 - i]);
+                if (i % 2 == 0) {
+                    digit *= 2;
+                    if (digit > 9) digit -= 9;
+                }
+                sum += digit;
+            }
+            return (sum * 9) % 10;
+        }
+
+        function generateCVV(length) {
+            var cvv = '';
+            for (var i = 0; i < length; i++) {
+                cvv += Math.floor(Math.random() * 10);
+            }
+            return cvv;
+        }
+
+        function generateExpiryDate() {
+            var today = new Date();
+            var year = today.getFullYear() + Math.floor(Math.random() * 5) + 1;
+            var month = ('0' + (Math.floor(Math.random() * 12) + 1)).slice(-2);
+            return month + '/' + year.toString().slice(-2);
+        }
+
+        function updateCardPreview(number, expiry, cvv, bandeira) {
+            document.getElementById('cardNumber').textContent = number;
+            document.getElementById('cardExpiry').textContent = expiry;
+            document.getElementById('cardCVVBack').textContent = 'CVV: ' + cvv;
+
+            var cardFrontImageUrl = '';
+            var cardBackImageUrl = 'https://via.placeholder.com/400x200?text=Verso';
+
+            switch(bandeira) {
+                case 'visa16':
+                case 'visa13':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=Visa';
+                    break;
+                case 'mastercard':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=MasterCard';
+                    break;
+                case 'amex':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=American+Express';
+                    break;
+                case 'discover':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=Discover';
+                    break;
+                case 'diners':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=Diners+Club';
+                    break;
+                case 'enroute':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=enRoute';
+                    break;
+                case 'jcb':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=JCB';
+                    break;
+                case 'voyager':
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200?text=Voyager';
+                    break;
+                default:
+                    cardFrontImageUrl = 'https://via.placeholder.com/400x200';
+            }
+
+            document.getElementById('cardFront').style.backgroundImage = 'url(' + cardFrontImageUrl + ')';
+            document.getElementById('cardBack').style.backgroundImage = 'url(' + cardBackImageUrl + ')';
+        }
+    </script>
+</body>
+</html>

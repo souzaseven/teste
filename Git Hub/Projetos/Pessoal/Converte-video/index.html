@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de YouTube para MP4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007ced;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de YouTube para MP4</h1>
+        <input type="text" id="videoURL" placeholder="Cole o link do vídeo do YouTube aqui">
+        <button onclick="downloadVideo()">Converter e Baixar</button>
+    </div>
+
+    <script>
+        function downloadVideo() {
+            const videoURL = document.getElementById('videoURL').value;
+            if (videoURL) {
+                window.location.href = `/download?url=${encodeURIComponent(videoURL)}`;
+            } else {
+                alert('Por favor, insira um URL válido');
+            }
+        }
+    </script>
+</body>
+</html>

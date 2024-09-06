@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Texto para Emoji</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #007ced; /* Fundo azul */
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Usa toda a altura da janela */
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: #fff; /* Fundo branco para a área de entrada */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        #output {
+            white-space: pre-wrap;
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            color: #000;
+            position: relative; /* Para posicionar o botão de copiar */
+        }
+        #copyButton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007ced; /* Azul */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #copyButton:hover {
+            background-color: #005bb5; /* Azul escuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Texto para Emoji</h1>
+        <div class="input-group">
+            <label for="textInput">Digite o texto:</label>
+            <textarea id="textInput" placeholder="Digite seu texto aqui..."></textarea>
+        </div>
+        <div id="output">
+            <span id="outputText"></span>
+            <button id="copyButton">Copiar</button>
+        </div>
+    </div>
+
+    <script>
+      const emojiMap = {
+        // Emoções
+        'happy': '😊',
+        'sad': '😢',
+        'love': '❤️',
+        'angry': '😠',
+        'surprised': '😲',
+        'laugh': '😂',
+        'cool': '😎',
+        'cry': '😭',
+        'bored': '😒',
+        'confused': '😕',
+        'sleepy': '😴',
+        'shocked': '😱',
+        'grin': '😁',
+        'wink': '😉',
+
+        // Atividades
+        'running': '🏃‍♂️',
+        'swimming': '🏊‍♂️',
+        'cycling': '🚴‍♂️',
+        'dancing': '💃',
+        'singing': '🎤',
+        'reading': '📚',
+        'writing': '✍️',
+        'cooking': '🍳',
+        'gaming': '🎮',
+
+        // Objetos e Cores
+        'star': '⭐',
+        'heart': '💖',
+        'gift': '🎁',
+        'car': '🚗',
+        'phone': '📱',
+        'computer': '💻',
+        'camera': '📷',
+        'book': '📖',
+        'clock': '⏰',
+        'sun': '☀️',
+        'moon': '🌙',
+        'cloud': '☁️',
+        'rain': '🌧️',
+        'snow': '❄️',
+        'fire': '🔥',
+        'cake': '🎂',
+        'coffee': '☕',
+        'beer': '🍺',
+
+        // Animais
+        'cat': '🐱',
+        'dog': '🐶',
+        'lion': '🦁',
+        'tiger': '🐯',
+        'bear': '🐻',
+        'elephant': '🐘',
+        'fish': '🐟',
+        'bird': '🐦',
+        'monkey': '🐒',
+        'panda': '🐼',
+
+        // Natureza
+        'tree': '🌳',
+        'flower': '🌸',
+        'leaf': '🍃',
+        'mountain': '🏔️',
+        'beach': '🏖️',
+        'desert': '🏜️',
+        'rainbow': '🌈',
+
+        // Festas e Celebrações
+        'party': '🎉',
+        'balloon': '🎈',
+        'confetti': '🎊',
+        'cake': '🎂',
+        'champagne': '🍾',
+        'fireworks': '🎆',
+
+        // Transportes
+        'airplane': '✈️',
+        'bus': '🚌',
+        'train': '🚆',
+        'bike': '🚲',
+        'ship': '🚢',
+        'taxi': '🚖',
+
+        // Lugares
+        'house': '🏠',
+        'hotel': '🏨',
+        'hospital': '🏥',
+        'school': '🏫',
+        'church': '⛪',
+
+        // Outros
+        'question': '❓',
+        'exclamation': '❗',
+        'warning': '⚠️',
+        'check': '✅',
+        'cross': '❌',
+        'thumbs_up': '👍',
+        'thumbs_down': '👎',
+        'money': '💵',
+        'bank': '🏦',
+        'email': '📧',
+        'wifi': '📶',
+        'shopping': '🛒'
+      };
+
+      document.getElementById('textInput').addEventListener('input', () => {
+          const inputText = document.getElementById('textInput').value;
+          let outputText = inputText;
+
+          for (const [word, emoji] of Object.entries(emojiMap)) {
+              const regex = new RegExp(`\\b${word}\\b`, 'gi');
+              outputText = outputText.replace(regex, emoji);
+          }
+
+          document.getElementById('outputText').textContent = outputText;
+      });
+
+      document.getElementById('copyButton').addEventListener('click', () => {
+          const outputText = document.getElementById('outputText').textContent;
+
+          if (outputText) {
+              navigator.clipboard.writeText(outputText).then(() => {
+                  alert('Texto copiado para a área de transferência!');
+              }).catch(err => {
+                  console.error('Erro ao copiar o texto: ', err);
+              });
+          } else {
+              alert('Não há texto para copiar!');
+          }
+      });
+    </script>
+</body>
+</html>

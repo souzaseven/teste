@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear Nomes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .flex input {
+            width: 80px;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sortear Nomes</h1>
+        <div class="form-group">
+            <div class="flex">
+                <span>Sortear</span>
+                <input type="number" class="form-control" value="1" min="1" id="qtd">
+                <span id="word">nome(s)</span>
+            </div>
+            <textarea name="lista" class="form-control" id="lista" rows="8" placeholder="Um(a) participante por linha. Ex.:
+            Participante 1
+            Participante 2
+            Participante 3..."></textarea>
+        </div>
+        <div class="alert alert-danger" id="error" style="display:none;"></div>
+        <div id="result"></div>
+        <button class="btn" id="sortear">Sortear</button>
+    </div>
+
+    <script>
+        document.getElementById('sortear').addEventListener('click', function() {
+            const qtd = parseInt(document.getElementById('qtd').value);
+            const lista = document.getElementById('lista').value.trim();
+            const errorDiv = document.getElementById('error');
+            const resultDiv = document.getElementById('result');
+
+            // Clear previous error and result
+            errorDiv.style.display = 'none';
+            resultDiv.innerHTML = '';
+
+            if (isNaN(qtd) || qtd < 1) {
+                errorDiv.textContent = 'Quantidade inválida.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            const items = lista.split('\n').map(item => item.trim()).filter(item => item);
+
+            if (items.length < qtd) {
+                errorDiv.textContent = 'Número de itens é menor que a quantidade solicitada.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            // Shuffle items and select the first 'qtd' items
+            const shuffled = items.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, qtd);
+
+            resultDiv.innerHTML = '<strong>Resultado:</strong><br>' + selected.join('<br>');
+        });
+    </script>
+</body>
+</html>
