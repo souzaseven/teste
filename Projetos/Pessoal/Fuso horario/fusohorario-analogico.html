@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógios Analógicos com Fusos Horários</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #007ced;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .clock {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .analog-clock {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .analog-clock circle {
+            fill: #fff;
+            stroke: #000;
+            stroke-width: 2;
+        }
+
+        .analog-clock .number {
+            font-size: 10px;
+            fill: #000;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .hour-hand,
+        .minute-hand,
+        .second-hand {
+            stroke: #000;
+            stroke-width: 2;
+            stroke-linecap: round;
+            transform-origin: 50% 50%;
+        }
+
+        .second-hand {
+            stroke: red;
+            stroke-width: 1;
+        }
+
+        .flag {
+            width: 50px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        h3 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Relógio UTC -->
+        <div class="clock">
+            <h3>UTC</h3>
+            <img class="flag" src="https://flagcdn.com/w320/un.png" alt="Bandeira ONU">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="utc-time"></p>
+            <p id="utc-date"></p>
+            <p>Fuso horário: UTC</p>
+        </div>
+        <!-- Relógio São Paulo (BRT) -->
+        <div class="clock">
+            <h3>São Paulo (BRT)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/br.png" alt="Bandeira Brasil">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="brasil-time"></p>
+            <p id="brasil-date"></p>
+            <p>Fuso horário: -3</p>
+        </div>
+        <!-- Relógio Nova York (EST) -->
+        <div class="clock">
+            <h3>Nova York (EST)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="ny-time"></p>
+            <p id="ny-date"></p>
+            <p>Fuso horário: -4</p>
+        </div>
+        <!-- Relógio Londres (GMT) -->
+        <div class="clock">
+            <h3>Londres (GMT)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/gb.png" alt="Bandeira Reino Unido">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="london-time"></p>
+            <p id="london-date"></p>
+            <p>Fuso horário: +1</p>
+        </div>
+        <!-- Relógio Tóquio (JST) -->
+        <div class="clock">
+            <h3>Tóquio (JST)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/jp.png" alt="Bandeira Japão">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="tokyo-time"></p>
+            <p id="tokyo-date"></p>
+            <p>Fuso horário: +9</p>
+        </div>
+        <!-- Relógio Sidney (AEDT) -->
+        <div class="clock">
+            <h3>Sidney (AEDT)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/au.png" alt="Bandeira Austrália">
+            <svg class="analog-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45"></circle>
+                <text class="number" x="50" y="10">12</text>
+                <text class="number" x="85" y="50">3</text>
+                <text class="number" x="50" y="90">6</text>
+                <text class="number" x="15" y="50">9</text>
+                <line class="hour-hand" x1="50" y1="50" x2="50" y2="25"></line>
+                <line class="minute-hand" x1="50" y1="50" x2="50" y2="10"></line>
+                <line class="second-hand" x1="50" y1="50" x2="50" y2="5"></line>
+            </svg>
+            <p id="sydney-time"></p>
+            <p id="sydney-date"></p>
+            <p>Fuso horário: +10</p>
+        </div>
+    </div>
+
+    <script>
+        function updateClock(clockId, timezoneOffset) {
+            const now = new Date();
+            const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const localTime = new Date(utc + (3600000 * timezoneOffset));
+            const hours = localTime.getUTCHours();
+            const minutes = localTime.getUTCMinutes();
+            const seconds = localTime.getUTCSeconds();
+            const hourDeg = (hours % 12) * 30 + (minutes / 2);
+            const minuteDeg = minutes * 6;
+            const secondDeg = seconds * 6;
+
+            document.querySelector(`#${clockId}-time`).textContent = `${hours % 12 || 12}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.querySelector(`#${clockId}-date`).textContent = localTime.toLocaleDateString();
+
+            document.querySelector(`#${clockId}-hour`).style.transform = `rotate(${hourDeg}deg)`;
+            document.querySelector(`#${clockId}-minute`).style.transform = `rotate(${minuteDeg}deg)`;
+            document.querySelector(`#${clockId}-second`).style.transform = `rotate(${secondDeg}deg)`;
+        }
+
+        function updateAllClocks() {
+            updateClock('utc', 0);
+            updateClock('brasil', -3);
+            updateClock('ny', -4);
+            updateClock('london', 1);
+            updateClock('tokyo', 9);
+            updateClock('sydney', 10);
+        }
+
+        setInterval(updateAllClocks, 1000);
+    </script>
+</body>
+
+</html>

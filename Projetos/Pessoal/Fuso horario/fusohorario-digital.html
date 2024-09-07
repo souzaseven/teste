@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógios Digitais com Fusos Horários</title>
+   
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>🕐 Fusos Horários Mundial ⌚</h1>
+    <div class="container">
+        <!-- Primeira fileira: Fusos de -12 até -1 -->
+        <div class="clock">
+            <h3>Baker Island, EUA (UTC -12)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-12-time"></div>
+            <p class="date" id="utc-12-date"></p>
+            <p>Fuso horário: -12</p>
+        </div>
+        <div class="clock">
+            <h3>Pago Pago, Samoa Americana (UTC -11)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/as.png" alt="Bandeira Samoa Americana">
+            <div class="digital-clock" id="utc-11-time"></div>
+            <p class="date" id="utc-11-date"></p>
+            <p>Fuso horário: -11</p>
+        </div>
+        <div class="clock">
+            <h3>Honolulu, Havaí, EUA (UTC -10)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-10-time"></div>
+            <p class="date" id="utc-10-date"></p>
+            <p>Fuso horário: -10</p>
+        </div>
+        <div class="clock">
+            <h3>Anchorage, Alasca, EUA (UTC -9)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-9-time"></div>
+            <p class="date" id="utc-9-date"></p>
+            <p>Fuso horário: -9</p>
+        </div>
+        <div class="clock">
+            <h3>Los Angeles, Califórnia, EUA (UTC -8)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-8-time"></div>
+            <p class="date" id="utc-8-date"></p>
+            <p>Fuso horário: -8</p>
+        </div>
+        <div class="clock">
+            <h3>Denver, Colorado, EUA (UTC -7)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-7-time"></div>
+            <p class="date" id="utc-7-date"></p>
+            <p>Fuso horário: -7</p>
+        </div>
+        <!-- Segunda fileira: Fusos de -6 até 0 -->
+        <div class="clock">
+            <h3>Cidade do México, México (UTC -6)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/mx.png" alt="Bandeira México">
+            <div class="digital-clock" id="utc-6-time"></div>
+            <p class="date" id="utc-6-date"></p>
+            <p>Fuso horário: -6</p>
+        </div>
+        <div class="clock">
+            <h3>Nova York, Nova York, EUA (UTC -5)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/us.png" alt="Bandeira EUA">
+            <div class="digital-clock" id="utc-5-time"></div>
+            <p class="date" id="utc-5-date"></p>
+            <p>Fuso horário: -5</p>
+        </div>
+        <div class="clock">
+            <h3>Caracas, Venezuela (UTC -4)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/ve.png" alt="Bandeira Venezuela">
+            <div class="digital-clock" id="utc-4-time"></div>
+            <p class="date" id="utc-4-date"></p>
+            <p>Fuso horário: -4</p>
+        </div>
+        <div class="clock">
+            <h3>Tangará da Serra, MT, Brasil (UTC -4)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/br.png" alt="Bandeira Brasil">
+            <div class="digital-clock" id="tangara-time"></div>
+            <p class="date" id="tangara-date"></p>
+            <p>Fuso horário: -4</p>
+        </div>
+        <div class="clock">
+            <h3>São Paulo, SP, Brasil (UTC -3)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/br.png" alt="Bandeira Brasil">
+            <div class="digital-clock" id="utc-3-time"></div>
+            <p class="date" id="utc-3-date"></p>
+            <p>Fuso horário: -3</p>
+        </div>
+        <div class="clock">
+            <h3>Fernando de Noronha, Brasil (UTC -2)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/br.png" alt="Bandeira Brasil">
+            <div class="digital-clock" id="utc-2-time"></div>
+            <p class="date" id="utc-2-date"></p>
+            <p>Fuso horário: -2</p>
+        </div>
+        <div class="clock">
+            <h3>Açores, Portugal (UTC -1)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/pt.png" alt="Bandeira Portugal">
+            <div class="digital-clock" id="utc-1-time"></div>
+            <p class="date" id="utc-1-date"></p>
+            <p>Fuso horário: -1</p>
+        </div>
+        <div class="clock">
+            <h3>Londres, Reino Unido (UTC)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/gb.png" alt="Bandeira Reino Unido">
+            <div class="digital-clock" id="utc-0-time"></div>
+            <p class="date" id="utc-0-date"></p>
+            <p>Fuso horário: 0</p>
+        </div>
+        <!-- Fuso horários positivos (1 até +12) -->
+        <div class="clock">
+            <h3>Berlim, Alemanha (UTC +1)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/de.png" alt="Bandeira Alemanha">
+            <div class="digital-clock" id="utc1-time"></div>
+            <p class="date" id="utc1-date"></p>
+            <p>Fuso horário: +1</p>
+        </div>
+        <div class="clock">
+            <h3>Cairo, Egito (UTC +2)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/eg.png" alt="Bandeira Egito">
+            <div class="digital-clock" id="utc2-time"></div>
+            <p class="date" id="utc2-date"></p>
+            <p>Fuso horário: +2</p>
+        </div>
+        <div class="clock">
+            <h3>Moscou, Rússia (UTC +3)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/ru.png" alt="Bandeira Rússia">
+            <div class="digital-clock" id="utc3-time"></div>
+            <p class="date" id="utc3-date"></p>
+            <p>Fuso horário: +3</p>
+        </div>
+        <div class="clock">
+            <h3>Dubai, Emirados Árabes (UTC +4)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/ae.png" alt="Bandeira Emirados Árabes">
+            <div class="digital-clock" id="utc4-time"></div>
+            <p class="date" id="utc4-date"></p>
+            <p>Fuso horário: +4</p>
+        </div>
+        <div class="clock">
+            <h3>Islamabad, Paquistão (UTC +5)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/pk.png" alt="Bandeira Paquistão">
+            <div class="digital-clock" id="utc5-time"></div>
+            <p class="date" id="utc5-date"></p>
+            <p>Fuso horário: +5</p>
+        </div>
+        <div class="clock">
+            <h3>Almaty, Cazaquistão (UTC +6)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/kz.png" alt="Bandeira Cazaquistão">
+            <div class="digital-clock" id="utc6-time"></div>
+            <p class="date" id="utc6-date"></p>
+            <p>Fuso horário: +6</p>
+        </div>
+        <div class="clock">
+            <h3>Bangkok, Tailândia (UTC +7)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/th.png" alt="Bandeira Tailândia">
+            <div class="digital-clock" id="utc7-time"></div>
+            <p class="date" id="utc7-date"></p>
+            <p>Fuso horário: +7</p>
+        </div>
+        <div class="clock">
+            <h3>Beijing, China (UTC +8)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/cn.png" alt="Bandeira China">
+            <div class="digital-clock" id="utc8-time"></div>
+            <p class="date" id="utc8-date"></p>
+            <p>Fuso horário: +8</p>
+        </div>
+        <div class="clock">
+            <h3>Tóquio, Japão (UTC +9)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/jp.png" alt="Bandeira Japão">
+            <div class="digital-clock" id="utc9-time"></div>
+            <p class="date" id="utc9-date"></p>
+            <p>Fuso horário: +9</p>
+        </div>
+        <div class="clock">
+            <h3>Sydney, Austrália (UTC +10)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/au.png" alt="Bandeira Austrália">
+            <div class="digital-clock" id="utc10-time"></div>
+            <p class="date" id="utc10-date"></p>
+            <p>Fuso horário: +10</p>
+        </div>
+        <div class="clock">
+            <h3>Nouméa, Nova Caledônia (UTC +11)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/nc.png" alt="Bandeira Nova Caledônia">
+            <div class="digital-clock" id="utc11-time"></div>
+            <p class="date" id="utc11-date"></p>
+            <p>Fuso horário: +11</p>
+        </div>
+        <div class="clock">
+            <h3>Auckland, Nova Zelândia (UTC +12)</h3>
+            <img class="flag" src="https://flagcdn.com/w320/nz.png" alt="Bandeira Nova Zelândia">
+            <div class="digital-clock" id="utc12-time"></div>
+            <p class="date" id="utc12-date"></p>
+            <p>Fuso horário: +12</p>
+        </div>
+    </div>
+
+   <script src="./script.js"></script>
+</body>
+</html>
