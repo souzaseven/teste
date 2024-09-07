@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+        crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Projetos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
-        *{
+        * {
             box-sizing: border-box;
             padding: 0;
             margin: 0;
             font-family: Poppins, sans-serif;
             text-decoration: none;
         }
-        body{
+
+        body {
             overflow-x: hidden;
         }
-        .hero-header{
-            width:100%;
+
+        .hero-header {
+            width: 100%;
             height: 100%;
             min-height: 100vh;
             background: #222;
         }
-        .wrapper{
-            width:1280px;
+
+        .wrapper {
+            width: 1280px;
             max-width: 95%;
             margin: 0 auto;
             padding: 0 20px;
         }
-        header{
+
+        header {
             padding: 40px 0 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        .logo{
+
+        .logo {
             display: inline-flex;
             justify-content: center;
             align-items: center;
         }
-        .logo i{
+
+        .logo i {
             height: 45px;
-            width:45px;
+            width: 45px;
             background-color: #007ced;
             border-radius: 50%;
-            color:#fff;
+            color: #fff;
             font-weight: 700;
             font-size: 1.5rem;
             padding: 10px;
@@ -55,138 +63,165 @@
             cursor: pointer;
             text-align: center;
         }
-        .logo .logo-text{
+
+        .logo .logo-text {
             font-size: 24px;
             font-weight: 500;
-            color:#fff;
+            color: #fff;
         }
-        nav .togglebtn{
+
+        nav .togglebtn {
             width: 35px;
             height: 35px;
             position: absolute;
-            top:45px;
+            top: 45px;
             right: 3%;
             z-index: 5;
             cursor: pointer;
             display: none;
         }
-        nav .togglebtn span{
+
+        nav .togglebtn span {
             display: block;
             background-color: #007ced;
             margin: 5px 0px;
-            width:100%;
-            height:3px;
+            width: 100%;
+            height: 3px;
             transition: 0.3s;
-            transition-property:  transform, opacity;
+            transition-property: transform, opacity;
         }
-        nav .navlinks{
+
+        nav .navlinks {
             list-style-type: none;
         }
-        nav .navlinks li{
+
+        nav .navlinks li {
             display: inline-block;
         }
-        nav .navlinks li a{
-            color:#e5e5e5;
+
+        nav .navlinks li a {
+            color: #e5e5e5;
             margin-right: 2.5rem;
         }
+
         .container {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding-top:4rem;
+            padding-top: 4rem;
         }
-        .container .hero-pic{
+
+        .container .hero-pic {
             width: 300px;
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
             border: 15px solid #444;
-            box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
         }
-        .hero-pic img{
+
+        .hero-pic img {
             height: 100%;
-            width:100%;
+            width: 100%;
             transition: 0.5s;
         }
-        .hero-pic img:hover{
+
+        .hero-pic img:hover {
             transform: scale(1.2);
         }
-        .hero-text{
+
+        .hero-text {
             max-width: 500px;
             display: flex;
             flex-direction: column;
         }
-        .hero-text h5{
-            color:#e5e5e5;
+
+        .hero-text h5 {
+            color: #e5e5e5;
             font-size: 14px;
         }
-        .hero-text h5 span{
-            color:#007ced;
+
+        .hero-text h5 span {
+            color: #007ced;
             font-size: 16px;
         }
-        .hero-text h1{
+
+        .hero-text h1 {
             color: #007ced;
             font-size: 3rem;
         }
-        .hero-text p{
-            color:#e5e5e5;
+
+        .hero-text p {
+            color: #e5e5e5;
         }
-        .btn-group{
-            margin:45px 0;
+
+        .btn-group {
+            margin: 45px 0;
         }
-        .btn-group .btn{
+
+        .btn-group .btn {
             border-color: #d5d5d5;
-            color:#fff;
+            color: #fff;
             background-color: #333;
             padding: 12px 25px;
             margin: 5px 0px;
-            margin-right:7px;
+            margin-right: 7px;
             border-radius: 30px;
-            border:2px solid #e5e5e5;
-            box-shadow:  0 10px 10px -8px rgb(0 0 0 / 78%);
+            border: 2px solid #e5e5e5;
+            box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
         }
-        .btn.active{
+
+        .btn.active {
             border-color: #007ced;
         }
-        .hero-text .social i{
+
+        .hero-text .social i {
             color: #e5e5e5;
             font-size: 18px;
             margin-right: 10px;
             transition: 0.5s;
         }
-        .hero-text .social i:hover{
-            color:#007ced;
+
+        .hero-text .social i:hover {
+            color: #007ced;
             transform: rotate(360deg);
         }
-        .social-section{
+
+        .social-section {
             background-color: #333;
             padding: 40px 0;
             text-align: center;
         }
-        .social-section h2{
+
+        .social-section h2 {
             color: #fff;
             margin-bottom: 20px;
             font-size: 2rem;
         }
-        .social-icons{
+
+        .social-icons {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
         }
-        .social-icons a{
+
+        .social-icons a {
             color: #fff;
             font-size: 2rem;
             transition: 0.3s;
         }
+
         .social-icons a img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
         }
-        .social-icons a:hover{
+
+        .social-icons a:hover {
             color: #007ced;
         }
+
         .change-colors-btn {
             margin-top: 20px;
             padding: 10px 20px;
@@ -199,39 +234,47 @@
             font-size: 1rem;
             transition: background-color 0.3s ease;
         }
+
         .change-colors-btn:hover {
             background-color: #005bb5;
         }
+
         .projects-section {
             background-color: #f4f4f4;
             padding: 40px 0;
             text-align: center;
         }
+
         .projects-section h2 {
             color: #333;
             margin-bottom: 20px;
             font-size: 2rem;
         }
+
         .projects-container {
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
         }
+
         .project-item {
             width: 18%;
             margin-bottom: 20px;
         }
+
         .project-item img {
             width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.1);
         }
+
         .project-item h3 {
             color: #007ced;
             margin-top: 10px;
         }
+
         .view-all-projects-btn {
             margin-top: 20px;
             padding: 10px 20px;
@@ -244,70 +287,85 @@
             font-size: 1rem;
             transition: background-color 0.3s ease;
         }
+
         .view-all-projects-btn:hover {
             background-color: #005bb5;
         }
+
         @media(max-width:930px) {
             nav .togglebtn {
                 display: initial;
             }
+
             .click {
-                top:45px;
+                top: 45px;
             }
+
             .click span {
                 position: absolute;
-                margin-top:12px
+                margin-top: 12px
             }
+
             .click span:first-child {
                 transform: rotate(-40deg);
             }
+
             .click span:nth-child(2) {
                 opacity: 0;
-                margin:0;
+                margin: 0;
             }
+
             .click span:last-child {
                 transform: rotate(45deg);
-                top:0;
+                top: 0;
             }
+
             nav .navlinks {
                 position: absolute;
-                top:110px;
-                right:-100%;
+                top: 110px;
+                right: -100%;
                 bottom: 0;
                 width: 60%;
                 height: 100vh;
                 background-color: #222;
                 z-index: 3;
-                box-shadow: 5px 13px 30px rgba(0,0,0,0.1);
+                box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
                 transition: 0.5s;
                 padding: 25px 0px;
             }
+
             nav .navlinks li {
                 display: block;
             }
+
             nav .navlinks li a {
                 display: block;
                 margin-bottom: 15px;
                 text-align: center;
             }
+
             nav .navlinks.open {
-                right:0;
+                right: 0;
             }
         }
+
         @media(max-width:768px) {
             .container {
                 flex-direction: column;
-                padding-top:2rem
+                padding-top: 2rem
             }
+
             .hero-text {
-                padding:40px 0px;
+                padding: 40px 0px;
             }
         }
+
         @media(max-width:600px) {
             .project-item {
                 width: 45%;
             }
         }
+
         @media(max-width:400px) {
             .project-item {
                 width: 100%;
@@ -331,40 +389,42 @@
         }
 
         .project-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                }
-            
-                .project-item img {
-                    width: 100%;
-                    height: auto;
-                    border-radius: 10px;
-                }
-            
-                .button-container {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                    margin-top: 1px;
-                }
-            
-                .left-button, .right-button {
-                    background-color: #007ced;
-                    color: white;
-                    border: none;
-                    align-items: center;
-                    border-radius: 5px;
-                    padding: 0.1px 1px;
-                    cursor: pointer;
-                }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-                  /* Estilo para o campo de pesquisa */
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 1px;
+        }
+
+        .left-button,
+        .right-button {
+            background-color: #007ced;
+            color: white;
+            border: none;
+            align-items: center;
+            border-radius: 5px;
+            padding: 0.1px 1px;
+            cursor: pointer;
+        }
+
+        /* Estilo para o campo de pesquisa */
         .search-container {
             margin-bottom: 20px;
             text-align: center;
         }
+
         .search-input {
             padding: 10px;
             width: 80%;
@@ -374,96 +434,83 @@
         }
 
 
-       
-/* Estilo para o container cmd */
-.block-container.cmd {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Ajusta o espaçamento entre os blocos */
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
 /* Estilo para cada bloco cmd */
 .block.cmd {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(19% - 20px); /* Mantém 5 blocos por linha */
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 220px; /* Aumenta um pouco o tamanho para melhor visibilidade */
-}
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(19% - 20px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 220px;
+        }
 
-.block.cmd:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta o efeito de destaque */
-}
+        .block.cmd:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-/* Estilo para o título dentro de cada bloco */
-.block.cmd h1 {
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
+        /* Estilo para o título dentro de cada bloco */
+        .block.cmd h1 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
 
-/* Estilo para o código */
-code.hljs {
-    display: block;
-    background-color: #222;
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
-    white-space: pre-wrap;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    overflow-x: auto;
-    margin-bottom: 20px;
-}
+        /* Estilo para o código */
+        .block.cmd .code-container {
+            max-height: 50px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: #222;
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
 
-/* Estilo para o botão */
-.block.cmd button {
-    background-color: #007ced;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        /* Estilo para o botão */
+        .block.cmd button {
+            background-color: #007ced;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.block.cmd button:hover {
-    background-color: #005bb5;
-    transform: translateY(-2px); /* Efeito de clique no hover */
-}
+        .block.cmd button:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
 
-/* Responsividade para telas menores */
-@media (max-width: 1024px) {
-    .block.cmd {
-        flex: 1 1 calc(33.33% - 20px);
-    }
-}
+        /* Responsividade para telas menores */
+        @media (max-width: 1024px) {
+            .block.cmd {
+                flex: 1 1 calc(33.33% - 20px);
+            }
+        }
 
-@media (max-width: 768px) {
-    .block.cmd {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
+        @media (max-width: 768px) {
+            .block.cmd {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
 
-@media (max-width: 500px) {
-    .block.cmd {
-        flex: 1 1 100%;
-    }
-}
-
+        @media (max-width: 500px) {
+            .block.cmd {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="hero-header">
         <div class="wrapper">
@@ -486,360 +533,357 @@ code.hljs {
                     </ul>
                 </nav>
             </header>
-    
+
             <!-- Campo de Pesquisa -->
             <div class="search-container">
-                <input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..." onkeyup="filterProjects()">
+                <input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..."
+                    onkeyup="filterProjects()">
             </div>
-    <!-- Projects Section -->
-    <div class="projects-section">
-        <div class="wrapper">
-            <h2>Projetos Principais</h2>
-            <div class="projects-container">
-                <div class="project-item">
-                    <a href="https://exemplo.com/projeto-rede-social">
-                        <img src="./imagens/Painel/redes sociais2.webp" alt="Rede Social">
-                        <h5>Rede Social</h5>
-                    </a>
-                </div>
-                <div class="project-item">
-                    <a href="./cursos.html">
-                        <img src="./imagens/Painel/cursos.jpg" alt="cursos">
-                        <h3>Cursos</h3>
-                    </a>
-                </div>
-                <div class="project-item">
-                    <a href="./diversos.html">
-                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto diversos">
-                        <h3>Diversos</h3>
-                    </a>
-                </div>
-                <div class="project-item">
-                    <a href="./trabalho.html">
-                        <img src="./imagens/Painel/logo tga.jpeg" alt="Projeto 4">
-                        <h3>Trabalho</h3>
-                    </a>
-                </div>
-                <div class="project-item">
-                    <a href="./meusprojetos.html">
-                        <img src="./imagens/Painel/meus projetos logo.webp" alt="Pessoal">
-                        <h3>Pessoal</h3>
-                    </a>
-                </div>
-
-          
-                <section>
-                    <section>
-
-                     
-
-                     <h1 class="heading" style="color: white; background-color: #007ced; text-align: center; margin: 20px 0px; padding: 20px 0px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; box-sizing: border-box;">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/bank-card-front-side.png" alt="Cartão de Crédito" style="width: 30px;">
-    Seção de pagamento
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/pix.png" alt="Pix" style="width: 30px;">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/banknotes.png" alt="Boleto" style="width: 30px;">
-</h1>
-
-                        
-                        
-                    
-                <div class="projects-container">
-                    <div class="project-item">
-                        <a href="https://nubank.com.br/cobrar/vg7s0/668ac422-d5dc-41e0-ae74-3e9431676e83">
-                            <img src="./Pessoal/Pagamento/nupix.jpg" alt="">
-                            <h6>Qrcode pix</h6>
-                        </a>
-                    </div>
-
-                    <div class="project-item">
-                        <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c9380849174c2cf01918c90d89706a0">
-                            <img src="./Pessoal/Pagamento/assinatura.png" alt="">
-                            <h6>Assinatura Mensal</h6>
-                        </a>
-                    </div>
-
-                    <div class="project-item">
-                        <a href="https://biolivre.com.br/anderson1souza">
-                            <img src="./Pessoal/Pagamento/mercado pago.png" alt="">
-                            <h6>Mercado Pago</h6>
-                        </a>
-                    </div>
-
-                    <div class="project-item">
-                        <a href="https://link.mercadopago.com.br/anderson1souza">
-                            <img src="./Pessoal/Pagamento/splitdepago02.png" alt="">
-                            <h6>Link de Pagamento</h6>
-                        </a>
-                    </div>
-                    <!------------------------------------>
-                <section>
-                    <h2  class="heading"
-                   
-                    style="color: white; background-color: #007ced; text-align: center; margin: 10px 0px; padding: 15px 0px; display: flex; align-items: center; justify-content: center; gap: 10px;">Meus Projetos</h2>
-                    
-
-                  
-                    
-            <div class="projects-container">
-                <div class="project-item">
-                    <a href="./Pessoal/qrcode.html">
-                        <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="qrcode.webp">
-                        <h6>QR Code</h6>
-                    </a>
-                </div>
-                
-                <div class="project-item">
-                    <a href="./Pessoal/link-whatsapp.html">
-                        <img src="./imagens/IMG PROJETOS/whatspp link.webp" alt="whatspp link.webp">
-                        <h6>Inicia conversa no whatsapp</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/cronometro.html">
-                        <img src="./imagens/IMG PROJETOS/Cronometro.webp"  alt="Cronometro.webp">
-                        <h6>Cronometro Digital</h6>
-                    </a>
-                </div>
-
-               
-
-                <div class="project-item">
-                    <a href="./Pessoal/gera-senha.html">
-                        <img src="./imagens/IMG PROJETOS/gera senha.webp" alt="gera senha.webp">
-                        <h6>Gerador de senhas</h6>
-                    </a>
-                </div>
-              
-                <div class="project-item">
-                    <a href="./Diversos/qrcode.html">
-                        <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="Gera QrCode">
-                        <h6>Gera QrCode 2</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/contagem-regressiva.html">
-                        <img src="./imagens/IMG PROJETOS/contagem regressiva.webp" alt="contagem regressiva.webp">
-                        <h6>Contagem Regressiva</h6>
-                    </a>
-                </div>
+            <!-- Projects Section -->
+            <div class="projects-section">
+                <div class="wrapper">
+                    <h2>Projetos Principais</h2>
+                    <div class="projects-container">
+                        <div class="project-item">
+                            <a href="https://exemplo.com/projeto-rede-social">
+                                <img src="./imagens/Painel/redes sociais2.webp" alt="Rede Social">
+                                <h5>Rede Social</h5>
+                            </a>
+                        </div>
+                        <div class="project-item">
+                            <a href="./cursos.html">
+                                <img src="./imagens/Painel/cursos.jpg" alt="cursos">
+                                <h3>Cursos</h3>
+                            </a>
+                        </div>
+                        <div class="project-item">
+                            <a href="./diversos.html">
+                                <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto diversos">
+                                <h3>Diversos</h3>
+                            </a>
+                        </div>
+                        <div class="project-item">
+                            <a href="./trabalho.html">
+                                <img src="./imagens/Painel/logo tga.jpeg" alt="Projeto 4">
+                                <h3>Trabalho</h3>
+                            </a>
+                        </div>
+                        <div class="project-item">
+                            <a href="./meusprojetos.html">
+                                <img src="./imagens/Painel/meus projetos logo.webp" alt="Pessoal">
+                                <h3>Pessoal</h3>
+                            </a>
+                        </div>
 
 
-                <div class="project-item">
-                    <a href="./Pessoal/mostra-ip.html">
-                        <img src="./imagens/IMG PROJETOS/meuip.webp" alt="meuip.webp">
-                        <h6>Meu IP</h6>
-                    </a>
-                </div>
-                
-              
-
-                <div class="project-item">
-                    <a href="./Pessoal/maiscula-minuscula.html">
-                        <img src="./imagens/IMG PROJETOS/Letras Maius e Minus.jpg" alt="Letras Maius e Minus.jpg">
-                        <h6> Maisculas e minusculas</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/localizar-substituir.html">
-                        <img src="./imagens/IMG PROJETOS/localizar.png" alt="localizar.png">
-                        <h6>Localizar e Substituir</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/nota-promissoria.html">
-                        <img src="./imagens/IMG PROJETOS/Nota promissoria.png" alt="Nota promissoria.png">
-                        <h6>Nota Promissória</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/signos.html">
-                        <img src="./imagens/IMG PROJETOS/Horoscopo.jpg" alt="Horoscopo.jpg">
-                        <h6>Calcule a data e veja seu signo</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/valor-salario.html">
-                        <img src="./imagens/IMG PROJETOS/salario anual.webp" alt="salario anual.webp">
-                        <h6>Salario Anual</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/regra-de-tres.html">
-                        <img src="./imagens/IMG PROJETOS/regra-de-tres.jpg" alt="regra-de-tres.jpg">
-                        <h6>Regra de 3</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/sorteio.html">
-                        <img src="./imagens/IMG PROJETOS/sorteio.webp" alt="sorteio.webp">
-                        <h6>Sorteio</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/hora.html">
-                        <img src="./imagens/IMG PROJETOS/hora.webp" alt="hora.webp">
-                        <h6>Hora</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/desenhar.html">
-                        <img src="./imagens/IMG PROJETOS/desenhar.webp" alt="desenhar.webp">
-                        <h6>Desenhar</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/qrcode-wifi.html">
-                        <img src="./imagens/IMG PROJETOS/qrcode wifi.webp" alt="qrcode wifi.webp">
-                        <h6>QrCode WIFI</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/calendario.html">
-                        <img src="./imagens/IMG PROJETOS/calendario.webp" alt="calendario.webp">
-                        <h6>Calendário</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/testa-teclado.html">
-                        <img src="./imagens/IMG PROJETOS/teclado.webp" alt="teclado.webp">
-                        <h6>Testa Teclado</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/calcula-imc.html">
-                        <img src="./imagens/IMG PROJETOS/IMC.jpeg" alt="IMC.jpeg">
-                        <h6>Calcula IMC</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/compara-texto.html">
-                        <img src="./imagens/IMG PROJETOS/compara texto.jpeg" alt="compara texto.jpeg">
-                        <h6>Comparar Texto</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/recibo-online.html">
-                        <img src="./imagens/IMG PROJETOS/Recibo online.png" alt="Recibo online.png">
-                        <h6>Recibo Online</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/inverte-texto.html">
-                        <img src="./imagens/IMG PROJETOS/texto invertido.avif" alt="texto invertido.avif">
-                        <h6>Inverte o Texto</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/inverteladotexto.html">
-                        <img src="./imagens/IMG PROJETOS/cabeca para baixo.webp" alt="cabeca para baixo.webp">
-                        <h6>Inverte tela/texto</h6>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Pessoal/gera-cartao.html">
-                        <img src="./imagens/IMG PROJETOS/cartao.jpeg" alt="cartao.jpeg">
-                        <h6>Gerador de Cartão</h6>
-                    </a>
-                </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/mega-sena.html">
-                    <img src="./imagens/IMG PROJETOS/mega sena.webp" alt="mega sena.webp">
-                    <h6>Números da Mega Sena</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/calculadora.html">
-                    <img src="./imagens/IMG PROJETOS/calculadora png.png" alt="Calculadora">
-                    <h6>Calculadora</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/clock.html">
-                    <img src="./imagens/IMG PROJETOS/Clock.png" alt="Relogio">
-                    <h6>Relógio</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/clock1.html">
-                    <img src="./imagens/IMG PROJETOS/relogio png.png" alt="Projeto 4">
-                    <h6>Clock</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/pedido.html">
-                    <img src="./imagens/IMG PROJETOS/ursinho-fofo-apaixonado.gif" alt="Projeto 4">
-                    <h6>Pedido de Namoro ❤️💍</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Calcula media/index.html">
-                    <img src="./Pessoal/Calcula media/painel.png" alt="MEDIA">
-                    <h6>Calcula Média</h6>
-                </a>
-            </div>
+                        <section>
+                            <section>
 
 
-            <div class="project-item">
-                <a href="./Pessoal/Cartaovisita/index.html">
-                    <img src="./Pessoal/Cartaovisita/painel.png" alt="Projeto 4">
-                    <h6>Cartao visita</h6>
-                </a>
-            </div>
 
-            <div class="project-item">
-                <a href="./Pessoal/Fuso horario/fusohorario-digital.html">
-                    <img src="./Pessoal/Fuso horario/fuso horario.png" alt="Projeto 4">
-                    <h6>Fuso Horário Mundial</h6>
-                </a>
-            </div>
-           
+                                <h1 class="heading"
+                                    style="color: white; background-color: #007ced; text-align: center; margin: 20px 0px; padding: 20px 0px; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; box-sizing: border-box;">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/bank-card-front-side.png"
+                                        alt="Cartão de Crédito" style="width: 30px;">
+                                    Seção de pagamento
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/pix.png" alt="Pix"
+                                        style="width: 30px;">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/banknotes.png" alt="Boleto"
+                                        style="width: 30px;">
+                                </h1>
 
-            <div class="project-item">
-                <a href="https://exemplo.com/projeto4">
-                    <img src="https://via.placeholder.com/300" alt="Projeto 4">
-                    <h6 class="blinking">EM BREVE</h6>
-                    <style>
-                        @keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
 
-.blinking {
-    animation: blink 1.5s linear infinite;
-    color: #007ced;  /* Ou qualquer cor que deseje para o texto */
-}
 
-                    </style>
-                </a>
-            </div>
-        </div> 
-        <section style="
+
+                                <div class="projects-container">
+                                    <div class="project-item">
+                                        <a
+                                            href="https://nubank.com.br/cobrar/vg7s0/668ac422-d5dc-41e0-ae74-3e9431676e83">
+                                            <img src="./Pessoal/Pagamento/nupix.jpg" alt="">
+                                            <h6>Qrcode pix</h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a
+                                            href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c9380849174c2cf01918c90d89706a0">
+                                            <img src="./Pessoal/Pagamento/assinatura.png" alt="">
+                                            <h6>Assinatura Mensal</h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="https://biolivre.com.br/anderson1souza">
+                                            <img src="./Pessoal/Pagamento/mercado pago.png" alt="">
+                                            <h6>Mercado Pago</h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="project-item">
+                                        <a href="https://link.mercadopago.com.br/anderson1souza">
+                                            <img src="./Pessoal/Pagamento/splitdepago02.png" alt="">
+                                            <h6>Link de Pagamento</h6>
+                                        </a>
+                                    </div>
+                                    <!------------------------------------>
+                                    <section>
+                                        <h2 class="heading"
+                                            style="color: white; background-color: #007ced; text-align: center; margin: 10px 0px; padding: 15px 0px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                            Meus Projetos</h2>
+
+
+
+
+                                        <div class="projects-container">
+                                            <div class="project-item">
+                                                <a href="./Pessoal/qrcode.html">
+                                                    <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="qrcode.webp">
+                                                    <h6>QR Code</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/link-whatsapp.html">
+                                                    <img src="./imagens/IMG PROJETOS/whatspp link.webp"
+                                                        alt="whatspp link.webp">
+                                                    <h6>Inicia conversa no whatsapp</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/cronometro.html">
+                                                    <img src="./imagens/IMG PROJETOS/Cronometro.webp"
+                                                        alt="Cronometro.webp">
+                                                    <h6>Cronometro Digital</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/gera-senha.html">
+                                                    <img src="./imagens/IMG PROJETOS/gera senha.webp"
+                                                        alt="gera senha.webp">
+                                                    <h6>Gerador de senhas</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Diversos/qrcode.html">
+                                                    <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="Gera QrCode">
+                                                    <h6>Gera QrCode 2</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/contagem-regressiva.html">
+                                                    <img src="./imagens/IMG PROJETOS/contagem regressiva.webp"
+                                                        alt="contagem regressiva.webp">
+                                                    <h6>Contagem Regressiva</h6>
+                                                </a>
+                                            </div>
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/mostra-ip.html">
+                                                    <img src="./imagens/IMG PROJETOS/meuip.webp" alt="meuip.webp">
+                                                    <h6>Meu IP</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/maiscula-minuscula.html">
+                                                    <img src="./imagens/IMG PROJETOS/Letras Maius e Minus.jpg"
+                                                        alt="Letras Maius e Minus.jpg">
+                                                    <h6> Maisculas e minusculas</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/localizar-substituir.html">
+                                                    <img src="./imagens/IMG PROJETOS/localizar.png" alt="localizar.png">
+                                                    <h6>Localizar e Substituir</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/nota-promissoria.html">
+                                                    <img src="./imagens/IMG PROJETOS/Nota promissoria.png"
+                                                        alt="Nota promissoria.png">
+                                                    <h6>Nota Promissória</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/valor-salario.html">
+                                                    <img src="./imagens/IMG PROJETOS/salario anual.webp"
+                                                        alt="salario anual.webp">
+                                                    <h6>Salario Anual</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/sorteio.html">
+                                                    <img src="./imagens/IMG PROJETOS/sorteio.webp" alt="sorteio.webp">
+                                                    <h6>Sorteio</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/hora.html">
+                                                    <img src="./imagens/IMG PROJETOS/hora.webp" alt="hora.webp">
+                                                    <h6>Hora</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/desenhar.html">
+                                                    <img src="./imagens/IMG PROJETOS/desenhar.webp" alt="desenhar.webp">
+                                                    <h6>Desenhar</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/qrcode-wifi.html">
+                                                    <img src="./imagens/IMG PROJETOS/qrcode wifi.webp"
+                                                        alt="qrcode wifi.webp">
+                                                    <h6>QrCode WIFI</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/calendario.html">
+                                                    <img src="./imagens/IMG PROJETOS/calendario.webp"
+                                                        alt="calendario.webp">
+                                                    <h6>Calendário</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/testa-teclado.html">
+                                                    <img src="./imagens/IMG PROJETOS/teclado.webp" alt="teclado.webp">
+                                                    <h6>Testa Teclado</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/compara-texto.html">
+                                                    <img src="./imagens/IMG PROJETOS/compara texto.jpeg"
+                                                        alt="compara texto.jpeg">
+                                                    <h6>Comparar Texto</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/recibo-online.html">
+                                                    <img src="./imagens/IMG PROJETOS/Recibo online.png"
+                                                        alt="Recibo online.png">
+                                                    <h6>Recibo Online</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/inverte-texto.html">
+                                                    <img src="./imagens/IMG PROJETOS/texto invertido.avif"
+                                                        alt="texto invertido.avif">
+                                                    <h6>Inverte o Texto</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/inverteladotexto.html">
+                                                    <img src="./imagens/IMG PROJETOS/cabeca para baixo.webp"
+                                                        alt="cabeca para baixo.webp">
+                                                    <h6>Inverte tela/texto</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/gera-cartao.html">
+                                                    <img src="./imagens/IMG PROJETOS/cartao.jpeg" alt="cartao.jpeg">
+                                                    <h6>Gerador de Cartão</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/mega-sena.html">
+                                                    <img src="./imagens/IMG PROJETOS/mega sena.webp"
+                                                        alt="mega sena.webp">
+                                                    <h6>Números da Mega Sena</h6>
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/clock.html">
+                                                    <img src="./imagens/IMG PROJETOS/Clock.png" alt="Relogio">
+                                                    <h6>Relógio</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/clock1.html">
+                                                    <img src="./imagens/IMG PROJETOS/relogio png.png" alt="Projeto 4">
+                                                    <h6>Clock</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/pedido.html">
+                                                    <img src="./imagens/IMG PROJETOS/ursinho-fofo-apaixonado.gif"
+                                                        alt="Projeto 4">
+                                                    <h6>Pedido de Namoro ❤️💍</h6>
+                                                </a>
+                                            </div>
+
+
+
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/Cartaovisita/index.html">
+                                                    <img src="./Pessoal/Cartaovisita/painel.png" alt="Projeto 4">
+                                                    <h6>Cartao visita</h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="project-item">
+                                                <a href="./Pessoal/Fuso horario/fusohorario-digital.html">
+                                                    <img src="./Pessoal/Fuso horario/fuso horario.png" alt="Projeto 4">
+                                                    <h6>Fuso Horário Mundial</h6>
+                                                </a>
+                                            </div>
+
+
+                                            <div class="project-item">
+                                                <a href="https://exemplo.com/projeto4">
+                                                    <img src="https://via.placeholder.com/300" alt="Projeto 4">
+                                                    <h6 class="blinking">EM BREVE</h6>
+                                                    <style>
+                                                        @keyframes blink {
+                                                            50% {
+                                                                opacity: 0;
+                                                            }
+                                                        }
+
+                                                        .blinking {
+                                                            animation: blink 1.5s linear infinite;
+                                                            color: #007ced;
+                                                            /* Ou qualquer cor que deseje para o texto */
+                                                        }
+                                                    </style>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <section style="
         background-color: #007ced;
         padding: 10px;
         text-align: center;
@@ -847,122 +891,284 @@ code.hljs {
         font-weight: 100;
         margin-top: 1%;
         width: 100%;">
-     <h1 style="color: white; margin: 0;">Conversores</h1>    
-    </section>
-    <section>
-        <br>
-        <div class="projects-container">
+                                            <h1 style="color: white; margin: 0;">Conversores</h1>
+                                        </section>
+                                        <section>
+                                            <br>
+                                            <div class="projects-container">
 
-            <div class="project-item">
-                <a href="./Pessoal/base-numerica.html">
-                    <img src="./imagens/IMG PROJETOS/base numerica.webp" alt="base numerica.webp">
-                    <h6>Converte Bases Numericas</h6>
-                </a>
-            </div>
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/base-numerica.html">
+                                                        <img src="./imagens/IMG PROJETOS/base numerica.webp"
+                                                            alt="base numerica.webp">
+                                                        <h6>Converte Bases Numericas</h6>
+                                                    </a>
+                                                </div>
 
-            <div class="project-item">
-                <a href="./Pessoal/calcula-porcentagem-auto.html">
-                    <img src="./imagens/IMG PROJETOS/calcula porcentagem.webp" alt="calcula porcentagem.webp">
-                    <h6>Conversor de Porcentagem %</h6>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="./Pessoal/numero-romano.html">
-                    <img src="./imagens/IMG PROJETOS/numeros romanos.webp" alt="numeros romanos.webp">
-                    <h6>Numeros Romanos</h6>
-                </a>
-            </div>
-
-          
-
-            <div class="project-item">
-                <a href="./Pessoal/codigo-morse.html">
-                    <img src="./imagens/IMG PROJETOS/codigo morse.png" alt="codigo morse.png">
-                    <h6>Código Morse</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/por-extenso-auto.html">
-                    <img src="./imagens/IMG PROJETOS/numero extenso.webp" alt="numero extenso.webp">
-                    <h6>Numeros por Extenso</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/codigo-binario-auto.html">
-                    <img src="./imagens/IMG PROJETOS/codigo binario.png" alt="codigo binario.png">
-                    <h6>Códigos Binarios</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/conversor-medidas-auto.html">
-                    <img src="./imagens/IMG PROJETOS/conversor de medidas.png" alt="conversor de medidas.png">
-                    <h6>Conversor de Medidas</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Gera letras/index.html">
-                    <img src="./imagens/IMG PROJETOS/letras.png" alt="letras no circulo">
-                    <h6>Gera Letras</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Conversor IMG para ICO/imgparaico.html">
-                    <img src="./imagens/IMG PROJETOS/ICO.ico" alt="letras no circulo">
-                    <h6>Img para ICO</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Gera numero/index.html">
-                    <img src="./Pessoal/Gera numero/logo numeros.png" alt="Números no circulo">
-                    <h6>Gera Números</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Texto para Ascii/index.html">
-                    <img src="./imagens/IMG PROJETOS/ascii.png" alt="texto para ASCII">
-                    <h6>Texto para Ascii</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Texto para Audio/textoaudio.html">
-                    <img src="./imagens/IMG PROJETOS/text audio.jpg" alt="texto para emoji">
-                    <h6>Texto para Audio</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Texto para emoji/textoemoji.html">
-                    <img src="./imagens/IMG PROJETOS/emoji.png" alt="texto para emoji">
-                    <h6>Texto para emoji</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Diversos/conversortemperatura.html">
-                    <img src="./imagens/IMG PROJETOS/conversor de temperatura.webp"
-                        alt="Conversor de temperatura">
-                    <h6>Conversor de temperatura</h6>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Diversos/conversor-moeda.html">
-                    <img src="./imagens/IMG PROJETOS/conversor de moedas.jpg" alt="Conversor de Moeda">
-                    <h6>Conversor de Moeda</h6>
-                </a>
-            </div>
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/calcula-porcentagem-auto.html">
+                                                        <img src="./imagens/IMG PROJETOS/calcula porcentagem.webp"
+                                                            alt="calcula porcentagem.webp">
+                                                        <h6>Conversor de Porcentagem %</h6>
+                                                    </a>
+                                                </div>
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/numero-romano.html">
+                                                        <img src="./imagens/IMG PROJETOS/numeros romanos.webp"
+                                                            alt="numeros romanos.webp">
+                                                        <h6>Numeros Romanos</h6>
+                                                    </a>
+                                                </div>
 
 
 
-            <section style="
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/codigo-morse.html">
+                                                        <img src="./imagens/IMG PROJETOS/codigo morse.png"
+                                                            alt="codigo morse.png">
+                                                        <h6>Código Morse</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/por-extenso-auto.html">
+                                                        <img src="./imagens/IMG PROJETOS/numero extenso.webp"
+                                                            alt="numero extenso.webp">
+                                                        <h6>Numeros por Extenso</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/codigo-binario-auto.html">
+                                                        <img src="./imagens/IMG PROJETOS/codigo binario.png"
+                                                            alt="codigo binario.png">
+                                                        <h6>Códigos Binarios</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/conversor-medidas-auto.html">
+                                                        <img src="./imagens/IMG PROJETOS/conversor de medidas.png"
+                                                            alt="conversor de medidas.png">
+                                                        <h6>Conversor de Medidas</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Gera letras/index.html">
+                                                        <img src="./imagens/IMG PROJETOS/letras.png"
+                                                            alt="letras no circulo">
+                                                        <h6>Gera Letras</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Conversor IMG para ICO/imgparaico.html">
+                                                        <img src="./imagens/IMG PROJETOS/ICO.ico"
+                                                            alt="letras no circulo">
+                                                        <h6>Img para ICO</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Gera numero/index.html">
+                                                        <img src="./Pessoal/Gera numero/logo numeros.png"
+                                                            alt="Números no circulo">
+                                                        <h6>Gera Números</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Texto para Ascii/index.html">
+                                                        <img src="./imagens/IMG PROJETOS/ascii.png"
+                                                            alt="texto para ASCII">
+                                                        <h6>Texto para Ascii</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Texto para Audio/textoaudio.html">
+                                                        <img src="./imagens/IMG PROJETOS/text audio.jpg"
+                                                            alt="texto para emoji">
+                                                        <h6>Texto para Audio</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Pessoal/Texto para emoji/textoemoji.html">
+                                                        <img src="./imagens/IMG PROJETOS/emoji.png"
+                                                            alt="texto para emoji">
+                                                        <h6>Texto para emoji</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Diversos/conversortemperatura.html">
+                                                        <img src="./imagens/IMG PROJETOS/conversor de temperatura.webp"
+                                                            alt="Conversor de temperatura">
+                                                        <h6>Conversor de temperatura</h6>
+                                                    </a>
+                                                </div>
+
+                                                <div class="project-item">
+                                                    <a href="./Diversos/conversor-moeda.html">
+                                                        <img src="./imagens/IMG PROJETOS/conversor de moedas.jpg"
+                                                            alt="Conversor de Moeda">
+                                                        <h6>Conversor de Moeda</h6>
+                                                    </a>
+                                                </div>
+
+
+                                                <section style="
+                                                background-color: #007ced;
+                                                padding: 10px;
+                                                text-align: center;
+                                                font-size: 1.5rem;
+                                                font-weight: 100;
+                                                margin-top: 1%;
+                                                width: 100%;">
+                                                    <h1 style="color: white; margin: 0;">Calcular</h1>
+                                                </section>
+                                                <section>
+                                                    <br>
+                                                    <div class="projects-container">
+
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/calculadora.html">
+                                                                <img src="./imagens/IMG PROJETOS/calculadora png.png"
+                                                                    alt="Calculadora">
+                                                                <h6>Calculadora</h6>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/signos.html">
+                                                                <img src="./imagens/IMG PROJETOS/Horoscopo.jpg"
+                                                                    alt="Horoscopo.jpg">
+                                                                <h6>Calcule a data e veja seu signo</h6>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/regra-de-tres.html">
+                                                                <img src="./imagens/IMG PROJETOS/regra-de-tres.jpg"
+                                                                    alt="regra-de-tres.jpg">
+                                                                <h6>Regra de 3</h6>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/calcula-imc.html">
+                                                                <img src="./imagens/IMG PROJETOS/IMC.jpeg"
+                                                                    alt="IMC.jpeg">
+                                                                <h6>Calcula IMC</h6>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/Calcula media/index.html">
+                                                                <img src="./Pessoal/Calcula media/painel.png"
+                                                                    alt="MEDIA">
+                                                                <h6>Calcula Média</h6>
+                                                            </a>
+                                                        </div>
+
+                                                    </div>
+                                                </section>
+
+
+
+
+
+                                                <section style="background-color: #007ced; padding: 10px; text-align: center; font-size: 1.5rem; font-weight: 100; margin-top: 1%; width: 100%;">
+                                                    <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD</h1>
+                                                </section>
+                                                
+                                                <section>
+                                                    <br>
+                                                    <div class="block-container cmd" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                            <h1>Desligar Imediatamente</h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+                                                                    @echo off
+                                                                    echo Desligando o computador...
+                                                                    shutdown /s /f /t 0
+                                                                </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/Desliga_imediatamente.bat" download>
+                                                                <button>Baixar .bat</button>
+                                                            </a>
+                                                        </div>
+                                                
+                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                            <h1>Desligar Após um Atraso</h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+                                                                    @echo off
+                                                                    echo O computador será desligado em 5 minutos...
+                                                                    shutdown /s /f /t 300
+                                                                </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/Desliga_com_atraso.bat" download>
+                                                                <button>Baixar .bat</button>
+                                                            </a>
+                                                        </div>
+                                                
+                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                            <h1>Reiniciar Imediatamente</h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+                                                                    @echo off
+                                                                    echo Reiniciando o computador...
+                                                                    shutdown /r /f /t 0
+                                                                </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/Reinicia_imediatamente.bat" download>
+                                                                <button>Baixar .bat</button>
+                                                            </a>
+                                                        </div>
+                                                
+                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                            <h1>Cancelar Desligamento</h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+                                                                    @echo off
+                                                                    shutdown /a
+                                                                </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/Cancela_desligamento.bat" download>
+                                                                <button>Baixar .bat</button>
+                                                            </a>
+                                                        </div>
+                                                
+                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                            <h1>Portas Atualizador</h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+                                                                    @echo off
+                                                                    echo Configurando regras de firewall para o Atualizador TGA Funcionar...
+                                                                    netsh advfirewall firewall add rule name="Atualizador TGA Entrada" dir=in protocol=TCP localport=20002 action=allow
+                                                                    netsh advfirewall firewall add rule name="Atualizador TGA Saída" dir=out protocol=TCP localport=20002 action=allow
+                                                                    echo Regras de firewall configuradas com sucesso!
+                                                                    exit
+                                                                </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/Portas_Atualizador.bat" download>
+                                                                <button>Baixar .bat</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                
+                                    
+
+
+
+
+
+
+                                                            <section style="
             background-color: #007ced;
             padding: 10px;
             text-align: center;
@@ -970,127 +1176,80 @@ code.hljs {
             font-weight: 100;
             margin-top: 1%;
             width: 100%;">
-         <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD</h1>    
-        </section>
-        <section>
-            <br>
-            <div class="block-container cmd">
-            <div class="projects-container">
-                <div class="block-container cmd">
-                    <div class="block cmd">
-                        <h1>Desligar Imediatamente</h1>
-                        <code class="hljs language-batch">@echo off
-                echo Desligando o computador...
-                shutdown /s /f /t 0
-                        </code>
-                        <button>Baixar .bat</button>
-                    </div>
-                    <div class="block cmd">
-                        <h1>Desligar Após um Atraso</h1>
-                        <code class="hljs language-batch">@echo off
-                echo O computador será desligado em 5 minutos...
-                shutdown /s /f /t 300
-                        </code>
-                        <button>Baixar .bat</button>
-                    </div>
-                    <div class="block cmd">
-                        <h1>Reiniciar Imediatamente</h1>
-                        <code class="hljs language-batch">@echo off
-                echo Reiniciando o computador...
-                shutdown /r /f /t 0
-                        </code>
-                        <button>Baixar .bat</button>
-                    </div>
-                    <div class="block cmd">
-                        <h1>Cancelar Desligamento</h1>
-                        <code class="hljs language-batch">@echo off
-                shutdown /a
-                        </code>
-                        <button>Baixar .bat</button>
-                    </div>
-                    <div class="block cmd">
-                        <h1>Exemplo de Script</h1>
-                        <code class="hljs language-batch">@echo off
-                echo Exemplo de script...
-                        </code>
-                        <button>Baixar .bat</button>
-                    </div>
-                </div>
-                
+                                                                <h1 style="color: white; margin: 0;">Jogos</h1>
+                                                            </section>
 
+                                                            <section>
+                                                                <br>
+                                                                <div class="projects-container">
+                                                                    <div class="project-item">
+                                                                        <a
+                                                                            href="./Pessoal/Jogos/JogodaCobrinha/cobrinha.html">
+                                                                            <img src="./imagens/IMG PROJETOS/cobrinha img.webp"
+                                                                                alt="Projeto 4">
+                                                                            <h6>Cobrinha</h6>
 
+                                                                        </a>
+                                                                    </div>
 
+                                                                    <div class="project-item">
+                                                                        <a
+                                                                            href="./Pessoal/Jogos/Jogo-do-Mario/index.html">
+                                                                            <img src="./imagens/IMG PROJETOS/painel-mario.gif"
+                                                                                alt="Projeto 4">
+                                                                            <h6>Mario</h6>
+                                                                        </a>
+                                                                    </div>
 
-        
-       <section style="
-            background-color: #007ced;
-            padding: 10px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 100;
-            margin-top: 1%;
-            width: 100%;">
-         <h1 style="color: white; margin: 0;">Jogos</h1>    
-        </section>
-        
-    <section>
-        <br>
-        <div class="projects-container">
-            <div class="project-item">
-                <a href="./Pessoal/Jogos/JogodaCobrinha/cobrinha.html">
-                    <img src="./imagens/IMG PROJETOS/cobrinha img.webp" alt="Projeto 4">
-                    <h6>Cobrinha</h6>
-                    
-                </a>
-            </div>
+                                                                    <div class="project-item">
+                                                                        <a
+                                                                            href="./Pessoal/Jogos/Jogo-Da-Velha/index.html">
+                                                                            <img src="./imagens/IMG PROJETOS/jogodavelha.webp"
+                                                                                alt="Projeto 4">
+                                                                            <h6>Jogo da Velha</h6>
+                                                                        </a>
+                                                                    </div>
 
-            <div class="project-item">
-                <a href="./Pessoal/Jogos/Jogo-do-Mario/index.html">
-                    <img src="./imagens/IMG PROJETOS/painel-mario.gif" alt="Projeto 4">
-                    <h6>Mario</h6>
-                </a>
-            </div>
+                                                                    <div class="project-item">
+                                                                        <a href="https://exemplo.com/projeto4">
+                                                                            <img src="./imagens/IMG PROJETOS/em construção.webp"
+                                                                                alt="Projeto 4">
+                                                                            <h6 class="blinking">EM BREVE</h6>
+                                                                            <style>
+                                                                                @keyframes blink {
+                                                                                    50% {
+                                                                                        opacity: 0;
+                                                                                    }
+                                                                                }
 
-              <div class="project-item">
-                <a href="./Pessoal/Jogos/Jogo-Da-Velha/index.html">
-                    <img src="./imagens/IMG PROJETOS/jogodavelha.webp" alt="Projeto 4">
-                    <h6>Jogo da Velha</h6>
-                </a>
-            </div>
+                                                                                .blinking {
+                                                                                    animation: blink 1.5s linear infinite;
+                                                                                    color: #007ced;
+                                                                                    /* Ou qualquer cor que deseje para o texto */
+                                                                                }
+                                                                            </style>
+                                                                        </a>
+                                                                    </div>
 
-            <div class="project-item">
-                <a href="https://exemplo.com/projeto4">
-                    <img src="./imagens/IMG PROJETOS/em construção.webp" alt="Projeto 4">
-                    <h6 class="blinking">EM BREVE</h6>
-                    <style>
-                        @keyframes blink {
-                            50% {
-                                opacity: 0;
-                            }
-                        }
-
-                        .blinking {
-                            animation: blink 1.5s linear infinite;
-                            color: #007ced;  /* Ou qualquer cor que deseje para o texto */
-                        }
-                    </style>
-                </a>
-            </div>
-
-            <div class="project-item">
-                <a href="./Pessoal/Jogos/Bingo/index.html">
-                    <img src="./Pessoal/Jogos/Bingo/bingo.webp" alt="Projeto 4">
-                </a>
-                <div class="button-container">
-                    <a href="./Pessoal/Jogos/Bingo/sorteio.html">
-                        <button class="left-button">Sorteio</button>
-                    </a>
-                    <a href="./Pessoal/Jogos/Bingo/cartela.html">
-                        <button class="right-button">Cartela</button>
-                    </a>
-                </div>
-            </div>
-<!--
+                                                                    <div class="project-item">
+                                                                        <a href="./Pessoal/Jogos/Bingo/index.html">
+                                                                            <img src="./Pessoal/Jogos/Bingo/bingo.webp"
+                                                                                alt="Projeto 4">
+                                                                        </a>
+                                                                        <div class="button-container">
+                                                                            <a
+                                                                                href="./Pessoal/Jogos/Bingo/sorteio.html">
+                                                                                <button
+                                                                                    class="left-button">Sorteio</button>
+                                                                            </a>
+                                                                            <a
+                                                                                href="./Pessoal/Jogos/Bingo/cartela.html">
+                                                                                <button
+                                                                                    class="right-button">Cartela</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
                     <img src="https://via.placeholder.com/300" alt="Projeto 4">
@@ -1099,56 +1258,78 @@ code.hljs {
             </div>-->
 
 
-        </div>
-    </section>
+                                                                </div>
+                                                            </section>
 
-      
-    <footer>
-        <div id="relogio"></div>
-    </footer>
 
-    <script>
-        function atualizarRelogio() {
-            const agora = new Date();
-            const horas = String(agora.getHours()).padStart(2, '0');
-            const minutos = String(agora.getMinutes()).padStart(2, '0');
-            const segundos = String(agora.getSeconds()).padStart(2, '0');
-            document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
-        }
+                                                            <footer>
+                                                                <div id="relogio"></div>
+                                                            </footer>
 
-        setInterval(atualizarRelogio, 1000);
-        atualizarRelogio();
+                                                            <script>
+                                                                function atualizarRelogio() {
+                                                                    const agora = new Date();
+                                                                    const horas = String(agora.getHours()).padStart(2, '0');
+                                                                    const minutos = String(agora.getMinutes()).padStart(2, '0');
+                                                                    const segundos = String(agora.getSeconds()).padStart(2, '0');
+                                                                    document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+                                                                }
 
-        
-        function filterProjects() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const projectItems = document.querySelectorAll('.project-item');
-            let found = false;
+                                                                setInterval(atualizarRelogio, 1000);
+                                                                atualizarRelogio();
 
-            projectItems.forEach(function(item) {
-                const text = item.textContent.toLowerCase();
-                item.classList.remove('highlighted');
 
-                if (text.includes(input)) {
-                    if (!found) {
-                        found = true;
-                        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        item.classList.add('highlighted-temp');
+                                                                function filterProjects() {
+                                                                    const input = document.getElementById('search-input').value.toLowerCase();
+                                                                    const projectItems = document.querySelectorAll('.project-item');
+                                                                    let found = false;
+
+                                                                    projectItems.forEach(function (item) {
+                                                                        const text = item.textContent.toLowerCase();
+                                                                        item.classList.remove('highlighted');
+
+                                                                        if (text.includes(input)) {
+                                                                            if (!found) {
+                                                                                found = true;
+                                                                                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                                                item.classList.add('highlighted-temp');
+                                                                            }
+                                                                            item.style.display = '';
+                                                                        } else {
+                                                                            item.style.display = 'none';
+                                                                        }
+                                                                    });
+
+                                                                    setTimeout(function () {
+                                                                        document.querySelectorAll('.highlighted-temp').forEach(function (item) {
+                                                                            item.classList.remove('highlighted-temp');
+                                                                            item.classList.add('highlighted');
+                                                                        });
+                                                                    }, 2000); // O tempo pode ser ajustado
+                                                                }
+
+                                                                function toggleCode(button) {
+                    const codeContainer = button.nextElementSibling;
+                    if (codeContainer.style.maxHeight === '300px') {
+                        codeContainer.style.maxHeight = '50px';
+                        button.textContent = 'Ver código completo';
+                    } else {
+                        codeContainer.style.maxHeight = '300px'; // Ajuste o tamanho conforme o código
+                        button.textContent = 'Ocultar código';
                     }
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
                 }
-            });
 
-            setTimeout(function() {
-                document.querySelectorAll('.highlighted-temp').forEach(function(item) {
-                    item.classList.remove('highlighted-temp');
-                    item.classList.add('highlighted');
-                });
-            }, 2000); // O tempo pode ser ajustado
-        }
-    
-    </script>
+                function expandCode(element) {
+        const codeContainer = element.querySelector('.code-container');
+        codeContainer.style.maxHeight = '300px'; // Expande o código
+    }
+
+    function shrinkCode(element) {
+        const codeContainer = element.querySelector('.code-container');
+        codeContainer.style.maxHeight = '50px'; // Encolhe o código
+    }
+
+                                                            </script>
 </body>
+
 </html>
