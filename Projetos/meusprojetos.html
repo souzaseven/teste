@@ -374,9 +374,94 @@
         }
 
 
-        
-      
-                
+       
+/* Estilo para o container cmd */
+.block-container.cmd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Ajusta o espaçamento entre os blocos */
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Estilo para cada bloco cmd */
+.block.cmd {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(19% - 20px); /* Mantém 5 blocos por linha */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 220px; /* Aumenta um pouco o tamanho para melhor visibilidade */
+}
+
+.block.cmd:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta o efeito de destaque */
+}
+
+/* Estilo para o título dentro de cada bloco */
+.block.cmd h1 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Estilo para o código */
+code.hljs {
+    display: block;
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o botão */
+.block.cmd button {
+    background-color: #007ced;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.block.cmd button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px); /* Efeito de clique no hover */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+    .block.cmd {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .block.cmd {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 500px) {
+    .block.cmd {
+        flex: 1 1 100%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -502,11 +587,11 @@
                         <h6>QR Code</h6>
                     </a>
                 </div>
-
+                
                 <div class="project-item">
-                    <a href="./Diversos/qrcode.html">
-                        <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="Gera QrCode">
-                        <h6>Gera QrCode 2</h6>
+                    <a href="./Pessoal/link-whatsapp.html">
+                        <img src="./imagens/IMG PROJETOS/whatspp link.webp" alt="whatspp link.webp">
+                        <h6>Inicia conversa no whatsapp</h6>
                     </a>
                 </div>
 
@@ -526,6 +611,12 @@
                     </a>
                 </div>
               
+                <div class="project-item">
+                    <a href="./Diversos/qrcode.html">
+                        <img src="./imagens/IMG PROJETOS/qrcode.webp" alt="Gera QrCode">
+                        <h6>Gera QrCode 2</h6>
+                    </a>
+                </div>
 
                 <div class="project-item">
                     <a href="./Pessoal/contagem-regressiva.html">
@@ -534,14 +625,6 @@
                     </a>
                 </div>
 
-              
-
-                <div class="project-item">
-                    <a href="./Pessoal/link-whatsapp.html">
-                        <img src="./imagens/IMG PROJETOS/whatspp link.webp" alt="whatspp link.webp">
-                        <h6>Inicia conversa no whatsapp</h6>
-                    </a>
-                </div>
 
                 <div class="project-item">
                     <a href="./Pessoal/mostra-ip.html">
@@ -871,6 +954,66 @@
                     <h6>Conversor de Moeda</h6>
                 </a>
             </div>
+
+
+
+            <section style="
+            background-color: #007ced;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-top: 1%;
+            width: 100%;">
+         <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD</h1>    
+        </section>
+        <section>
+            <br>
+            <div class="block-container cmd">
+            <div class="projects-container">
+                <div class="block-container cmd">
+                    <div class="block cmd">
+                        <h1>Desligar Imediatamente</h1>
+                        <code class="hljs language-batch">@echo off
+                echo Desligando o computador...
+                shutdown /s /f /t 0
+                        </code>
+                        <button>Baixar .bat</button>
+                    </div>
+                    <div class="block cmd">
+                        <h1>Desligar Após um Atraso</h1>
+                        <code class="hljs language-batch">@echo off
+                echo O computador será desligado em 5 minutos...
+                shutdown /s /f /t 300
+                        </code>
+                        <button>Baixar .bat</button>
+                    </div>
+                    <div class="block cmd">
+                        <h1>Reiniciar Imediatamente</h1>
+                        <code class="hljs language-batch">@echo off
+                echo Reiniciando o computador...
+                shutdown /r /f /t 0
+                        </code>
+                        <button>Baixar .bat</button>
+                    </div>
+                    <div class="block cmd">
+                        <h1>Cancelar Desligamento</h1>
+                        <code class="hljs language-batch">@echo off
+                shutdown /a
+                        </code>
+                        <button>Baixar .bat</button>
+                    </div>
+                    <div class="block cmd">
+                        <h1>Exemplo de Script</h1>
+                        <code class="hljs language-batch">@echo off
+                echo Exemplo de script...
+                        </code>
+                        <button>Baixar .bat</button>
+                    </div>
+                </div>
+                
+
+
 
 
         
