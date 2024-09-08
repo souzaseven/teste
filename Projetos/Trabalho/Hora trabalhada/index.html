@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Horas Trabalhadas</title>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h1>Calculadora de Horas</h1>
+
+        <label for="start-time1">Entrada Primeiro Turno:</label>
+        <input type="time" id="start-time1" oninput="calcularHorasTrabalhadas()">
+
+        <label for="end-time1">Saída Primeiro Turno:</label>
+        <input type="time" id="end-time1" oninput="calcularHorasTrabalhadas()">
+
+        <label for="break-time">Pausa (em minutos):</label>
+        <input type="number" id="break-time" placeholder="Ex: 30" oninput="calcularHorasTrabalhadas()">
+
+        <label for="start-time2">Entrada Segundo Turno:</label>
+        <input type="time" id="start-time2" oninput="calcularHorasTrabalhadas()">
+
+        <label for="end-time2">Saída Segundo Turno:</label>
+        <input type="time" id="end-time2" oninput="calcularHorasTrabalhadas()">
+
+        <div class="result" id="result">Total de horas trabalhadas: 0.00 horas</div>
+        <div class="details" id="turno1-details"></div>
+        <div class="details" id="turno2-details"></div>
+        <div class="break-info" id="break-result"></div>
+    </div>
+
+   <script src="./script.js"></script>
+
+</body>
+
+</html>
