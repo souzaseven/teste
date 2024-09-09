@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula Idade de Cachorro/Gato</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h1>Calcula de Idade de Pet</h1>
+
+        <label for="pet-type">Selecione o tipo de pet:</label>
+        <select id="pet-type" onchange="calcularIdade(); atualizarEmoji();">
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+        </select>
+
+        <label for="pet-age">Idade do pet (em anos):</label>
+        <input type="number" id="pet-age" min="0" placeholder="Digite a idade" oninput="calcularIdade()">
+
+        <div class="result" id="result">Idade em anos humanos: 0 anos</div>
+
+        <div class="emoji" id="emoji">🐶</div>
+    </div>
+
+  <script src="./script.js"></script>i
+
+</body>
+
+</html>
