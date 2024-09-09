@@ -4,6 +4,7 @@ body {
     background-color: #007ced;
     color: white;
     margin: 0;
+    padding: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,33 +15,41 @@ body {
 .container {
     text-align: center;
     background-color: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 1200px;
-    height: 90vh;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 1800px;
+    height: 85vh;
     overflow-y: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
     transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Título */
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     color: #007ced;
     font-weight: bold;
-    position: relative;
 }
 
 h1 i {
     margin-right: 10px;
     color: #0288d1;
+}
+
+h3 {
+    color: white;
+    background-color: #007ced;
+    margin: 0;
+    padding: 4px;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
 /* Input e Botão */
@@ -51,13 +60,13 @@ h1 i {
 }
 
 input[type="number"] {
-    padding: 15px;
-    border-radius: 10px;
+    padding: 8px;
+    border-radius: 8px;
     border: none;
-    font-size: 1.2rem;
-    width: 60%;
-    margin-right: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    width: 50%;
+    margin-right: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -66,18 +75,18 @@ input[type="number"]:hover {
 }
 
 button {
-    padding: 15px 25px;
+    padding: 8px 15px;
     background-color: #007ced;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 button i {
@@ -94,38 +103,40 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 5px;
 }
 
+/* Ajustando para 5 colunas por linha */
 .multiplication-div {
-    width: calc(20% - 8px); /* Ajustado para caber 5 blocos por linha */
-    margin: 10px 0;
-    background-color: #e6f4ff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: calc(19% - 10px); /* Ajustado para caber 5 blocos por linha */
+    background-color: #f0f7ff;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .multiplication-div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    border-radius: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #dddddd;
+    padding: 5px;
+    border: 1px solid #ddd;
     text-align: center;
     background-color: #f9f9f9;
+    font-size: 0.8rem; /* Reduzido */
 }
 
 th {
@@ -136,6 +147,7 @@ th {
 
 td {
     background-color: #ffffff;
+    color: black;
 }
 
 td:nth-child(2) {
@@ -150,12 +162,18 @@ td:nth-child(2):hover {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #555;
     font-style: italic;
 }
 
 /* Responsividade */
+@media (max-width: 1600px) {
+    .multiplication-div {
+        width: calc(19% - 8px); /* Ajusta para 5 colunas por linha */
+    }
+}
+
 @media (max-width: 1200px) {
     .multiplication-div {
         width: calc(25% - 10px); /* Ajusta para 4 blocos em resoluções menores */
@@ -176,6 +194,6 @@ p {
 
 @media (max-width: 400px) {
     .multiplication-div {
-        width: 100%; /* Ajusta para 1 bloco em resoluções muito pequenas */
+        width: 100%;
     }
 }
