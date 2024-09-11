@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Listas de Compras</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +16,7 @@
     <div class="container">
         <h1>Gerador de Listas de Compras</h1>
         <div class="google-login">
-            <button onclick="handleGoogleLogin()">Login com Google</button>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
         <input type="text" id="item-input" placeholder="Digite o item">
         <div class="button-container">
@@ -23,8 +25,7 @@
         </div>
         <ul class="list" id="shopping-list"></ul>
     </div>
-
-   <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

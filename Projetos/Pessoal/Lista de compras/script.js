@@ -1,9 +1,10 @@
 let user = null;
 
-function handleGoogleLogin() {
+function onSignIn(googleUser) {
+    const profile = googleUser.getBasicProfile();
     user = {
-        name: 'Usuario Exemplo',
-        email: 'usuario@example.com'
+        name: profile.getName(),
+        email: profile.getEmail()
     };
     alert(`Bem-vindo, ${user.name}`);
     loadList(); // Carrega a lista do usuário após o login
