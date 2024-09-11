@@ -15,13 +15,18 @@ function addItem() {
     const itemText = itemInput.value.trim();
     if (itemText === '') return;
 
+    let quantity = '';
+    if (confirm('Deseja adicionar uma quantidade para o item?')) {
+        quantity = prompt('Digite a quantidade:', '1');
+    }
+
     const list = document.getElementById('shopping-list');
     const listItem = document.createElement('li');
     listItem.className = 'list-item';
 
     const itemContent = document.createElement('input');
     itemContent.type = 'text';
-    itemContent.value = itemText;
+    itemContent.value = quantity ? `${itemText} (Quantidade: ${quantity})` : itemText;
     itemContent.readOnly = true;
     listItem.appendChild(itemContent);
 
