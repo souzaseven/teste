@@ -434,8 +434,8 @@
         }
 
 
-/* Estilo para cada bloco cmd */
-.block.cmd {
+        /* Estilo para cada bloco cmd */
+        .block.cmd {
             background-color: #f5f5f5;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -1075,26 +1075,29 @@
 
                                                         <div class="project-item">
                                                             <a href="./Trabalho/Hora trabalhada/index.html">
-                                                                <img src="./Trabalho/Hora trabalhada/horas.jpeg" alt="horas">
+                                                                <img src="./Trabalho/Hora trabalhada/horas.jpeg"
+                                                                    alt="horas">
                                                                 <h6>Horas trabalhadas</h6>
                                                             </a>
                                                         </div>
 
                                                         <div class="project-item">
                                                             <a href="./Pessoal/Calcula ano animal/index.html">
-                                                                <img src="./Pessoal/Calcula ano animal/cao png.jpg" alt="ano animal">
+                                                                <img src="./Pessoal/Calcula ano animal/cao png.jpg"
+                                                                    alt="ano animal">
                                                                 <h6>Horas trabalhadas</h6>
                                                             </a>
                                                         </div>
 
                                                         <div class="project-item">
                                                             <a href="./Pessoal/Tabela de calculo/index.html">
-                                                                <img src="./Pessoal/Tabela de calculo/tabuada.png" alt="ano animal">
+                                                                <img src="./Pessoal/Tabela de calculo/tabuada.png"
+                                                                    alt="ano animal">
                                                                 <h6>Tabela de calculo</h6>
                                                             </a>
                                                         </div>
 
-
+                                                        
 
 
 
@@ -1105,14 +1108,18 @@
 
 
 
-                                                <section style="background-color: #007ced; padding: 10px; text-align: center; font-size: 1.5rem; font-weight: 100; margin-top: 1%; width: 100%;">
-                                                    <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD</h1>
+                                                <section
+                                                    style="background-color: #007ced; padding: 10px; text-align: center; font-size: 1.5rem; font-weight: 100; margin-top: 1%; width: 100%;">
+                                                    <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD
+                                                    </h1>
                                                 </section>
-                                                
+
                                                 <section>
                                                     <br>
-                                                    <div class="block-container cmd" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+                                                    <div class="block-container cmd"
+                                                        style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
                                                             <h1>Desligar Imediatamente</h1>
                                                             <div class="code-container">
                                                                 <code class="hljs language-batch">
@@ -1125,8 +1132,9 @@
                                                                 <button>Baixar .bat</button>
                                                             </a>
                                                         </div>
-                                                
-                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
                                                             <h1>Desligar Após um Atraso</h1>
                                                             <div class="code-container">
                                                                 <code class="hljs language-batch">
@@ -1139,8 +1147,9 @@
                                                                 <button>Baixar .bat</button>
                                                             </a>
                                                         </div>
-                                                
-                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
                                                             <h1>Reiniciar Imediatamente</h1>
                                                             <div class="code-container">
                                                                 <code class="hljs language-batch">
@@ -1153,8 +1162,9 @@
                                                                 <button>Baixar .bat</button>
                                                             </a>
                                                         </div>
-                                                
-                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
                                                             <h1>Cancelar Desligamento</h1>
                                                             <div class="code-container">
                                                                 <code class="hljs language-batch">
@@ -1166,34 +1176,74 @@
                                                                 <button>Baixar .bat</button>
                                                             </a>
                                                         </div>
-                                                
-                                                        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
                                                             <h1>Portas Atualizador</h1>
                                                             <div class="code-container">
                                                                 <code class="hljs language-batch">
-                                                                    @echo off
-                                                                    echo Configurando regras de firewall para o Atualizador TGA Funcionar...
-                                                                    netsh advfirewall firewall add rule name="Atualizador TGA Entrada" dir=in protocol=TCP localport=20002 action=allow
-                                                                    netsh advfirewall firewall add rule name="Atualizador TGA Saída" dir=out protocol=TCP localport=20002 action=allow
-                                                                    echo Regras de firewall configuradas com sucesso!
-                                                                    exit
+                                                                   Configurando regras de firewall para o Atualizador TGA Funcionar...
                                                                 </code>
                                                             </div>
                                                             <a href="./Pessoal/BAT/Portas_Atualizador.bat" download>
                                                                 <button>Baixar .bat</button>
                                                             </a>
                                                         </div>
+
+                                                    <div class="block cmd" onmouseover="expandCode(this)"
+                                                        onmouseout="shrinkCode(this)">
+                                                        <h1>Remove Multiplas Instancias</h1>
+                                                        <div class="code-container">
+                                                            <code class="hljs language-batch">
+                                                                Windows Registry Editor Version 5.00
+
+; Deletar a chave HKEY_CURRENT_USER\Software\TGA Sistemas
+[-HKEY_CURRENT_USER\Software\TGA Sistemas]
+
+                                                            </code>
+                                                        </div>
+                                                        <a href="./Pessoal/BAT/Remove Multiplas Instacias.reg" download>
+                                                            <button>Baixar .bat</button>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="block cmd" onmouseover="expandCode(this)"
+                                                    onmouseout="shrinkCode(this)">
+                                                    <h1>Portas pdv</h1>
+                                                    <div class="code-container">
+                                                        <code class="hljs language-batch">
+                                                            Configurando regras de firewall para as portas 2517, 2525, 3050 (UDP e TCP)...
+                                                        </code>
+                                                    </div>
+                                                    <a href="./Pessoal/BAT/Libera portas pdv.bat" download>
+                                                        <button>Baixar .bat</button>
+                                                    </a>
+                                                </div>
+
+                                                <div class="block cmd" onmouseover="expandCode(this)"
+                                                onmouseout="shrinkCode(this)">
+                                                <h1></h1>
+                                                <div class="code-container">
+                                                    <code class="hljs language-batch">
+                                                        
+                                                    </code>
+                                                </div>
+                                                <a href="./Pessoal/BAT/" download>
+                                                    <button>Baixar .bat</button>
+                                                </a>
+                                            </div>
+
                                                     </div>
                                                 </section>
-                                                
-                                    
 
 
 
 
 
 
-                                                            <section style="
+
+
+                                                <section style="
             background-color: #007ced;
             padding: 10px;
             text-align: center;
@@ -1201,80 +1251,73 @@
             font-weight: 100;
             margin-top: 1%;
             width: 100%;">
-                                                                <h1 style="color: white; margin: 0;">Jogos</h1>
-                                                            </section>
+                                                    <h1 style="color: white; margin: 0;">Jogos</h1>
+                                                </section>
 
-                                                            <section>
-                                                                <br>
-                                                                <div class="projects-container">
-                                                                    <div class="project-item">
-                                                                        <a
-                                                                            href="./Pessoal/Jogos/JogodaCobrinha/cobrinha.html">
-                                                                            <img src="./imagens/IMG PROJETOS/cobrinha img.webp"
-                                                                                alt="Projeto 4">
-                                                                            <h6>Cobrinha</h6>
+                                                <section>
+                                                    <br>
+                                                    <div class="projects-container">
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/Jogos/JogodaCobrinha/cobrinha.html">
+                                                                <img src="./imagens/IMG PROJETOS/cobrinha img.webp"
+                                                                    alt="Projeto 4">
+                                                                <h6>Cobrinha</h6>
 
-                                                                        </a>
-                                                                    </div>
+                                                            </a>
+                                                        </div>
 
-                                                                    <div class="project-item">
-                                                                        <a
-                                                                            href="./Pessoal/Jogos/Jogo-do-Mario/index.html">
-                                                                            <img src="./imagens/IMG PROJETOS/painel-mario.gif"
-                                                                                alt="Projeto 4">
-                                                                            <h6>Mario</h6>
-                                                                        </a>
-                                                                    </div>
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/Jogos/Jogo-do-Mario/index.html">
+                                                                <img src="./imagens/IMG PROJETOS/painel-mario.gif"
+                                                                    alt="Projeto 4">
+                                                                <h6>Mario</h6>
+                                                            </a>
+                                                        </div>
 
-                                                                    <div class="project-item">
-                                                                        <a
-                                                                            href="./Pessoal/Jogos/Jogo-Da-Velha/index.html">
-                                                                            <img src="./imagens/IMG PROJETOS/jogodavelha.webp"
-                                                                                alt="Projeto 4">
-                                                                            <h6>Jogo da Velha</h6>
-                                                                        </a>
-                                                                    </div>
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/Jogos/Jogo-Da-Velha/index.html">
+                                                                <img src="./imagens/IMG PROJETOS/jogodavelha.webp"
+                                                                    alt="Projeto 4">
+                                                                <h6>Jogo da Velha</h6>
+                                                            </a>
+                                                        </div>
 
-                                                                    <div class="project-item">
-                                                                        <a href="https://exemplo.com/projeto4">
-                                                                            <img src="./imagens/IMG PROJETOS/em construção.webp"
-                                                                                alt="Projeto 4">
-                                                                            <h6 class="blinking">EM BREVE</h6>
-                                                                            <style>
-                                                                                @keyframes blink {
-                                                                                    50% {
-                                                                                        opacity: 0;
-                                                                                    }
-                                                                                }
+                                                        <div class="project-item">
+                                                            <a href="https://exemplo.com/projeto4">
+                                                                <img src="./imagens/IMG PROJETOS/em construção.webp"
+                                                                    alt="Projeto 4">
+                                                                <h6 class="blinking">EM BREVE</h6>
+                                                                <style>
+                                                                    @keyframes blink {
+                                                                        50% {
+                                                                            opacity: 0;
+                                                                        }
+                                                                    }
 
-                                                                                .blinking {
-                                                                                    animation: blink 1.5s linear infinite;
-                                                                                    color: #007ced;
-                                                                                    /* Ou qualquer cor que deseje para o texto */
-                                                                                }
-                                                                            </style>
-                                                                        </a>
-                                                                    </div>
+                                                                    .blinking {
+                                                                        animation: blink 1.5s linear infinite;
+                                                                        color: #007ced;
+                                                                        /* Ou qualquer cor que deseje para o texto */
+                                                                    }
+                                                                </style>
+                                                            </a>
+                                                        </div>
 
-                                                                    <div class="project-item">
-                                                                        <a href="./Pessoal/Jogos/Bingo/index.html">
-                                                                            <img src="./Pessoal/Jogos/Bingo/bingo.webp"
-                                                                                alt="Projeto 4">
-                                                                        </a>
-                                                                        <div class="button-container">
-                                                                            <a
-                                                                                href="./Pessoal/Jogos/Bingo/sorteio.html">
-                                                                                <button
-                                                                                    class="left-button">Sorteio</button>
-                                                                            </a>
-                                                                            <a
-                                                                                href="./Pessoal/Jogos/Bingo/cartela.html">
-                                                                                <button
-                                                                                    class="right-button">Cartela</button>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--
+                                                        <div class="project-item">
+                                                            <a href="./Pessoal/Jogos/Bingo/index.html">
+                                                                <img src="./Pessoal/Jogos/Bingo/bingo.webp"
+                                                                    alt="Projeto 4">
+                                                            </a>
+                                                            <div class="button-container">
+                                                                <a href="./Pessoal/Jogos/Bingo/sorteio.html">
+                                                                    <button class="left-button">Sorteio</button>
+                                                                </a>
+                                                                <a href="./Pessoal/Jogos/Bingo/cartela.html">
+                                                                    <button class="right-button">Cartela</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!--
             <div class="project-item">
                 <a href="https://exemplo.com/projeto4">
                     <img src="https://via.placeholder.com/300" alt="Projeto 4">
@@ -1283,78 +1326,78 @@
             </div>-->
 
 
-                                                                </div>
-                                                            </section>
+                                                    </div>
+                                                </section>
 
 
-                                                            <footer>
-                                                                <div id="relogio"></div>
-                                                            </footer>
+                                                <footer>
+                                                    <div id="relogio"></div>
+                                                </footer>
 
-                                                            <script>
-                                                                function atualizarRelogio() {
-                                                                    const agora = new Date();
-                                                                    const horas = String(agora.getHours()).padStart(2, '0');
-                                                                    const minutos = String(agora.getMinutes()).padStart(2, '0');
-                                                                    const segundos = String(agora.getSeconds()).padStart(2, '0');
-                                                                    document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+                                                <script>
+                                                    function atualizarRelogio() {
+                                                        const agora = new Date();
+                                                        const horas = String(agora.getHours()).padStart(2, '0');
+                                                        const minutos = String(agora.getMinutes()).padStart(2, '0');
+                                                        const segundos = String(agora.getSeconds()).padStart(2, '0');
+                                                        document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+                                                    }
+
+                                                    setInterval(atualizarRelogio, 1000);
+                                                    atualizarRelogio();
+
+
+                                                    function filterProjects() {
+                                                        const input = document.getElementById('search-input').value.toLowerCase();
+                                                        const projectItems = document.querySelectorAll('.project-item');
+                                                        let found = false;
+
+                                                        projectItems.forEach(function (item) {
+                                                            const text = item.textContent.toLowerCase();
+                                                            item.classList.remove('highlighted');
+
+                                                            if (text.includes(input)) {
+                                                                if (!found) {
+                                                                    found = true;
+                                                                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                                    item.classList.add('highlighted-temp');
                                                                 }
+                                                                item.style.display = '';
+                                                            } else {
+                                                                item.style.display = 'none';
+                                                            }
+                                                        });
 
-                                                                setInterval(atualizarRelogio, 1000);
-                                                                atualizarRelogio();
+                                                        setTimeout(function () {
+                                                            document.querySelectorAll('.highlighted-temp').forEach(function (item) {
+                                                                item.classList.remove('highlighted-temp');
+                                                                item.classList.add('highlighted');
+                                                            });
+                                                        }, 2000); // O tempo pode ser ajustado
+                                                    }
 
+                                                    function toggleCode(button) {
+                                                        const codeContainer = button.nextElementSibling;
+                                                        if (codeContainer.style.maxHeight === '300px') {
+                                                            codeContainer.style.maxHeight = '50px';
+                                                            button.textContent = 'Ver código completo';
+                                                        } else {
+                                                            codeContainer.style.maxHeight = '300px'; // Ajuste o tamanho conforme o código
+                                                            button.textContent = 'Ocultar código';
+                                                        }
+                                                    }
 
-                                                                function filterProjects() {
-                                                                    const input = document.getElementById('search-input').value.toLowerCase();
-                                                                    const projectItems = document.querySelectorAll('.project-item');
-                                                                    let found = false;
+                                                    function expandCode(element) {
+                                                        const codeContainer = element.querySelector('.code-container');
+                                                        codeContainer.style.maxHeight = '300px'; // Expande o código
+                                                    }
 
-                                                                    projectItems.forEach(function (item) {
-                                                                        const text = item.textContent.toLowerCase();
-                                                                        item.classList.remove('highlighted');
+                                                    function shrinkCode(element) {
+                                                        const codeContainer = element.querySelector('.code-container');
+                                                        codeContainer.style.maxHeight = '50px'; // Encolhe o código
+                                                    }
 
-                                                                        if (text.includes(input)) {
-                                                                            if (!found) {
-                                                                                found = true;
-                                                                                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                                                                item.classList.add('highlighted-temp');
-                                                                            }
-                                                                            item.style.display = '';
-                                                                        } else {
-                                                                            item.style.display = 'none';
-                                                                        }
-                                                                    });
-
-                                                                    setTimeout(function () {
-                                                                        document.querySelectorAll('.highlighted-temp').forEach(function (item) {
-                                                                            item.classList.remove('highlighted-temp');
-                                                                            item.classList.add('highlighted');
-                                                                        });
-                                                                    }, 2000); // O tempo pode ser ajustado
-                                                                }
-
-                                                                function toggleCode(button) {
-                    const codeContainer = button.nextElementSibling;
-                    if (codeContainer.style.maxHeight === '300px') {
-                        codeContainer.style.maxHeight = '50px';
-                        button.textContent = 'Ver código completo';
-                    } else {
-                        codeContainer.style.maxHeight = '300px'; // Ajuste o tamanho conforme o código
-                        button.textContent = 'Ocultar código';
-                    }
-                }
-
-                function expandCode(element) {
-        const codeContainer = element.querySelector('.code-container');
-        codeContainer.style.maxHeight = '300px'; // Expande o código
-    }
-
-    function shrinkCode(element) {
-        const codeContainer = element.querySelector('.code-container');
-        codeContainer.style.maxHeight = '50px'; // Encolhe o código
-    }
-
-                                                            </script>
+                                                </script>
 </body>
 
 </html>
