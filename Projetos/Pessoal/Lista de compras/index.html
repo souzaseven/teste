@@ -6,27 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Listas de Compras</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id"
-        content="337458256978-e14jm5ni55e39uco3a52outqffvkaidd.apps.googleusercontent.com">
-
-    <script src="https://google.com/gsi/client" asyncdefer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div class="container">
-        <h1>Gerador de Listas de Compras</h1>
-        <div class="google-login">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        </div>
+        <h1>Listas de Compras 
+            <img src="./carrrinho.png" alt="Carrinho de Compras">
+        </h1>
         <input type="text" id="item-input" placeholder="Digite o item">
         <div class="button-container">
             <button class="button" onclick="addItem()">Adicionar Item</button>
             <button class="button" onclick="clearAll()">Limpar Tudo</button>
         </div>
+
+        <!-- Cabeçalho das informações -->
+        <div class="header">
+            <div>Seq.</div>
+            <div>Produto</div>
+            <div>Quantidade</div>
+            <div>Vlr. Und.</div>
+            <div>Total</div>
+            <div>Ações</div>
+        </div>
+
+        <!-- Lista de compras -->
         <ul class="list" id="shopping-list"></ul>
+
+        <!-- Resumo -->
+        <div class="summary-container">
+            <p id="total-sequence">Produtos na lista: 0</p>
+            <p id="total-quantity">Total de produtos: 0</p>
+            <p id="total-price">Valor total: R$ 0.00</p>
+        </div>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+/* Estilos globais */
 body {
     display: flex;
     justify-content: center;
@@ -7,72 +8,52 @@ body {
     background-color: #007ced;
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
     background: #ffffff;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
     text-align: center;
     position: relative;
     z-index: 1;
 }
 
 h1 {
-    color: #333;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-}
-
-.list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.list-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
-    transition: background 0.3s, transform 0.2s;
 }
 
-.list-item:hover {
-    background: #e0e0e0;
-    transform: scale(1.02);
+h1 img {
+    margin-left: 5px;
+    width: 100px;
 }
 
-.list-item input[type="text"] {
-    border: none;
+#item-input {
     width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
     font-size: 16px;
-    background: transparent;
-    outline: none;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
-.list-item.confirmed input[type="text"] {
-    font-weight: bold;
-    color: green;
-    text-decoration: line-through;
-}
-
-.list-item .remove-icon {
-    font-size: 20px;
-    cursor: pointer;
-    color: #dc3545;
-    transition: color 0.3s;
-}
-
-.list-item .remove-icon:hover {
-    color: #a90000;
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0;
 }
 
 .button {
@@ -91,38 +72,175 @@ h1 {
     transform: scale(1.02);
 }
 
-.button-container {
+/* Header e lista de compras */
+.header, .list-item {
     display: flex;
-    gap: 10px;
-    margin: 10px 0;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-.google-login {
-    margin: 20px 0;
-    margin-left: 35%;
+.header div, .list-item div {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
 }
 
-.google-login button {
-    background-color: #4285f4;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
+.header {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #f1f1f1;
 }
 
-.google-login button:hover {
-    background-color: #357ae8;
+.list {
+    margin-top: 0;
+    padding: 0;
+}
+
+.list-item {
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.list-item:hover {
+    background: #e0e0e0;
     transform: scale(1.02);
 }
 
-#item-input {
-    width: calc(100% - 22px);
-    margin-bottom: 10px;
+.list-item.confirmed {
+    font-weight: bold;
+    color: green;
+    text-decoration: line-through;
+}
+
+.confirm-icon, .edit-icon, .remove-icon {
+    cursor: pointer;
+    margin-left: 5px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.confirm-icon:hover, .edit-icon:hover, .remove-icon:hover {
+    transform: scale(1.3);
+}
+
+.confirm-icon::after, .edit-icon::after, .remove-icon::after {
+    content: attr(data-tooltip); /* Mostra o conteúdo da tooltip */
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+    display: none; /* Tooltip fica invisível inicialmente */
+    z-index: 10;
+}
+
+.confirm-icon:hover::after, .edit-icon:hover::after, .remove-icon:hover::after {
+    display: block; /* Tooltip aparece ao passar o mouse */
+}
+
+.confirm-icon {
+    color: green;
+}
+
+.edit-icon {
+    color: orange;
+}
+
+.remove-icon {
+    color: red;
+}
+
+/* Resumo */
+.summary-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f1f1;
     padding: 10px;
-    font-size: 16px;
+    margin-top: 20px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+/* Destaque para o valor total */
+#total-price {
+    background-color: #ffe600;
+    color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#total-price span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Media Query para telas menores (mobile) */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header, .list-item {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .header div, .list-item div {
+        padding: 8px 0;
+        text-align: left;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summary-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #item-input {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+/* Media Query para tablets (600px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        padding: 25px;
+    }
+
+    .header div, .list-item div {
+        padding: 5px;
+    }
+
+    .summary-container {
+        flex-wrap: nowrap;
+    }
+
+    .button {
+        font-size: 13px;
+    }
 }
