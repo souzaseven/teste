@@ -125,7 +125,7 @@ h1 img {
 }
 
 .confirm-icon::after, .edit-icon::after, .remove-icon::after {
-    content: attr(data-tooltip); /* Mostra o conteúdo da tooltip */
+    content: attr(data-tooltip);
     position: absolute;
     bottom: 150%;
     left: 50%;
@@ -136,12 +136,12 @@ h1 img {
     border-radius: 5px;
     white-space: nowrap;
     font-size: 12px;
-    display: none; /* Tooltip fica invisível inicialmente */
+    display: none;
     z-index: 10;
 }
 
 .confirm-icon:hover::after, .edit-icon:hover::after, .remove-icon:hover::after {
-    display: block; /* Tooltip aparece ao passar o mouse */
+    display: block;
 }
 
 .confirm-icon {
@@ -189,40 +189,19 @@ h1 img {
     color: #ff5722;
 }
 
-/* Media Query para telas menores (mobile) */
+/* Remover empilhamento para telas menores */
 @media (max-width: 600px) {
-    .container {
-        padding: 20px;
+    .header, .list-item, .summary-container {
+        flex-direction: row; /* Mantém as divs lado a lado no mobile */
+        justify-content: space-between;
     }
 
-    .header, .list-item {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .header div, .list-item div {
-        padding: 8px 0;
-        text-align: left;
+    .header div, .list-item div, .summary-container p {
+        text-align: center; /* Centraliza os textos no mobile */
     }
 
     .button-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .summary-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    #item-input {
-        font-size: 14px;
-    }
-
-    .button {
-        font-size: 12px;
-        padding: 8px 10px;
+        flex-direction: row; /* Mantém os botões em linha no mobile */
     }
 }
 
