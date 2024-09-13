@@ -4,29 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafios de Escrita</title>
+    <title>Desafio de Escrita</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Desafios de Escrita</h1>
-        <div class="challenge-section">
-            <p id="random-text">Clique em "Iniciar Desafio" para começar.</p>
+        <h1>Desafio de Escrita</h1>
+        <div id="challenge-section" class="challenge-section">
+            <p id="random-text">Clique no botão para iniciar o desafio.</p>
         </div>
-
-        <div class="time-container">
-            <span>Tempo restante: <span id="timer">0</span> segundos</span>
-        </div>
-
-        <textarea id="user-input" placeholder="Digite o texto aqui..." oninput="checkTyping()" disabled></textarea>
-        <div class="button-container">
+        <textarea id="user-input" placeholder="Digite o texto aqui..." disabled oninput="checkTyping()"></textarea>
+        <div class="time-container" id="timer">Tempo restante: 30s</div>
+        <div class="button-container" id="start-button-container">
             <button id="start-button" onclick="startChallenge()">Iniciar Desafio</button>
         </div>
-
-        <div class="result-container">
-            <p id="result-message">Resultado será mostrado aqui em tempo real.</p>
-        </div>
+        <div id="result-options" class="button-container"></div>
+        <div id="result-message" class="result-container"></div>
     </div>
 
     <script src="script.js"></script>

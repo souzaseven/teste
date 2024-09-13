@@ -1,25 +1,24 @@
 const texts = [
-    "O céu azul brilhava com um toque dourado enquanto o sol nascia no horizonte.",
-    "A chuva batia suavemente na janela enquanto ela lia seu livro favorito.",
-    "Os pássaros cantavam alegremente nas árvores, enchendo o ar com sua melodia.",
-    "O gato deitou-se preguiçosamente no sofá, aproveitando o calor do sol.",
-    "A cidade estava agitada, mas ele encontrou paz em seu pequeno jardim.",
-    "Ele subiu a colina, sentindo o vento em seu rosto e o cheiro da terra úmida.",
-    "As flores desabrochavam, colorindo o campo com tons vibrantes de vermelho, amarelo e roxo.",
-    "A praia estava deserta, com apenas o som das ondas quebrando suavemente na areia.",
-    "A lua cheia iluminava o céu noturno, criando sombras misteriosas nas ruas silenciosas.",
-    "O café quente em suas mãos era o conforto que ele precisava naquela manhã fria."
+    "O sol estava brilhando intensamente.",
+    "A casa era branca com janelas azuis.",
+    "O vento soprava suavemente na praia.",
+    "Ela leu o livro em uma tarde chuvosa.",
+    "O gato dormia em cima do sofá.",
+    "Eles jogaram futebol no parque.",
+    "A noite estava estrelada e clara.",
+    "Ele escreveu uma carta para sua amiga.",
+    "A criança desenhou um sol amarelo.",
+    "A montanha era alta e imponente."
 ];
 
 let currentText = "";
 let timer;
-let timeLeft = 30; // 30 segundos para o desafio
+let timeLeft = 30;
+let hasFinished = false;
 
 function startChallenge() {
     // Escolhe um texto aleatório
     currentText = texts[Math.floor(Math.random() * texts.length)];
-    
-    // Exibe o texto aleatório
     document.getElementById("random-text").textContent = currentText;
 
     // Habilita a área de texto
@@ -27,24 +26,32 @@ function startChallenge() {
     document.getElementById("user-input").value = "";
     document.getElementById("user-input").focus();
 
-    // Reseta o tempo e a mensagem
+    // Remove o botão "Iniciar Desafio"
+    const startButton = document.getElementById("start-button");
+    if (startButton) {
+        startButton.style.display = "none"; // Esconde o botão após o início do desafio
+    }
+
+    // Reseta o tempo, mensagem e estado
     timeLeft = 30;
-    document.getElementById("timer").textContent = timeLeft;
+    hasFinished = false;
+    document.getElementById("timer").textContent = `Tempo restante: ${timeLeft}s`;
     document.getElementById("result-message").textContent = "Resultado será mostrado aqui em tempo real.";
+    document.getElementById("result-options").innerHTML = "";
 
     // Inicia o temporizador
     timer = setInterval(updateTimer, 1000);
 }
 
 function updateTimer() {
-    timeLeft--;
-    document.getElementById("timer").textContent = timeLeft;
-
-    // Se o tempo acabar, desativa a entrada de texto
-    if (timeLeft <= 0) {
+    if (timeLeft > 0) {
+        timeLeft--;
+        document.getElementById("timer").textContent = `Tempo restante: ${timeLeft}s`;
+    } else {
         clearInterval(timer);
+        document.getElementById("timer").textContent = "Tempo esgotado!";
         document.getElementById("user-input").disabled = true;
-        checkFinalResult();
+        checkFinalResult(); // Verifica o resultado final quando o tempo termina
     }
 }
 
@@ -56,6 +63,17 @@ function checkTyping() {
         resultMessage.textContent = "Você está indo bem!";
         resultMessage.classList.remove("incorrect");
         resultMessage.classList.add("correct");
+
+        if (userInput === currentText && !hasFinished) {
+            hasFinished = true;
+            clearInterval(timer);
+            document.getElementById("user-input").disabled = true;
+
+            const timeSaved = 30 - timeLeft;
+            resultMessage.textContent = `Parabéns! Você terminou ${timeSaved} segundos antes do tempo!`;
+            resultMessage.classList.add("correct");
+            showResultOptions();
+        }
     } else {
         resultMessage.textContent = "Você cometeu um erro.";
         resultMessage.classList.remove("correct");
@@ -69,9 +87,34 @@ function checkFinalResult() {
 
     if (userInput === currentText) {
         resultMessage.textContent = "Parabéns! Você digitou o texto corretamente!";
-        resultMessage.style.color = "green";
+        resultMessage.classList.add("correct");
     } else {
         resultMessage.textContent = "Ops! O texto não correspondeu. Tente novamente!";
-        resultMessage.style.color = "red";
+        resultMessage.classList.add("incorrect");
     }
+    showResultOptions();
+}
+
+function showResultOptions() {
+    const resultOptions = document.getElementById("result-options");
+    resultOptions.innerHTML = `
+        <button onclick="trySameText()">Tentar novamente</button>
+        <button onclick="startChallenge()">Próxima</button>
+        <button onclick="exitToHome()">Sair</button>
+    `;
+}
+
+function trySameText() {
+    document.getElementById("user-input").value = "";
+    document.getElementById("user-input").disabled = false;
+    document.getElementById("user-input").focus();
+    hasFinished = false;
+    timeLeft = 30;
+    document.getElementById("timer").textContent = `Tempo restante: ${timeLeft}s`;
+    document.getElementById("result-message").textContent = "Resultado será mostrado aqui em tempo real.";
+    timer = setInterval(updateTimer, 1000);
+}
+
+function exitToHome() {
+    window.location.reload();
 }
