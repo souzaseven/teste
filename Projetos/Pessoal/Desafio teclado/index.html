@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios de Escrita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Desafios de Escrita</h1>
+        <div class="challenge-section">
+            <p id="random-text">Clique em "Iniciar Desafio" para começar.</p>
+        </div>
+
+        <div class="time-container">
+            <span>Tempo restante: <span id="timer">0</span> segundos</span>
+        </div>
+
+        <textarea id="user-input" placeholder="Digite o texto aqui..." oninput="checkTyping()" disabled></textarea>
+        <div class="button-container">
+            <button id="start-button" onclick="startChallenge()">Iniciar Desafio</button>
+        </div>
+
+        <div class="result-container">
+            <p id="result-message">Resultado será mostrado aqui em tempo real.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
