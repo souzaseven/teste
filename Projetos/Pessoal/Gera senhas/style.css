@@ -1,0 +1,59 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #007bff; /* Subtle blue background */
+    
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.box {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.form-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.form-group {
+    width: 100%;
+}
+.form-control, .btn-classic, .copy-btn {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 5px 0; /* Adds space around elements */
+}
+.btn-classic {
+    background-color: #28a745; /* Green background */
+    color: #fff; /* White text */
+    cursor: pointer;
+    border: none;
+}
+.btn-classic:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+.resultado {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #212529; /* Dark text for readability */
+}
+.copy-btn {
+    background-color: #17a2b8; /* Blue button for copy */
+    color: white;
+    cursor: pointer;
+    display: block; /* Makes it a block element to fill the width */
+    text-align: center; /* Centers the text within the button */
+}
+.copy-btn:hover {
+    background-color: #138496; /* Darker blue on hover */
+}

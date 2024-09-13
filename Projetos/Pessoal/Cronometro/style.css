@@ -1,0 +1,52 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #007ced, #ffffff);
+}
+.box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#timer {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+}
+.btn-success {
+    background-color: #28a745;
+}
+.btn-warning {
+    background-color: #ffc107;
+}
+.btn-default {
+    background-color: #6c757d;
+}
+.laps {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.laps li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+}
