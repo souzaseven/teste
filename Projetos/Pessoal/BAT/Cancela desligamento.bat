@@ -1,3 +1,3 @@
 @echo off
-                                            shutdown /a
+shutdown /a
             
