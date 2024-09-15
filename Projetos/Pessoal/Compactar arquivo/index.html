@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compactar Arquivo em ZIP</title>
+    
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Compactar <br>Arquivo em ZIP</h1>
+        <div id="drop-zone" class="drop-zone">
+            <p>Arraste e solte o arquivo aqui ou clique para selecionar</p>
+            <input type="file" id="file-upload" style="display:none;" multiple>
+        </div>
+
+        <a id="download-link">Baixar Arquivo Compactado</a>
+
+        <p id="status"></p>
+    </div>
+
+    <!-- Inclua a biblioteca JSZip para trabalhar com arquivos ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+   <script src="./script.js"></script>
+</body>
+
+</html>
