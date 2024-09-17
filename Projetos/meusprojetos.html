@@ -508,6 +508,26 @@
                 flex: 1 1 100%;
             }
         }
+  .button-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    .download-button, .text-button {
+        background-color: #007ced;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .download-button:hover, .text-button:hover {
+        background-color: #005bb5;
+    }
+
+
     </style>
 </head>
 
@@ -901,7 +921,7 @@
 
  <div class="project-item">
                                                 <a href="./Pessoal/Muda cor de fundo/index.html">
-                                                    <img src="" alt="">
+                                                    <img src="./Pessoal/Muda cor de fundo/painel.png" alt="">
                                                     <h6>Muda fundo da Img</h6>
                                                 </a>
                                             </div>
@@ -1152,151 +1172,146 @@
 
 
 
-                                                <section
-                                                    style="background-color: #007ced; padding: 10px; text-align: center; font-size: 1.5rem; font-weight: 100; margin-top: 1%; width: 100%;">
-                                                    <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD
-                                                    </h1>
-                                                </section>
+                                               <section style="
+    background-color: #007ced;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-top: 1%;
+    width: 100%;">
+    <h1 style="color: white; margin: 0;">Arquivos .bat e scripts CMD</h1>
+</section>
 
-                                                <section>
-                                                    <br>
-                                                    <div class="block-container cmd"
-                                                        style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Desligar Imediatamente</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                                    <img src="" alt="">
-                                                                </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Desliga_imediatamente.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
+<section>
+    <br>
+    <div class="block-container cmd" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Desligar Imediatamente</h1>
+            <div class="code-container">
+                <code class="hljs language-batch">
+                    <img src="" alt="">
+                </code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Desliga_imediatamente.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Desliga imediatamente.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                        <!-- EXEMPLO COLOCANDO IMAGEM DE FUNDO
-<div class="code-container" 
-style="background-image: url('./imagens/Painel/aura\ logo.png'); background-size: cover; background-position: center;">
--->
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Desligar Após um Atraso</h1>
+            <div class="code-container">
+                <code class="hljs language-batch"></code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Desliga_com_atraso.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Desliga com atraso.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Desligar Após um Atraso</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                                </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Desliga_com_atraso.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Reiniciar Imediatamente</h1>
+            <div class="code-container">
+                <code class="hljs language-batch"></code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Reinicia_imediatamente.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Reinicia imediatamente.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Reiniciar Imediatamente</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Cancelar Desligamento</h1>
+            <div class="code-container">
+                <code class="hljs language-batch"></code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Cancela_desligamento.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Cancela desligamento.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                                </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Reinicia_imediatamente.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Portas Atualizador</h1>
+            <div class="code-container">
+                <code class="hljs language-batch">
+                    Configurando regras de firewall para o Atualizador TGA Funcionar...
+                </code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Portas_Atualizador.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Portas Atualizador.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Cancelar Desligamento</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Adiciona Multiplas Instâncias</h1>
+            <div class="code-container">
+                <code class="hljs language-batch"></code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Multiplas Instancias.reg" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Multiplas Instancias.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-                                                                </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Cancela_desligamento.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Remove Multiplas Instâncias</h1>
+            <div class="code-container">
+                <code class="hljs language-batch"></code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Remove Multiplas Instacias.reg" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Remove Multiplas Instacias.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
 
-<div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1></h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-
-                                                    </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
-
-
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Portas Atualizador</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                                   Configurando regras de firewall para o Atualizador TGA Funcionar...
-                                                                </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Portas_Atualizador.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
-
- <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Adiciona Multiplas Instâncias</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                            </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Multiplas Instancias.reg"
-                                                                download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
-
-
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Remove Multiplas Instâncias</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                            </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Remove Multiplas Instacias.reg"
-                                                                download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1>Portas pdv</h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-                                                            Configurando regras de firewall para as portas 2517, 2525, 3050 (UDP e TCP)...
-                                                        </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/Libera portas pdv.bat" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
-
-<div class="block cmd" onmouseover="expandCode(this)"
-                                                            onmouseout="shrinkCode(this)">
-                                                            <h1></h1>
-                                                            <div class="code-container">
-                                                                <code class="hljs language-batch">
-
-                                                    </code>
-                                                            </div>
-                                                            <a href="./Pessoal/BAT/" download>
-                                                                <button>Baixar</button>
-                                                            </a>
-                                                        </div>
+        <div class="block cmd" onmouseover="expandCode(this)" onmouseout="shrinkCode(this)">
+            <h1>Portas PDV</h1>
+            <div class="code-container">
+                <code class="hljs language-batch">
+                    Configurando regras de firewall para as portas 2517, 2525, 3050 (UDP e TCP)...
+                </code>
+            </div>
+            <div class="button-group">
+                <a href="./Pessoal/BAT/Libera portas pdv.bat" download>
+                    <button class="download-button">Baixar</button>
+                </a>
+                <a href="./Pessoal/BAT/Libera portas pdv.txt">
+                    <button class="text-button">Texto</button>
+                </a>
+            </div>
+        </div>
+    
 
 
 <!--
@@ -1314,9 +1329,9 @@ style="background-image: url('./imagens/Painel/aura\ logo.png'); background-size
                                                         </div>
 -->
 
-
-                                                    </div>
-                                                </section>
+</div>
+</section>
+                                            
 
 
 
