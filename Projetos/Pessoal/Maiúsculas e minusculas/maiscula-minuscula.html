@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Maiúsculas e Minúsculas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Converter Maiúsculas e Minúsculas</h1>
+        <div class="box">
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <div class="legenda">Digite ou cole o texto no campo abaixo:</div>
+                        <textarea name="origem" class="form-control origem" oninput="converterTexto()"></textarea>
+                        <div class="opt-extra">
+                            <div>
+                                <input type="radio" name="tipo" id="maiusculas" value="maiusculas" checked onchange="converterTexto()">
+                                <label for="maiusculas">Maiúsculas</label>
+                                <input type="radio" name="tipo" id="minusculas" value="minusculas" onchange="converterTexto()">
+                                <label for="minusculas">Minúsculas</label>
+                                <input type="radio" name="tipo" id="primeiraletra" value="primeiraletra" onchange="converterTexto()">
+                                <label for="primeiraletra">Primeira letra</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Resultado do texto convertido -->
+                <div class="col-12">
+                    <div class="legenda">Resultado:</div>
+                    <textarea name="destino" class="form-control destino" readonly></textarea>
+                </div>
+                <!-- Botões para copiar o texto e limpar -->
+                <div class="col-12 col-btn">
+                    <button class="btn-classic" onclick="copiarTexto()">
+                        <i class="fas fa-copy"></i> Copiar Texto
+                    </button>
+                    <button class="btn-classic" onclick="limparConteudo()">
+                        Limpar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
