@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverter Texto</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Inverter Texto <span style="color: #007bff;">-> otxeT</span></h1>
+        <div class="box">
+            <!-- Text area for original text -->
+            <div class="form-group">
+                <div class="legenda">Digite ou cole o texto </div>
+                <textarea name="origem" class="form-control origem" rows="4" oninput="inverterTexto()"></textarea>
+            </div>
+
+            <!-- Text area for the reversed text -->
+            <div class="form-group">
+                <div class="legenda">Resultado:</div>
+                <textarea name="destino" class="form-control destino" rows="4" readonly></textarea>
+            </div>
+
+            <!-- Buttons to clear and copy the text -->
+            <button class="btn btn-classic" onclick="limparTexto()">
+                <i class="glyphicon glyphicon-trash"></i> Limpar
+            </button>
+            <button class="btn btn-default" onclick="copiarTexto()">
+                <i class="glyphicon glyphicon-copy"></i> Copiar
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Functions -->
+  <script src="./script.js"></script>
+</body>
+</html>
