@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="src/styles/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="stopwatch">
+        <h2 id="timer">00:00:00:00</h2>
+        <div id="actions">
+            <button id="reset">
+                <i class="fa-solid fa-redo"></i> 
+            </button>
+            <button id="power">
+                <i class="fa-solid fa-play" id="power-icon"></i>
+            </button>
+            <button id="mark">
+                <i class="fa-solid fa-flag"></i> Parar
+            </button> <!-- Alterado para parar tudo -->
+           
+            <button id="pause-show">
+    <i class="fa-solid fa-hand-paper"></i> <i class="fa-solid fa-eye"></i> 
+</button>
+<br><br>
+        <div id="marks-list"></div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="src/javascript/script.js"></script>
+</body>
+</html>
