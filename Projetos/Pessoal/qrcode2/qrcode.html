@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Script do Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Importação do CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container do Gerador de QR Code -->
+    <div class="container">
+        <!-- Título com ícone -->
+        <h1><i class="fa fa-qrcode"></i> Gerador de QR Code</h1>
+
+        <!-- Campo para o texto ou URL -->
+        <input type="text" id="text" placeholder="Digite o texto ou URL">
+
+        <!-- Upload de imagem para sobrepor no QR Code -->
+        <input type="file" id="imageInput" accept="image/*">
+        
+        <!-- Botão para gerar o QR Code -->
+        <button onclick="generateQRCode()"><i class="fa fa-cogs"></i> Gerar QR Code</button>
+
+        <!-- Div onde o QR Code será gerado -->
+        <div id="qrcode"></div>
+
+        <!-- Grupo de botões para copiar, compartilhar e imprimir -->
+        <div class="button-group">
+            <button onclick="copyQRCode()"><i class="fa fa-copy"></i> Copiar</button>
+            <button onclick="shareQRCode()"><i class="fa fa-share"></i> Compartilhar</button>
+            <button onclick="printQRCode()"><i class="fa fa-print"></i> Imprimir</button>
+        </div>
+    </div>
+
+    <!-- Script para gerar o QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <!-- Importação do script.js -->
+    <script src="script.js"></script>
+</body>
+</html>

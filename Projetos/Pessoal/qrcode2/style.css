@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Estilos básicos do corpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #007ced, #00bfff);
+}
+
+/* Container principal */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 400px;
+    transition: transform 0.3s;
+}
+
+/* Efeito de hover no container */
+.container:hover {
+    transform: scale(1.03); /* Ampliação sutil no hover */
+}
+
+/* Título com negrito, itálico e sombra */
+.container h1 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilização dos campos de input */
+.container input[type="text"],
+.container input[type="file"] {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: 2px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito ao focar nos campos */
+.container input[type="text"]:focus,
+.container input[type="file"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo dos botões com cores dinâmicas */
+.container button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efeito ao passar o mouse nos botões */
+.container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Pequeno zoom no hover */
+}
+
+/* Estilo do ícone nos botões */
+.container i {
+    margin-right: 5px;
+}
+
+/* Div onde o QR Code será gerado */
+#qrcode {
+    margin-top: 30px;
+    position: relative;
+}
+
+/* Imagem sobreposta ao QR Code */
+#qrcode img.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; /* Tamanho da imagem sobreposta */
+    height: 40px;
+    opacity: 0.8; /* Deixa a imagem sobreposta semi-transparente */
+}
+
+/* Título adicional para o QR Code */
+.container .qr-title {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* Grupo de botões */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Estilização dos botões dentro do grupo */
+.button-group button {
+    flex: 1;
+    padding: 12px;
+}
+
+/* Adiciona espaço entre ícones e texto */
+.button-group i {
+    margin-right: 5px;
+}
