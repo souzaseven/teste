@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #007bff; /* Subtle blue background */
-    
+    font-family: 'Poppins', sans-serif;
+    background-color:#007bff;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -9,51 +10,132 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
+/* Estilo da caixa principal */
 .box {
     width: 100%;
     max-width: 600px;
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
+
+/* Estilo do título com ícone */
+.titulo {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #007bff;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo i {
+    margin-right: 10px;
+}
+
+/* Estilo dos campos e botões */
 .form-inline {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
+
 .form-group {
     width: 100%;
+    margin-bottom: 15px;
 }
-.form-control, .btn-classic, .copy-btn {
+
+.form-control {
     width: 100%;
-    padding: 10px 5px;
+    padding: 10px 15px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    margin: 5px 0; /* Adds space around elements */
+    margin: 5px 0;
+    transition: border-color 0.3s;
 }
-.btn-classic {
-    background-color: #28a745; /* Green background */
-    color: #fff; /* White text */
-    cursor: pointer;
+
+.form-control:focus {
+    border-color: #007bff;
+}
+
+/* Estilo dos botões com ícones */
+.btn-classic, .copy-btn, .clear-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
     border: none;
-}
-.btn-classic:hover {
-    background-color: #218838; /* Darker green on hover */
-}
-.resultado {
-    background-color: #f8f9fa; /* Light gray background */
-    color: #212529; /* Dark text for readability */
-}
-.copy-btn {
-    background-color: #17a2b8; /* Blue button for copy */
-    color: white;
     cursor: pointer;
-    display: block; /* Makes it a block element to fill the width */
-    text-align: center; /* Centers the text within the button */
+    transition: all 0.3s ease;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.btn-classic i, .copy-btn i, .clear-btn i {
+    margin-right: 8px;
+}
+
+.btn-classic {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-classic:hover {
+    background-color: #218838;
+}
+
+.copy-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+
 .copy-btn:hover {
-    background-color: #138496; /* Darker blue on hover */
+    background-color: #138496;
+}
+
+.clear-btn {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.clear-btn:hover {
+    background-color: #cc0000;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Estilo do campo de resultado */
+.resultado {
+    background-color: #f8f9fa;
+    color: #212529;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+/* Feedback de cópia bem-sucedida */
+#feedback {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: green;
+}
+
+/* Botão de animação ao clicar */
+button:active {
+    transform: scale(0.98);
 }

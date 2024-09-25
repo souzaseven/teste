@@ -16,6 +16,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 600px;
+    text-align: center;
 }
 
 .container h1 {
@@ -25,16 +26,17 @@ body {
     text-align: center;
 }
 
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
 .form-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
-}
-
-.form-group label {
-    flex-basis: 100%;
-    font-weight: bold;
 }
 
 .form-group input[type="text"],
@@ -82,7 +84,14 @@ body {
     display: none;
 }
 
-.container button {
+/* Botões alinhados lado a lado com espaçamento */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button-group button {
     padding: 15px 30px;
     font-size: 1rem;
     border: none;
@@ -91,12 +100,10 @@ body {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
+    width: 48%;
 }
 
-.container button:hover {
+.button-group button:hover {
     background-color: #0056b3;
 }
 

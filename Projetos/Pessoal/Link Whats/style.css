@@ -14,7 +14,7 @@ body {
 /* Tema padrão */
 :root {
     --background-color: #007ced;
-    --text-color: #fff;
+    --text-color: black;
     --container-bg-color: #ffffff;
     --button-bg-color: #28a745;
     --button-text-color: white;

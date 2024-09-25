@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Gerador de QR Code</h1>
+        <h1><i class="fa fa-qrcode"></i> Gerador de QR Code</h1>
         <div class="form-group">
             <select id="tamanho">
                 <option value="1">Tamanho: 1</option>
@@ -35,7 +35,7 @@
             </select>
 
             <div class="color-picker-wrapper">
-                <input type="text" id="corqr" class="color-picker" placeholder="Cor (#000000)">
+                <input type="text" id="corqr" class="color-picker" placeholder="Cor QR (#000000)">
                 <input type="color" id="colorqrpicker">
                 <i class="fa fa-palette color-icon" onclick="document.getElementById('colorqrpicker').click()"></i>
             </div>
@@ -46,15 +46,24 @@
                 <i class="fa fa-palette color-icon" onclick="document.getElementById('colorbgpicker').click()"></i>
             </div>
 
-            <input type="text" id="qrcodetxt" placeholder="Texto">
+            <input type="text" id="qrcodetxt" placeholder="Texto ou URL" class="input-text">
         </div>
-        <button onclick="generateQRCode()">Gerar QR Code</button>
+
+        <!-- Botões alinhados lado a lado -->
+        <div class="button-group">
+            <button class="btn" onclick="generateQRCode()"><i class="fa fa-qrcode"></i> Gerar QR Code</button>
+            <button id="download-btn" class="btn" style="display: none;" onclick="downloadQRCode()"><i class="fa fa-download"></i> Baixar</button>
+        </div>
+
+        <!-- Container para o QR Code -->
         <div id="qrcode"></div>
     </div>
 
+    <!-- Biblioteca QR Code e Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-
-    <!-- Adiciona Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <!-- Script -->
+    <script src="script.js"></script>
 </body>
 </html>

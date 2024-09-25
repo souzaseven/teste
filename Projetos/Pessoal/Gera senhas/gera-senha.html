@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Senhas</title>
-   
+
+    <!-- Estilo CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Biblioteca de ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
 
 <div class="box">
-    <h1 style="text-align: center;">Gerador de Senhas</h1>
+    <!-- Título estilizado -->
+    <h1 class="titulo"><i class="fa fa-lock"></i> Gerador de Senhas</h1>
+    
     <div class="form-inline">
         <div class="form-group">
             <input type="checkbox" checked name="numeros" id="numeros">
@@ -30,21 +30,27 @@
         </div>
         <div class="form-group">
             <label for="tamanho">Tamanho:</label>
-            <input type="number" class="form-control" id="tamanho" value="16">
+            <input type="number" class="form-control" id="tamanho" value="16" min="8" max="64">
         </div>
         <div class="form-group">
             <label for="quantidade">Quantidade:</label>
-            <input type="number" class="form-control" id="quantidade" value="1">
+            <input type="number" class="form-control" id="quantidade" value="1" min="1" max="10">
         </div>
-        <button class="btn-classic">Gerar Senha</button>
+        
+        <div class="button-group">
+            <button class="btn-classic"><i class="fa fa-cogs"></i> Gerar Senha</button>
+            <button class="copy-btn"><i class="fa fa-copy"></i> Copiar Senha</button>
+            <button class="clear-btn"><i class="fa fa-trash"></i> Limpar Conteúdo</button>
+        </div>
     </div>
+
     <div class="form-group">
         <textarea id="result" class="form-control resultado" rows="5" readonly></textarea>
-        <button class="copy-btn">Copiar Senha</button>
+        <span id="feedback" style="display:none; color: green;">Senha copiada!</span>
     </div>
 </div>
 
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

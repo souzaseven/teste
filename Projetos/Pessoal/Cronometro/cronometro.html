@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <!-- Script para Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
 
-    
+    <!-- Configurações de Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    <!-- Título da página -->
+    <title>Cronômetro Neumórfico</title>
 
-
-    <title>Cronômetro</title>
-    
+    <!-- Vinculação do arquivo CSS -->
     <link rel="stylesheet" href="style.css">
-       
 </head>
 <body>
+    <!-- Container principal do cronômetro -->
     <div class="box">
+        <!-- Exibição do tempo -->
         <div id="timer">00:00:00:00</div>
-        <button id="start" class="btn btn-success" title="Barra de espaço">Iniciar</button>
-        <button id="pause" class="btn btn-warning" title="Pausar">Pausar</button>
-        <button id="reset" class="btn btn-default" title="Esc">Zerar</button>
+
+        <!-- Botões de controle -->
+        <div class="btn-container">
+            <button id="start" class="btn btn-success" title="Pressione a barra de espaço para iniciar/pausar">Iniciar</button>
+            <button id="pause" class="btn btn-warning" title="Pausar">Pausar</button>
+            <button id="reset" class="btn btn-default" title="Pressione Esc para resetar">Zerar</button>
+            <button id="lap" class="btn btn-info" title="Marcar Volta">Volta</button>
+        </div>
+
+        <!-- Lista de voltas -->
         <ul class="laps"></ul>
     </div>
-  <script src="./script.js"></script>
+
+    <!-- Inclusão do JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
