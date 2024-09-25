@@ -6,6 +6,7 @@ document.getElementById('closeModal').addEventListener('click', closeModal);
 
 let imageArray = [];
 let pdfBlob = null;
+let dragSrcElement = null; // Para controle de arrastar/soltar
 
 // Função para lidar com o upload de imagens
 function handleImageUpload(event) {
@@ -14,49 +15,93 @@ function handleImageUpload(event) {
     thumbnailContainer.innerHTML = ''; // Limpa a pré-visualização anterior
     imageArray = []; // Limpa o array de imagens
 
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+    Array.from(files).forEach((file, index) => {
         const reader = new FileReader();
-
+        
         reader.onload = function(e) {
             const img = new Image();
             img.src = e.target.result;
-            imageArray.push(img); // Armazena as imagens no array
+            img.dataset.index = index; // Guarda o índice da imagem
+            img.draggable = true; // Habilita arrastar
+            img.addEventListener('dragstart', handleDragStart);
+            img.addEventListener('dragover', handleDragOver);
+            img.addEventListener('drop', handleDrop);
+            img.addEventListener('dragend', handleDragEnd);
 
-            const thumbnail = new Image();
-            thumbnail.src = e.target.result;
-            thumbnailContainer.appendChild(thumbnail);
+            imageArray.push(img); // Armazena as imagens no array
+            thumbnailContainer.appendChild(img);
         };
 
         reader.readAsDataURL(file);
+    });
+
+    document.getElementById('generatePDF').style.display = 'inline';
+    document.getElementById('previewPDF').style.display = 'inline';
+}
+
+// Funções de arrastar e soltar para ordenar as imagens
+function handleDragStart(e) {
+    dragSrcElement = this;
+    this.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.outerHTML);
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    return false;
+}
+
+function handleDrop(e) {
+    e.stopPropagation();
+    if (dragSrcElement !== this) {
+        dragSrcElement.outerHTML = this.outerHTML;
+        this.outerHTML = e.dataTransfer.getData('text/html');
+        updateImageArray();
+        document.getElementById('previewPDF').style.display = 'inline'; // Mostrar "Pré-visualizar PDF" após reordenar
     }
+    return false;
+}
+
+function handleDragEnd() {
+    this.classList.remove('dragging');
+}
+
+// Atualiza o array de imagens após reordenação
+function updateImageArray() {
+    const thumbnails = document.querySelectorAll('.thumbnail-preview img');
+    imageArray = Array.from(thumbnails);
 }
 
 // Função para gerar o PDF a partir das imagens
 function generatePDF() {
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = pdf.internal.pageSize.getWidth() - 20; // Largura da imagem (com margem)
-    const pageHeight = pdf.internal.pageSize.getHeight(); // Altura da página
+    const imgWidth = (pdf.internal.pageSize.getWidth() - 20) / 2; // Ajuste para 2 imagens por página
+    const pageHeight = pdf.internal.pageSize.getHeight();
     let yPosition = 10;
+    let xPosition = 10;
 
     imageArray.forEach((img, index) => {
-        const ratio = img.naturalWidth / img.naturalHeight;
-        const imgHeight = imgWidth / ratio;
+        const imgHeight = imgWidth * (img.naturalHeight / img.naturalWidth);
 
-        if (yPosition + imgHeight > pageHeight) {
-            pdf.addPage(); // Adiciona nova página se a imagem não couber
-            yPosition = 10; // Reinicia a margem no topo
+        if (xPosition + imgWidth > pdf.internal.pageSize.getWidth()) {
+            xPosition = 10;
+            yPosition += imgHeight + 10;
+
+            if (yPosition + imgHeight > pageHeight) {
+                pdf.addPage();
+                yPosition = 10;
+            }
         }
 
-        pdf.addImage(img.src, 'JPEG', 10, yPosition, imgWidth, imgHeight); // Ajusta a imagem
-        yPosition += imgHeight + 10; // Incrementa a posição vertical para a próxima imagem
+        pdf.addImage(img.src, 'JPEG', xPosition, yPosition, imgWidth, imgHeight);
+        xPosition += imgWidth + 10;
     });
 
-    pdfBlob = pdf.output('blob'); // Armazena o PDF gerado como Blob
+    pdfBlob = pdf.output('blob');
 
-    document.getElementById('previewPDF').style.display = 'inline'; // Mostra o botão de pré-visualização
-    document.getElementById('downloadPDF').style.display = 'inline'; // Mostra o botão de download
+    document.getElementById('downloadPDF').style.display = 'inline'; // Mostrar botão de download após gerar PDF
 }
 
 // Função para pré-visualizar o PDF

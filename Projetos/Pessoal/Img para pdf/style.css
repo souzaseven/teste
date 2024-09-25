@@ -19,7 +19,7 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 60%;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .container h1 {
@@ -56,10 +56,11 @@ button:hover {
 }
 
 .thumbnail-preview {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(10, 80px); /* 10 imagens por linha */
     gap: 10px;
     margin-bottom: 20px;
+    justify-content: flex-start;
 }
 
 .thumbnail-preview img {
@@ -68,6 +69,11 @@ button:hover {
     object-fit: cover;
     border: 2px solid #ddd;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.thumbnail-preview img.dragging {
+    opacity: 0.5;
 }
 
 .button-group {
