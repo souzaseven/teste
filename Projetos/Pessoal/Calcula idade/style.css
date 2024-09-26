@@ -1,78 +1,78 @@
-   /* Estilo do corpo da página */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #007bff 25%, #00c4ff 100%);
-            color: #fff;
-        }
+/* Estilo do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #007bff 25%, #00c4ff 100%);
+    color: #fff;
+}
 
-        /* Estilo do contêiner principal */
-        .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-            text-align: center;
-            color: #333;
-            max-width: 400px;
-            width: 100%;
-        }
+/* Estilo do contêiner principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
+    max-width: 400px;
+    width: 100%;
+}
 
-        /* Estilo do título principal */
-        h2 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: #007bff;
-            font-weight: bold;
-            font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+/* Estilo do título principal */
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #007bff;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-        /* Estilo para as legendas dos campos */
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-size: 1rem;
-        }
+/* Estilo para as legendas dos campos */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
 
-        /* Estilo para o campo de entrada de data */
-        input[type="date"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: calc(100% - 22px);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
+/* Estilo para o campo de entrada de data */
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
 
-        /* Estilo para a área de exibição do resultado */
-        .result {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #007bff;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
+/* Estilo para a área de exibição do resultado */
+.result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #007bff;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
-        /* Estilo para resultado destacado */
-        .highlight {
-            font-weight: bold;
-            color: #28a745;
-            font-size: 1.4rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+/* Estilo para resultado destacado */
+.highlight {
+    font-weight: bold;
+    color: #28a745;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
 
-        /* Exibir resultado com transição */
-        .result.show {
-            opacity: 1;
-        }
+/* Exibir resultado com transição */
+.result.show {
+    opacity: 1;
+}
 
-        /* Estilo para mensagens de erro */
-        .error {
-            color: red;
-        }
+/* Estilo para mensagens de erro */
+.error {
+    color: red;
+}
