@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir IP e Localização</title>
+   <link rel="stylesheet" href="style.css">
+    <!-- Leaflet CSS (Map Library) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="box">
+        <h1>Exibir IP e Localização</h1>
+        <div class="display">
+            <p><span class="info">IP Público (IPv4): </span><span id="ip" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">IP Público (IPv6): </span><span id="ipv6" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">Sufixo DNS: </span><span id="dnsSuffix">Carregando...</span></p>
+            <p><span class="info">Máscara de Sub-rede: </span><span id="subnetMask">Carregando...</span></p>
+            <p><span class="info">Gateway Padrão: </span><span id="gateway">Carregando...</span></p>
+            <p><span class="info">Provedor de Internet: </span><span id="isp" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">Modelo do Dispositivo: </span><span id="device" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">Cidade: </span><span id="city" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">Estado: </span><span id="region" aria-live="polite">Carregando...</span></p>
+            <p><span class="info">País: </span><span id="country" aria-live="polite">Carregando...</span></p>
+        </div>
+    </div>
+
+    <!-- Mapa para exibir a localização -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS (Map Library) -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+   <script src="./scrip.js"></script>
+</body>
+</html>
