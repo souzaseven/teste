@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
     
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
@@ -13,20 +12,20 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2 style="color: #333; text-align: center;">Contagem Regressiva</h2>
+        <h2 class="title">Contagem Regressiva</h2>
         <div class="form-group">
-            <label for="title" style="color: #333;">Contagem regressiva para:</label>
+            <label for="title" class="label">Contagem regressiva para:</label>
             <input type="text" class="form-control" id="title" maxlength="100" autocomplete="off" placeholder="ex: Ano Novo">
         </div>
         <div class="form-group">
-            <label for="datetime" style="color: #333;">Data e horário:</label>
+            <label for="datetime" class="label">Data e horário:</label>
             <input type="datetime-local" min="2024-07-25T00:00" autocomplete="off" class="form-control" id="datetime">
         </div>
         <button type="button" class="btn btn-classic" id="start">Começar</button>
-        <div class="countdown" id="countdown"></div>
+        <div class="countdown" id="countdown" aria-live="polite"></div>
         <span class="text-danger" id="error" style="display:none"></span>
     </div>
-   
+
     <script src="./script.js"></script>
 </body>
 </html>

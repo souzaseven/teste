@@ -1,7 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #007bff; /* Blue background */
-    
+    background-color: #007bff;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -9,17 +8,29 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .wrapper {
     width: 100%;
     max-width: 400px;
-    background-color: #ffffff; /* White background for the form */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.title {
+    color: #333;
+    text-align: center;
+}
+
+.label {
+    color: #333;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
+
 .form-control {
     width: 100%;
     padding: 10px;
@@ -27,23 +38,27 @@ body {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
 .btn-classic {
     width: 100%;
     padding: 10px 20px;
-    background-color: #28a745; /* Green background */
-    color: #fff; /* White text */
+    background-color: #28a745;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .btn-classic:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
+
 .countdown {
     text-align: center;
     font-size: 24px;
     margin-top: 20px;
 }
+
 .text-danger {
-    color: #dc3545; /* Bootstrap danger color for errors */
+    color: #dc3545;
 }

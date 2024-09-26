@@ -1,5 +1,7 @@
 document.getElementById('start').addEventListener('click', startCountdown);
 
+let countdownInterval = null;
+
 function startCountdown() {
     const title = document.getElementById('title').value;
     const datetime = document.getElementById('datetime').value;
@@ -22,8 +24,12 @@ function startCountdown() {
         return;
     }
 
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+    }
+
     const countdownTitle = title;
-    const countdownInterval = setInterval(() => {
+    countdownInterval = setInterval(() => {
         const now = new Date().getTime();
         const distance = endTime - now;
 
