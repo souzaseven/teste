@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Formas</title>
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <section class="tools-board">
+        <!-- Seção de Formas e Ferramentas com 2 ícones por linha -->
+        <ul class="options">
+            <li class="option tool" id="rectangle">
+                <i class="fas fa-square"></i>
+            </li>
+            <li class="option tool" id="circle">
+                <i class="fas fa-circle"></i>
+            </li>
+            <li class="option tool" id="triangle">
+                <i class="fas fa-play"></i>
+            </li>
+            <li class="option tool" id="line">
+                <i class="fas fa-slash"></i>
+            </li>
+            <li class="option tool" id="pentagon">
+                <i class="fas fa-draw-polygon"></i>
+            </li>
+            <li class="option tool" id="hexagon">
+                <i class="fas fa-hexagon"></i>
+            </li>
+            <li class="option tool" id="star">
+                <i class="fas fa-star"></i>
+            </li>
+            <li class="option tool" id="arrow">
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </li>
+            <li class="option tool active" id="brush">
+                <i class="fas fa-paint-brush"></i>
+            </li>
+            <li class="option tool" id="eraser">
+                <i class="fas fa-eraser"></i>
+            </li>
+        </ul>
+
+        <!-- Seletor de Cores -->
+        <input type="color" id="color-picker" class="color-picker" value="#4A98F7">
+
+        <!-- Botões -->
+        <button class="clear-canvas"><i class="fas fa-trash"></i> Limpar</button>
+        <button class="save-img"><i class="fas fa-save"></i> Salvar</button>
+    </section>
+
+    <!-- Área de Desenho -->
+    <section class="drawing-board">
+        <canvas width="830" height="576"></canvas>
+    </section>
+</div>
+
+<!-- JavaScript -->
+<script src="./script.js"></script>
+
+</body>
+</html>
