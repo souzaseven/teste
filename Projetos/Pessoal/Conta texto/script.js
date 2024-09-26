@@ -12,8 +12,9 @@ function contarPalavrasECaracteres() {
     const numeroDeEspacos = (texto.match(/\s/g) || []).length; // Contando quantos espaços existem no texto
 
     // Atualizando o conteúdo da área de resultado
-    document.getElementById('resultado').innerHTML = 
-        `Número de palavras: ${numeroDePalavras}<br>` +
-        `Número de caracteres: ${numeroDeCaracteres}<br>` +
-        `Número de espaços: ${numeroDeEspacos}`;
+    document.getElementById('resultado').innerHTML = `
+        Número de palavras: ${numeroDePalavras}<br>
+        Número de caracteres: ${numeroDeCaracteres}<br>
+        Número de espaços: ${numeroDeEspacos}
+    `;
 }

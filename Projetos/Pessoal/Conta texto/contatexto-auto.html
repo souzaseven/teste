@@ -17,12 +17,15 @@
     <div class="container">
         <!-- Título principal -->
         <h2>Contador de Palavras e Caracteres</h2>
+
+        <!-- Adicionei um label para melhorar a acessibilidade -->
+        <label for="texto" class="label-textarea">Digite ou cole seu texto:</label>
         
         <!-- Área de texto para entrada -->
-        <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
+        <textarea id="texto" placeholder="Digite ou cole seu texto aqui..." aria-label="Área de texto"></textarea>
         
         <!-- Área onde o resultado será exibido -->
-        <div id="resultado" class="result">
+        <div id="resultado" class="result" aria-live="polite">
             Número de palavras: 0<br>
             Número de caracteres: 0<br>
             Número de espaços: 0

@@ -32,6 +32,7 @@ textarea {
     margin-bottom: 20px;
     font-size: 16px;
     box-sizing: border-box;
+    resize: none; /* Evita que o textarea seja redimensionado */
 }
 
 /* Estilos para o resultado exibido (número de palavras, caracteres e espaços) */
@@ -46,4 +47,13 @@ h2 {
     color: #333;
     font-style: italic;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra adicionada */
+}
+
+/* Adicionando estilos ao label para melhorar a acessibilidade */
+.label-textarea {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
 }
