@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizar e Substituir</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Localizar e Substituir</h1>
+        <div class="box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div contenteditable="true" class="form-control medium" id="text" placeholder="Digite ou cole seu texto aqui."></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <textarea name="find" class="form-control mini" id="find" placeholder="Localizar..."></textarea>
+                </div>
+                <div class="col-sm-12">
+                    <textarea name="replace" class="form-control mini" id="replace" placeholder="Substituir por..."></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn" id="replace-btn">
+                        <i class="fas fa-exchange-alt"></i> Substituir
+                    </button>
+                    <button type="button" class="btn" id="process">
+                        <i class="fas fa-search"></i> Localizar e Substituir
+                    </button>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-clear" id="clear-highlight">
+                    <i class="fas fa-eraser"></i> Limpar Destaque
+                </button>
+                <button type="button" class="btn btn-clear" id="clear-find-replace">
+                    <i class="fas fa-times-circle"></i> Limpar Localizar/Substituir
+                </button>
+                <button type="button" class="btn btn-clear" id="clear-text">
+                    <i class="fas fa-trash-alt"></i> Limpar Texto
+                </button>
+            </div>
+            <div class="alert" id="alert">Por favor, preencha os campos de localização e substituição.</div>
+        </div>
+    </div>
+
+ <script src="./script.js"></script>
+</body>
+</html>
