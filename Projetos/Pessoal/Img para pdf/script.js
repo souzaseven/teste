@@ -2,11 +2,21 @@ document.getElementById('imageInput').addEventListener('change', handleImageUplo
 document.getElementById('generatePDF').addEventListener('click', generatePDF);
 document.getElementById('previewPDF').addEventListener('click', previewPDF);
 document.getElementById('downloadPDF').addEventListener('click', downloadPDF);
+document.getElementById('clearStorage').addEventListener('click', clearLocalStorage);
 document.getElementById('closeModal').addEventListener('click', closeModal);
 
 let imageArray = [];
 let pdfBlob = null;
-let dragSrcElement = null; // Para controle de arrastar/soltar
+
+// Carrega imagens armazenadas localmente, se houver
+window.onload = function() {
+    const storedImages = localStorage.getItem('images');
+    if (storedImages) {
+        imageArray = JSON.parse(storedImages);
+        updateThumbnails();
+        toggleClearButton(true);
+    }
+}
 
 // Função para lidar com o upload de imagens
 function handleImageUpload(event) {
@@ -23,94 +33,114 @@ function handleImageUpload(event) {
             img.src = e.target.result;
             img.dataset.index = index; // Guarda o índice da imagem
             img.draggable = true; // Habilita arrastar
-            img.addEventListener('dragstart', handleDragStart);
-            img.addEventListener('dragover', handleDragOver);
-            img.addEventListener('drop', handleDrop);
-            img.addEventListener('dragend', handleDragEnd);
 
-            imageArray.push(img); // Armazena as imagens no array
-            thumbnailContainer.appendChild(img);
+            const wrapper = document.createElement('div');
+            wrapper.style.position = 'relative';
+            wrapper.appendChild(img);
+
+            // Seletor de posição para escolher a ordem da imagem
+            const selectPosition = document.createElement('select');
+            selectPosition.className = 'select-position';
+            selectPosition.dataset.index = index;
+            selectPosition.innerHTML = generatePositionOptions(files.length);
+            selectPosition.value = index + 1; // Define a posição automaticamente
+            selectPosition.addEventListener('change', handlePositionChange);
+
+            wrapper.appendChild(selectPosition);
+            thumbnailContainer.appendChild(wrapper);
+
+            imageArray.push(img.src); // Armazena as imagens no array
         };
 
         reader.readAsDataURL(file);
     });
 
     document.getElementById('generatePDF').style.display = 'inline';
-    document.getElementById('previewPDF').style.display = 'inline';
+    toggleClearButton(true);
+    localStorage.setItem('images', JSON.stringify(imageArray));
 }
 
-// Funções de arrastar e soltar para ordenar as imagens
-function handleDragStart(e) {
-    dragSrcElement = this;
-    this.classList.add('dragging');
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.outerHTML);
-}
-
-function handleDragOver(e) {
-    e.preventDefault();
-    return false;
-}
-
-function handleDrop(e) {
-    e.stopPropagation();
-    if (dragSrcElement !== this) {
-        dragSrcElement.outerHTML = this.outerHTML;
-        this.outerHTML = e.dataTransfer.getData('text/html');
-        updateImageArray();
-        document.getElementById('previewPDF').style.display = 'inline'; // Mostrar "Pré-visualizar PDF" após reordenar
+// Função para gerar as opções de posição
+function generatePositionOptions(length) {
+    let options = '';
+    for (let i = 1; i <= length; i++) {
+        options += `<option value="${i}">Posição ${i}</option>`;
     }
-    return false;
+    return options;
 }
 
-function handleDragEnd() {
-    this.classList.remove('dragging');
+// Função para manipular a mudança de posição
+function handlePositionChange(event) {
+    const movedImage = imageArray.splice(event.target.dataset.index, 1)[0];
+    const selectedPosition = event.target.value - 1;
+    imageArray.splice(selectedPosition, 0, movedImage);
+
+    updateThumbnails();
+    localStorage.setItem('images', JSON.stringify(imageArray));
 }
 
-// Atualiza o array de imagens após reordenação
-function updateImageArray() {
-    const thumbnails = document.querySelectorAll('.thumbnail-preview img');
-    imageArray = Array.from(thumbnails);
+// Atualiza a visualização das imagens após movimentação
+function updateThumbnails() {
+    const thumbnailContainer = document.getElementById('thumbnailPreview');
+    thumbnailContainer.innerHTML = '';
+
+    imageArray.forEach((src, index) => {
+        const img = new Image();
+        img.src = src;
+
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.appendChild(img);
+
+        const selectPosition = document.createElement('select');
+        selectPosition.className = 'select-position';
+        selectPosition.dataset.index = index;
+        selectPosition.innerHTML = generatePositionOptions(imageArray.length);
+        selectPosition.value = index + 1;
+        selectPosition.addEventListener('change', handlePositionChange);
+
+        wrapper.appendChild(selectPosition);
+        thumbnailContainer.appendChild(wrapper);
+    });
 }
 
 // Função para gerar o PDF a partir das imagens
 function generatePDF() {
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = (pdf.internal.pageSize.getWidth() - 20) / 2; // Ajuste para 2 imagens por página
+    const imgWidth = pdf.internal.pageSize.getWidth() - 20;
     const pageHeight = pdf.internal.pageSize.getHeight();
     let yPosition = 10;
-    let xPosition = 10;
+    let imgCount = 0;
 
-    imageArray.forEach((img, index) => {
-        const imgHeight = imgWidth * (img.naturalHeight / img.naturalWidth);
+    imageArray.forEach((src, index) => {
+        const img = new Image();
+        img.src = src;
+        const ratio = img.width / img.height;
+        const imgHeight = imgWidth / ratio;
 
-        if (xPosition + imgWidth > pdf.internal.pageSize.getWidth()) {
-            xPosition = 10;
-            yPosition += imgHeight + 10;
-
-            if (yPosition + imgHeight > pageHeight) {
-                pdf.addPage();
-                yPosition = 10;
-            }
+        if (imgCount === 2) {
+            pdf.addPage();
+            yPosition = 10;
+            imgCount = 0;
         }
 
-        pdf.addImage(img.src, 'JPEG', xPosition, yPosition, imgWidth, imgHeight);
-        xPosition += imgWidth + 10;
+        pdf.addImage(img.src, 'JPEG', 10, yPosition, imgWidth, imgHeight);
+        yPosition += imgHeight + 10;
+        imgCount++;
     });
 
     pdfBlob = pdf.output('blob');
-
-    document.getElementById('downloadPDF').style.display = 'inline'; // Mostrar botão de download após gerar PDF
+    document.getElementById('previewPDF').style.display = 'inline';
+    document.getElementById('downloadPDF').style.display = 'inline';
 }
 
 // Função para pré-visualizar o PDF
 function previewPDF() {
     const modal = document.getElementById('pdfModal');
     const iframe = document.getElementById('pdfPreview');
-
     iframe.src = URL.createObjectURL(pdfBlob);
-    modal.style.display = 'flex'; // Abre o modal
+    modal.style.display = 'flex';
 }
 
 // Função para download do PDF
@@ -119,6 +149,27 @@ function downloadPDF() {
     link.href = URL.createObjectURL(pdfBlob);
     link.download = 'Imagens.pdf';
     link.click();
+}
+
+// Função para limpar localStorage e as imagens
+function clearLocalStorage() {
+    localStorage.removeItem('images');
+    imageArray = [];
+    updateThumbnails();
+    document.getElementById('generatePDF').style.display = 'none';
+    document.getElementById('previewPDF').style.display = 'none';
+    document.getElementById('downloadPDF').style.display = 'none';
+    toggleClearButton(false);
+}
+
+// Função para exibir ou ocultar o botão de limpar
+function toggleClearButton(show) {
+    const clearButton = document.getElementById('clearStorage');
+    if (show) {
+        clearButton.style.display = 'inline';
+    } else {
+        clearButton.style.display = 'none';
+    }
 }
 
 // Função para fechar o modal de pré-visualização

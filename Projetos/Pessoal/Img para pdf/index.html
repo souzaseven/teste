@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <!-- Biblioteca jsPDF para gerar PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Biblioteca para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
-
 <body>
     <div class="container">
         <h1>Conversor de Imagens para PDF</h1>
 
-        <!-- Pré-visualização das imagens carregadas (em grade) -->
+        <!-- Pré-visualização das imagens carregadas -->
         <div id="thumbnailPreview" class="thumbnail-preview"></div>
 
         <!-- Campo para upload de múltiplas imagens -->
@@ -22,9 +22,18 @@
 
         <!-- Botões de ação -->
         <div class="button-group">
-            <button id="generatePDF" style="display: none;"><i class="fa fa-file-pdf"></i> Gerar PDF</button>
-            <button id="previewPDF" style="display: none;"><i class="fa fa-eye"></i> Pré-visualizar PDF</button>
-            <button id="downloadPDF" style="display: none;"><i class="fa fa-download"></i> Baixar PDF</button>
+            <button id="generatePDF" style="display: none;">
+                <i class="fa fa-file-pdf"></i> Gerar PDF
+            </button>
+            <button id="previewPDF" style="display: none;">
+                <i class="fa fa-eye"></i> Visualizar PDF
+            </button>
+            <button id="downloadPDF" style="display: none;">
+                <i class="fa fa-download"></i> Baixar PDF
+            </button>
+            <button id="clearStorage" style="display: none;">
+                <i class="fa fa-trash"></i> Limpar Conteúdo
+            </button>
         </div>
     </div>
 
@@ -39,5 +48,4 @@
     <!-- Script -->
     <script src="script.js"></script>
 </body>
-
 </html>
