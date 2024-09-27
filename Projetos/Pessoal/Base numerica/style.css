@@ -1,7 +1,8 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #007ced;
     font-family: 'Poppins', sans-serif;
 }
+
 .container {
     margin-top: 50px;
     padding: 30px;
@@ -9,19 +10,26 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
+
 h1 {
     font-size: 2.5rem;
     color: #007bff;
     margin-bottom: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adicionado sombra */
 }
+
 .form-group label {
     font-weight: bold;
     color: #333;
 }
+
 .form-control {
     border-radius: 30px;
     padding: 20px;
 }
+
 .btn-primary {
     background-color: #007bff;
     border: none;
@@ -30,6 +38,7 @@ h1 {
     font-size: 1rem;
     transition: background-color 0.3s;
 }
+
 .btn-primary:hover {
     background-color: #0056b3;
 }
