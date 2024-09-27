@@ -1,0 +1,84 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .legenda {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-control {
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .btn-classic {
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 5px;
+        }
+        .btn-copy {
+            background-color: #28a745;
+        }
+        .btn-copy:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .btn-clear {
+            background-color: #dc3545;
+        }
+        .btn-clear:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+        .btn-play {
+            background-color: #ffc107;
+        }
+        .btn-play:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+        }
+        .btn-download {
+            background-color: #17a2b8;
+        }
+        .btn-download:hover {
+            background-color: #138496;
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background-color: yellow;
+            color: black;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
