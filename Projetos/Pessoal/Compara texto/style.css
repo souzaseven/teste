@@ -1,0 +1,79 @@
+   body {
+            background-color: #007bff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .resultwrap {
+            margin-top: 20px;
+        }
+        .diff {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .diff th, .diff td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .diff .replace {
+            background-color: #fdd;
+        }
+        .diff .insert {
+            background-color: #dfd;
+        }
+        .diff .unchanged {
+            background-color: #fff;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
