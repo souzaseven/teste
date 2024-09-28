@@ -1,0 +1,92 @@
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #007ced; /* Fundo azul */
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Usa toda a altura da janela */
+            margin: 0;
+            color: #fff;
+        }
+        
+        h1 {
+            color: black; /* Define a cor do texto como preto */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+            font-style: italic; /* Torna o texto em itálico */
+        }
+
+        .container {
+            text-align: center;
+            background: #fff; /* Fundo branco para a área de entrada */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        #playButton {
+            background-color: #007ced; /* Azul */
+        }
+
+        #playButton:hover {
+            background-color: #005bb5; /* Azul escuro */
+        }
+
+        #clearButton {
+            background-color: #dc3545; /* Vermelho */
+        }
+
+        #clearButton:hover {
+            background-color: #c82333; /* Vermelho escuro */
+        }
+
+        .voice-select {
+            margin-bottom: 20px;
+        }
+
+        #outputText {
+            background-color: #f9f9f9;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
