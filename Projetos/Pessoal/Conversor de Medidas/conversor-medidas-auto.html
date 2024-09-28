@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"></script> 
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Medidas</h2>
+        <div class="box">
+            <div class="block">
+                <form class="form-horizontal">
+                    <!-- Seletor de medida -->
+                    <div class="form-group">
+                        <label for="tipo" class="col-sm-4 control-label"><b>Escolha a Medida:</b></label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="tipo" id="tipo" onchange="toggleFields()">
+                                <option value="" selected disabled>Selecione uma medida</option>
+                                <option value="comprimento">Comprimento</option>
+                                <option value="massa">Massa</option>
+                                <option value="tempo">Tempo</option>
+                                <option value="temperatura">Temperatura</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Comprimento -->
+                    <div id="comprimentoFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="km" class="col-sm-4 control-label">Quilômetro:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="km" class="form-control" id="km" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="m" class="col-sm-4 control-label">Metro:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="m" class="form-control" id="m" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cm" class="col-sm-4 control-label">Centímetro:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="cm" class="form-control" id="cm" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mi" class="col-sm-4 control-label">Milha:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="mi" class="form-control" id="mi" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ft" class="col-sm-4 control-label">Pé:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="ft" class="form-control" id="ft" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="in" class="col-sm-4 control-label">Polegada:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="in" class="form-control" id="in" oninput="convertLength(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Massa -->
+                    <div id="massaFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="kg" class="col-sm-4 control-label">Quilograma:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="kg" class="form-control" id="kg" oninput="convertMass(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="g" class="col-sm-4 control-label">Grama:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="g" class="form-control" id="g" oninput="convertMass(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lb" class="col-sm-4 control-label">Libra:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="lb" class="form-control" id="lb" oninput="convertMass(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Tempo -->
+                    <div id="tempoFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="hours" class="col-sm-4 control-label">Horas:</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="hours" class="form-control" id="hours" oninput="convertTime(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="minutes" class="col-sm-4 control-label">Minutos:</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="minutes" class="form-control" id="minutes" oninput="convertTime(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seconds" class="col-sm-4 control-label">Segundos:</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="seconds" class="form-control" id="seconds" oninput="convertTime(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Temperatura -->
+                    <div id="temperaturaFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="celsius" class="col-sm-4 control-label">Celsius:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="celsius" class="form-control" id="celsius" oninput="convertTemperature(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fahrenheit" class="col-sm-4 control-label">Fahrenheit:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="fahrenheit" class="form-control" id="fahrenheit" oninput="convertTemperature(this)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kelvin" class="col-sm-4 control-label">Kelvin:</label>
+                            <div class="col-sm-8">
+                                <input type="number" step="0.0001" name="kelvin" class="form-control" id="kelvin" oninput="convertTemperature(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão Limpar -->
+                    <div class="button-container">
+                        <button class="btn-clear" type="button" id="clearButton" onclick="clearFields()" style="display: none;">
+                            <i class="fas fa-trash-alt"></i> Limpar Campos
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+<script src="./script.js"></script>
+</body>
+</html>
