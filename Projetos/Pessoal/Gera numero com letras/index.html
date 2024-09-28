@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números e Letras</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Números e Letras</h1>
+        
+        <!-- Input Fields Group in a Single Line -->
+        <div class="input-group-horizontal">
+            <div>
+                <label for="numberInput">Número:</label>
+                <input type="text" id="numberInput" placeholder="Digite o número">
+            </div>
+            <div>
+                <label for="letterInput">Letra:</label>
+                <input type="text" id="letterInput" placeholder="Digite a letra">
+            </div>
+            <div>
+                <label for="combinedInput">Número e Letra:</label>
+                <input type="text" id="combinedInput" placeholder="Ex: 3A">
+            </div>
+            <div>
+                <label for="shape">Formato:</label>
+                <select id="shape">
+                    <option value="circle">Círculo</option>
+                    <option value="square">Quadrado</option>
+                </select>
+            </div>
+            <div>
+                <label for="circleColor">Cor do Círculo/Quadrado:</label>
+                <input type="color" id="circleColor" value="#007ced">
+            </div>
+            <div>
+                <label for="numberColor">Cor do Número/Letra:</label>
+                <input type="color" id="numberColor" value="#ffffff">
+            </div>
+        </div>
+
+        <!-- Canvas -->
+        <canvas id="canvas"></canvas>
+
+        <!-- Button Group -->
+        <div class="btn-group">
+            <a id="downloadLink" href="#" download="number.png">
+                <button class="btn btn-download"><i class="fas fa-download"></i> Baixar Imagem</button>
+            </a>
+            <a id="iconDownloadLink" href="#" download="number.ico">
+                <button class="btn btn-icon"><i class="fas fa-file-image"></i> Baixar Ícone</button>
+            </a>
+            <button class="btn btn-clear" id="clearButton"><i class="fas fa-trash-alt"></i> Limpar Conteúdo</button>
+        </div>
+    </div>
+
+   <script src="./script.js"></script>
+</body>
+</html>

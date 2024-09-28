@@ -1,0 +1,117 @@
+body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #007ced;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-group-horizontal {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .input-group-horizontal label {
+            font-weight: bold;
+        }
+
+        .input-group-horizontal input, .input-group-horizontal select {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #canvas {
+            border: 1px solid #ddd;
+            width: 300px; /* Ajuste do tamanho da imagem */
+            height: 300px; /* Ajuste do tamanho da imagem */
+            background-color: transparent;
+            display: block;
+            margin: 15px auto;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #007ced;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-clear {
+            background-color: #dc3545;
+        }
+
+        .btn-clear:hover {
+            background-color: #c82333;
+        }
+
+        .btn-download {
+            background-color: #28a745;
+        }
+
+        .btn-download:hover {
+            background-color: #218838;
+        }
+
+        .btn-icon {
+            background-color: #17a2b8;
+        }
+
+        .btn-icon:hover {
+            background-color: #138496;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            /* Faz o layout no celular ficar igual ao do desktop */
+            .input-group-horizontal {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .btn-group {
+                flex-direction: row;
+            }
+        }
