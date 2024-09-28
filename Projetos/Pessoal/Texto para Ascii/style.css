@@ -1,54 +1,78 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #007ced; /* Fundo azul */
-    font-family: Arial, sans-serif;
-    height: 100vh; /* Usa toda a altura da janela */
-    margin: 0;
-    color: #fff;
-}
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007ced;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+        }
 
-h1 {
-    color: black; /* Define a cor do texto como preto */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
-    font-style: italic; /* Torna o texto em itálico */
-}
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
 
-.container {
-    text-align: center;
-    background: #fff; /* Fundo branco para a área de entrada */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 100%;
-}
-.input-group {
-    margin-bottom: 20px;
-}
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-.input-group textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: vertical;
-}
-#output {
-    white-space: pre-wrap;
-    text-align: left;
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f4f4f4;
-    color: #000;
-}
+        h1 {
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #output {
+            white-space: pre-wrap;
+            color: black;
+            font-family: monospace;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo exceder o limite */
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .btn-clear {
+            display: none;
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .btn-clear:hover {
+            background-color: #c82333;
+        }
+
+        .btn-clear i {
+            margin-right: 5px;
+        }
