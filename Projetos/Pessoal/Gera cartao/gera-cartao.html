@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cartão de Crédito</title>
+
+    <!-- Importação do Bootstrap para estilos e fontes -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Estilos para o layout da página -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Cartão de Crédito</h1>
+
+        <!-- Campo para selecionar a bandeira do cartão -->
+        <div class="form-group">
+            <label for="bandeira">Selecione a Bandeira:</label>
+            <select class="form-control" id="bandeira" onchange="updateCardImage()">
+                <option value="visa16">Visa 16 Dígitos</option>
+                <option value="visa13">Visa 13 Dígitos (antigo)</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="amex">American Express</option>
+                <option value="discover">Discover</option>
+                <option value="diners">Diners Club</option>
+                <option value="enroute">enRoute</option>
+                <option value="jcb">JCB</option>
+                <option value="voyager">Voyager</option>
+            </select>
+        </div>
+
+        <!-- Botões para gerar e limpar o cartão -->
+        <button class="btn btn-classic" id="gerar"><i class="fas fa-credit-card"></i> Gerar Cartão</button>
+        <button class="btn btn-classic btn-danger" id="limpar"><i class="fas fa-trash-alt"></i> Limpar Conteúdo</button>
+
+        <!-- Exibição dos resultados (número, validade e código do cartão) -->
+        <div class="form-resultado">
+            <div class="form-group">
+                <label for="numero">Número do Cartão</label>
+                <input type="text" class="form-control" id="numero" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" oninput="updateCardPreview()">
+            </div>
+            <div class="form-inline">
+                <div class="form-group" style="width: 48%;">
+                    <label for="validade">Data de Validade</label>
+                    <input type="text" class="form-control" id="validade" readonly>
+                </div>
+                <div class="form-group" style="width: 48%;">
+                    <label for="codigo">Código de Segurança</label>
+                    <input type="text" class="form-control" id="codigo" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cartão de crédito gerado -->
+        <div class="card-container">
+            <!-- Frente do cartão -->
+            <div class="card-preview" id="cardFront">
+                <div class="card-number" id="cardNumber">XXXX XXXX XXXX XXXX</div>
+                <div class="card-expiry" id="cardExpiry">XX/XX</div>
+            </div>
+
+            <!-- Verso do cartão -->
+            <div class="card-preview card-back" id="cardBack">
+                <div class="card-cvv" id="cardCVVBack">CVV: XXX</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script com a lógica para gerar e exibir o cartão -->
+ <script src="./script.js"></script>
+</body>
+</html>
