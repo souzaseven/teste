@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <!-- Metadados e scripts -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+        crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6176119186804571">
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador de Palavras e Caracteres</title>
-    
-    <!-- Incluindo o arquivo CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Container principal -->
-    <div class="container">
-        <!-- Título principal -->
-        <h2>Contador de Palavras e Caracteres</h2>
 
-        <!-- Adicionei um label para melhorar a acessibilidade -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Contador de Palavras e Caracteres</h2>
         <label for="texto" class="label-textarea">Digite ou cole seu texto:</label>
-        
-        <!-- Área de texto para entrada -->
         <textarea id="texto" placeholder="Digite ou cole seu texto aqui..." aria-label="Área de texto"></textarea>
-        
-        <!-- Área onde o resultado será exibido -->
+
+        <div class="button-container">
+            <button id="copiar"><i class="fas fa-copy"></i>Copiar Texto</button>
+            <button id="limpar"><i class="fas fa-trash-alt"></i>Limpar Texto</button>
+        </div>
+
         <div id="resultado" class="result" aria-live="polite">
-            Número de palavras: 0<br>
-            Número de caracteres: 0<br>
-            Número de espaços: 0
+            <div class="result-block">Número de palavras: 0</div>
+            <div class="result-block">Número de caracteres: 0</div>
+            <div class="result-block">Número de espaços: 0</div>
+            <div class="result-block">Número de parágrafos: 0</div>
+            <div class="result-block">Número de linhas: 0</div>
+            <div class="result-block">Número de palavras únicas: 0</div>
+            <div class="result-block">Número de frases: 0</div>
+            <div class="result-block">Quantidade de números: 0</div>
+            <div class="result-block">Tempo de leitura: 0 minutos</div>
+            <div class="result-block">Tempo de fala: 0 minutos</div>
         </div>
     </div>
 
-    <!-- Incluindo o arquivo JavaScript -->
-    <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>
