@@ -1,78 +1,163 @@
-/* Estilo do corpo da página */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(135deg, #007bff 25%, #00c4ff 100%);
-    color: #fff;
-}
+ body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #007bff 25%, #00c4ff 100%);
+            color: #fff;
+            transition: background-color 0.5s ease;
+        }
 
-/* Estilo do contêiner principal */
-.container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: #333;
-    max-width: 400px;
-    width: 100%;
-}
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+            max-width: 400px;
+            width: 90%;
+            transition: transform 0.5s ease;
+        }
 
-/* Estilo do título principal */
-h2 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #007bff;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
+        .container.dark-mode {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+        }
 
-/* Estilo para as legendas dos campos */
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 1rem;
-}
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #007bff;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: color 0.5s ease;
+        }
 
-/* Estilo para o campo de entrada de data */
-input[type="date"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: calc(100% - 22px);
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
+        input[type="date"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 16px);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
 
-/* Estilo para a área de exibição do resultado */
-.result {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #007bff;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
+        .result {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #007bff;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-/* Estilo para resultado destacado */
-.highlight {
-    font-weight: bold;
-    color: #28a745;
-    font-size: 1.4rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
+        .result.show {
+            opacity: 1;
+        }
 
-/* Exibir resultado com transição */
-.result.show {
-    opacity: 1;
-}
+        .highlight {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
 
-/* Estilo para mensagens de erro */
-.error {
-    color: red;
-}
+        hr {
+            border: none;
+            border-top: 1px solid #007bff;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .copy-button, .clear-button {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .copy-button {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .copy-button:hover {
+            background-color: #218838;
+        }
+
+        .clear-button {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .clear-button:hover {
+            background-color: #c82333;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #555;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(#28a745 calc(var(--progress) * 1%), #ddd 0);
+            display: inline-block;
+        }
+
+        .copy-button i, .clear-button i {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .result {
+                font-size: 0.9rem;
+            }
+
+            .highlight {
+                font-size: 1.1rem;
+            }
+
+            .progress-circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
