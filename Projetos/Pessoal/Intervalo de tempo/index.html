@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervalo de Dias</title>
+    
+    <!-- Estilos da página -->
+   <link rel="stylesheet" href="style.css">
+
+<link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de <br> Intervalo de Dias</h1>
+
+        <!-- Campo de entrada para a primeira data -->
+        <label for="data-inicial">Data Inicial:</label>
+        <input type="date" id="data-inicial" oninput="calcularIntervalo()">
+        
+        <!-- Campo de entrada para a segunda data -->
+        <label for="data-final">Data Final:</label>
+        <input type="date" id="data-final" oninput="calcularIntervalo()">
+        
+        <!-- Div que exibirá o resultado -->
+        <div id="resultado" class="result"></div>
+
+        <!-- Botões -->
+        <div class="button-container">
+            <!-- Botão de limpar conteúdo, inicialmente escondido -->
+            <button class="clear-button hidden" id="limpar-btn" onclick="limparConteudo()">
+                <i class="fas fa-trash-alt"></i> Limpar Conteúdo
+            </button>
+        </div>
+    </div>
+
+   <script src=""></script>
+
+</body>
+</html>
