@@ -1,0 +1,201 @@
+ /* Estilos gerais do corpo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte */
+            background-color: #e0f7fa; /* Cor de fundo */
+            color: #333; /* Cor do texto */
+            text-align: center; /* Centraliza o conteúdo */
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Estilos para o título principal */
+        h1 {
+            font-size: 2.5rem; /* Tamanho da fonte */
+            color: #00796b; /* Cor do título */
+            margin-bottom: 30px; /* Espaçamento inferior */
+        }
+
+        /* Contêiner que vai agrupar as estações */
+        .station-container {
+            display: flex;
+            justify-content: space-around; /* Espaça as estações de forma uniforme */
+            flex-wrap: wrap; /* Permite que as estações ocupem várias linhas em telas menores */
+            margin-top: 20px;
+        }
+
+        /* Estilos para o cartão de cada estação */
+        .station-card {
+            background-color: #ffffff; /* Cor de fundo branca */
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra ao redor do cartão */
+            text-align: center;
+            width: 250px; /* Largura fixa para cada cartão */
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s; /* Transição suave ao passar o mouse */
+            cursor: pointer; /* Indica que é clicável */
+        }
+
+        /* Efeito de hover para o cartão */
+        .station-card:hover {
+            transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+        }
+
+        /* Estilos para o nome da estação */
+        .station {
+            font-size: 1.6rem; /* Tamanho da fonte */
+            color: #007bff; /* Cor do texto */
+            margin-top: 10px;
+        }
+
+        /* Estilos para a data de início da estação */
+        .date {
+            font-size: 1rem; /* Tamanho da fonte */
+            margin-top: 5px;
+            color: #555; /* Cor mais clara */
+        }
+
+        /* Estilos para a imagem dentro do cartão */
+        .image-container img {
+            width: 100%; /* A imagem ocupa 100% da largura disponível */
+            max-height: 150px; /* Altura máxima */
+            object-fit: cover; /* Ajusta a imagem para cobrir sem distorção */
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+
+        /* Estilos para a próxima estação */
+        .next-station {
+            margin-left: 40%; /* Margem para centralizar o elemento */
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #ffffff; /* Texto branco */
+            background: linear-gradient(135deg, #007bff, #00c6ff); /* Gradiente de cor */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Sombra no texto */
+            transition: all 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Efeito de hover na próxima estação */
+        .next-station:hover {
+            background: linear-gradient(135deg, #00c6ff, #007bff); /* Inverte o gradiente ao passar o mouse */
+            transform: translateY(-5px); /* Move levemente para cima */
+        }
+
+        /* Estilos para o tempo restante até a próxima estação */
+        .time-remaining {
+            font-size: 1.5rem;
+            color: #ff6347; /* Texto em cor laranja */
+            margin-top: 15px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra */
+            display: inline-block;
+            transition: box-shadow 0.4s ease;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+
+        /* Efeito de hover para o tempo restante */
+        .time-remaining:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+        }
+
+        /* Estilos para o texto dentro da div de tempo restante */
+        .time-remaining span {
+            font-weight: bold; /* Negrito para os números */
+            color: #007bff;
+        }
+
+        /* Controles para navegação entre anos */
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Botões de controle */
+        .controls button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            background-color: #007bff; /* Cor de fundo azul */
+            color: #fff; /* Texto branco */
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra */
+        }
+
+        /* Efeito de hover nos botões de controle */
+        .controls button:hover {
+            background-color: #0056b3; /* Muda a cor de fundo */
+            transform: translateY(-5px); /* Move levemente para cima */
+        }
+
+        /* Popup de informações sobre a estação */
+        .info-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            display: none; /* Escondido por padrão */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo dentro do popup */
+        .info-popup .content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            color: #333;
+        }
+
+        /* Estilos para o título do popup */
+        .info-popup h2 {
+            margin-top: 0;
+        }
+
+        /* Estilos para o parágrafo dentro do popup */
+        .info-popup p {
+            margin-bottom: 10px;
+        }
+
+        /* Botão de fechar o popup */
+        .info-popup button {
+            padding: 10px 15px;
+            background-color: #dc3545; /* Cor de fundo vermelha */
+            color: #fff; /* Texto branco */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Ajustes responsivos para telas menores */
+        @media (max-width: 768px) {
+            .station-container {
+                flex-direction: column; /* Coloca as estações em coluna em telas pequenas */
+            }
+
+            .station-card {
+                width: 100%; /* Faz com que o cartão ocupe toda a largura disponível */
+            }
+        }

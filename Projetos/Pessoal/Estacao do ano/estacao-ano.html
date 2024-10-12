@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva -->
+    <title>Estação Atual e Próximas Estações</title> <!-- Define o título da página -->
+
+    <!-- Estilos da página -->
+    
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Estação Atual e Próximas Estações</h1> <!-- Título da página -->
+
+    <!-- Botões para navegar entre os anos -->
+    <div class="controls">
+        <button onclick="changeYear(-1)">Anos Anteriores</button>
+        <button onclick="changeYear(1)">Próximos Anos</button>
+    </div>
+
+    <!-- Contêiner que exibirá as estações -->
+    <div id="station-display" class="station-container"></div>
+
+    <!-- Div que exibe o nome da próxima estação -->
+    <div class="next-station">
+        Próxima Estação: <span id="next-station-name"></span>
+    </div>
+
+    <!-- Div que exibe o tempo restante para a próxima estação -->
+    <div class="time-remaining" id="time-remaining"></div>
+
+    <!-- Popup de informações adicionais sobre a estação -->
+    <div id="info-popup" class="info-popup">
+        <div class="content">
+            <h2 id="popup-title"></h2> <!-- Título do popup -->
+            <p id="popup-description"></p> <!-- Descrição da estação no popup -->
+            <button onclick="closePopup()">Fechar</button> <!-- Botão para fechar o popup -->
+        </div>
+    </div>
+
+    <!-- Script JavaScript para manipulação das estações -->
+   <script src="./script.js"></script>
+
+</body>
+</html>
