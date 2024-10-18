@@ -1,315 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boletim Interativo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a visualização em dispositivos móveis -->
+    <title>Boletim Interativo</title> <!-- Título da página -->
 
-        h1 {
-            text-align: center;
-            color: #333;
-            background-color: #007bff;
-            padding: 10px;
-            border-radius: 8px;
-            color: white;
-        }
+    <!-- Estilos para a página -->
+   
+   <link rel="stylesheet" href="style.css">
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .subject-container {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            width: 320px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .subject-container h2 {
-            text-align: center;
-            color: #007bff;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .input-group label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .input-group .nota-faltas-row {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .input-group input {
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 60px;
-            margin-left: 10px;
-        }
-
-        .total-faltas, .status-aprovacao, .media-materia {
-            width: 100%;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .info-button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 5px;
-            cursor: default;
-        }
-
-        .faltas-button {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .media-button {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .status-button {
-            background-color: #218838;
-            color: white;
-        }
-
-        .media-button.reprovado {
-            background-color: #ff6666;
-        }
-
-        .status-button.reprovado {
-            background-color: #ff3333;
-        }
-
-        .actions {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .actions button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .actions button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <!-- Inclui a biblioteca Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7pef3t4HQJkT5gQ0LvN8m5/5jwczMfuP1mV" crossorigin="anonymous">
 </head>
 <body>
 
-    <h1>Boletim Interativo</h1>
+    <h1>Boletim Interativo</h1> <!-- Título da página -->
 
     <div class="actions">
-        <label for="num-materias">Quantidade de Matérias:</label>
-        <select id="num-materias" onchange="gerarBoletim()">
-            <option value="9">9 Matérias</option>
-        </select>
+        <!-- Botão para adicionar uma nova matéria -->
+        <button class="btn-add" onclick="adicionarMateria()">
+            <i class="fas fa-plus"></i> Adicionar Matéria
+        </button>
 
-        <label for="num-semestres">Quantidade de Semestres:</label>
-        <select id="num-semestres" onchange="gerarBoletim()">
-            <option value="4">4 Semestres</option>
-        </select>
-
-        <button onclick="limparBoletim()">Limpar Tudo</button>
+        <!-- Botão para limpar o boletim -->
+        <button class="btn-clear" onclick="limparBoletim()">
+            <i class="fas fa-trash"></i> Limpar Tudo
+        </button>
     </div>
 
+    <!-- Contêiner para armazenar os cartões de matérias -->
     <div class="container" id="boletim-container"></div>
 
-    <script>
-        const materiasPadrao = ['Língua Portuguesa', 'Matemática', 'Biologia', 'Física', 'Química', 'Artes', 'Educação Física', 'Língua Inglesa', 'Filosofia', 'Sociologia'];
-        const boletimContainer = document.getElementById('boletim-container');
-
-        function gerarBoletim() {
-            const numMaterias = parseInt(document.getElementById('num-materias').value);
-            const numSemestres = parseInt(document.getElementById('num-semestres').value);
-
-            // Recupera os dados salvos do localStorage
-            const boletimSalvo = JSON.parse(localStorage.getItem('boletimSalvo')) || {};
-
-            boletimContainer.innerHTML = ''; // Limpa o conteúdo do boletim
-
-            for (let i = 0; i < numMaterias; i++) {
-                const materia = boletimSalvo.materias?.[i]?.nome || materiasPadrao[i];
-                const notas = boletimSalvo.materias?.[i]?.notas || [];
-                const faltas = boletimSalvo.materias?.[i]?.faltas || [];
-
-                const container = document.createElement('div');
-                container.className = 'subject-container';
-                container.innerHTML = `
-                    <h2 ondblclick="editarNomeMateria(this, ${i})">${materia}</h2>
-                    <div class="input-group">
-                        <label>Notas (Semestres)</label>
-                        <div class="nota-faltas-row">
-                            ${Array.from({ length: numSemestres }, (_, idx) => `
-                                <input type="number" min="0" max="10" placeholder="Nota ${idx + 1}" value="${notas[idx] || ''}" class="nota-semestre" onchange="salvarNota(this, ${i}, ${idx})">
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Faltas (Semestres)</label>
-                        <div class="nota-faltas-row">
-                            ${Array.from({ length: numSemestres }, (_, idx) => `
-                                <input type="number" min="0" max="100" placeholder="Faltas ${idx + 1}" value="${faltas[idx] || ''}" class="faltas-semestre" onchange="salvarFaltas(this, ${i}, ${idx})">
-                            `).join('')}
-                        </div>
-                    </div>
-                    <button class="info-button faltas-button">Total de Faltas: <span class="total-faltas-valor">0</span></button>
-                    <button class="info-button media-button">Média: <span class="media-materia-valor">0</span></button>
-                    <button class="info-button status-button">Status: <span class="status-aprovacao-valor">Aguardando...</span></button>
-                `;
-                boletimContainer.appendChild(container);
-
-                // Calcula as médias e faltas ao carregar a página
-                calcularMedia(container.querySelector('.nota-semestre'));
-                calcularFaltas(container.querySelector('.faltas-semestre'));
-            }
-        }
-
-        function salvarNota(input, materiaIndex, semestreIndex) {
-            const nota = parseFloat(input.value);
-            let boletimSalvo = JSON.parse(localStorage.getItem('boletimSalvo')) || { materias: [] };
-
-            if (!boletimSalvo.materias[materiaIndex]) {
-                boletimSalvo.materias[materiaIndex] = { nome: materiasPadrao[materiaIndex], notas: [], faltas: [] };
-            }
-
-            boletimSalvo.materias[materiaIndex].notas[semestreIndex] = nota;
-            localStorage.setItem('boletimSalvo', JSON.stringify(boletimSalvo));
-
-            calcularMedia(input);
-        }
-
-        function salvarFaltas(input, materiaIndex, semestreIndex) {
-            const falta = parseInt(input.value);
-            let boletimSalvo = JSON.parse(localStorage.getItem('boletimSalvo')) || { materias: [] };
-
-            if (!boletimSalvo.materias[materiaIndex]) {
-                boletimSalvo.materias[materiaIndex] = { nome: materiasPadrao[materiaIndex], notas: [], faltas: [] };
-            }
-
-            boletimSalvo.materias[materiaIndex].faltas[semestreIndex] = falta;
-            localStorage.setItem('boletimSalvo', JSON.stringify(boletimSalvo));
-
-            calcularFaltas(input);
-        }
-
-        function editarNomeMateria(element, index) {
-            const nomeAtual = element.innerText;
-            const novoNome = prompt("Editar nome da matéria:", nomeAtual);
-            if (novoNome !== null && novoNome.trim() !== "") {
-                element.innerText = novoNome.trim();
-
-                let boletimSalvo = JSON.parse(localStorage.getItem('boletimSalvo')) || { materias: [] };
-
-                if (!boletimSalvo.materias[index]) {
-                    boletimSalvo.materias[index] = { nome: novoNome, notas: [], faltas: [] };
-                } else {
-                    boletimSalvo.materias[index].nome = novoNome;
-                }
-
-                localStorage.setItem('boletimSalvo', JSON.stringify(boletimSalvo));
-            }
-        }
-
-        function calcularMedia(input) {
-            const container = input.closest('.subject-container');
-            const notas = container.querySelectorAll('.nota-semestre');
-            const statusElement = container.querySelector('.status-aprovacao-valor');
-            const mediaElement = container.querySelector('.media-materia-valor');
-            const statusButton = container.querySelector('.status-button');
-            const mediaButton = container.querySelector('.media-button');
-            let totalNotas = 0;
-            let countNotas = 0;
-
-            notas.forEach(notaInput => {
-                const nota = parseFloat(notaInput.value);
-                if (!isNaN(nota)) {
-                    totalNotas += nota;
-                    countNotas++;
-                }
-            });
-
-            const media = totalNotas / countNotas;
-            mediaElement.innerText = media.toFixed(2);
-
-            if (media >= 6) {
-                statusElement.innerText = 'Aprovado';
-                mediaButton.classList.remove('reprovado');
-                statusButton.classList.remove('reprovado');
-                mediaButton.style.backgroundColor = "#28a745";
-                statusButton.style.backgroundColor = "#218838";
-            } else {
-                statusElement.innerText = 'Reprovado';
-                mediaButton.classList.add('reprovado');
-                statusButton.classList.add('reprovado');
-                mediaButton.style.backgroundColor = "#ff6666";
-                statusButton.style.backgroundColor = "#ff3333";
-            }
-        }
-
-        function calcularFaltas(input) {
-            const container = input.closest('.subject-container');
-            const faltas = container.querySelectorAll('.faltas-semestre');
-            const totalFaltasElement = container.querySelector('.total-faltas-valor');
-            let totalFaltas = 0;
-
-            faltas.forEach(faltaInput => {
-                const falta = parseInt(faltaInput.value);
-                if (!isNaN(falta)) {
-                    totalFaltas += falta;
-                }
-            });
-
-            totalFaltasElement.innerText = totalFaltas;
-        }
-
-        function limparBoletim() {
-            if (confirm('Tem certeza que deseja limpar todo o boletim?')) {
-                boletimContainer.innerHTML = '';
-                localStorage.clear();
-                gerarBoletim();
-            }
-        }
-
-        window.onload = function() {
-            gerarBoletim();
-        };
-    </script>
+   <script src="./script.js"></script>
 
 </body>
 </html>

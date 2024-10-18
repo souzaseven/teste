@@ -1,0 +1,167 @@
+  body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão para o corpo */
+    background-color: #f4f4f4; /* Cor de fundo clara */
+    margin: 0; /* Remove a margem padrão da página */
+    padding: 20px; /* Adiciona espaçamento ao redor do conteúdo */
+}
+
+h1 {
+    text-align: center; /* Centraliza o texto do título horizontalmente na página */
+    color: #333; /* Define a cor do texto como um tom escuro de cinza */
+    background-color: #007bff; /* Define a cor de fundo do título como azul (cor principal) */
+    padding: 20px; /* Adiciona espaçamento interno de 20 pixels ao redor do texto do título */
+    border-radius: 8px; /* Arredonda as bordas do título com 8 pixels de raio */
+    color: white; /* Define a cor do texto do título como branco */
+    margin-top: -19px; /* Move o título 19 pixels para cima em relação ao seu posicionamento normal */
+    margin-left: -15px; /* Move o título 15 pixels para a esquerda em relação à sua posição normal */
+    margin-right: -15px; /* Move o título 15 pixels para a direita, compensando qualquer espaçamento ao lado direito */
+}
+
+
+.container {
+    display: flex; /* Define um layout flexível para os itens dentro do contêiner */
+    flex-wrap: wrap; /* Permite que as matérias fiquem em várias linhas */
+    justify-content: center; /* Centraliza os itens no contêiner */
+    gap: 20px; /* Espaçamento entre os cartões de matérias */
+    transition: all 0.2s ease-in-out; /* Suaviza a transição ao reorganizar */
+}
+
+.subject-container {
+    background-color: #fff; /* Cor de fundo dos cartões de matérias */
+    border-radius: 10px; /* Bordas arredondadas dos cartões */
+    padding: 20px; /* Espaçamento interno nos cartões */
+    width: 320px; /* Largura fixa dos cartões de matéria */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do cartão */
+    display: flex; /* Layout flexível no cartão */
+    flex-direction: column; /* Coloca os elementos na vertical */
+    align-items: flex-start; /* Alinha os elementos à esquerda */
+    position: relative; /* Define a posição relativa para controle de elementos filhos */
+    cursor: move; /* Mostra que o cartão pode ser arrastado */
+}
+
+.subject-container h2 {
+    text-align: center; /* Centraliza o nome da matéria */
+    color: #007bff; /* Cor do nome da matéria */
+    width: 100%; /* Define a largura completa do título dentro do cartão */
+    cursor: pointer; /* Indica que o nome da matéria pode ser interativo */
+}
+
+.input-group {
+    display: flex; /* Define layout flexível */
+    flex-direction: column; /* Coloca os itens na vertical */
+    width: 100%; /* Define largura total para o grupo de entrada */
+    margin-bottom: 10px; /* Espaçamento inferior entre os grupos de entrada */
+}
+
+.input-group label {
+    font-weight: bold; /* Define o texto do rótulo como negrito */
+    margin-bottom: 5px; /* Espaçamento inferior no rótulo */
+}
+
+.input-group .nota-faltas-row {
+    display: flex; /* Layout flexível para alinhar notas e faltas horizontalmente */
+    justify-content: space-between; /* Espaçamento entre os itens (notas/faltas) */
+}
+
+.input-group input {
+    padding: 5px; /* Espaçamento interno nos campos de entrada */
+    border: 1px solid #ccc; /* Define borda cinza claro nos inputs */
+    border-radius: 5px; /* Bordas arredondadas nos campos de entrada */
+    width: 60px; /* Largura dos campos de entrada */
+    margin-left: 10px; /* Espaçamento à esquerda de cada campo */
+}
+
+/* Estilos para os botões de status (faltas, média, aprovação) */
+.total-faltas, .status-aprovacao, .media-materia {
+    width: 100%; /* Largura total para os botões */
+    text-align: center; /* Centraliza o texto dentro dos botões */
+    margin-top: 15px; /* Espaçamento superior */
+}
+
+.info-button {
+    padding: 10px; /* Espaçamento interno dos botões */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas nos botões */
+    font-weight: bold; /* Define o texto dos botões como negrito */
+    width: 100%; /* Define a largura total do botão */
+    margin-top: 5px; /* Espaçamento superior */
+    cursor: default; /* Define o cursor padrão, pois o botão não é interativo */
+}
+
+.faltas-button {
+    background-color: #28a745; /* Cor verde padrão para o botão de faltas */
+    color: white; /* Cor do texto */
+}
+
+.media-button {
+    background-color: #ffc107; /* Cor amarela padrão para o botão de média */
+    color: white; /* Cor do texto */
+}
+
+.status-button {
+    background-color: #007bff; /* Cor azul padrão para o botão de status */
+    color: white; /* Cor do texto */
+}
+
+.media-button.reprovado {
+    background-color: #ff6666; /* Cor vermelha para alunos reprovados */
+}
+
+.status-button.reprovado {
+    background-color: #ff3333; /* Cor vermelha para status de reprovado */
+}
+
+/* Botões para adicionar ou excluir matérias */
+.btn-add {
+    background-color: #28a745; /* Cor verde para o botão de adicionar matéria */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra que o botão é clicável */
+}
+
+.btn-add:hover {
+    background-color: #218838; /* Cor verde escura ao passar o mouse */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Cor vermelha para o botão de exclusão */
+    position: absolute; /* Posiciona o botão dentro do cartão */
+    top: 40px; /* Distância do topo */
+    right: 5px; /* Distância da borda direita */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda */
+    cursor: pointer; /* Mostra que o botão é clicável */
+}
+
+.actions {
+    margin-top: 20px; /* Espaçamento superior para a seção de ações */
+    text-align: center; /* Centraliza os botões de ação */
+    display: flex; /* Layout flexível para os botões */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.actions button {
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    border: none; /* Remove borda */
+    background-color: #007bff; /* Cor azul padrão dos botões */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra que os botões são clicáveis */
+}
+
+.actions .btn-clear {
+    background-color: #dc3545; /* Cor vermelha para o botão de limpar */
+}
+
+.actions .btn-clear:hover {
+    background-color: #c82333; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+/* Estilo para a ação de arrastar */
+.dragging {
+    opacity: 0.5; /* Reduz a opacidade enquanto o item é arrastado */
+}
