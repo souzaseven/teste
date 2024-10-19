@@ -1,0 +1,150 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            background-color: #e9ecef; /* Fundo mais claro para melhor contraste */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay {
+            background-color: #f9f9f9;
+            color: #6c757d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 42px;
+            transition: background-color 0.3s ease;
+            font-style: italic;
+        }
+
+        .overlay::before {
+            content: "Seu texto vai aparecer aqui para ler!\A Digite o texto no campo abaixo";
+            white-space: pre-line;
+            color: #999;
+            text-align: center; /* Centraliza o texto */
+            font-size: 18px;
+        }
+
+        .form-control.origem {
+            width: 100%;
+            height: 150px;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #007bff;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+.form-control.input-size {
+width: 50%;
+align-items: center;
+text-align: center;
+}
+
+.input-group-addon {
+align-items: center;
+text-align: center;
+margin-left: 10px;}
+
+        .form-inline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin: 5px;
+            flex: 1;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .input-group-addon {
+            padding: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .input-size {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-clear {
+            background-color: #dc3545;
+        }
+
+        .btn-clear:hover {
+            background-color: #c82333;
+        }
+
+        .palavras {
+            font-size: 42px;
+        }
+
+        /* Adicionando um novo estilo para os botões ocuparem toda a largura */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+            margin: 0 5px;
+        }
