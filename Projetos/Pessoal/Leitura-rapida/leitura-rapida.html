@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leitura Rápida</title>
   
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Incluindo Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7pef3t4HQJkT5gQ0LvN8m5/5jwczMfuP1mV" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
 </head>
 <body>
 
@@ -23,10 +23,11 @@
         <div class="menu">
             <textarea name="origem" class="form-control origem" title="Copie um texto aqui para ler rapidamente">Esta ferramenta exibe uma palavra de cada vez, em rápidas sucessões. Esse truque permite que você leia mais rápido. Copie um texto aqui e dê o play. Divirta-se!</textarea>
 
-            <!-- Mover os botões para baixo do textarea -->
+            <!-- Botões principais -->
             <div class="button-group">
                 <button type="button" class="btn" id="play" title="Clique para começar a leitura rápida"><i class="fas fa-play"></i> Ler Rápido</button>
                 <button type="button" class="btn btn-clear" id="clear" title="Clique para limpar o texto e redefinir"><i class="fas fa-eraser"></i> Limpar</button>
+                <button type="button" class="btn btn-expand" id="expand" title="Expandir o texto para o segundo plano"><i class="fas fa-expand"></i> Expandir Leitura</button>
             </div>
 
             <div class="form-inline" style="margin-top:15px">
@@ -57,9 +58,18 @@
                         <input type="number" class="form-control input-size" id="fonte" value="42" min="12" max="100" title="Ajuste o tamanho da fonte">
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Div para expandir o texto em segundo plano -->
+<div id="expanded-overlay" class="expanded-overlay hidden">
+    <div class="expanded-palavras"></div>
+    <div class="button-group-expanded">
+        
+        <button type="button" class="btn" id="expanded-play" title="Iniciar leitura no modo expandido"><i class="fas fa-play"></i> Iniciar Leitura</button>
+<button class="btn btn-collapse" id="collapse" title="Fechar"><i class="fas fa-compress"></i> Fechar</button>
     </div>
 </div>
 
