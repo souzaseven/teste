@@ -8,6 +8,20 @@ document.getElementById('c4v1').addEventListener('input', calcular4);
 document.getElementById('c4v2').addEventListener('input', calcular4);
 document.getElementById('c5v1').addEventListener('input', calcular5);
 document.getElementById('c5v2').addEventListener('input', calcular5);
+document.getElementById('c6v1').addEventListener('input', calcular6);
+document.getElementById('c6v2').addEventListener('input', calcular6);
+document.getElementById('c7v1').addEventListener('input', calcular7);
+document.getElementById('c7v2').addEventListener('input', calcular7);
+document.getElementById('c8v1').addEventListener('input', calcular8);
+document.getElementById('c8v2').addEventListener('input', calcular8);
+document.getElementById('c9v1').addEventListener('input', calcular9);
+document.getElementById('c9v2').addEventListener('input', calcular9);
+document.getElementById('c10v1').addEventListener('input', calcular10);
+document.getElementById('c10v2').addEventListener('input', calcular10);
+document.getElementById('c11v1').addEventListener('input', calcular11);
+document.getElementById('c11v2').addEventListener('input', calcular11);
+document.getElementById('c12v1').addEventListener('input', calcular12);
+document.getElementById('c12v2').addEventListener('input', calcular12);
 
 function calcular1() {
     var c1v1 = parseFloat(document.getElementById('c1v1').value);
@@ -61,5 +75,88 @@ function calcular5() {
         document.getElementById('r5').textContent = ' ' + result5.toFixed(2);
     } else {
         document.getElementById('r5').textContent = '';
+    }
+}
+
+function calcular6() {
+    var c6v1 = parseFloat(document.getElementById('c6v1').value);
+    var c6v2 = parseFloat(document.getElementById('c6v2').value);
+    if (!isNaN(c6v1) && !isNaN(c6v2)) {
+        var result6 = c6v1 / (1 + c6v2 / 100);
+        document.getElementById('r6').textContent = ' ' + result6.toFixed(2);
+    } else {
+        document.getElementById('r6').textContent = '';
+    }
+}
+
+// Calculadora 7 - Múltiplos aumentos
+function calcular7() {
+    var c7v1 = parseFloat(document.getElementById('c7v1').value);
+    var c7v2 = document.getElementById('c7v2').value.split(',').map(parseFloat);
+    if (!isNaN(c7v1) && c7v2.every(v => !isNaN(v))) {
+        var result7 = c7v2.reduce((acc, p) => acc * (1 + p / 100), c7v1);
+        document.getElementById('r7').textContent = ' ' + result7.toFixed(2);
+    } else {
+        document.getElementById('r7').textContent = '';
+    }
+}
+
+// Calculadora 8 - Múltiplos descontos
+function calcular8() {
+    var c8v1 = parseFloat(document.getElementById('c8v1').value);
+    var c8v2 = document.getElementById('c8v2').value.split(',').map(parseFloat);
+    if (!isNaN(c8v1) && c8v2.every(v => !isNaN(v))) {
+        var result8 = c8v2.reduce((acc, p) => acc * (1 - p / 100), c8v1);
+        document.getElementById('r8').textContent = ' ' + result8.toFixed(2);
+    } else {
+        document.getElementById('r8').textContent = '';
+    }
+}
+
+// Calculadora 9 - Dividir porcentagem entre partes
+function calcular9() {
+    var c9v1 = parseFloat(document.getElementById('c9v1').value);
+    var c9v2 = parseInt(document.getElementById('c9v2').value);
+    if (!isNaN(c9v1) && !isNaN(c9v2) && c9v2 > 0) {
+        var result9 = c9v1 / c9v2;
+        document.getElementById('r9').textContent = ' ' + result9.toFixed(2);
+    } else {
+        document.getElementById('r9').textContent = '';
+    }
+}
+
+// Calculadora 10 - Porcentagem de ajuste necessária
+function calcular10() {
+    var c10v1 = parseFloat(document.getElementById('c10v1').value);
+    var c10v2 = parseFloat(document.getElementById('c10v2').value);
+    if (!isNaN(c10v1) && !isNaN(c10v2)) {
+        var result10 = ((c10v2 - c10v1) / c10v1) * 100;
+        document.getElementById('r10').textContent = ' ' + result10.toFixed(2) + '%';
+    } else {
+        document.getElementById('r10').textContent = '';
+    }
+}
+
+// Calculadora 11 - Valor original com desconto
+function calcular11() {
+    var c11v1 = parseFloat(document.getElementById('c11v1').value);
+    var c11v2 = parseFloat(document.getElementById('c11v2').value);
+    if (!isNaN(c11v1) && !isNaN(c11v2)) {
+        var result11 = c11v1 / (1 - c11v2 / 100);
+        document.getElementById('r11').textContent = ' ' + result11.toFixed(2);
+    } else {
+        document.getElementById('r11').textContent = '';
+    }
+}
+
+// Calculadora 12 - Valor correspondente à porcentagem
+function calcular12() {
+    var c12v1 = parseFloat(document.getElementById('c12v1').value);
+    var c12v2 = parseFloat(document.getElementById('c12v2').value);
+    if (!isNaN(c12v1) && !isNaN(c12v2)) {
+        var result12 = (c12v1 / 100) * c12v2;
+        document.getElementById('r12').textContent = ' ' + result12.toFixed(2);
+    } else {
+        document.getElementById('r12').textContent = '';
     }
 }
