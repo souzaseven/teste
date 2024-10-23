@@ -1,656 +1,820 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
-        crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-6176119186804571">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos</title>
 
-    <!----Font awesome cdn font icon css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<!----Font awesome cdn font icon css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <link rel="stylesheet" href="html.css">
+<link rel="stylesheet" href="html.css">
 
-    <script src="html.js"></script>
+<script src="html.js"></script>
 
 <style>
- /* Estilização do container */
-        .loading-container {
-            width: 100%;
-            height: 10px;
-            background-color: #ddd;
-            overflow: hidden;
-            position: relative;
-        }
+/* Estilização do container */
+.loading-container {
+width: 100%;
+height: 10px;
+background-color: #ddd;
+overflow: hidden;
+position: relative;
+}
 
-        /* Estilização da barra animada */
-        .loading-bar {
-            height: 100%;
-            background-color: #000;
-            width: 10%;
-            position: absolute;
-            animation: loading 2s linear infinite;
-        }
+/* Estilização da barra animada */
+.loading-bar {
+height: 100%;
+background-color: #000;
+width: 10%;
+position: absolute;
+animation: loading 2s linear infinite;
+}
 
-        /* Definição da animação */
-        @keyframes loading {
-            0% {
-                left: 0;
-            }
-            100% {
-                left: 100%;
-            }
-        }
+/* Definição da animação */
+@keyframes loading {
+0% {
+left: 0;
+}
+
+100% {
+left: 100%;
+}
+}
 </style>
-    <style>
+<style>
+.project-item {
+position: relative;
+width: 200px;
+/* ajuste o tamanho conforme necessário */
+}
 
-    </style>
-    <!--
-    </style>-->
+.img-container {
+position: relative;
+width: 100%;
+height: auto;
+overflow: hidden;
+}
+
+.project-item img {
+width: 100%;
+display: block;
+transition: all 0.3s ease;
+/* Transição suave */
+}
+
+.overlay-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+background-color: rgba(0, 0, 0, 0.7);
+padding: 10px;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+font-size: 14px;
+width: 100%;
+}
+
+.img-container:hover img {
+filter: blur(3px);
+/* Aplica um leve desfoque na imagem ao passar o mouse */
+}
+
+.img-container:hover .overlay-text {
+opacity: 1;
+/* Exibe o texto em segundo plano ao passar o mouse */
+}
+</style>
+<!--
+</style>-->
 </head>
 
 <body>
-    <div class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-a"></i>
-                    <div class="logo-text"></div>
-                </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="/Git Hub/index.html">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="./meusprojetos.html">Projetos</a></li>
-                        <li><a href="#">Rede Social</a></li>
-                    </ul>
-                </nav>
-            </header>
+<div class="hero-header">
+<div class="wrapper">
+<header>
+<div class="logo">
+<i class="fa-solid fa-a"></i>
+<div class="logo-text"></div>
+</div>
+<nav>
+<div class="togglebtn">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<ul class="navlinks">
+<li><a href="/Git Hub/index.html">Home</a></li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="./meusprojetos.html">Projetos</a></li>
+<li><a href="#">Rede Social</a></li>
+</ul>
+</nav>
+</header>
 
-            <!-- Campo de Pesquisa -->
-            <div class="search-container">
-                <input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..."
-                    onkeyup="filterProjects()">
-            </div>
+<!-- Campo de Pesquisa -->
+<div class="search-container">
+<input type="search" id="search-input" class="search-input" placeholder="Busque por projetos..."
+onkeyup="filterProjects()">
+</div>
 
-            <!-- Projects Section -->
-            <div class="projects-section">
-                <div class="wrapper">
-                    <h2>Principais</h2>
-                    <div class="projects-container">
-                        <div class="project-item">
-                            <a href="https://exemplo.com/projeto-rede-sociais">
-                                <img src="/Git Hub/imagens/Painel/redes sociais2.webp" alt="Rede Social">
-                                <a href="#">
-                                    <h3>Rede Social</h3>
-                                </a>
-                        </div>
-                        <div class="project-item">
-                            <a href="./cursos.html">
-                                <img src="/Git Hub/Projetos/imagens/Painel/cursos.jpg" alt="cursos">
-                                <h3>Cursos</h3>
-                            </a>
-                        </div>
-                        <div class="project-item">
-                            <a href="./diversos.html">
-                                <img src="/Git Hub/imagens/Painel/diversos projetos.webp" alt="Projeto diversos">
-                                <h3>Diversos</h3>
-                            </a>
-                        </div>
-                        <div class="project-item">
-                            <a href="./trabalho.html">
-                                <img src="/Git Hub/imagens/Painel/logo tga.jpeg" alt="Projeto 4">
-                                <h3>Trabalho</h3>
-                            </a>
-                        </div>
-                        <div class="project-item">
-                            <a href="./meusprojetos.html">
-                                <img src="/Git Hub/imagens/Painel/meus projetos logo.webp" alt="Pessoal">
-                                <h3>Pessoal</h3>
-                            </a>
-                        </div>
-                    </div>
+<!-- Projects Section -->
+<div class="projects-section">
+<div class="wrapper">
+<h2>Principais</h2>
+<div class="projects-container">
+<div class="project-item">
+<a href="https://exemplo.com/projeto-rede-sociais">
+<img src="/Git Hub/imagens/Painel/redes sociais2.webp" alt="Rede Social">
+<a href="#">
+<h3>Rede Social</h3>
+</a>
+</div>
+<div class="project-item">
+<a href="./cursos.html">
+<img src="/Git Hub/Projetos/imagens/Painel/cursos.jpg" alt="cursos">
+<h3>Cursos</h3>
+</a>
+</div>
+<div class="project-item">
+<a href="./diversos.html">
+<img src="/Git Hub/imagens/Painel/diversos projetos.webp" alt="Projeto diversos">
+<h3>Diversos</h3>
+</a>
+</div>
+<div class="project-item">
+<a href="./trabalho.html">
+<img src="/Git Hub/imagens/Painel/logo tga.jpeg" alt="Projeto 4">
+<h3>Trabalho</h3>
+</a>
+</div>
+<div class="project-item">
+<a href="./meusprojetos.html">
+<img src="/Git Hub/imagens/Painel/meus projetos logo.webp" alt="Pessoal">
+<h3>Pessoal</h3>
+</a>
+</div>
+</div>
 
-                </div>
+</div>
 
-                <section>
-                    <section></section>
-                    <h1 class="heading">
-                        Módulo 1
-                        <img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod1.jpg"
-                            alt="Descrição do Módulo 1">
-                    </h1>
+<section>
+<section></section>
+<h1 class="heading">
+Módulo 1
+<img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod1.jpg"
+alt="Descrição do Módulo 1">
+</h1>
 
-                    <section class="pdf">
-                        <!--PDF-->
-                        <div class="projects-container">
-                            <!-- PDF Links -->
-                            <div class="project-item"
-                                onclick="openPdfModal('./aulas-pdf/01 - História da Internet.pdf')">
-                                <img src="" alt="">
-                                <h6>História da Internet</h6>
-                            </div>
+<section class="pdf">
+<!--PDF-->
+<div class="projects-container">
+<!-- PDF Links -->
+<div class="project-item"
+onclick="openPdfModal('./aulas-pdf/01 - História da Internet.pdf')">
+<img src="" alt="">
+<h6>História da Internet</h6>
+</div>
 
 
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/02 - Como funciona a Internet.pdf">
-                                    <img src="" alt="">
-                                    <h6>Como funciona a Internet</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/02 - Como funciona a Internet.pdf">
+<img src="" alt="">
+<h6>Como funciona a Internet</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/03 - Como funciona HTML e CSS.pdf">
-                                    <img src="" alt="">
-                                    <h6>Como Funciona o HTML e CSS</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/03 - Como funciona HTML e CSS.pdf">
+<img src="" alt="">
+<h6>Como Funciona o HTML e CSS</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/04 - Primeiros passos HTML.pdf">
-                                    <img src="" alt="">
-                                    <h6>Primeiros passos HTML</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/04 - Primeiros passos HTML.pdf">
+<img src="" alt="">
+<h6>Primeiros passos HTML</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/05 - Caracteres, parágrafos e quebras de linha.pdf">
-                                    <img src="" alt="">
-                                    <h6>Caracteres, parágrafos e quebras de linha</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/05 - Caracteres, parágrafos e quebras de linha.pdf">
+<img src="" alt="">
+<h6>Caracteres, parágrafos e quebras de linha</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/06 - Imagens e Favicon.pdf">
-                                    <img src="" alt="">
-                                    <h6>Imagens e Favicon</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/06 - Imagens e Favicon.pdf">
+<img src="" alt="">
+<h6>Imagens e Favicon</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/07 - Hierarquia de títulos.pdf">
-                                    <img src="" alt="">
-                                    <h6>Hierarquia de títulos</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/07 - Hierarquia de títulos.pdf">
+<img src="" alt="">
+<h6>Hierarquia de títulos</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/08 - Formatação de Textos.pdf">
-                                    <img src="" alt="">
-                                    <h6>Formatação de textos</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/08 - Formatação de Textos.pdf">
+<img src="" alt="">
+<h6>Formatação de textos</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/09 - Listas HTML.pdf">
-                                    <img src="" alt="">
-                                    <h6>Listas HTML</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/09 - Listas HTML.pdf">
+<img src="" alt="">
+<h6>Listas HTML</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/10 - Ligações em toda parte.pdf">
-                                    <img src="" alt="">
-                                    <h6>LIgações em toda parte</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/10 - Ligações em toda parte.pdf">
+<img src="" alt="">
+<h6>LIgações em toda parte</h6>
+</a>
+</div>
 
-                            <div class="project-item">
-                                <a href="./aulas-pdf/11 - Imagens dinâmicas, áudios e vídeos.pdf">
-                                    <img src="" alt="">
-                                    <h6>Imagens dinâmicas, áudios e vídeos</h6>
-                                </a>
-                            </div>
+<div class="project-item">
+<a href="./aulas-pdf/11 - Imagens dinâmicas, áudios e vídeos.pdf">
+<img src="" alt="">
+<h6>Imagens dinâmicas, áudios e vídeos</h6>
+</a>
+</div>
 
-                    </section><!--
+</section><!--
 <hr style="border: 5px solid #000; width: 100%; margin: 10px 0;">-->
- <!-- Container da barra de carregamento -->
-    <div class="loading-container">
-        <div class="loading-bar"></div>
+<!-- Container da barra de carregamento -->
+<div class="loading-container">
+<div class="loading-bar"></div>
+</div>
+<Section>
+
+<!--Aulas-->
+<div class="projects-container">
+<div class="project-item">
+<a href="./aulas/04/04.html">
+<img src="" alt="">
+<h6>Aula 4</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 5</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 6</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 7</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 8</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 9</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 10</h6>
+</a>
+</div>
+
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 11</h6>
+</a>
+</div>
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 12</h6>
+</a>
+</div>
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Aula 13</h6>
+</a>
+</div>
+</Section>
+
+
+
+
+<section>
+<section></section>
+<h1 class="heading">
+Módulo 2
+<img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod2.jpg"
+alt="Descrição do Módulo 2">
+</h1>
+
+<div class="projects-container">
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Html5</h6>
+</a>
+</div>
+
+
+
+<section>
+<section></section>
+<h1 class="heading">
+Módulo 3
+<img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod3.jpg"
+alt="Descrição do Módulo 3">
+</h1>
+
+<div class="projects-container">
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Html5</h6>
+</a>
+</div>
+
+
+
+<section>
+<section></section>
+<h1 class="heading">
+Módulo 4
+<img src="https://www.cursoemvideo.com/wp-content/uploads/2022/05/htmlcss-mod4.jpg"
+alt="Descrição do Módulo 4">
+</h1>
+
+<div class="projects-container">
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Html5</h6>
+</a>
+</div>
+
+
+
+
+<section>
+<section></section>
+<h1 class="heading">
+Módulo 5
+<img src="https://www.cursoemvideo.com/wp-content/uploads/2024/06/htmlcss-mod5-300x300.jpg"
+alt="Descrição do Módulo 5">
+</h1>
+
+<div class="projects-container">
+<div class="project-item">
+<a href="./html/index.html">
+<img src="" alt="">
+<h6>Html5</h6>
+</a>
+</div>
+
+<section>
+<section></section>
+<h1 class="heading"
+style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
+Exercicios com Html
+</h1>
+
+<div>
+<h4>PASSO 01 - SEQUÊNCIAS BÁSICAS</h4>
+<div class="projects-container">
+    <div class="project-item">
+        <a
+            href="./exercicios/PASSO 01 - SEQUÊNCIAS BÁSICAS/01/01.html">
+            <img src="./imagens/01.png" alt="">
+            <h6>01</h6>
+        </a>
     </div>
-                    <Section>
 
-                        <!--Aulas-->
-                        <div class="projects-container">
-                            <div class="project-item">
-                                <a href="./aulas/04/04.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 4</h6>
-                                </a>
-                            </div>
+    <div class="project-item">
+        <a href="">
+            <img src="./imagens/02.png" alt="">
+            <h6>02</h6>
+        </a>
+    </div>
 
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 5</h6>
-                                </a>
-                            </div>
+    <div class="project-item">
+        <a href="">
+            <img src="./imagens/03.png" alt="">
+            <h6>03</h6>
+        </a>
+    </div>
 
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 6</h6>
-                                </a>
-                            </div>
+    <div class="project-item">
+        <a href="">
+            <img src="./imagens/04.png" alt="">
+            <h6>04</h6>
+        </a>
+    </div>
 
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 7</h6>
-                                </a>
-                            </div>
+    <div class="project-item">
+        <a href="">
+            <img src="./imagens/05.png" alt="">
+            <h6>05</h6>
+        </a>
+    </div>
+</div>
+<!--
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6></h6>
+</a>
+</div>
+-->
+<!--
+<section>
+<h1 class="heading">Exercícios em PDF</h1>
+<div class="pdf-viewer-container">
+<iframe class="pdf-viewer" src="./100 exercicios-algoritmos pdf.pdf"></iframe>
 
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 8</h6>
-                                </a>
-                            </div>
-
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 9</h6>
-                                </a>
-                            </div>
-
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 10</h6>
-                                </a>
-                            </div>
-
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 11</h6>
-                                </a>
-                            </div>
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 12</h6>
-                                </a>
-                            </div>
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Aula 13</h6>
-                                </a>
-                            </div>
-                    </Section>
-
-
-
-
-                    <section>
-                        <section></section>
-                        <h1 class="heading">
-                            Módulo 2
-                            <img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod2.jpg"
-                                alt="Descrição do Módulo 2">
-                        </h1>
-
-                        <div class="projects-container">
-                            <div class="project-item">
-                                <a href="./html/index.html">
-                                    <img src="" alt="">
-                                    <h6>Html5</h6>
-                                </a>
-                            </div>
-
-
-
-                            <section>
-                                <section></section>
-                                <h1 class="heading">
-                                    Módulo 3
-                                    <img src="https://www.cursoemvideo.com/wp-content/uploads/2020/11/htmlcss-vip-mod3.jpg"
-                                        alt="Descrição do Módulo 3">
-                                </h1>
-
-                                <div class="projects-container">
-                                    <div class="project-item">
-                                        <a href="./html/index.html">
-                                            <img src="" alt="">
-                                            <h6>Html5</h6>
-                                        </a>
-                                    </div>
-
-
-
-                                    <section>
-                                        <section></section>
-                                        <h1 class="heading">
-                                            Módulo 4
-                                            <img src="https://www.cursoemvideo.com/wp-content/uploads/2022/05/htmlcss-mod4.jpg"
-                                                alt="Descrição do Módulo 4">
-                                        </h1>
-
-                                        <div class="projects-container">
-                                            <div class="project-item">
-                                                <a href="./html/index.html">
-                                                    <img src="" alt="">
-                                                    <h6>Html5</h6>
-                                                </a>
-                                            </div>
-
-
-
-
-                                            <section>
-                                                <section></section>
-                                                <h1 class="heading">
-                                                    Módulo 5
-                                                    <img src="https://www.cursoemvideo.com/wp-content/uploads/2024/06/htmlcss-mod5-300x300.jpg"
-                                                        alt="Descrição do Módulo 5">
-                                                </h1>
-
-                                                <div class="projects-container">
-                                                    <div class="project-item">
-                                                        <a href="./html/index.html">
-                                                            <img src="" alt="">
-                                                            <h6>Html5</h6>
-                                                        </a>
-                                                    </div>
-
-                                                    <section>
-                                                        <section></section>
-                                                        <h1 class="heading"
-                                                            style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
-                                                            Exercicios com Html
-                                                        </h1>
-
-                                                        <div>
-                                                            <h4>PASSO 01 - SEQUÊNCIAS BÁSICAS</h4>
-                                                            <div class="projects-container">
-                                                                <div class="project-item">
-                                                                    <a
-                                                                        href="./exercicios/PASSO 01 - SEQUÊNCIAS BÁSICAS/01/01.html">
-                                                                        <img src="./imagens/01.png" alt="">
-                                                                        <h6>01</h6>
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="project-item">
-                                                                    <a href="">
-                                                                        <img src="./imagens/02.png" alt="">
-                                                                        <h6>02</h6>
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="project-item">
-                                                                    <a href="">
-                                                                        <img src="./imagens/03.png" alt="">
-                                                                        <h6>03</h6>
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="project-item">
-                                                                    <a href="">
-                                                                        <img src="./imagens/04.png" alt="">
-                                                                        <h6>04</h6>
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="project-item">
-                                                                    <a href="">
-                                                                        <img src="./imagens/05.png" alt="">
-                                                                        <h6>05</h6>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <!--
-            <div class="project-item">
-                <a href="">
-                    <img src="" alt="">
-                    <h6></h6>
-                </a>
-            </div>
-            -->
-                                                            <!--
-            <section>
-                <h1 class="heading">Exercícios em PDF</h1>
-                <div class="pdf-viewer-container">
-                    <iframe class="pdf-viewer" src="./100 exercicios-algoritmos pdf.pdf"></iframe>
-               
-                </div>
-            </section>
+</div>
+</section>
 -->
 
 
-                                                            <!-- Modal for PDF Viewer -->
-                                                            <div id="pdf-modal" class="modal">
-                                                                <span class="close-btn">&times;</span>
-                                                                <iframe id="pdf-modal-content" class="pdf-viewer"
-                                                                    src=""></iframe>
-                                                            </div>
+<!-- Modal for PDF Viewer -->
+<div id="pdf-modal" class="modal">
+    <span class="close-btn">&times;</span>
+    <iframe id="pdf-modal-content" class="pdf-viewer"
+        src=""></iframe>
+</div>
 
-                                                            <section class="vpdf">
-                                                                <h1 class="vpdf">
-                                                                    <div class="pdf-viewer-container">
-                                                                        <a href="./100 exercicios-algoritmos pdf.pdf">👀
-                                                                            Ver PDF</a>
-                                                                </h1>
-                                                        </div>
-                                                    </section>
+<section class="vpdf">
+    <h1 class="vpdf">
+        <div class="pdf-viewer-container">
+            <a href="./100 exercicios-algoritmos pdf.pdf">👀
+                Ver PDF</a>
+    </h1>
+</div>
+</section>
 
-                                                    <div class="project-item">
-                                                        <a href="">
-                                                            <img src="" alt="">
-                                                            <h6></h6>
-                                                        </a>
-                                                    </div>
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6></h6>
+</a>
+</div>
 
-                                                    <section>
-                                                        <section></section>
-                                                        <h1 class="heading"
-                                                            style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
-                                                            100 Desafios com Html5
-                                                        </h1>
+<section>
+<section></section>
+<h1 class="heading"
+style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
+100 Desafios com Html5
+</h1>
 
-                                                        <div class="projects-container">
-                                                            <div class="project-item">
+<h3 style="color: #000;">PASSO 01 - SEQUÊNCIAS BÁSICAS</h3>
+<div class="projects-container">
+<div class="project-item">
+    <a href="./exercicios/PASSO 01 - SEQUÊNCIAS BÁSICAS/01/exerc01.html">
+        <div class="img-container">/
+            <img src="./imagens/01.png" alt="">
+            <div class="overlay-text">Escreva um programa
+                que mostre na tela a mensagem "Olá, Mundo!"
+            </div>
+        </div>
+        <h6>01</h6>
+    </a>
+</div>
+
+
+<div class="project-item">
+    <a href="./exercicios/PASSO 01 - SEQUÊNCIAS BÁSICAS/02/exerc02.html">
+        <div class="img-container">
+            <img src="./imagens/02.png" alt="">
+            <div class="overlay-text">Faça um programa que
+            leia o nome de uma pessoa e mostre uma
+                mensagem de boas vindas para ela:
+                Ex:
+                Qual é o seu nome? João da Silva
+                Olá João da Silva, é um prazer te conhecer!"
+            </div>
+        </div>
+        <h6>02</h6>
+    </a>
+</div>
+
+<div class="project-item">
+    <a href="./exercicios/PASSO 01 - SEQUÊNCIAS BÁSICAS/03/exerc03.html">
+        <div class="img-container">
+            <img src="./imagens/03.png" alt="">
+            <div class="overlay-text">
+3) Crie um programa que leia o nome e o salário de um funcionário, mostrando no 
+final uma mensagem.
+Ex:
+Nome do Funcionário: Maria do Carmo
+Salário: 1850,45
+O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho.
+            </div>
+        </div>
+        <h6>03</h6>
+    </a>
+</div>
+
+<div class="project-item">
+    <a href="">
+        <div class="img-container">
+            <img src="./imagens/04.png" alt="">
+            <div class="overlay-text">
+
+            </div>
+        </div>
+        <h6>04</h6>
+    </a>
+</div>
+<!--
+<div class="project-item">
+    <a href="">
+        <div class="img-container">
+            <img src="./imagens/03.png" alt="">
+            <div class="overlay-text">
+
+            </div>
+        </div>
+        <h6></h6>
+    </a>
+</div>
+-->
+
+ <div class="project-item">
                                                                 <a href="">
-                                                                    <img src="./imagens/01.png" alt="">
-                                                                    <h6>01</h6>
+                                                                    <div class="img-container">
+                                                                        <img src="./imagens/03.png" alt="">
+                                                                        <div class="overlay-text">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <h6></h6>
                                                                 </a>
                                                             </div>
 
-                                                            <div class="project-item">
+ <div class="project-item">
                                                                 <a href="">
-                                                                    <img src="./imagens/02.png" alt="">
-                                                                    <h6>02</h6>
+                                                                    <div class="img-container">
+                                                                        <img src="./imagens/03.png" alt="">
+                                                                        <div class="overlay-text">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <h6></h6>
                                                                 </a>
                                                             </div>
 
-                                                            <div class="project-item">
-                                                                <a href="">
-                                                                    <img src="./imagens/03.png" alt="">
-                                                                    <h6>03</h6>
-                                                                </a>
-                                                            </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                                                            <div class="project-item">
-                                                                <a href="">
-                                                                    <img src="./imagens/04.png" alt="">
-                                                                    <h6>04</h6>
-                                                                </a>
-                                                            </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                                                            <div class="project-item">
-                                                                <a href="">
-                                                                    <img src="./imagens/05.png" alt="">
-                                                                    <h6>05</h6>
-                                                                </a>
-                                                            </div>
-                                                            <!--
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>06</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>07</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>08</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>09</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>10</h6>
-                    </a>
-                </div>
+<<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>11</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>12</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>13</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>14</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>15</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>16</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>17</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>18</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>19</h6>
-                    </a>
-                </div>
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6>20</h6>
-                    </a>
-                </div>
+<div class="project-item">
+<a href="">
+<div class="img-container">
+    <img src="./imagens/03.png" alt="">
+    <div class="overlay-text">
 
-                <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h6></h6>
-                    </a>
-                </div>
-              
-             -->
-                                                            <!---------------------------------------------------------
-  
-            <div class="project-item">
-                <a href="https://exemplo.com/projeto4">
-                    <img src="./imagens/IMG PROJETOS/em construção.webp" alt="Projeto 4">
-                    <h6 class="blinking">EM BREVE</h6>
-                </a>
-            </div>-->
+    </div>
+</div>
+<h6></h6>
+</a>
+</div>
 
-                                                        </div>
-                                                    </section>
+<div class="project-item">
+    <a href="">
+        <img src="" alt="">
+        <h6>16</h6>
+    </a>
+</div>
+<!--
+<h3>PASSO 02 - CONDIÇÕES BÁSICAS</h3>
 
-                                                    <script src="./html.js"></script>
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6>17</h6>
+</a>
+</div>
 
-                                                    <!-- Modal for PDF Viewer -->
-                                                    <div id="pdf-modal">
-                                                        <span class="close-btn" onclick="closePdfModal()">&times;</span>
-                                                        <div class="modal-content">
-                                                            <iframe id="pdf-viewer" src=""></iframe>
-                                                        </div>
-                                                    </div>
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6>18</h6>
+</a>
+</div>
 
-                                                    <script>
-                                                        // Function to open the modal and display PDF
-                                                        function openPdfModal(pdfUrl) {
-                                                            document.getElementById('pdf-viewer').src = pdfUrl;
-                                                            document.getElementById('pdf-modal').style.display = 'flex';
-                                                        }
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6>19</h6>
+</a>
+</div>
 
-                                                        // Function to close the modal
-                                                        function closePdfModal() {
-                                                            document.getElementById('pdf-modal').style.display = 'none';
-                                                            document.getElementById('pdf-viewer').src = ''; // Clear the iframe
-                                                        }
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6>20</h6>
+</a>
+</div>
 
-                                                        // Close modal when clicking outside the modal content
-                                                        window.onclick = function (event) {
-                                                            if (event.target === document.getElementById('pdf-modal')) {
-                                                                closePdfModal();
-                                                            }
-                                                        }
-                                                    </script>
+<div class="project-item">
+<a href="">
+<img src="" alt="">
+<h6></h6>
+</a>
+</div>
+
+-->
+<!---------------------------------------------------------
+
+<div class="project-item">
+<a href="https://exemplo.com/projeto4">
+<img src="./imagens/IMG PROJETOS/em construção.webp" alt="Projeto 4">
+<h6 class="blinking">EM BREVE</h6>
+</a>
+</div>-->
+
+</div>
+</section>
+
+<script src="./html.js"></script>
+
+<!-- Modal for PDF Viewer -->
+<div id="pdf-modal">
+<span class="close-btn" onclick="closePdfModal()">&times;</span>
+<div class="modal-content">
+<iframe id="pdf-viewer" src=""></iframe>
+</div>
+</div>
+
+<script>
+// Function to open the modal and display PDF
+function openPdfModal(pdfUrl) {
+document.getElementById('pdf-viewer').src = pdfUrl;
+document.getElementById('pdf-modal').style.display = 'flex';
+}
+
+// Function to close the modal
+function closePdfModal() {
+document.getElementById('pdf-modal').style.display = 'none';
+document.getElementById('pdf-viewer').src = ''; // Clear the iframe
+}
+
+// Close modal when clicking outside the modal content
+window.onclick = function (event) {
+if (event.target === document.getElementById('pdf-modal')) {
+    closePdfModal();
+}
+}
+
+
+// Função para abrir o modal
+function openModal() {
+document.getElementById('text-modal').style.display = 'flex';
+}
+
+// Função para fechar o modal
+function closeModal() {
+document.getElementById('text-modal').style.display = 'none';
+}
+
+// Fechar o modal quando clicar fora dele
+window.onclick = function (event) {
+var modal = document.getElementById('text-modal');
+if (event.target == modal) {
+    closeModal();
+}
+}
+</script>
 
 
 </body>
