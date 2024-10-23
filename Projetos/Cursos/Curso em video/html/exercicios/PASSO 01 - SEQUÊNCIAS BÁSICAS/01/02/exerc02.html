@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas-vindas</title>
+
+<style>
+body {
+text-align: center;
+margin-top: 50%;
+}
+</style>
+</head>
+<body>
+    <h1>Boas-vindas</h1>
+
+    <!-- Campo de entrada para o nome da pessoa -->
+    <label for="nome">Qual é o seu nome?</label>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <button onclick="mostrarMensagem()">Enviar</button>
+
+    <!-- Espaço onde a mensagem de boas-vindas será exibida -->
+    <p id="mensagem"></p>
+
+    <script>
+        // Função para exibir a mensagem de boas-vindas
+        function mostrarMensagem() {
+            const nome = document.getElementById('nome').value; // Lê o nome inserido
+            const mensagem = `Olá ${nome}, é um prazer te conhecer!`; // Cria a mensagem personalizada
+            document.getElementById('mensagem').innerText = mensagem; // Exibe a mensagem na página
+        }
+    </script>
+</body>
+</html>
