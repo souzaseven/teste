@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Distância</title>
+    
+    <!-- Estilos da página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /* Tooltip (aviso) */
+        .tooltip {
+            position: relative;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Texto do tooltip */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Posição acima do elemento */
+            left: 50%;
+            margin-left: -60px; /* Para centralizar o tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Seta do tooltip */
+        .tooltip .tooltiptext::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Exibe o tooltip quando o mouse passa por cima */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contêiner principal para o conteúdo -->
+    <div class="container">
+        <h1>Conversão de Distância</h1> <!-- Título da página -->
+        
+        <!-- Campo de entrada para a distância em metros -->
+        <label for="distancia">Digite uma distância em metros:</label>
+        <input type="number" id="distancia" placeholder="Digite a distância em metros" step="0.01" oninput="converterDistancia()">
+        
+        <!-- Div que exibirá o resultado das conversões -->
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <!-- Código JavaScript para converter a distância para outras medidas -->
+    <script>
+        function converterDistancia() {
+            var metros = parseFloat(document.getElementById('distancia').value); // Pega o valor inserido e converte para float
+            
+            // Verifica se o valor é um número válido
+            if (!isNaN(metros)) {
+                // Conversões para outras unidades
+                var km = metros / 1000;     // Quilômetros
+                var hm = metros / 100;      // Hectômetros
+                var dam = metros / 10;      // Decâmetros
+                var dm = metros * 10;       // Decímetros
+                var cm = metros * 100;      // Centímetros
+                var mm = metros * 1000;     // Milímetros
+
+                // Exibe o resultado na div com id "resultado" com tooltips
+                document.getElementById('resultado').innerHTML = 
+                    `<p>A distância de ${metros}m corresponde a:</p>
+                    <p class="tooltip">${km} Km<span class="tooltiptext">Kilômetros</span></p>
+                    <p class="tooltip">${hm} Hm<span class="tooltiptext">Hectômetros</span></p>
+                    <p class="tooltip">${dam} Dam<span class="tooltiptext">Decâmetros</span></p>
+                    <p class="tooltip">${dm} dm<span class="tooltiptext">Decímetros</span></p>
+                    <p class="tooltip">${cm} cm<span class="tooltiptext">Centímetros</span></p>
+                    <p class="tooltip">${mm} mm<span class="tooltiptext">Milímetros</span></p>`;
+            } else {
+                // Exibe uma mensagem de erro caso o valor não seja um número válido
+                document.getElementById('resultado').innerText = "Por favor, insira uma distância válida.";
+            }
+        }
+    </script>
+
+</body>
+</html>
