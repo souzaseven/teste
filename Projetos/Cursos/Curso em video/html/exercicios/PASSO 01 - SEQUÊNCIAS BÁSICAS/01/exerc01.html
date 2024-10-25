@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olá, Mundo!</title>
-<style>
-h1 {
-text-align: center;
-margin-top: 50%;
-}
-</style>
+    <style>
+        /* Define o estilo do body para centralizar o conteúdo na página */
+        body {
+            display: flex; /* Define um layout flexível */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+            height: 100vh; /* Faz o body ocupar a altura total da janela */
+            margin: 0; /* Remove a margem padrão */
+            text-align: center; /* Centraliza o texto dentro dos elementos */
+        }
+    </style>
 </head>
 <body>
-    <h1 id="mensagem"></h1>
+    <div>
+        <!-- Título H1 -->
+        <h1>Teste com h1</h1>
+        <!-- Parágrafo -->
+        <p>Teste com parágrafo</p>
+        <!-- Outro H1 onde a mensagem será inserida -->
+        <h1 id="mensagem"></h1>
+    </div>
 
     <script>
-        // Exibe a mensagem "Olá, Mundo!" na página
+        // Exibe a mensagem "Olá, Mundo!" no elemento com id 'mensagem'
         document.getElementById('mensagem').innerText = 'Olá, Mundo!';
     </script>
 </body>
