@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Delta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calcular Delta (Δ)</h1>
+
+        <label for="valorA">Valor de A:</label>
+        <input type="number" id="valorA" placeholder="Digite o valor de A" step="any" oninput="calcularDelta()">
+
+        <label for="valorB">Valor de B:</label>
+        <input type="number" id="valorB" placeholder="Digite o valor de B" step="any" oninput="calcularDelta()">
+
+        <label for="valorC">Valor de C:</label>
+        <input type="number" id="valorC" placeholder="Digite o valor de C" step="any" oninput="calcularDelta()">
+
+        <!-- Se preferir usar o cálculo manual, descomente a linha abaixo e comente o "oninput" nos campos de entrada -->
+        <!-- <button onclick="calcularDelta()">Calcular Delta</button> -->
+
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularDelta() {
+            const A = parseFloat(document.getElementById("valorA").value); // Pega o valor de A
+            const B = parseFloat(document.getElementById("valorB").value); // Pega o valor de B
+            const C = parseFloat(document.getElementById("valorC").value); // Pega o valor de C
+
+            // Verifica se os valores são válidos
+            if (!isNaN(A) && !isNaN(B) && !isNaN(C)) {
+                const delta = (B * B) - (4 * A * C); // Calcula o valor de Delta
+
+                // Exibe o resultado na div "resultado"
+                document.getElementById("resultado").innerText = `O valor de Delta é: ${delta.toFixed(2)}`;
+            } else {
+                // Limpa o resultado se os valores forem inválidos
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
