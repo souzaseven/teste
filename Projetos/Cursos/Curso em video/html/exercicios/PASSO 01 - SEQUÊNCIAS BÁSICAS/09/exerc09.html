@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Reais para Dólares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Conversor de Reais <br>para Dólares</h1>
+        <label for="dinheiro">Quanto dinheiro você tem (R$)?</label>
+        <input type="number" id="dinheiro" placeholder="Digite o valor em reais" oninput="converter()">
+
+        <!-- cálculo manual, descomente e comente o "oninput" no campo de entrada -->
+        <!-- <button onclick="converter()">Converter</button> -->
+
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function converter() {
+            const taxaDeCambio = 3.45; // Taxa de câmbio fixa
+            const dinheiro = parseFloat(document.getElementById("dinheiro").value); // Pega o valor do input
+            
+            // Verifica se o valor inserido é válido
+            if (!isNaN(dinheiro) && dinheiro > 0) {
+                const dolares = (dinheiro / taxaDeCambio).toFixed(2); // Calcula a conversão e formata com 2 casas decimais
+                document.getElementById("resultado").innerText = `Com R$${dinheiro.toFixed(2)}, você pode comprar US$${dolares}.`;
+            } else {
+                document.getElementById("resultado").innerText = ""; // Limpa o resultado se o valor for inválido
+            }
+        }
+    </script>
+
+</body>
+</html>

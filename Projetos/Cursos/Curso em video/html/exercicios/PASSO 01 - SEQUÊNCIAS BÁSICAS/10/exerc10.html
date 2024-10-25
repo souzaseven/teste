@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tinta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Tinta</h1>
+
+        <label for="largura">Largura da parede (m):</label>
+        <input type="number" id="largura" placeholder="Digite a largura" oninput="calcularTinta()">
+
+        <label for="altura">Altura da parede (m):</label>
+        <input type="number" id="altura" placeholder="Digite a altura" oninput="calcularTinta()">
+
+        <!-- Se preferir usar o cálculo manual, descomente a linha abaixo e comente o "oninput" nos campos de entrada -->
+        <!-- <button onclick="calcularTinta()">Calcular</button> -->
+
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularTinta() {
+            const largura = parseFloat(document.getElementById("largura").value); // Pega a largura inserida
+            const altura = parseFloat(document.getElementById("altura").value); // Pega a altura inserida
+
+            // Verifica se os valores são válidos
+            if (!isNaN(largura) && !isNaN(altura) && largura > 0 && altura > 0) {
+                const area = largura * altura; // Calcula a área
+                const litrosTinta = (area / 2).toFixed(2); // Calcula a quantidade de tinta necessária, arredondada para 2 casas decimais
+
+                // Exibe o resultado na div "resultado"
+                document.getElementById("resultado").innerText = `Área total: ${area.toFixed(2)}m². Você precisará de ${litrosTinta} litros de tinta.`;
+            } else {
+                // Limpa o resultado se os valores forem inválidos
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
