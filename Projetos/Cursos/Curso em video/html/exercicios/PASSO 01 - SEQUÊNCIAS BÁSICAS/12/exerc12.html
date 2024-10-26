@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Promocional</title>
+    
+    <!-- Estilos da página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Preço Promocional</h1>
+
+        <!-- Campo de entrada para o preço do produto -->
+        <label for="preco">Preço do Produto (R$):</label>
+        <input type="number" id="preco" placeholder="Digite o preço do produto" step="0.01" oninput="calcularDesconto()">
+        
+        <!-- Div que exibirá o preço promocional -->
+        <div id="resultado" class="result"></div>
+
+        <!-- Botão de calcular manualmente (opcional, deixado comentado) -->
+        <!-- <button onclick="calcularDesconto()">Calcular Desconto</button> -->
+    </div>
+
+    <script>
+        function calcularDesconto() {
+            const preco = parseFloat(document.getElementById("preco").value); // Pega o valor do preço
+
+            // Verifica se o valor do preço é válido
+            if (!isNaN(preco) && preco > 0) {
+                const desconto = preco * 0.05; // Calcula o valor do desconto (5%)
+                const precoPromocional = preco - desconto; // Calcula o preço com desconto
+
+                // Exibe o preço promocional formatado
+                document.getElementById("resultado").innerText = `Preço com 5% de desconto: R$ ${precoPromocional.toFixed(2)}`;
+            } else {
+                // Limpa o resultado se o valor for inválido
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
