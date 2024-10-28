@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Aluguel de Carro</title>
+    
+    <!-- Estilos da página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Aluguel de Carro</h1>
+
+        <!-- Campo de entrada para os Km percorridos -->
+        <label for="km">Km percorridos:</label>
+        <input type="number" id="km" placeholder="Digite os Km percorridos" step="0.01" oninput="calcularPreco()">
+        
+        <!-- Campo de entrada para os dias de aluguel -->
+        <label for="dias">Dias de Aluguel:</label>
+        <input type="number" id="dias" placeholder="Digite os dias de aluguel" oninput="calcularPreco()">
+        
+        <!-- Div que exibirá o preço total -->
+        <div id="resultado" class="result"></div>
+
+        <!-- Botão de calcular manualmente (opcional, deixado comentado) -->
+        <!-- <button onclick="calcularPreco()">Calcular Preço</button> -->
+    </div>
+
+    <script>
+        function calcularPreco() {
+            const km = parseFloat(document.getElementById("km").value); // Pega o valor de Km percorridos
+            const dias = parseInt(document.getElementById("dias").value); // Pega o valor dos dias de aluguel
+
+            // Verifica se os valores são válidos
+            if (!isNaN(km) && !isNaN(dias) && km > 0 && dias > 0) {
+                const precoPorDia = 90; // Preço por dia
+                const precoPorKm = 0.20; // Preço por Km rodado
+
+                // Calcula o preço total
+                const precoTotal = (dias * precoPorDia) + (km * precoPorKm);
+
+                // Exibe o preço total formatado
+                document.getElementById("resultado").innerText = `Total a pagar: R$ ${precoTotal.toFixed(2)}`;
+            } else {
+                // Limpa o resultado se os valores forem inválidos
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
