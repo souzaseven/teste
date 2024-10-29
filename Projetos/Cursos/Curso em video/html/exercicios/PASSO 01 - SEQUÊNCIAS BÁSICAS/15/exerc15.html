@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salário</title>
+    
+    <!-- Estilos da página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Salário</h1>
+
+        <!-- Campo de entrada para os dias trabalhados -->
+        <label for="dias">Dias trabalhados no mês:</label>
+        <input type="number" id="dias" placeholder="Digite os dias trabalhados" oninput="calcularSalario()">
+        
+        <!-- Div que exibirá o salário -->
+        <div id="resultado" class="result"></div>
+
+        <!-- Botão de calcular manualmente (opcional, deixado comentado) -->
+        <!-- <button onclick="calcularSalario()">Calcular Salário</button> -->
+    </div>
+
+    <script>
+        function calcularSalario() {
+            const dias = parseInt(document.getElementById("dias").value); // Pega o número de dias trabalhados
+
+            // Verifica se o valor é válido
+            if (!isNaN(dias) && dias > 0) {
+                const horasPorDia = 8; // Horas trabalhadas por dia
+                const valorPorHora = 25; // Valor pago por hora
+
+                // Calcula o salário total
+                const salarioTotal = dias * horasPorDia * valorPorHora;
+
+                // Exibe o salário total formatado
+                document.getElementById("resultado").innerText = `Salário Total: R$ ${salarioTotal.toFixed(2)}`;
+            } else {
+                // Limpa o resultado se o valor for inválido
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
