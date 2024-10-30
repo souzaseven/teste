@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Multa</title>
+</head>
+<body>
+    <h1>Calculadora de Multa por Velocidade</h1>
+    <label for="velocidade">Informe a velocidade do carro (Km/h): </label>
+    <input type="number" id="velocidade" placeholder="Ex: 90">
+
+   <!-- <button onclick="calcularMulta()">Verificar</button>-->
+
+    <h2 id="resultado"></h2>
+
+    <script>
+
+/*calcular automatico*/
+ document.getElementById('velocidade').addEventListener('input', calcularMulta);
+
+        function calcularMulta() {
+            const velocidade = parseFloat(document.getElementById('velocidade').value);
+            const limite = 80;
+            const multaPorKm = 5;
+
+            if (velocidade > limite) {
+                const excesso = velocidade - limite;
+                const valorMulta = excesso * multaPorKm;
+                document.getElementById('resultado').innerText = 
+                    `Você foi multado! O valor da multa é R$${valorMulta.toFixed(2)}.`;
+            } else {
+                document.getElementById('resultado').innerText = "Você está dentro do limite de velocidade.";
+            }
+        }
+    </script>
+</body>
+</html>
