@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Média do Aluno</title>
+</head>
+<body>
+    <h1>Verificação de Aproveitamento do Aluno</h1>
+    
+    <label for="nome">Nome do Aluno: </label>
+    <input type="text" id="nome" placeholder="Digite o nome do aluno"><br><br>
+
+    <label for="nota1">Nota 1: </label>
+    <input type="number" id="nota1" placeholder="Digite a primeira nota"><br><br>
+
+    <label for="nota2">Nota 2: </label>
+    <input type="number" id="nota2" placeholder="Digite a segunda nota"><br><br>
+
+ <label for="nota2">Nota 3: </label>
+    <input type="number" id="nota3" placeholder="Digite a segunda nota"><br><br>
+
+ <label for="nota2">Nota 4: </label>
+    <input type="number" id="nota4" placeholder="Digite a segunda nota"><br><br>
+
+<!--
+    <button onclick="calcularMedia()">Calcular Média</button>
+-->
+    <h2 id="resultado"></h2>
+    
+    <script>
+
+document.getElementById('nota1').addEventListener('input', calcularMedia);
+document.getElementById('nota2').addEventListener('input', calcularMedia);
+document.getElementById('nota3').addEventListener('input', calcularMedia);
+document.getElementById('nota4').addEventListener('input', calcularMedia);
+
+        function calcularMedia() {
+            const nome = document.getElementById('nome').value;
+            const nota1 = parseFloat(document.getElementById('nota1').value);
+            const nota2 = parseFloat(document.getElementById('nota2').value);
+            const nota3 = parseFloat(document.getElementById('nota3').value);
+            const nota4 = parseFloat(document.getElementById('nota4').value);
+
+            if (nome && !isNaN(nota1) && !isNaN(nota2)) {
+                const media = (nota1 + nota2 + nota3 + nota4) / 4;
+                let mensagem = `Aluno(a) ${nome} teve uma média de ${media.toFixed(2)}. `;
+
+// \n para pular linha 
+                if (media >= 7.0) {
+                    mensagem += "\nParabéns! Você teve um bom aproveitamento.";
+                } else {
+                    mensagem += "Aproveitamento abaixo da média.";
+                }
+
+                document.getElementById('resultado').innerText = mensagem;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, preencha todos os campos corretamente.";
+            }
+        }
+    </script>
+</body>
+</html>
