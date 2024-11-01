@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Alistamento Militar</title>
+</head>
+<body>
+    <h1>Situação em Relação ao Alistamento Militar</h1>
+
+    <!-- Campo de entrada para o ano de nascimento -->
+    <label for="nascimento">Ano de Nascimento:</label>
+    <input type="number" id="nascimento" placeholder="Digite o ano de nascimento" oninput="verificarAlistamento()"><br><br>
+
+    <!-- Exibição do resultado -->
+    <h2 id="resultado"></h2>
+
+    <script>
+        function verificarAlistamento() {
+            const anoNascimento = parseInt(document.getElementById('nascimento').value);
+            const anoAtual = new Date().getFullYear();
+            const idade = anoAtual - anoNascimento;
+            const idadeAlistamento = 18;
+            let mensagem = '';
+
+            if (!isNaN(anoNascimento)) {
+                if (idade < idadeAlistamento) {
+                    const anosFaltam = idadeAlistamento - idade;
+                    mensagem = `Faltam ${anosFaltam} ano(s) para o alistamento.`;
+                } else if (idade === idadeAlistamento) {
+                    mensagem = "É hora de se alistar este ano!";
+                } else {
+                    const anosPassaram = idade - idadeAlistamento;
+                    mensagem = `Já se passaram ${anosPassaram} ano(s) do tempo de alistamento.`;
+                }
+            } else {
+                mensagem = "Por favor, insira um ano de nascimento válido.";
+            }
+
+            document.getElementById('resultado').innerText = mensagem;
+        }
+    </script>
+</body>
+</html>
