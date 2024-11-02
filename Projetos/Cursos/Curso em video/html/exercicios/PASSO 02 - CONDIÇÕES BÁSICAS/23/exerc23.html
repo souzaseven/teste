@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoção Dia da Mulher</title>
+</head>
+<body>
+    <h1>Calcule seu Desconto</h1>
+
+    <!-- Campos de entrada para nome, sexo e valor das compras -->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite seu nome"><br><br>
+
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" onchange="calcularDesconto()">
+        <option value="F">Feminino</option>
+        <option value="M">Masculino</option>
+    </select><br><br>
+
+    <label for="valor">Valor das Compras (R$):</label>
+    <input type="number" id="valor" placeholder="Digite o valor das compras" oninput="calcularDesconto()"><br><br>
+
+    <!-- Exibição do resultado -->
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularDesconto() {
+            const nome = document.getElementById('nome').value;
+            const sexo = document.getElementById('sexo').value;
+            const valorCompras = parseFloat(document.getElementById('valor').value);
+            let desconto = 0;
+
+            if (!isNaN(valorCompras) && valorCompras > 0) {
+                // Aplicação do desconto baseado no sexo
+                desconto = sexo === 'F' ? 0.13 : 0.05;
+                const valorComDesconto = valorCompras * (1 - desconto);
+                
+                document.getElementById('resultado').innerText = 
+                    `${nome}, você tem direito a um desconto!\nValor final com desconto: R$${valorComDesconto.toFixed(2)}`;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, insira um valor de compras válido.";
+            }
+        }
+    </script>
+</body>
+</html>
