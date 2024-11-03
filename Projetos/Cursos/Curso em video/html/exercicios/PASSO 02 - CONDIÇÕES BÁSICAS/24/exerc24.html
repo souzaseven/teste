@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Preço da Passagem</title>
+</head>
+<body>
+    <h1>Calcule o Preço da Passagem</h1>
+
+    <!-- Campo de entrada para a distância da viagem -->
+    <label for="distancia">Distância da Viagem (Km):</label>
+    <input type="number" id="distancia" placeholder="Digite a distância em Km" oninput="calcularPreco()"><br><br>
+
+    <!-- Exibição do resultado -->
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularPreco() {
+            const distancia = parseFloat(document.getElementById('distancia').value);
+            let preco = 0;
+
+            if (!isNaN(distancia) && distancia > 0) {
+                // Verifica se a distância é até 200Km ou acima para definir o preço por Km
+                preco = distancia <= 200 ? distancia * 0.50 : distancia * 0.45;
+
+                document.getElementById('resultado').innerText = 
+                    `O preço da passagem para ${distancia} Km é: R$${preco.toFixed(2)}`;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, insira uma distância válida.";
+            }
+        }
+    </script>
+</body>
+</html>
