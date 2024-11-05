@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Triângulo</title>
+</head>
+<body>
+    <h1>Verifique se é possível formar um Triângulo</h1>
+
+    <!-- Campos de entrada para os três segmentos de reta -->
+    <label for="segmento1">Segmento 1:</label>
+    <input type="number" id="segmento1" placeholder="Digite o tamanho do segmento 1" oninput="verificarTriangulo()"><br><br>
+
+    <label for="segmento2">Segmento 2:</label>
+    <input type="number" id="segmento2" placeholder="Digite o tamanho do segmento 2" oninput="verificarTriangulo()"><br><br>
+
+    <label for="segmento3">Segmento 3:</label>
+    <input type="number" id="segmento3" placeholder="Digite o tamanho do segmento 3" oninput="verificarTriangulo()"><br><br>
+
+    <!-- Exibição do resultado -->
+    <h2 id="resultado"></h2>
+
+    <script>
+        function verificarTriangulo() {
+            const a = parseFloat(document.getElementById('segmento1').value);
+            const b = parseFloat(document.getElementById('segmento2').value);
+            const c = parseFloat(document.getElementById('segmento3').value);
+
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c) && a > 0 && b > 0 && c > 0) {
+                // Verifica a condição de existência do triângulo
+                const formaTriangulo = a < b + c && b < a + c && c < a + b;
+                
+                document.getElementById('resultado').innerText = formaTriangulo
+                    ? "Os segmentos podem formar um triângulo."
+                    : "Os segmentos não podem formar um triângulo.";
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, insira todos os três segmentos corretamente.";
+            }
+        }
+    </script>
+</body>
+</html>
