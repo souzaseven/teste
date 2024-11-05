@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Números</title>
+</head>
+<body>
+    <h1>Comparação de Dois Números Inteiros</h1>
+
+    <!-- Campos de entrada para os dois números -->
+    <label for="numero1">Primeiro Número:</label>
+    <input type="number" id="numero1" placeholder="Digite o primeiro número" oninput="compararNumeros()"><br><br>
+
+    <label for="numero2">Segundo Número:</label>
+    <input type="number" id="numero2" placeholder="Digite o segundo número" oninput="compararNumeros()"><br><br>
+
+    <!-- Exibição do resultado -->
+    <h2 id="resultado"></h2>
+
+    <script>
+        function compararNumeros() {
+            const numero1 = parseInt(document.getElementById('numero1').value);
+            const numero2 = parseInt(document.getElementById('numero2').value);
+
+            if (!isNaN(numero1) && !isNaN(numero2)) {
+                let mensagem;
+
+                if (numero1 > numero2) {
+                    mensagem = "O primeiro valor é o maior.";
+                } else if (numero2 > numero1) {
+                    mensagem = "O segundo valor é o maior.";
+                } else {
+                    mensagem = "Não existe valor maior, os dois são iguais.";
+                }
+
+                document.getElementById('resultado').innerText = mensagem;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, insira ambos os números.";
+            }
+        }
+    </script>
+</body>
+</html>
