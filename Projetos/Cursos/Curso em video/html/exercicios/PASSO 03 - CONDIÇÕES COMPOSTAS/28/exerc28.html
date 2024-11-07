@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Terreno</title>
+</head>
+<body>
+    <h1>Classificação de Terreno</h1>
+    
+  <label for="largura">Informe a largura do terreno (em metros): </label>
+<input type="number" id="largura" placeholder="Ex: 10" oninput="classificarTerreno()">
+
+<label for="comprimento">Informe o comprimento do terreno (em metros): </label>
+<input type="number" id="comprimento" placeholder="Ex: 20" oninput="classificarTerreno()">
+
+<h2 id="resultado"></h2>
+    
+   <script>
+    function classificarTerreno() {
+        const largura = parseFloat(document.getElementById('largura').value);
+        const comprimento = parseFloat(document.getElementById('comprimento').value);
+
+        if (isNaN(largura) || isNaN(comprimento) || largura <= 0 || comprimento <= 0) {
+            document.getElementById('resultado').innerText = "Por favor, insira valores válidos para largura e comprimento.";
+            return;
+        }
+
+        const area = largura * comprimento;
+        let classificacao;
+
+        if (area < 100) {
+            classificacao = "TERRENO POPULAR";
+        } else if (area <= 500) {
+            classificacao = "TERRENO MASTER";
+        } else {
+            classificacao = "TERRENO VIP";
+        }
+
+        document.getElementById('resultado').innerText = `A área do terreno é ${area.toFixed(2)} m². Classificação: ${classificacao}`;
+    }
+</script>
+</body>
+</html>
