@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+</head>
+<body>
+    <h1>Reajuste Salarial do Funcionário</h1>
+    
+    <label for="nome">Nome do Funcionário:</label>
+    <input type="text" id="nome" placeholder="Digite o nome"><br><br>
+
+    <label for="salario">Salário Atual (R$):</label>
+    <input type="number" id="salario" placeholder="Digite o salário atual"><br><br>
+
+    <label for="anos">Anos de Empresa:</label>
+    <input type="number" id="anos" placeholder="Digite os anos de trabalho"><br><br>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        document.getElementById("salario").addEventListener("input", calcularReajuste);
+        document.getElementById("anos").addEventListener("input", calcularReajuste);
+
+        function calcularReajuste() {
+            const salario = parseFloat(document.getElementById("salario").value);
+            const anos = parseInt(document.getElementById("anos").value);
+            let aumentoPercentual = 0;
+
+            if (!isNaN(salario) && !isNaN(anos) && salario > 0 && anos >= 0) {
+                if (anos < 3) {
+                    aumentoPercentual = 3;
+                } else if (anos < 10) {
+                    aumentoPercentual = 12.5;
+                } else {
+                    aumentoPercentual = 20;
+                }
+
+                const novoSalario = salario + (salario * aumentoPercentual / 100);
+                document.getElementById("resultado").innerText = `Novo salário ajustado: R$ ${novoSalario.toFixed(2)}`;
+            } else {
+                document.getElementById("resultado").innerText = "Insira valores válidos para salário e anos de empresa.";
+            }
+        }
+    </script>
+</body>
+</html>
