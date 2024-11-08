@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Triângulos</title>
+</head>
+<body>
+    <h1>Verificador de Triângulos</h1>
+    
+    <label for="ladoA">Lado A:</label>
+    <input type="number" id="ladoA" placeholder="Digite o comprimento do lado A"><br><br>
+
+    <label for="ladoB">Lado B:</label>
+    <input type="number" id="ladoB" placeholder="Digite o comprimento do lado B"><br><br>
+
+    <label for="ladoC">Lado C:</label>
+    <input type="number" id="ladoC" placeholder="Digite o comprimento do lado C"><br><br>
+<!--
+    <button onclick="verificarTriangulo()">Verificar Triângulo</button>
+-->
+    <h2 id="resultado"></h2>
+
+    <script>
+
+ // Adiciona evento aos campos de entrada para calcular automaticamente
+        document.getElementById("ladoA").addEventListener("input", verificarTriangulo);
+        document.getElementById("ladoB").addEventListener("input", verificarTriangulo);
+        document.getElementById("ladoC").addEventListener("input", verificarTriangulo);
+
+        function verificarTriangulo() {
+            const ladoA = parseFloat(document.getElementById("ladoA").value);
+            const ladoB = parseFloat(document.getElementById("ladoB").value);
+            const ladoC = parseFloat(document.getElementById("ladoC").value);
+
+            if (ladoA > 0 && ladoB > 0 && ladoC > 0) {
+                // Verificar se os lados formam um triângulo
+                if (ladoA + ladoB > ladoC && ladoA + ladoC > ladoB && ladoB + ladoC > ladoA) {
+                    let tipo = "";
+
+                    // Identificar o tipo de triângulo
+                    if (ladoA === ladoB && ladoB === ladoC) {
+                        tipo = "Equilátero: todos os lados são iguais.";
+                    } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+                        tipo = "Isósceles: dois lados são iguais.";
+                    } else {
+                        tipo = "Escaleno: todos os lados são diferentes.";
+                    }
+
+                    document.getElementById("resultado").innerText = `Os lados formam um triângulo ${tipo}`;
+                } else {
+                    document.getElementById("resultado").innerText = "Os lados informados não formam um triângulo.";
+                }
+            } else {
+                document.getElementById("resultado").innerText = "Insira valores válidos para os lados.";
+            }
+        }
+    </script>
+</body>
+</html>
