@@ -1,0 +1,103 @@
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML -->
+<html lang="pt-BR"> <!-- Início do elemento HTML com idioma definido como português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define o viewport para responsividade -->
+    <title>Jogo JoKenPo - Pedra, Papel, Tesoura</title> <!-- Título da página -->
+    <style>
+        /* Estilos gerais para o corpo da página */
+        body {
+            display: flex; /* Define o layout flexível */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+            flex-direction: column; /* Coloca os elementos em uma coluna */
+            font-family: Arial, sans-serif; /* Define a fonte do texto */
+            height: 100vh; /* Define a altura da página como 100% da altura da tela */
+            margin: 0; /* Remove margens padrão */
+            background-color: #f0f0f0; /* Define a cor de fundo da página */
+        }
+
+        /* Estilo para o título */
+        h1 {
+            color: #007bff; /* Define a cor do texto do título */
+        }
+
+        /* Estilos para o container de botões de escolha */
+        .opcoes {
+            display: flex; /* Define o layout flexível */
+            gap: 10px; /* Espaçamento entre os botões */
+            margin-top: 20px; /* Espaçamento acima do container */
+        }
+
+        /* Estilo base para todos os botões */
+        button {
+            padding: 10px 20px; /* Define o espaçamento interno dos botões */
+            font-size: 16px; /* Define o tamanho da fonte do botão */
+            cursor: pointer; /* Altera o cursor para indicar clicável */
+            border: none; /* Remove a borda do botão */
+            border-radius: 5px; /* Define bordas arredondadas */
+            transition: background-color 0.3s; /* Suaviza a transição da cor ao passar o mouse */
+        }
+
+        /* Estilos específicos para cada botão */
+        .pedra { background-color: #6c757d; color: white; } /* Botão "pedra" com fundo cinza */
+        .papel { background-color: #28a745; color: white; } /* Botão "papel" com fundo verde */
+        .tesoura { background-color: #dc3545; color: white; } /* Botão "tesoura" com fundo vermelho */
+
+        /* Efeito de opacidade ao passar o mouse nos botões */
+        button:hover {
+            opacity: 0.8; /* Reduz a opacidade para 0.8 no hover */
+        }
+
+        /* Estilo para a área de resultado */
+        #resultado {
+            margin-top: 20px; /* Espaçamento acima do resultado */
+            font-size: 18px; /* Define o tamanho da fonte */
+            color: #333; /* Define a cor do texto */
+            text-align: center; /* Centraliza o texto */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título principal do jogo -->
+    <h1>Jogo JoKenPo - Pedra, Papel, Tesoura</h1>
+
+    <!-- Container de botões para escolher Pedra, Papel ou Tesoura -->
+    <div class="opcoes">
+        <button class="pedra" onclick="jogar('pedra')">Pedra</button> <!-- Botão "Pedra" com classe e evento de clique -->
+        <button class="papel" onclick="jogar('papel')">Papel</button> <!-- Botão "Papel" com classe e evento de clique -->
+        <button class="tesoura" onclick="jogar('tesoura')">Tesoura</button> <!-- Botão "Tesoura" com classe e evento de clique -->
+    </div>
+
+    <!-- Área onde o resultado do jogo será exibido -->
+    <div id="resultado">Escolha uma opção para começar o jogo!</div>
+
+    <script>
+        // Função que inicia o jogo com base na escolha do jogador
+        function jogar(escolhaJogador) {
+            const opcoes = ['pedra', 'papel', 'tesoura']; // Array com as opções possíveis no jogo
+            const escolhaComputador = opcoes[Math.floor(Math.random() * opcoes.length)]; // Gera escolha aleatória do computador
+
+            let resultado = ''; // Variável que armazena o resultado do jogo
+
+            // Verifica o resultado do jogo com base na escolha do jogador e do computador
+            if (escolhaJogador === escolhaComputador) {
+                resultado = `Empate! Ambos escolheram ${escolhaJogador}.`; // Mensagem de empate
+            } else if (
+                (escolhaJogador === 'pedra' && escolhaComputador === 'tesoura') || // Condição: pedra ganha de tesoura
+                (escolhaJogador === 'papel' && escolhaComputador === 'pedra') || // Condição: papel ganha de pedra
+                (escolhaJogador === 'tesoura' && escolhaComputador === 'papel') // Condição: tesoura ganha de papel
+            ) {
+                resultado = `Você venceu! ${escolhaJogador} ganha de ${escolhaComputador}.`; // Mensagem de vitória do jogador
+            } else {
+                resultado = `Você perdeu! ${escolhaComputador} ganha de ${escolhaJogador}.`; // Mensagem de derrota do jogador
+            }
+
+            // Exibe o resultado do jogo na div com id "resultado"
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+
+</body>
+</html>
