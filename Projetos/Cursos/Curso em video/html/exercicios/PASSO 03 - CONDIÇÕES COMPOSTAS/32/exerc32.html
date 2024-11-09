@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jogo de Adivinhação</h1>
+    <p>Tente adivinhar o número sorteado pelo computador (entre 1 e 5)</p>
+
+    <div class="input-group">
+        <input type="number" id="palpite" placeholder="1 a 5" min="1" max="5">
+        <button onclick="jogar()">Adivinhar</button>
+    </div>
+
+    <div id="resultado">Faça sua tentativa!</div>
+
+    <script>
+        function jogar() {
+            const numeroComputador = Math.floor(Math.random() * 5) + 1; // Sorteia um número entre 1 e 5
+            const palpiteJogador = parseInt(document.getElementById('palpite').value);
+            let mensagem = '';
+
+            if (isNaN(palpiteJogador) || palpiteJogador < 1 || palpiteJogador > 5) {
+                mensagem = "Por favor, insira um número válido entre 1 e 5.";
+            } else if (palpiteJogador === numeroComputador) {
+                mensagem = `Parabéns! Você acertou! O número era ${numeroComputador}. 🎉`;
+            } else {
+                mensagem = `Que pena! Você errou. O número era ${numeroComputador}.`;
+            }
+
+            document.getElementById('resultado').innerText = mensagem;
+        }
+    </script>
+
+</body>
+</html>
