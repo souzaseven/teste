@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pontos e Ganhos de Atividade Física</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            width: 300px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora de Pontos e Ganhos de Atividade Física</h1>
+    
+    <div class="input-group">
+        <label for="horas">Horas de Atividade Física no Mês:</label>
+        <input type="number" id="horas" placeholder="Digite as horas de atividade">
+        
+        <button onclick="calcularPontos()">Calcular Pontos e Ganhos</button>
+    </div>
+
+    <div id="resultado">Preencha as horas de atividade para calcular.</div>
+
+    <script>
+        function calcularPontos() {
+            const horas = parseFloat(document.getElementById('horas').value);
+
+            if (isNaN(horas) || horas < 0) {
+                document.getElementById('resultado').innerText = "Por favor, insira um valor válido para as horas.";
+                return;
+            }
+
+            let pontos = 0;
+
+            if (horas <= 10) {
+                pontos = horas * 2;
+            } else if (horas <= 20) {
+                pontos = (10 * 2) + ((horas - 10) * 5);
+            } else {
+                pontos = (10 * 2) + (10 * 5) + ((horas - 20) * 10);
+            }
+
+            const ganho = pontos * 0.05;
+
+            document.getElementById('resultado').innerText = 
+                `Você acumulou ${pontos} pontos e ganhou R$${ganho.toFixed(2)}.`;
+        }
+    </script>
+
+</body>
+</html>
