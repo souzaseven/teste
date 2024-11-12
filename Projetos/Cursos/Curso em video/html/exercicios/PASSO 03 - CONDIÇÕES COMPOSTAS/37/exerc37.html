@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            width: 300px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora de Reajuste Salarial</h1>
+    
+    <div class="input-group">
+        <label for="salario">Salário Atual (R$):</label>
+        <input type="number" id="salario" placeholder="Digite o salário atual" oninput="calcularReajuste()">
+
+        <label for="genero">Gênero:</label>
+        <select id="genero" onchange="calcularReajuste()">
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+        </select>
+
+        <label for="anos">Anos de Trabalho:</label>
+        <input type="number" id="anos" placeholder="Digite os anos de trabalho" oninput="calcularReajuste()">
+    </div>
+
+    <div id="resultado">Preencha os dados para calcular o reajuste.</div>
+
+    <script>
+        function calcularReajuste() {
+            const salario = parseFloat(document.getElementById('salario').value);
+            const genero = document.getElementById('genero').value;
+            const anos = parseInt(document.getElementById('anos').value);
+            let reajuste = 0;
+
+            if (isNaN(salario) || isNaN(anos) || salario <= 0 || anos < 0) {
+                document.getElementById('resultado').innerText = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            // Calcula o reajuste com base no gênero e nos anos de trabalho
+            if (genero === 'F') {
+                if (anos < 15) {
+                    reajuste = 0.05;
+                } else if (anos <= 20) {
+                    reajuste = 0.12;
+                } else {
+                    reajuste = 0.23;
+                }
+            } else if (genero === 'M') {
+                if (anos < 20) {
+                    reajuste = 0.03;
+                } else if (anos <= 30) {
+                    reajuste = 0.13;
+                } else {
+                    reajuste = 0.25;
+                }
+            }
+
+            const novoSalario = salario * (1 + reajuste);
+
+            document.getElementById('resultado').innerText = 
+                `Novo Salário: R$${novoSalario.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>
