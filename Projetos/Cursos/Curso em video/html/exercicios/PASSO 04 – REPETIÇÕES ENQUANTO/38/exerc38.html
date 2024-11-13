@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de 6 a 11</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #contagem {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="contagem"></div>
+
+    <script>
+        function iniciarContagem() {
+            let numero = 6;
+            const contagemDiv = document.getElementById('contagem');
+            
+            const intervalo = setInterval(() => {
+                contagemDiv.innerText = numero;
+                numero++;
+
+                if (numero > 11) {
+                    clearInterval(intervalo);
+                    contagemDiv.innerText = "Acabou!";
+                }
+            }, 1000);
+        }
+
+        iniciarContagem(); // Inicia a contagem ao carregar a página
+    </script>
+</body>
+</html>
