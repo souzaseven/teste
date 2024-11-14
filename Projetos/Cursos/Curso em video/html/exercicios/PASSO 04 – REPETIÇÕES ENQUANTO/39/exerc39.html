@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #contagem {
+            font-size: 2em;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contagem">Iniciando...</div>
+
+    <script>
+        function iniciarContagem() {
+            let numero = 10;
+            const contagemDiv = document.getElementById('contagem');
+            
+            const intervalo = setInterval(() => {
+                contagemDiv.innerText = numero;
+                numero--;
+
+                if (numero < 3) {
+                    clearInterval(intervalo);
+                    contagemDiv.innerText = "Acabou!";  // Exibe apenas "Acabou!" ao final
+                }
+            }, 1000);
+        }
+
+        iniciarContagem();
+    </script>
+
+</body>
+</html>
