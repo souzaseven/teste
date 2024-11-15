@@ -2,9 +2,25 @@
 <html lang="pt-br">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YCYBG5BNL4');
+</script>
+
+
+<meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+     crossorigin="anonymous"></script>
+<!--
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
         crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">-->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -244,8 +260,19 @@
 
         /* Project section */
         .projects-section {
-            background-color: #f4f4f4;
-            padding: 40px 0;
+           /* background-color: #f4f4f4;*/
+/*
+background: linear-gradient(135deg, 
+ /*       #009b3a 0%,      /* Verde começa no início */
+ /*       #009b3a 25%,     /* Verde termina em 25% */
+   /*     #ffdf00 25%,     /* Amarelo começa em 25% */
+     /*   #ffdf00 50%,     /* Amarelo termina em 50% */
+     /*   #002776 50%,     /* Azul começa em 50% */
+    /*    #002776 75%,     /* Azul termina em 75% */
+    /*    #ffffff 75%,     /* Branco começa em 75% */
+     /*   #ffffff 100%     /* Branco termina em 100% 
+);  */          
+padding: 40px 0;
             text-align: center;
         }
 
@@ -377,6 +404,35 @@
                 width: 100%;
             }
         }
+
+.baixo {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    border-top: 3px solid #007ced; /* Linha de destaque superior */
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+}
+
+.btn-projetos {
+    background-color: #007ced; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Cursor de clique */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+.btn-projetos:hover {
+    background-color: #005bb5; /* Cor mais escura no hover */
+    box-shadow: 0 5px 15px rgba(0, 123, 237, 0.5); /* Efeito de sombra ao passar o mouse */
+    transform: translateY(-3px); /* Levanta o botão ao passar o mouse */
+}
+
     </style>
 </head>
 
@@ -472,12 +528,14 @@
                         <h3>Cursos</h3>
                     </a>
                 </div>
-                <div class="project-item">
-                    <a href="./Projetos/Diversos/diversos.html">
-                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto 3">
-                        <h3>Diversos</h3>
+
+  <div class="project-item">
+                    <a href="./Projetos/pagamentos.html">
+                        <img src="./imagens/Painel/painel pag.jpg" alt="Pagamentos">
+                        <h3>Pagamentos</h3>
                     </a>
                 </div>
+
                 <div class="project-item">
                     <a href="./Projetos/trabalho.html">
                         <img src="./imagens/Painel/logo tga.jpeg" alt="Projeto 4">
@@ -490,11 +548,64 @@
                         <h3>Pessoal</h3>
                     </a>
                 </div>
+
+ 
+                <div class="project-item">
+                    <a href="./Projetos/Diversos/diversos.html">
+                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto 3">
+                        <h3>Diversos</h3>
+                    </a>
+                </div>
+
+
+   <div class="project-item">
+                    <a href="./Projetos/meusprojetos.html">
+                        <img src="./imagens/Painel/variados.png" alt="variados">
+                        <h3>Variados</h3>
+                    </a>
+                </div>
+
+   <div class="project-item">
+                    <a href="">
+                        <img src="" alt="">
+                        <h3></h3>
+                    </a>
+                </div>
+
+
+   <div class="project-item">
+                    <a href="">
+                        <img src="" alt="">
+                        <h3></h3>
+                    </a>
+                </div>
+
+   <div class="project-item">
+                    <a href="">
+                        <img src="" alt="">
+                        <h3></h3>
+                    </a>
+                </div>
+<!--
+   <div class="project-item">
+                    <a href="./Projetos/Diversos/diversos.html">
+                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto 3">
+                        <h3>Diversos</h3>
+                    </a>
+                </div>-->
+
             </div>
-            <a href="./Projetos/meusprojetos.html">
-                <button class="view-all-projects-btn">Ver todos os projetos</button></a>
+
         </div>
     </div>
+
+<footer class="baixo">
+    <a href="./Projetos/meusprojetos.html">
+        <button class="btn-projetos">Ver todos os projetos</button>
+    </a>
+</footer>
+
+
 
     <!---typed js for typing text effect-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
