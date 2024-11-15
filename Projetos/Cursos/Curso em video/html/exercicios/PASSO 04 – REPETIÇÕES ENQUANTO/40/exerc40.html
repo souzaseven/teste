@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Múltiplos de 3</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #contagem {
+            font-size: 2em;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contagem">Iniciando...</div>
+
+    <script>
+        function iniciarContagem() {
+            let numero = 0;
+            const contagemDiv = document.getElementById('contagem');
+            
+            const intervalo = setInterval(() => {
+                if (numero <= 18) {
+                    contagemDiv.innerText = numero;
+                    numero += 3;
+                } else {
+                    clearInterval(intervalo);
+                    contagemDiv.innerText = "Acabou!";
+                }
+            }, 1000);
+        }
+
+        iniciarContagem();
+    </script>
+
+</body>
+</html>
