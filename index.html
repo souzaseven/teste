@@ -404,6 +404,35 @@ padding: 40px 0;
                 width: 100%;
             }
         }
+
+.baixo {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    border-top: 3px solid #007ced; /* Linha de destaque superior */
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+}
+
+.btn-projetos {
+    background-color: #007ced; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Cursor de clique */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+.btn-projetos:hover {
+    background-color: #005bb5; /* Cor mais escura no hover */
+    box-shadow: 0 5px 15px rgba(0, 123, 237, 0.5); /* Efeito de sombra ao passar o mouse */
+    transform: translateY(-3px); /* Levanta o botão ao passar o mouse */
+}
+
     </style>
 </head>
 
@@ -567,10 +596,16 @@ padding: 40px 0;
 
             </div>
 
-            <a href="./Projetos/meusprojetos.html">
-                <button class="view-all-projects-btn">Ver todos os projetos</button></a>
         </div>
     </div>
+
+<footer class="baixo">
+    <a href="./Projetos/meusprojetos.html">
+        <button class="btn-projetos">Ver todos os projetos</button>
+    </a>
+</footer>
+
+
 
     <!---typed js for typing text effect-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
