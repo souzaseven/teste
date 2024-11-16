@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chave Pix - Caixa Tem</title>
+    <link href="/Git Hub/Projetos/Pessoal/Pagamento/logo bancos/caixatem.png" rel="icon" type="image/x-icon"> <!-- Favicon Caixa Tem -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;/*
+            background: linear-gradient(265deg, #ffe72d -137.29%, #d0ebed 100%);*/
+background-color: #0066b3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 150px;
+        }
+        .container h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #003d75; /* Azul Caixa Tem */
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .info:last-child {
+            border-bottom: none;
+        }
+        .btn {
+            background-color: #003d75; /* Azul Caixa Tem */
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            border: none;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #002b56; /* Tom mais escuro de azul */
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .copy-btn {
+            background-color: #003d75; /* Azul Caixa Tem */
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+        }
+        .copy-btn:hover {
+            background-color: #002b56; /* Tom mais escuro de azul */
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Fundo escuro com transparência */
+            padding-top: 60px;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra forte */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilo para a imagem de QR Code */
+        .qr-code {
+            display: none; /* Inicialmente invisível */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            display: flex; /* Para centralizar o QR Code */
+        }
+
+        .qr-container {
+            background-image: url('/Git Hub/Projetos/Pessoal/Pagamento/qrcode/caixatem.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 70%;
+            height: 70%;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4040;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Caixa Tem -->
+        <div class="logo-container">
+            <img src="/Git Hub/Projetos/Pessoal/Pagamento/logo bancos/caixatem.png" alt="Logo Caixa Tem"> <!-- Logo Caixa Tem -->
+        </div>
+        <h1>Detalhes da Chave Pix</h1>
+        <div class="info">
+            <span><strong>Chave Pix:</strong></span>
+            <span class="tooltip" id="copy-alias" data-clipboard-text="d1828594-84ab-445e-a881-f72a733df306">
+                Chave Aleatória
+                <span class="tooltiptext" id="tooltiptext">Copiar</span>
+            </span>
+        </div>
+        <div class="info">
+            <span><strong>Nome:</strong></span>
+            <span>Anderson de Souza</span>
+        </div>
+        <div class="info">
+            <span><strong>CPF:</strong></span>
+            <span>•••.137.711-••</span>
+        </div>
+        <div class="info">
+            <span><strong>Banco:</strong></span>
+            <span>104 - Caixa Econômica Federal - Banco Múltiplo S.A.</span>
+        </div>
+         <button id="copy-button" class="copy-btn">Copiar Chave Pix</button>
+<br><br>
+        <button id="qr-button" class="copy-btn">Ver QR Code</button> <!-- botão para exibir o QR Code -->
+        
+        <!-- QR Code em segundo plano -->
+        <div id="qr-code" class="qr-code">
+            <div class="qr-container">
+                <button id="close-button" class="close-btn">Fechar</button> <!-- botão para fechar -->
+    </div>
+
+    <!-- Modal para exibir QR Code -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px; font-size: 1.5rem;">QR Code da Chave Pix</h2>
+            <div id="qrcode" style="display: flex; justify-content: center; align-items: center;">
+                <!-- A imagem do QR Code será carregada aqui -->
+                <div class="qr-container"></div>
+            </div>
+        </div>
+    </div>
+
+     <script>
+         // Garante que o QR Code esteja oculto ao carregar a página
+        window.onload = function() {
+            const qrCodeElement = document.getElementById('qr-code');
+            qrCodeElement.style.display = 'none'; // Garantir que o QR Code comece oculto
+        };
+
+        // Função de cópia para o botão
+        document.getElementById('copy-button').addEventListener('click', function () {
+            const key = document.getElementById('copy-alias').getAttribute('data-clipboard-text');
+            
+            navigator.clipboard.writeText(key).then(() => {
+                alert("Chave Pix copiada com sucesso!");
+            }).catch(err => {
+                alert("Erro ao copiar a chave Pix.");
+            });
+        });
+
+        // Função para exibir o QR Code
+        document.getElementById('qr-button').addEventListener('click', function () {
+            const qrCodeElement = document.getElementById('qr-code');
+            qrCodeElement.style.display = 'flex'; // Exibe o QR Code quando o botão é clicado
+        });
+
+        // Função para fechar o QR Code
+        document.getElementById('close-button').addEventListener('click', function () {
+            const qrCodeElement = document.getElementById('qr-code');
+            qrCodeElement.style.display = 'none'; // Esconde o QR Code quando o botão de fechar é clicado
+        });
+    </script>
+</body>
+</html>
