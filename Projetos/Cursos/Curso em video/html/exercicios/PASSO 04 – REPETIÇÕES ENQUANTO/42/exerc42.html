@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem até o Valor</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #contagem {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contagem até o Valor</h1>
+    <label for="valor">Digite um valor:</label>
+    <input type="number" id="valor" placeholder="Insira um número positivo">
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+
+    <div id="contagem">Aguardando...</div>
+
+    <script>
+        function iniciarContagem() {
+            const valor = parseInt(document.getElementById('valor').value);
+            const contagemDiv = document.getElementById('contagem');
+            
+            if (isNaN(valor) || valor <= 0) {
+                contagemDiv.innerText = "Por favor, insira um número positivo.";
+                return;
+            }
+            
+            let numeroAtual = 1;
+            contagemDiv.innerText = "";  // Limpa a mensagem de aguardando
+
+            const intervalo = setInterval(() => {
+                if (numeroAtual <= valor) {
+                    contagemDiv.innerText += `${numeroAtual} `;
+                    numeroAtual++;
+                } else {
+                    clearInterval(intervalo);
+                    contagemDiv.innerText += "Acabou!";
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
