@@ -6,12 +6,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chave Pix - PagBank</title>
-    <link href="./logo bancos/pagbank.png" rel="icon" type="image/x-icon"> <!-- Favicon PagBank -->
+    <title>Chave Pix - Itaú</title>
+    <link href="./logo bancos/itau.png" rel="icon" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script> <!-- Biblioteca QRCode -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(265deg, #ffe72d -137.29%, #d0ebed 100%);
+            background: linear-gradient(135deg, #002776 25%, #ffdf00 25%, #ffdf00 50%, #002776 50%, #002776 75%, #ffdf00 75%);
             color: #333;
             margin: 0;
             padding: 0;
@@ -19,27 +20,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative; /* Para permitir a sobreposição do QR Code */
         }
         .container {
             background: #fff;
             border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
             padding: 30px;
             width: 100%;
             max-width: 600px;
-        }
-        .logo-container {
             text-align: center;
-            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
         }
         .logo-container img {
-            width: 150px;
+            width: 120px;
         }
         .container h1 {
-            text-align: center;
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: #003d75; /* Azul PagBank */
+            color: #ff4500; /* Cor principal do Itaú */
         }
         .info {
             display: flex;
@@ -50,8 +50,8 @@
         .info:last-child {
             border-bottom: none;
         }
-        .btn {
-            background-color: #003d75; /* Azul PagBank */
+        .btn, .copy-btn {
+            background-color: #002776; /* Azul Itaú */
             color: white;
             padding: 12px;
             border-radius: 8px;
@@ -64,8 +64,8 @@
             border: none;
             text-transform: uppercase;
         }
-        .btn:hover {
-            background-color: #002b56; /* Tom mais escuro de azul */
+        .btn:hover, .copy-btn:hover {
+            background-color: #0043a8;
         }
         .tooltip {
             position: relative;
@@ -92,22 +92,10 @@
             visibility: visible;
             opacity: 1;
         }
-        .copy-btn {
-            background-color: #003d75; /* Azul PagBank */
-            color: white;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            border: none;
-        }
-        .copy-btn:hover {
-            background-color: #002b56; /* Tom mais escuro de azul */
-        }
+
         /* Estilo para a imagem de QR Code */
         .qr-code {
+            display: none; /* Inicialmente invisível */
             position: fixed;
             top: 0;
             left: 0;
@@ -117,11 +105,11 @@
             z-index: 10;
             justify-content: center;
             align-items: center;
-            display: none; /* Inicialmente invisível */
+            display: flex; /* Para centralizar o QR Code */
         }
 
         .qr-container {
-            background-image: url('./qrcode/pagbank.png');
+            background-image: url('./qrcode/itau.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -148,15 +136,15 @@
     </style>
 </head>
 <body>
+    <div id="qr-background"></div> <!-- Elemento para o QR Code como fundo -->
     <div class="container">
-        <!-- Logo do PagBank -->
         <div class="logo-container">
-            <img src="./logo bancos/pagbank.png" alt="Logo do PagBank"> <!-- Logo PagBank -->
+            <img src="./logo bancos/itau.png" alt="Logo do Itaú">
         </div>
         <h1>Detalhes da Chave Pix</h1>
         <div class="info">
             <span><strong>Chave Pix:</strong></span>
-            <span class="tooltip" id="copy-alias" data-clipboard-text="7cb8ccf6-7ca4-4547-99d2-a0240bf0ac52">
+            <span class="tooltip" id="copy-alias" data-clipboard-text="528b7d63-5a40-410a-a711-499dd67dd3fd">
                 Chave Aleatória
                 <span class="tooltiptext" id="tooltiptext">Copiar</span>
             </span>
@@ -171,22 +159,26 @@
         </div>
         <div class="info">
             <span><strong>Banco:</strong></span>
-            <span>626 - PagBank - Banco Múltiplo S.A.</span>
+            <span>341 - Banco Itaú S.A.</span>
         </div>
-        <!-- Botão de copiar chave -->
         <button id="copy-button" class="copy-btn">Copiar Chave Pix</button>
-        <!-- Botão para mostrar QR Code -->
-        <button id="qr-button" class="btn">Exibir QR Code</button>
-    </div>
-
-    <!-- QR Code Modal -->
-    <div id="qrCodeModal" class="qr-code">
-        <div class="qr-container">
-            <button class="close-btn" id="close-button">Fechar</button>
+        <button id="qr-button" class="copy-btn">Ver QR Code</button> <!-- botão para exibir o QR Code -->
+        
+        <!-- QR Code em segundo plano -->
+        <div id="qr-code" class="qr-code">
+            <div class="qr-container">
+                <button id="close-button" class="close-btn">Fechar</button> <!-- botão para fechar -->
+            </div>
         </div>
     </div>
 
     <script>
+        // Garante que o QR Code esteja oculto ao carregar a página
+        window.onload = function() {
+            const qrCodeElement = document.getElementById('qr-code');
+            qrCodeElement.style.display = 'none'; // Garantir que o QR Code comece oculto
+        };
+
         // Função de cópia para o botão
         document.getElementById('copy-button').addEventListener('click', function () {
             const key = document.getElementById('copy-alias').getAttribute('data-clipboard-text');
@@ -200,13 +192,13 @@
 
         // Função para exibir o QR Code
         document.getElementById('qr-button').addEventListener('click', function () {
-            const qrCodeElement = document.getElementById('qrCodeModal');
+            const qrCodeElement = document.getElementById('qr-code');
             qrCodeElement.style.display = 'flex'; // Exibe o QR Code quando o botão é clicado
         });
 
         // Função para fechar o QR Code
         document.getElementById('close-button').addEventListener('click', function () {
-            const qrCodeElement = document.getElementById('qrCodeModal');
+            const qrCodeElement = document.getElementById('qr-code');
             qrCodeElement.style.display = 'none'; // Esconde o QR Code quando o botão de fechar é clicado
         });
     </script>
