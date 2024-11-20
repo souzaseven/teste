@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Personalizada</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #contagem {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contagem Personalizada</h1>
+
+    <!-- Inputs para valor inicial, final e incremento -->
+    <label for="inicio">Digite o primeiro valor:</label>
+    <input type="number" id="inicio" placeholder="Valor inicial">
+
+    <label for="fim">Digite o último valor:</label>
+    <input type="number" id="fim" placeholder="Valor final">
+
+    <label for="incremento">Digite o incremento:</label>
+    <input type="number" id="incremento" placeholder="Incremento">
+
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+
+    <div id="contagem">Aguardando valores...</div>
+
+    <script>
+        function iniciarContagem() {
+            const inicio = parseInt(document.getElementById('inicio').value);
+            const fim = parseInt(document.getElementById('fim').value);
+            const incremento = parseInt(document.getElementById('incremento').value);
+            const contagemDiv = document.getElementById('contagem');
+
+            if (isNaN(inicio) || isNaN(fim) || isNaN(incremento) || incremento <= 0) {
+                contagemDiv.innerText = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            contagemDiv.innerText = "Contagem: ";
+            let valorAtual = inicio;
+
+            while (valorAtual <= fim) {
+                contagemDiv.innerText += `${valorAtual} `;
+                valorAtual += incremento;
+            }
+            
+            contagemDiv.innerText += "Acabou!";
+        }
+    </script>
+
+</body>
+</html>
