@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva com Múltiplos de 4</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #contagem {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contagem Regressiva <br>de 30 até 1</h1>
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+
+    <div id="contagem">Aguardando...</div>
+
+    <script>
+        function iniciarContagem() {
+            const contagemDiv = document.getElementById('contagem');
+            contagemDiv.innerText = "";  // Limpa a mensagem de aguardando
+            let numeroAtual = 30;
+
+            const intervalo = setInterval(() => {
+                if (numeroAtual > 0) {
+                    // Verifica se o número é divisível por 4
+                    if (numeroAtual % 4 === 0) {
+                        contagemDiv.innerText += `[${numeroAtual}] `;
+                    } else {
+                        contagemDiv.innerText += `${numeroAtual} `;
+                    }
+                    numeroAtual--;
+                } else {
+                    clearInterval(intervalo);
+                    contagemDiv.innerText += "Acabou!";
+                }
+            }, 1000); // Intervalo de 1 segundo entre números
+        }
+    </script>
+
+</body>
+</html>
