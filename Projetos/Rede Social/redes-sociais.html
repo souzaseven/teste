@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            overflow: hidden;
+ overflow-y: auto; /* Permite rolagem vertical */
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: #fff;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, color 0.3s;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(90deg, #ff0080, #00f6ff, #00ff7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 3s infinite;
+            font-size: 3.2rem;
+        }
+
+        h1:hover span {
+            transform: scale(1.1);
+            color: #ffdf00;
+        }
+
+        h1:before,
+        h1:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 50px;
+            background: linear-gradient(90deg, #ff0080, #00f6ff, #00ff7f);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1:before {
+            left: -70px;
+        }
+
+        h1:after {
+            right: -70px;
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .container .card {
+            position: relative;
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 25px;
+            background: #1e1e2f;
+            border: 4px solid transparent;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, border-image 0.5s;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-image: linear-gradient(45deg, #ff0080, #00f6ff, #00ff7f) 1;
+        }
+
+        .container .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container .card h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .container .card p {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .container .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #007ced, #00ff7f);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .container .card a:hover {
+            background: linear-gradient(45deg, #00ff7f, #007ced);
+            box-shadow: 0 0 15px #00ff7f, 0 0 25px #007ced;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .social-links a img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Botão Voltar fixo no canto superior direito */
+        button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button a:hover {
+            color: #ffdf00;
+        }
+
+/* Facebook */
+.container .card:nth-child(1):hover, .container .card:nth-child(1):active {
+    background: #3B5998; /* Azul Facebook */
+    color: #fff; /* Texto branco */
+    border-color: #ffffff; /* Borda branca */
+}
+
+/* LinkedIn */
+.container .card:nth-child(2):hover, .container .card:nth-child(2):active {
+    background: #0A66C2; /* Azul LinkedIn */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Instagram */
+.container .card:nth-child(3):hover, .container .card:nth-child(3):active {
+    background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045); /* Gradiente Instagram */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* WhatsApp */
+.container .card:nth-child(4):hover, .container .card:nth-child(4):active {
+    background: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Gmail */
+.container .card:nth-child(5):hover, .container .card:nth-child(5):active {
+    background: #DB4437; /* Vermelho Gmail */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* GitHub */
+.container .card:nth-child(6):hover, .container .card:nth-child(6):active {
+    background: #24292E; /* Preto GitHub */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* TikTok */
+.container .card:nth-child(7):hover, .container .card:nth-child(7):active {
+    background: linear-gradient(45deg, #00FFFF, #FF3860); /* Gradiente TikTok */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* YouTube */
+.container .card:nth-child(8):hover, .container .card:nth-child(8):active {
+    background: #ff0000; /* Vermelho YouTube */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Blogger */
+.container .card:nth-child(9):hover, .container .card:nth-child(9):active {
+    background: #F57523; /* Laranja Blogger */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<button><a href="/Git Hub/index.html">Voltar</a></button>
+
+    <h1>
+        <span>Minhas</span>
+        <span class="highlight">Redes</span>
+        <span>Sociais</span>
+    </h1>
+
+    <div class="container">
+        <div class="card">
+            <img src="./facebook.png" alt="Facebook Logo">
+            <h2>Facebook</h2>
+            <p>Conecte-se com amigos e compartilhe momentos.</p>
+            <a href="https://www.facebook.com/anderson.desouza.5661" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./linkedin.png" alt="LinkedIn Logo">
+            <h2>LinkedIn</h2>
+            <p>Construa sua rede profissional e explore carreiras.</p>
+            <a href="https://www.linkedin.com/in/anderson-s-352605137/" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./instagram.png" alt="Instagram Logo">
+            <h2>Instagram</h2>
+            <p>Compartilhe seus momentos de forma criativa.</p>
+            <a href="https://www.instagram.com/andersondsouza7/" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./whatsapp.png" alt="WhatsApp Logo">
+            <h2>WhatsApp</h2>
+            <p>Converse diretamente comigo.</p>
+            <a href="https://web.whatsapp.com/send?phone=5565999452676" target="_blank">Visitar</a>
+        </div>
+
+ <div class="card">
+            <img src="./gmail.png" alt="gmail Logo">
+            <h2>Gmail</h2>
+            <p>Me envia um email.</p>
+            <a href="https:gmail.com.br/souza5661.7@gmail.com" target="_blank">Visitar</a>
+        </div>
+
+
+        <div class="card">
+            <img src="./github.png" alt="GitHub Logo">
+            <h2>GitHub</h2>
+            <p>Explore meus projetos e contribuições.</p>
+            <a href="https://github.com/souzaseven" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./tiktok.png" alt="TikTok Logo">
+            <h2>TikTok</h2>
+            <p>Descubra tendências e crie vídeos.</p>
+            <a href="https://www.tiktok.com/@andersondesouza09" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./youtube.png" alt="YouTube Logo">
+            <h2>YouTube</h2>
+            <p>Assista e compartilhe vídeos.</p>
+            <a href="https://www.youtube.com/@AndersonDeSouza7" target="_blank">Visitar</a>
+        </div>
+
+     <div class="card">
+            <img src="./blogger.png" alt="blogger Logo">
+            <h2>Blogger</h2>
+            <p></p>
+            <a href="https://andersondsouza.blogspot.com/2017/02/comecando-do-zero.html" target="_blank">Visitar</a>
+        </div>
+    </div>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YCYBG5BNL4');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+     crossorigin="anonymous"></script>
+<!-- Anúncios -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6176119186804571"
+     data-ad-slot="3576883624"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</body>
+
+</html>
