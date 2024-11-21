@@ -6,7 +6,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>work</title>
+    <title>Trabalho</title>
     
     <!----Font awesome cdn font icon css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -416,6 +416,87 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
+
+
+/*******************************************************************************/
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.block.cmd {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(19% - 20px);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 220px;
+}
+
+.block.cmd:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.block.cmd h1 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.code-container {
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: #222;
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.download-button, .text-button {
+    background-color: #007ced;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.download-button:hover, .text-button:hover {
+    background-color: #005bb5;
+}
+
+@media (max-width: 1024px) {
+    .block.cmd {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .block.cmd {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 500px) {
+    .block.cmd {
+        flex: 1 1 100%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -433,10 +514,10 @@
                         <span></span>
                     </div>
                     <ul class="navlinks">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/Git Hub/index.html">Home</a></li>
                         <li><a href="#">Portfolio</a></li>
                         <li><a href="./meusprojetos.html">Projetos</a></li>
-                        <li><a href="#">Rede Social</a></li>
+                        <li><a href="./Rede Social/redes-sociais.html">Rede Social</a></li>
                     </ul>
                 </nav>
             </header>
@@ -504,6 +585,12 @@
                 </a>
             </div>
 
+  <div class="project-item">
+                <a href=".//Trabalho/Retorno-boleto/index.html">
+                    <img src="./Trabalho/Retorno-boleto/img.jpg" alt="boleto">
+                    <h6>Verifica Retorno do Boleto</h6>
+                </a>
+            </div>
 
             <div class="project-item">
                 <a href="./Trabalho/Valida chave/validachave.html">
@@ -520,9 +607,17 @@
             </div>
 
             <div class="project-item">
-                <a href="./Diversos/contatexto-auto.html">
+                <a href="./Pessoal/Conta texto/contatexto-auto.html">
                     <img src="./imagens/IMG PROJETOS/conta texto.webp" alt="Conta texto auto">
                     <h6>Conta texto auto</h6>
+                </a>
+            </div>
+
+
+            <div class="project-item">
+                <a href="./Trabalho/Hora trabalhada/index.html">
+                    <img src="./Trabalho/Hora trabalhada/horas.jpeg" alt="horas">
+                    <h6>Horas trabalhadas</h6>
                 </a>
             </div>
 
@@ -545,6 +640,189 @@
 
         </div>
     </section>
+
+  <!------------------------------------------------------>
+                        <section>
+                            <!-- Seção "Arquivos .bat e scripts CMD" -->
+                            <section></section>
+                            <h1 class="heading"
+                                style="color: white; background-color: #007ced; text-align: center; margin: 40px 0 10px;">
+                                Arquivos .bat e scripts CMD
+                            </h1>
+                            <section>
+                                <br>
+
+                                <section>
+                                    <br>
+                                    <div class="block-container cmd"
+                                        style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Desligar Imediatamente</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch">
+                    <img src="" alt="">
+                </code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Desliga_imediatamente.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Desliga imediatamente.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Desligar Após um Atraso</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch"></code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Desliga_com_atraso.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Desliga com atraso.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Reiniciar Imediatamente</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch"></code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Reinicia_imediatamente.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Reinicia imediatamente.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Cancelar Desligamento</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch"></code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Cancela_desligamento.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Cancela desligamento.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Portas Atualizador</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch">
+                    Configurando regras de firewall para o Atualizador TGA Funcionar...
+                </code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Portas_Atualizador.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Portas Atualizador.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Adiciona Multiplas Instâncias</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch"></code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Multiplas Instancias.reg" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Multiplas Instancias.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Remove Multiplas Instâncias</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch"></code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Remove Multiplas Instacias.reg" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Remove Multiplas Instacias.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                            onmouseout="shrinkCode(this)">
+                                            <h1>Portas PDV</h1>
+                                            <div class="code-container">
+                                                <code class="hljs language-batch">
+                    Configurando regras de firewall para as portas 2517, 2525, 3050 (UDP e TCP)...
+                </code>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="./Pessoal/BAT/Libera portas pdv.bat" download>
+                                                    <button class="download-button">Baixar</button>
+                                                </a>
+                                                <a href="./Pessoal/BAT/Libera portas pdv.txt">
+                                                    <button class="text-button">Texto</button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+
+                                        <!--
+                                                        <div class="block cmd" onmouseover="expandCode(this)"
+                                                            onmouseout="shrinkCode(this)">
+                                                            <h1></h1>
+                                                            <div class="code-container">
+                                                                <code class="hljs language-batch">
+
+                                                    </code>
+                                                            </div>
+                                                            <a href="./Pessoal/BAT/" download>
+                                                                <button>Baixar</button>
+                                                            </a>
+                                                        </div>
+-->
+
+                                    </div>
+                                </section>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+     crossorigin="anonymous"></script>
+<!-- Anúncios -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6176119186804571"
+     data-ad-slot="3576883624"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     <script>
         function filterProjects() {
@@ -577,5 +855,27 @@
         }
     </script>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
+     crossorigin="anonymous"></script>
+<!-- Anúncios -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6176119186804571"
+     data-ad-slot="3576883624"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YCYBG5BNL4');
+</script>
 </body>
 </html>
