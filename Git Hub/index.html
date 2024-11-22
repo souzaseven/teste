@@ -1,7 +1,372 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            overflow: hidden;
+ overflow-y: auto; /* Permite rolagem vertical */
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: #fff;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, color 0.3s;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(90deg, #ff0080, #00f6ff, #00ff7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 3s infinite;
+            font-size: 3.2rem;
+        }
+
+        h1:hover span {
+            transform: scale(1.1);
+            color: #ffdf00;
+        }
+
+        h1:before,
+        h1:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 50px;
+            background: linear-gradient(90deg, #ff0080, #00f6ff, #00ff7f);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1:before {
+            left: -70px;
+        }
+
+        h1:after {
+            right: -70px;
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .container .card {
+            position: relative;
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 25px;
+            background: #1e1e2f;
+            border: 4px solid transparent;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, border-image 0.5s;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-image: linear-gradient(45deg, #ff0080, #00f6ff, #00ff7f) 1;
+        }
+
+        .container .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .container .card h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .container .card p {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .container .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #007ced, #00ff7f);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .container .card a:hover {
+            background: linear-gradient(45deg, #00ff7f, #007ced);
+            box-shadow: 0 0 15px #00ff7f, 0 0 25px #007ced;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .social-links a img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Botão Voltar fixo no canto superior direito */
+        button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button a:hover {
+            color: #ffdf00;
+        }
+
+/* Facebook */
+.container .card:nth-child(1):hover, .container .card:nth-child(1):active {
+    background: #3B5998; /* Azul Facebook */
+    color: #fff; /* Texto branco */
+    border-color: #ffffff; /* Borda branca */
+}
+
+/* LinkedIn */
+.container .card:nth-child(2):hover, .container .card:nth-child(2):active {
+    background: #0A66C2; /* Azul LinkedIn */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Instagram */
+.container .card:nth-child(3):hover, .container .card:nth-child(3):active {
+    background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045); /* Gradiente Instagram */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* WhatsApp */
+.container .card:nth-child(4):hover, .container .card:nth-child(4):active {
+    background: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Gmail */
+.container .card:nth-child(5):hover, .container .card:nth-child(5):active {
+    background: #DB4437; /* Vermelho Gmail */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* GitHub */
+.container .card:nth-child(6):hover, .container .card:nth-child(6):active {
+    background: #24292E; /* Preto GitHub */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* TikTok */
+.container .card:nth-child(7):hover, .container .card:nth-child(7):active {
+    background: linear-gradient(45deg, #00FFFF, #FF3860); /* Gradiente TikTok */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* YouTube */
+.container .card:nth-child(8):hover, .container .card:nth-child(8):active {
+    background: #ff0000; /* Vermelho YouTube */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* Blogger */
+.container .card:nth-child(9):hover, .container .card:nth-child(9):active {
+    background: #F57523; /* Laranja Blogger */
+    color: #fff;
+    border-color: #ffffff;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<button><a href="https://site2-jade-chi.vercel.app/">Voltar</a></button>
+
+    <h1>
+        <span>Minhas</span>
+        <span class="highlight">Redes</span>
+        <span>Sociais</span>
+    </h1>
+
+    <div class="container">
+        <div class="card">
+            <img src="./facebook.png" alt="Facebook Logo">
+            <h2>Facebook</h2>
+            <p>Conecte-se com amigos e compartilhe momentos.</p>
+            <a href="https://www.facebook.com/anderson.desouza.5661" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./linkedin.png" alt="LinkedIn Logo">
+            <h2>LinkedIn</h2>
+            <p>Construa sua rede profissional e explore carreiras.</p>
+            <a href="https://www.linkedin.com/in/anderson-s-352605137/" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./instagram.png" alt="Instagram Logo">
+            <h2>Instagram</h2>
+            <p>Compartilhe seus momentos de forma criativa.</p>
+            <a href="https://www.instagram.com/andersondsouza7/" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./whatsapp.png" alt="WhatsApp Logo">
+            <h2>WhatsApp</h2>
+            <p>Converse diretamente comigo.</p>
+            <a href="https://web.whatsapp.com/send?phone=5565999452676" target="_blank">Visitar</a>
+        </div>
+
+ <div class="card">
+            <img src="./gmail.png" alt="gmail Logo">
+            <h2>Gmail</h2>
+            <p>Me envia um email.</p>
+            <a href="mailto:souza5661.7@gmail.com" target="_blank">Enviar E-mail</a>
+        </div>
+
+
+        <div class="card">
+            <img src="./github.png" alt="GitHub Logo">
+            <h2>GitHub</h2>
+            <p>Explore meus projetos e contribuições.</p>
+            <a href="https://github.com/souzaseven" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./tiktok.png" alt="TikTok Logo">
+            <h2>TikTok</h2>
+            <p>Descubra tendências e crie vídeos.</p>
+            <a href="https://www.tiktok.com/@andersondesouza09" target="_blank">Visitar</a>
+        </div>
+
+        <div class="card">
+            <img src="./youtube.png" alt="YouTube Logo">
+            <h2>YouTube</h2>
+            <p>Assista e compartilhe vídeos.</p>
+            <a href="https://www.youtube.com/@AndersonDeSouza7" target="_blank">Visitar</a>
+        </div>
+
+     <div class="card">
+            <img src="./blogger.png" alt="blogger Logo">
+            <h2>Blogger</h2>
+            <p></p>
+            <a href="https://andersondesouza7.blogspot.com/" target="_blank">Visitar</a>
+        </div>
+    </div>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
 <script>
@@ -12,656 +377,18 @@
   gtag('config', 'G-YCYBG5BNL4');
 </script>
 
-
-<meta name="google-adsense-account" content="ca-pub-6176119186804571">
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
      crossorigin="anonymous"></script>
-<!--
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
-        crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6176119186804571">-->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            font-family: poppins, sans-serif;
-            text-decoration: none;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        .hero-header {
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            background: #222;
-        }
-
-        .wrapper {
-            width: 1280px;
-            max-width: 95%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            padding: 40px 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo i {
-            height: 45px;
-            width: 45px;
-            background-color: #007ced;
-            border-radius: 50%;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.5rem;
-            padding: 10px;
-            margin-right: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .logo .logo-text {
-            font-size: 24px;
-            font-weight: 500;
-            color: #fff;
-        }
-
-        nav .togglebtn {
-            width: 35px;
-            height: 35px;
-            position: absolute;
-            top: 45px;
-            right: 3%;
-            z-index: 5;
-            cursor: pointer;
-            display: none;
-        }
-
-        nav .togglebtn span {
-            display: block;
-            background-color: #007ced;
-            margin: 5px 0px;
-            width: 100%;
-            height: 3px;
-            transition: 0.3s;
-            transition-property: transform, opacity;
-        }
-
-        nav .navlinks {
-            list-style-type: none;
-        }
-
-        nav .navlinks li {
-            display: inline-block;
-        }
-
-        nav .navlinks li a {
-            color: #e5e5e5;
-            margin-right: 2.5rem;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding-top: 4rem;
-        }
-
-        .container .hero-pic {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 15px solid #444;
-            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-pic img {
-            height: 100%;
-            width: 100%;
-            transition: 0.5s;
-        }
-
-        .hero-pic img:hover {
-            transform: scale(1.2);
-        }
-
-        .hero-text {
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hero-text h5 {
-            color: #e5e5e5;
-            font-size: 14px;
-        }
-
-        .hero-text h5 span {
-            color: #007ced;
-            font-size: 16px;
-        }
-
-        .hero-text h1 {
-            color: #007ced;
-            font-size: 3rem;
-        }
-
-        .hero-text p {
-            color: #e5e5e5;
-        }
-
-        .btn-group {
-            margin: 45px 0;
-        }
-
-        .btn-group .btn {
-            border-color: #d5d5d5;
-            color: #fff;
-            background-color: #333;
-            padding: 12px 25px;
-            margin: 5px 0px;
-            margin-right: 7px;
-            border-radius: 30px;
-            border: 2px solid #e5e5e5;
-            box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
-        }
-
-        .btn.active {
-            border-color: #007ced;
-        }
-
-        .hero-text .social i {
-            color: #e5e5e5;
-            font-size: 18px;
-            margin-right: 10px;
-            transition: 0.5s;
-        }
-
-        .hero-text .social i:hover {
-            color: #007ced;
-            transform: rotate(360deg);
-        }
-
-        /* Section for social media links */
-        .social-section {
-            background-color: #333;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .social-section h2 {
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            font-size: 2rem;
-            transition: 0.3s;
-        }
-
-        .social-icons a img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .social-icons a:hover {
-            color: #007ced;
-        }
-
-        .change-colors-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007ced;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .change-colors-btn:hover {
-            background-color: #005bb5;
-        }
-
-        /* Project section */
-        .projects-section {
-           /* background-color: #f4f4f4;*/
-/*
-background: linear-gradient(135deg, 
- /*       #009b3a 0%,      /* Verde começa no início */
- /*       #009b3a 25%,     /* Verde termina em 25% */
-   /*     #ffdf00 25%,     /* Amarelo começa em 25% */
-     /*   #ffdf00 50%,     /* Amarelo termina em 50% */
-     /*   #002776 50%,     /* Azul começa em 50% */
-    /*    #002776 75%,     /* Azul termina em 75% */
-    /*    #ffffff 75%,     /* Branco começa em 75% */
-     /*   #ffffff 100%     /* Branco termina em 100% 
-);  */          
-padding: 40px 0;
-            text-align: center;
-        }
-
-        .projects-section h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .projects-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .project-item {
-            width: 18%;
-            margin-bottom: 20px;
-        }
-
-        .project-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-item h3 {
-            color: #007ced;
-            margin-top: 10px;
-        }
-
-        .view-all-projects-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007ced;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .view-all-projects-btn:hover {
-            background-color: #005bb5;
-        }
-
-        /* Responsive design & displaying navbar for small screens */
-        @media(max-width:930px) {
-            nav .togglebtn {
-                display: initial;
-            }
-
-            /* for toggle button**/
-            .click {
-                top: 45px;
-            }
-
-            .click span {
-                position: absolute;
-                margin-top: 12px
-            }
-
-            .click span:first-child {
-                transform: rotate(-40deg);
-            }
-
-            .click span:nth-child(2) {
-                opacity: 0;
-                margin: 0;
-            }
-
-            .click span:last-child {
-                transform: rotate(45deg);
-                top: 0;
-            }
-
-            nav .navlinks {
-                position: absolute;
-                top: 110px;
-                right: -100%;
-                bottom: 0;
-                width: 60%;
-                height: 100vh;
-                background-color: #222;
-                z-index: 3;
-                box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
-                transition: 0.5s;
-                padding: 25px 0px;
-            }
-
-            nav .navlinks li {
-                display: block;
-            }
-
-            nav .navlinks li a {
-                display: block;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-
-            nav .navlinks.open {
-                right: 0;
-            }
-        }
-
-        @media(max-width:768px) {
-            .container {
-                flex-direction: column;
-                padding-top: 2rem
-            }
-
-            .hero-text {
-                padding: 40px 0px;
-            }
-        }
-
-        @media(max-width:600px) {
-            .project-item {
-                width: 45%;
-            }
-        }
-
-        @media(max-width:400px) {
-            .project-item {
-                width: 100%;
-            }
-        }
-
-.baixo {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 1rem;
-    border-top: 3px solid #007ced; /* Linha de destaque superior */
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
-}
-
-.btn-projetos {
-    background-color: #007ced; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 1rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    cursor: pointer; /* Cursor de clique */
-    transition: all 0.3s ease; /* Animação suave */
-}
-
-.btn-projetos:hover {
-    background-color: #005bb5; /* Cor mais escura no hover */
-    box-shadow: 0 5px 15px rgba(0, 123, 237, 0.5); /* Efeito de sombra ao passar o mouse */
-    transform: translateY(-3px); /* Levanta o botão ao passar o mouse */
-}
-
-
-
-    </style>
-</head>
-
-<body>
-    <div class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-a"></i>
-                    <div class="logo-text"></div>
-                </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="./Projetos/meusprojetos.html">Projetos</a></li>
-                      <li><a href="./Projetos/Rede Social/redes-sociais.html">Rede Social</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="container">
-                <div class="hero-pic">
-                    <img src="./imagens/Painel/eu.png" alt="profile pic">
-                </div>
-                <div class="hero-text">
-                    <h5>Olá , sou um futuro <span class="input"></span></h5>
-                    <h1>Anderson de Souza</h1>
-                    <p> texto </p>
-                    <div class="social">
-                        <a href="#"><i class=""></i></a>
-                        <a href="#"><i class=""></i></a>
-                        <a href="#"><i class=""></i></a>
-                        <a href="#"><i class=""></i></a>
-                        <a href="#"><i class=""></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Social Media Section -->
-    <div id="social-section" class="social-section">
-        <div class="wrapper">
-            <h2>Redes Sociais</h2>
-            <div class="social-icons" id="default-icons">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-dribbble"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-            </div>
-            <div class="social-icons" id="new-icons" style="display: none;">
-                <a href="https://www.facebook.com/anderson.desouza.5661" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-facebook.png" alt="Facebook"></a>
-                <a href="https://www.linkedin.com/in/anderson-s-352605137/" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-linkedin.png" alt="LinkedIn"></a>
-                <a href="https://www.instagram.com/andersondsouza7/">
-                    <img src="./imagens/SOCIAL/logo-instagram.png" alt="Instagram"></a>
-                <a href="https://web.whatsapp.com/send?phone=5565999452676" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-whatsapp.png" alt="WhatsApp"></a>
-                <a href="https://github.com/souzaseven" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-github.png" alt="GitHub"></a>
-                <a href="https://www.tiktok.com/@andersondesouza09" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-tiktok.png" alt="TikTok"></a>
-                <a href="https:gmail.com.br/souza5661.7@gmail.com" target="_blank">
-                    <img src="./imagens/SOCIAL/logo-gmail.png" alt="Gmail"></a>
-            </div>
-            <button class="change-colors-btn" onclick="changeColorsAndIcons()">Mudar Cores e Ícones</button>
-        </div>
-    </div>
-
-    <!-- Projects Section -->
-    <div class="projects-section">
-        <div class="wrapper">
-            <h2>Meus Projetos</h2>
-            <div class="projects-container">
-                <div class="project-item">
-                    <a href="https://exemplo.com/projeto-rede-sociais">
-                        <img src="./imagens/Painel/redes sociais2.webp" alt="Rede Social">
-                        <a href="#">
-                            <h4>Rede Social</h4>
-                        </a>
-                </div>
-                <div class="project-item">
-                    <a href="./Projetos/cursos.html">
-                        <img src="./imagens/Painel/cursos.jpg" alt="cursos">
-                        <h3>Cursos</h3>
-                    </a>
-                </div>
-
-  <div class="project-item">
-                    <a href="./Projetos/pagamentos.html">
-                        <img src="./imagens/Painel/painel pag.jpg" alt="Pagamentos">
-                        <h3>Pagamentos</h3>
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <a href="./Projetos/trabalho.html">
-                        <img src="./imagens/Painel/logo tga.jpeg" alt="Projeto 4">
-                        <h3>Trabalho</h3>
-                    </a>
-                </div>
-                <div class="project-item">
-                    <a href="./Projetos/meusprojetos.html">
-                        <img src="./imagens/Painel/meus projetos logo.webp" alt="Projeto 5">
-                        <h3>Pessoal</h3>
-                    </a>
-                </div>
-
- 
-                <div class="project-item">
-                    <a href="./Projetos/Diversos/diversos.html">
-                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto 3">
-                        <h3>Diversos</h3>
-                    </a>
-                </div>
-
-
-   <div class="project-item">
-                    <a href="./Projetos/meusprojetos.html">
-                        <img src="./imagens/Painel/variados.png" alt="variados">
-                        <h3>Variados</h3>
-                    </a>
-                </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571"
-     crossorigin="anonymous"></script>
+<!-- Anúncios -->
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
      data-ad-client="ca-pub-6176119186804571"
-     data-ad-slot="6863463884"></ins>
+     data-ad-slot="3576883624"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-   <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h3></h3>
-                    </a>
-                </div>
-
-
-   <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h3></h3>
-                    </a>
-                </div>
-
-   <div class="project-item">
-                    <a href="">
-                        <img src="" alt="">
-                        <h3></h3>
-                    </a>
-                </div>
-<!--
-   <div class="project-item">
-                    <a href="./Projetos/Diversos/diversos.html">
-                        <img src="./imagens/Painel/diversos projetos.webp" alt="Projeto 3">
-                        <h3>Diversos</h3>
-                    </a>
-                </div>-->
-
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-<footer class="baixo">
-    <a href="./Projetos/meusprojetos.html">
-        <button class="btn-projetos">Ver todos os projetos</button>
-    </a>
-</footer>
-
-
-
-    <!---typed js for typing text effect-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-    <script>
-        /** creating button click show hide navbar **/
-        var togglebtn = document.querySelector(".togglebtn");
-        var nav = document.querySelector(".navlinks");
-        var links = document.querySelector(".navlinks li");
-
-        togglebtn.addEventListener("click", function () {
-            this.classList.toggle("click");
-            nav.classList.toggle("open");
-        });
-
-        var typed = new Typed(".input", {
-            strings: ["Full stack Developer", "Web Developer"],
-            typeSpeed: 70,
-            backSpeed: 55,
-            loop: true
-        });
-
-        function changeColorsAndIcons() {
-            var defaultIcons = document.getElementById('default-icons');
-            var newIcons = document.getElementById('new-icons');
-            if (defaultIcons.style.display === 'none') {
-                defaultIcons.style.display = 'flex';
-                newIcons.style.display = 'none';
-            } else {
-                defaultIcons.style.display = 'none';
-                newIcons.style.display = 'flex';
-            }
-        }
-
-        function scrollToSocialSection() {
-            document.getElementById('social-section').scrollIntoView({ behavior: 'smooth' });
-            changeColorsAndIcons();
-        }
-    </script>
-
 
 </body>
 
