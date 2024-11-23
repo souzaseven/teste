@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de Pares de 6 a 100</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Soma da Sequência de Pares de 6 a 100</h1>
+
+    <!-- Área para mostrar o resultado -->
+    <div id="resultado">Clique no botão para ver a soma.</div>
+
+    <!-- Botão para calcular a soma -->
+    <button onclick="calcularSoma()">Calcular Soma</button>
+
+    <script>
+        function calcularSoma() {
+            let soma = 0;
+            for (let i = 6; i <= 100; i += 2) {
+                soma += i;
+            }
+            document.getElementById('resultado').innerText = `A soma de 6 até 100 é: ${soma}`;
+        }
+    </script>
+
+</body>
+</html>
