@@ -239,7 +239,7 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
     </div>
     <div class="container2">
         <h2>Campos de Exemplo</h2>
-        <pre>
+       <pre id="example-fields" contenteditable="true">
 *************************************
 S I S T E M A   E S T O Q U E
 ************************************* 
@@ -337,6 +337,27 @@ S I S T E M A   F I N A N C E I R O
         </pre>
     </div>
     <script>
+
+ // Salva o conteúdo do campo no localStorage
+    function saveExampleFields(content) {
+        localStorage.setItem('exampleFields', content);
+    }
+
+    // Carrega o conteúdo salvo no localStorage
+    function loadExampleFields() {
+        return localStorage.getItem('exampleFields') || document.getElementById('example-fields').textContent;
+    }
+
+    // Configura o comportamento do campo editável
+    const exampleFields = document.getElementById('example-fields');
+
+    // Inicializa o campo com o conteúdo salvo
+    exampleFields.textContent = loadExampleFields();
+
+    // Salva automaticamente ao modificar o conteúdo
+    exampleFields.addEventListener('input', () => {
+        saveExampleFields(exampleFields.textContent);
+    });
          const initialQueries = [
             `update tmdfe set STATUS = 3 where idmov = ????;`,
             `SELECT * FROM TMOV WHERE STATUS = 'N';`
