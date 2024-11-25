@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Git Hub/Projetos/Trabalho/IMG/sqli.png" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <title>Consultas SQL</title>
     <style>
         body {
@@ -204,6 +209,7 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
 .delete-btn {
     position: absolute;
     top: 10px;
+padding: 50px;
     right: 90px; /* Ajuste para ficar ao lado do botão de copiar */
     background: #e74c3c;
     border: none;
@@ -215,6 +221,12 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
 }
 .delete-btn:hover {
     background: #c0392b;
+}
+
+button i {
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+  font-size: 1em; /* Ajuste o tamanho do ícone */
+  vertical-align: middle; /* Centraliza o ícone */
 }
 
     </style>
@@ -336,6 +348,9 @@ S I S T E M A   F I N A N C E I R O
   F - Faturado
         </pre>
     </div>
+<div id="queries-container"></div>
+
+
     <script>
 
  // Salva o conteúdo do campo no localStorage
@@ -358,11 +373,20 @@ S I S T E M A   F I N A N C E I R O
     exampleFields.addEventListener('input', () => {
         saveExampleFields(exampleFields.textContent);
     });
-         const initialQueries = [
-            `update tmdfe set STATUS = 3 where idmov = ????;`,
-            `SELECT * FROM TMOV WHERE STATUS = 'N';`
+       const initialQueries = [
+    {
+        description: "Atualiza a tabela de manifestação mudando o status para cancelado",
+        query: `update tmdfe set STATUS = 3 where idmov = ????;`
+    },
+    {
+        description: "Seleciona tudo da tabela de movimento quando o status for normal",
+        query: `SELECT * FROM TMOV WHERE STATUS = 'N';`
+    }
+];
 
-        ];
+
+// Exibir as queries e suas descrições (mantendo o visual atual)
+const queriesContainer = document.createElement('div');
 
         function saveQueries(queries) {
             localStorage.setItem('queries', JSON.stringify(queries));
@@ -373,7 +397,7 @@ S I S T E M A   F I N A N C E I R O
             return queries ? JSON.parse(queries) : initialQueries;
         }
 
-       function renderQueries(queries) {
+     /*  function renderQueries(queries) {
             const queryList = document.getElementById('query-list');
             queryList.innerHTML = '';
             queries.forEach((query, index) => {
@@ -383,6 +407,22 @@ S I S T E M A   F I N A N C E I R O
                     <pre id="query-${index}">${query}</pre>
                     <button class="copy-btn" onclick="copyToClipboard('${query}')">Copiar</button>
                     <button class="delete-btn" onclick="deleteQuery(${index})">Excluir</button>
+                `;
+                queryList.appendChild(queryBlock);
+            });
+        }*/
+
+
+       function renderQueries(queries) {
+            const queryList = document.getElementById('query-list');
+            queryList.innerHTML = '';
+            queries.forEach((query, index) => {
+                const queryBlock = document.createElement('div');
+                queryBlock.classList.add('query-block');
+                queryBlock.innerHTML = `
+                    <pre id="query-${index}">${query}</pre>
+                    <button class="copy-btn" onclick="copyToClipboard('${query}')"> <i class="fas fa-copy"></i>Copiar</button>
+                    <button class="delete-btn" onclick="deleteQuery(${index})"><i class="fas fa-trash"></i> Excluir</button>
                 `;
                 queryList.appendChild(queryBlock);
             });
