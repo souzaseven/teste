@@ -139,6 +139,68 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
             background-color: yellow;
             color: black;
         }
+
+
+    /* Responsividade para telas menores */
+        @media screen and (max-width: 1024px) {
+            .container {
+                width: 80%; /* Aumenta a largura da container principal */
+                padding: 15px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 100%; /* Reduz para 100% em telas menores */
+                padding: 10px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 10px;
+            }
+            #search-input {
+                width: 80%; /* Maior largura para o campo de pesquisa */
+            }
+            #search-btn {
+                width: 15%;
+            }
+            #query-text {
+                height: 80px; /* Ajusta o tamanho do campo de texto */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 5px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 5px;
+            }
+            .query-block {
+                padding: 8px; /* Ajusta o padding para telas pequenas */
+            }
+            #query-text {
+                height: 70px; /* Menor altura para telas pequenas */
+                font-size: 12px;
+            }
+            #add-btn {
+                padding: 8px;
+                font-size: 14px;
+            }
+            #search-input {
+                width: 75%;
+            }
+            #search-btn {
+                width: 20%;
+            }
+        }
+
     </style>
 </head>
 <body>
