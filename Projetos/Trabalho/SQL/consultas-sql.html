@@ -201,6 +201,22 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
             }
         }
 
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 90px; /* Ajuste para ficar ao lado do botão de copiar */
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.delete-btn:hover {
+    background: #c0392b;
+}
+
     </style>
 </head>
 <body>
@@ -324,6 +340,7 @@ S I S T E M A   F I N A N C E I R O
          const initialQueries = [
             `update tmdfe set STATUS = 3 where idmov = ????;`,
             `SELECT * FROM TMOV WHERE STATUS = 'N';`
+
         ];
 
         function saveQueries(queries) {
@@ -335,7 +352,7 @@ S I S T E M A   F I N A N C E I R O
             return queries ? JSON.parse(queries) : initialQueries;
         }
 
-        function renderQueries(queries) {
+       function renderQueries(queries) {
             const queryList = document.getElementById('query-list');
             queryList.innerHTML = '';
             queries.forEach((query, index) => {
@@ -344,6 +361,7 @@ S I S T E M A   F I N A N C E I R O
                 queryBlock.innerHTML = `
                     <pre id="query-${index}">${query}</pre>
                     <button class="copy-btn" onclick="copyToClipboard('${query}')">Copiar</button>
+                    <button class="delete-btn" onclick="deleteQuery(${index})">Excluir</button>
                 `;
                 queryList.appendChild(queryBlock);
             });
@@ -394,6 +412,14 @@ S I S T E M A   F I N A N C E I R O
             const queries = loadQueries();
             renderQueries(queries);
         };
+
+function deleteQuery(index) {
+    const queries = loadQueries();
+    queries.splice(index, 1); // Remove a consulta do array
+    saveQueries(queries);
+    renderQueries(queries); // Atualiza a lista renderizada
+};
+
     </script>
 </body>
 </html>
