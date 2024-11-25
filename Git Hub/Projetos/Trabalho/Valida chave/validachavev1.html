@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Chave de Acesso NF-e / NFC-e</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007ced;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .form-inline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        @media (min-width: 576px) {
+            .form-inline .form-control {
+                display: inline-block;
+                vertical-align: middle;
+                width: 70%;
+            }
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            text-align: left;
+        }
+        .result span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .error {
+            color: red;
+        }
+        h1 {
+            color: #007ced;
+            margin-bottom: 20px;
+        }
+        .tooltip-box {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: none;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        .example {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            display: none;
+        }
+        .format-chaves {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 -10px;
+        }
+        .format-chaves div {
+            flex: 1;
+            min-width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            border-radius: 4px;
+            position: relative;
+        }
+        .format-chaves div::after {
+            content: attr(data-info);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            display: none;
+            z-index: 1000;
+        }
+        .format-chaves div:hover::after {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Validador de Chave de Acesso NF-e / NFC-e</h1>
+        <label for="chave" id="ctl00_ContentPlaceHolder1_lblChaveAcesso" class="labelConsulta">Chave de Acesso da NF-e</label>
+        <div class="form-inline">
+            <input type="text" id="chave" class="form-control" placeholder="Digite a Chave de Acesso (44 dígitos)" maxlength="44">
+        </div>
+        <div class="result" id="resultado"></div>
+        <div class="result" id="resultado-formatado"></div>
+        <div class="tooltip-box" id="tooltip-box"></div>
+        <div class="example" id="example">
+            <strong>Exemplo de Chave:</strong><br>
+            <span>51220128400690000195550010000036321012476717</span>
+        </div>
+        <div class="format-chaves" id="format-chaves"></div>
+    </div>
+
+    <script>
+        const chaveInput = document.getElementById('chave');
+        const exampleDiv = document.getElementById('example');
+        const tooltipBox = document.getElementById('tooltip-box');
+        const formatChavesDiv = document.getElementById('format-chaves');
+
+        chaveInput.addEventListener('input', function() {
+            const chave = chaveInput.value.trim();
+            const formattedChave = formatChave(chave);
+            const chaveFormatada = formatarChave(chave);
+
+            if (chave.length > 0) {
+                exampleDiv.style.display = 'none'; // Oculta o exemplo ao começar a digitar
+            } else {
+                exampleDiv.style.display = 'block'; // Mostra o exemplo se o campo estiver vazio
+            }
+
+            if (validateChave(chave)) {
+                document.getElementById('resultado').innerHTML = `<strong>Detalhes da Chave:</strong><br>${formattedChave}`;
+                document.getElementById('resultado-formatado').innerHTML = `<strong>Chave Formatada:</strong><br>${chaveFormatada}`;
+            } else {
+                document.getElementById('resultado').innerHTML = `<span class="error">Chave inválida! A chave deve ter 44 dígitos e ser válida.</span>`;
+                document.getElementById('resultado-formatado').innerHTML = '';
+            }
+
+            // Atualiza a exibição dos campos formatados
+            updateFormatChaves(chave);
+        });
+
+        function validateChave(chave) {
+            return chave.length === 44 && /^\d+$/.test(chave);
+        }
+
+        function formatChave(chave) {
+            return `
+                <div><strong>cUF:</strong> ${chave.slice(0, 2)}</div>
+                <div><strong>AAMM:</strong> ${chave.slice(2, 6)}</div>
+                <div><strong>CNPJ:</strong> ${chave.slice(6, 20)}</div>
+                <div><strong>mod:</strong> ${chave.slice(20, 22)}</div>
+                <div><strong>série:</strong> ${chave.slice(22, 25)}</div>
+                <div><strong>nNF:</strong> ${chave.slice(25, 34)}</div>
+                <div><strong>tpEmis:</strong> ${chave.slice(34, 35)}</div>
+                <div><strong>cNF:</strong> ${chave.slice(35, 43)}</div>
+                <div><strong>cDV:</strong> ${chave.slice(43)}</div>
+            `;
+        }
+
+        function formatarChave(chave) {
+            return `
+                ${chave.slice(0, 2)} ${chave.slice(2, 6)} ${chave.slice(6, 20)} ${chave.slice(20, 22)} ${chave.slice(22, 25)} ${chave.slice(25, 34)} ${chave.slice(34, 35)} ${chave.slice(35, 43)} ${chave.slice(43)}
+            `;
+        }
+
+        function updateFormatChaves(chave) {
+            const sections = [
+                { label: 'cUF', value: chave.slice(0, 2), info: 'UF (estado do emitente da nota)' },
+                { label: 'AAMM', value: chave.slice(2, 6), info: 'Ano e mês que a nota foi gerada' },
+                { label: 'CNPJ', value: chave.slice(6, 20), info: 'CNPJ da empresa emitente da nota' },
+                { label: 'mod', value: chave.slice(20, 22), info: 'Modelo da NF-e (ex.: 55 — NF-e)' },
+                { label: 'série', value: chave.slice(22, 25), info: 'Série da NF-e' },
+                { label: 'nNF', value: chave.slice(25, 34), info: 'Número da NF-e' },
+                { label: 'tpEmis', value: chave.slice(34, 35), info: 'Tipo de emissão do documento (contingência = 9, autorizada = 1)' },
+                { label: 'cNF', value: chave.slice(35, 43), info: 'Código numérico da Chave de Acesso' },
+                { label: 'cDV', value: chave.slice(43), info: 'Dígito verificador da Chave de Acesso' }
+            ];
+
+            formatChavesDiv.innerHTML = sections.map(section => `
+                <div data-info="${section.info}">
+                    <strong>${section.label}:</strong> ${section.value}
+                </div>
+            `).join('');
+        }
+
+        chaveInput.addEventListener('mousemove', function(event) {
+            const posX = event.pageX + 15;
+            const posY = event.pageY + 15;
+            const chave = event.target.value.trim();
+
+            if (chave.length > 0) {
+                const position = getPosition(chave);
+                tooltipBox.style.left = posX + 'px';
+                tooltipBox.style.top = posY + 'px';
+                tooltipBox.style.display = 'block';
+                tooltipBox.innerHTML = getTooltipMessage(position);
+            } else {
+                tooltipBox.style.display = 'none';
+            }
+        });
+
+        chaveInput.addEventListener('mouseleave', function() {
+            tooltipBox.style.display = 'none';
+        });
+
+        function getPosition(chave) {
+            if (chave.length < 2) return 'cUF';
+            if (chave.length < 6) return 'AAMM';
+            if (chave.length < 20) return 'CNPJ';
+            if (chave.length < 22) return 'mod';
+            if (chave.length < 25) return 'série';
+            if (chave.length < 34) return 'nNF';
+            if (chave.length < 35) return 'tpEmis';
+            if (chave.length < 43) return 'cNF';
+            return 'cDV';
+        }
+
+        function getTooltipMessage(position) {
+            const messages = {
+                'cUF': 'UF (estado do emitente da nota).',
+                'AAMM': 'Ano e mês que a nota foi gerada.',
+                'CNPJ': 'CNPJ da empresa emitente da nota.',
+                'mod': 'Modelo da NF-e (ex.: 55 — NF-e).',
+                'série': 'Série da NF-e.',
+                'nNF': 'Número da NF-e.',
+                'tpEmis': 'Tipo de emissão do documento (contingência = 9, autorizada = 1).',
+                'cNF': 'Código numérico da Chave de Acesso.',
+                'cDV': 'Dígito verificador da Chave de Acesso.'
+            };
+            return messages[position] || '';
+        }
+    </script>
+</body>
+</html>
