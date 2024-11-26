@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8542251167876044"
+     crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Git Hub/Projetos/Trabalho/IMG/sqli.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Consultas SQL</title>
     <style>
+
+        /* Estilos do corpo da página e containers */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #2e86de, #74b9ff);
@@ -14,6 +20,9 @@
             display: flex;
             padding: 2px;
             margin-right: 3px;
+        margin-right: 3px;
+        overflow-y: auto; /* Corrigido para permitir apenas um scroll vertical */
+ /* Permite apenas um scroll vertical na página inteira */
         }
         h1 {
             text-align: center;
@@ -28,28 +37,37 @@
             margin-right: 10px;
             position: relative;
             resize: both;
-            overflow: auto;
+            overflow-y: auto; /* Adicionado o scroll */
             min-width: 300px;
             min-height: 300px;
         }
-        .query-block {
+        .text-block {
             margin-bottom: 15px;
             padding: 15px;
             background: #34495e;
             border-radius: 8px;
             position: relative;
         }
-        .query-block pre {
+        .text-block h3 {
             margin: 0;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-color: #ecf0f1; /* Ou qualquer cor mais visível */
+            color: #ecf0f1;
         }
-        .copy-btn {
+        .text-block textarea {
+            width: 100%;
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            background: #2c3e50;
+            color: #fff;
+            resize: none;
+        }
+        .text-block .copy-btn, .text-block .delete-btn, .text-block .edit-btn {
             position: absolute;
             top: 10px;
-            right: 10px;
-            background: #3498db;
+            background: #e74c3c; /* Cor do botão de excluir */
             border: none;
             color: #fff;
             padding: 5px 10px;
@@ -57,20 +75,25 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
             cursor: pointer;
             transition: background 0.3s;
         }
-        .copy-btn:hover {
+        .text-block .copy-btn {
+            right: 80px;
+            background: #3498db; /* Cor do botão de copiar */
+        }
+        .text-block .copy-btn:hover {
             background: #2980b9;
         }
-        #add-query-form {
-            margin-top: 20px;
+        .text-block .delete-btn {
+            right: 10px;
         }
-        #query-text {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border: none;
-            padding: 10px;
-            font-size: 14px;
+        .text-block .edit-btn {
+            right: 150px;
+            background: #f39c12; /* Cor do botão de editar */
+        }
+        .text-block .edit-btn:hover {
+            background: #e67e22;
+        }
+        #add-text-form {
+            margin-top: 20px;
         }
         #add-btn {
             width: 100%;
@@ -94,7 +117,7 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             max-height: 90vh;
-            overflow-y: auto;
+            overflow-y: auto; /* Adicionado o scroll */
         }
         .container2 h2 {
             font-size: 20px;
@@ -106,9 +129,15 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
             word-wrap: break-word;
             font-size: 14px;
             background: #34495e;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+max-height: 90vh;
+    overflow-y: auto; /* Adicionado o scroll */
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    min-height: 150px; /* Altura mínima */
             padding: 10px;
             border-radius: 8px;
             color: #fff;
+            margin-top: 10px; /* Ajustado para mover mais para o topo */
         }
         #search-container {
             margin-bottom: 20px;
@@ -134,34 +163,124 @@ color: #ecf0f1; /* Ou qualquer cor mais visível */
         }
         #search-btn:hover {
             background: #2980b9;
-        }
+        }/*
         .highlight {
             background-color: yellow;
             color: black;
+        }*/
+
+
+
+.highlight {
+    color: yellow;
+    background-color: transparent;
+   /* animation: blink 1s infinite; /* Define a animação para piscar */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1; /* Visível */
+    }
+    50% {
+        opacity: 0; /* Invisível */
+    }
+    100% {
+        opacity: 1; /* Visível novamente */
+    }
+}
+
+        /* Responsividade para telas menores */
+        @media screen and (max-width: 1024px) {
+            .container {
+                width: 80%; 
+                padding: 15px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 15px;
+            }
         }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 100%; 
+                padding: 10px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 10px;
+                position: absolute; /* Mover para segundo plano */
+                top: 0;
+                left: 0;
+                z-index: -1; /* Coloca o container2 atrás */
+                opacity: 0.5; /* Torna o container2 mais transparente */
+            }
+            #search-input {
+                width: 80%; 
+            }
+            #search-btn {
+                width: 15%;
+            }
+            #query-text {
+                height: 80px; 
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 5px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 5px;
+            }
+            .text-block {
+                padding: 8px; 
+            }
+            #query-text {
+                height: 70px; 
+                font-size: 12px;
+            }
+            #add-btn {
+                padding: 8px;
+                font-size: 14px;
+            }
+            #search-input {
+                width: 75%;
+            }
+            #search-btn {
+                width: 20%;
+            }
+        }
+
+
+
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Sistema de Consultas SQL</h1>
 
-        <!-- Campo de pesquisa -->
-        <div id="search-container">
-            <input type="text" id="search-input" placeholder="Pesquise por uma consulta...">
-            <button id="search-btn">Buscar</button>
-        </div>
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Pesquisar texto...">
+    <button type="button" id="search-btn" onclick="searchText()">Pesquisar</button>
+</div>
 
-        <div id="query-list">
-            <!-- Consultas serão inseridas dinamicamente aqui -->
+
+        <div id="text-list">
+            <!-- Blocos de texto editáveis serão inseridos dinamicamente aqui -->
         </div>
-        <form id="add-query-form">
-            <textarea id="query-text" placeholder="Digite a nova consulta SQL aqui..."></textarea>
-            <button type="button" id="add-btn">Adicionar Consulta</button>
+        <form id="add-text-form">
+            <input type="text" id="text-title" placeholder="Título do Texto" style="width: 100%; padding: 10px; border-radius: 8px; border: none; margin-bottom: 10px;">
+            <textarea id="text-content" placeholder="Digite o conteúdo do texto aqui..." style="width: 100%; height: 100px; border-radius: 8px; padding: 10px;"></textarea>
+            <button type="button" id="add-btn"><i class="fas fa-plus"></i> Adicionar Texto</button>
         </form>
     </div>
-    <div class="container2">
+   <div class="container2">
         <h2>Campos de Exemplo</h2>
-        <pre>
+       <pre id="example-fields" contenteditable="true">
 *************************************
 S I S T E M A   E S T O Q U E
 ************************************* 
@@ -256,82 +375,163 @@ S I S T E M A   F I N A N C E I R O
   B - Baixado
   C - Cancelado
   F - Faturado
-        </pre>
+ </pre>
     </div>
-    <script>
-         const initialQueries = [
-            `update tmdfe set STATUS = 3 where idmov = ????;`,
-            `SELECT * FROM TMOV WHERE STATUS = 'N';`
-        ];
 
-        function saveQueries(queries) {
-            localStorage.setItem('queries', JSON.stringify(queries));
+    <script src="./2.js"></script>
+
+<script>
+// Elementos do DOM
+const addButton = document.getElementById("add-btn");
+const textList = document.getElementById("text-list");
+const textTitle = document.getElementById("text-title");
+const textContent = document.getElementById("text-content");
+
+// Recuperar textos do localStorage
+let texts = JSON.parse(localStorage.getItem("texts")) || [];
+
+// Exibir os textos salvos ao carregar a página
+function exibirTextos() {
+    textList.innerHTML = "";
+    texts.forEach((text, index) => {
+        const textBlock = document.createElement("div");
+        textBlock.classList.add("text-block");
+        
+        // Destacar o título com base no termo de busca
+        const highlightedTitle = destacarTexto(text.title, document.getElementById("search-input").value);
+        
+        // Criar HTML para o bloco de texto
+        textBlock.innerHTML = `
+            <h3>${highlightedTitle || "Sem Título"}</h3>
+            <textarea readonly>${text.content}</textarea>
+            <button class="edit-btn" onclick="editarTexto(${index})"><i class="fas fa-edit"></i> Editar</button>
+            <button class="copy-btn" onclick="copiarTexto(${index})"><i class="fas fa-copy"></i> Copiar</button>
+            <button class="delete-btn" onclick="excluirTexto(${index})"><i class="fas fa-trash"></i> Excluir</button>
+        `;
+        textList.appendChild(textBlock);
+    });
+}
+
+// Salvar os textos no localStorage
+function salvarTextos() {
+    localStorage.setItem("texts", JSON.stringify(texts));
+}
+
+// Adicionar novo texto
+addButton.addEventListener("click", () => {
+    const title = textTitle.value.trim();
+    const content = textContent.value.trim();
+    if (title || content) {
+        texts.push({ title, content });
+        salvarTextos();
+        exibirTextos();
+        textTitle.value = "";
+        textContent.value = "";
+    }
+});
+
+// Editar texto
+function editarTexto(index) {
+    const title = prompt("Novo título", texts[index].title);
+    const content = prompt("Novo conteúdo", texts[index].content);
+    if (title !== null && content !== null) {
+        texts[index].title = title;
+        texts[index].content = content;
+        salvarTextos();
+        exibirTextos();
+    }
+}
+
+// Copiar texto
+function copiarTexto(index) {
+    navigator.clipboard.writeText(texts[index].content);
+}
+
+// Excluir texto
+function excluirTexto(index) {
+    if (confirm("Você tem certeza que deseja excluir este texto?")) {
+        texts.splice(index, 1);
+        salvarTextos();
+        exibirTextos();
+    }
+}
+
+// Função para destacar o texto encontrado na pesquisa
+function destacarTexto(text, termoDeBusca) {
+    if (!termoDeBusca) return text; // Se não houver termo de busca, retorna o texto original
+    const regex = new RegExp(`(${termoDeBusca})`, 'gi'); // Cria uma regex para destacar o termo
+    return text.replace(regex, '<span class="highlight">$1</span>'); // Envolve o termo com a tag <span> para destacar
+}
+
+// Função de busca de texto em tempo real
+function buscarTexto() {
+    const termoDeBusca = document.getElementById("search-input").value.trim().toLowerCase();
+    const textBlocks = document.querySelectorAll(".text-block");
+    
+    // Pesquisa em todos os campos, incluindo container2 e example-fields
+    const searchFields = document.querySelectorAll("#container2, #example-fields, .text-block");
+
+    searchFields.forEach(field => {
+        const title = field.querySelector("h3") ? field.querySelector("h3").textContent.toLowerCase() : '';
+        const content = field.querySelector("textarea") ? field.querySelector("textarea").value.toLowerCase() : '';
+        
+        if (title.includes(termoDeBusca) || content.includes(termoDeBusca)) {
+            field.classList.add("highlight");
+        } else {
+            field.classList.remove("highlight");
         }
 
-        function loadQueries() {
-            const queries = localStorage.getItem('queries');
-            return queries ? JSON.parse(queries) : initialQueries;
+        // Destacar o título
+        const highlightedTitle = destacarTexto(field.querySelector("h3") ? field.querySelector("h3").textContent : '', termoDeBusca);
+        if (field.querySelector("h3")) {
+            field.querySelector("h3").innerHTML = highlightedTitle; // Aplica o destaque no título
         }
+    });
+}
 
-        function renderQueries(queries) {
-            const queryList = document.getElementById('query-list');
-            queryList.innerHTML = '';
-            queries.forEach((query, index) => {
-                const queryBlock = document.createElement('div');
-                queryBlock.classList.add('query-block');
-                queryBlock.innerHTML = `
-                    <pre id="query-${index}">${query}</pre>
-                    <button class="copy-btn" onclick="copyToClipboard('${query}')">Copiar</button>
-                `;
-                queryList.appendChild(queryBlock);
-            });
-        }
+// Adicionar evento de busca ao campo de pesquisa
+document.getElementById("search-btn").addEventListener("click", buscarTexto);
+document.getElementById("search-input").addEventListener("input", buscarTexto);
 
-        function copyToClipboard(query) {
-            navigator.clipboard.writeText(query).then(() => {
-                alert('Consulta copiada para a área de transferência!');
-            });
-        }
+// Filtrar textos com base na pesquisa
+function filtrarTextos() {
+    const termoDeBusca = document.getElementById("search-input").value.trim().toLowerCase();
+    const textosFiltrados = texts.filter(text => 
+        text.title.toLowerCase().includes(termoDeBusca) || text.content.toLowerCase().includes(termoDeBusca)
+    );
+    exibirTextosFiltrados(textosFiltrados);
+}
 
-        function highlightSearchQuery(query) {
-            if (!query) return;
+// Modificar a função exibirTextos para aceitar uma lista personalizada de textos
+function exibirTextosFiltrados(textosFiltrados = texts) {
+    textList.innerHTML = "";
+    textosFiltrados.forEach((text, index) => {
+        const textBlock = document.createElement("div");
+        textBlock.classList.add("text-block");
+        
+        // Destacar no título
+        const highlightedTitle = destacarTexto(text.title, document.getElementById("search-input").value);
 
-            const regex = new RegExp(query, "gi");
+        // Criar HTML com título destacado
+        textBlock.innerHTML = `
+            <h3>${highlightedTitle || "Sem Título"}</h3>
+            <textarea readonly>${text.content}</textarea>
+            <button class="edit-btn" onclick="editarTexto(${index})"><i class="fas fa-edit"></i> Editar</button>
+            <button class="copy-btn" onclick="copiarTexto(${index})"><i class="fas fa-copy"></i> Copiar</button>
+            <button class="delete-btn" onclick="excluirTexto(${index})"><i class="fas fa-trash"></i> Excluir</button>
+        `;
+        textList.appendChild(textBlock);
+    });
+}
 
-            // Destaque nas consultas
-            const queries = loadQueries();
-            queries.forEach((q, index) => {
-                const queryElement = document.getElementById(`query-${index}`);
-                queryElement.innerHTML = q.replace(regex, match => `<span class="highlight">${match}</span>`);
-            });
+// Iniciar exibição dos textos ao carregar a página
+window.onload = exibirTextos;
 
-            // Destaque no campo de exemplo
-            const exampleFields = document.querySelector('.container2 pre');
 
-           exampleFields.innerHTML = exampleFields.textContent.replace(regex, match => `<span class="highlight">${match}</span>`);
+</script>
 
-        }
+<script>
 
-        document.getElementById('search-btn').addEventListener('click', () => {
-            const searchInput = document.getElementById('search-input').value.trim();
-            highlightSearchQuery(searchInput);
-        });
-
-        document.getElementById('add-btn').addEventListener('click', () => {
-            const queryText = document.getElementById('query-text').value.trim();
-            if (queryText) {
-                const queries = loadQueries();
-                queries.push(queryText);
-                saveQueries(queries);
-                renderQueries(queries);
-                document.getElementById('query-text').value = '';
-            }
-        });
-
-        window.onload = () => {
-            const queries = loadQueries();
-            renderQueries(queries);
-        };
-    </script>
+</script>
 </body>
 </html>
