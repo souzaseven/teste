@@ -14,99 +14,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutoriais</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #007ced; /* Fundo azul */
+}
 
-        h1 {
-            text-align: center;
-            color: #007ced;
-            margin: 20px;
-            font-size: 2em;
-            text-transform: uppercase;
-        }
+h1 {
+    text-align: center;
+    color: #fff;
+    margin: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    font-style: italic; /* Deixa o texto em itálico */
+font-weight: bold; /* Deixa o texto em negrito */
+text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
 
-        section {
-            background-color: #ffffff;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1200px;
-        }
+section {
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 95%;
+}
 
-        section h2 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #333;
-            border-bottom: 2px solid #007ced;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+  
+    border-bottom: 2px solid #007ced;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
 
-        .video-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Itens mais largos */
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
 
-        .video-item {
-            flex: 1 1 calc(25% - 20px);
-            max-width: calc(25% - 20px);
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.video-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .video-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
 
-        .video-item iframe {
-            width: 100%;
-            height: 150px;
-            border-bottom: 1px solid #ddd;
-        }
+.video-item iframe {
+    width: 100%;
+    height: 250px; /* Aumenta a altura dos vídeos */
+    border-bottom: 1px solid #ddd;
+}
 
-        .video-title {
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #007ced;
-        }
+.video-title {
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007ced;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .video-item {
-                flex: 1 1 calc(33.33% - 20px);
-                max-width: calc(33.33% - 20px);
-            }
-        }
+/* Responsividade */
+@media (max-width: 768px) {
+    .video-item iframe {
+        height: 200px; /* Reduz a altura para telas menores */
+    }
+}
 
-        @media (max-width: 768px) {
-            .video-item {
-                flex: 1 1 calc(50% - 20px);
-                max-width: calc(50% - 20px);
-            }
-        }
+@media (max-width: 480px) {
+    .video-item iframe {
+        height: 180px; /* Altura menor em telas muito pequenas */
+    }
+}
+h2 {
+    font-size: 3.5em; /* Aumenta o tamanho do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: #007ced; /* Cor do texto */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Sombra no texto para dar um efeito moderno */
+    letter-spacing: 1px; /* Espaçamento entre as letras para dar um visual mais moderno */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
 
-        @media (max-width: 480px) {
-            .video-item {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-        }
-    </style>
+
+footer {
+    background-color: #333; /* Cor de fundo escura */
+    color: #fff; /* Cor do texto clara */
+    padding: 20px 0; /* Espaçamento vertical */
+    text-align: center; /* Alinha o texto ao centro */
+    font-size: 1rem; /* Tamanho de fonte */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil acima */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #007ced; /* Cor azul para links */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+footer p {
+    margin: 0; /* Remove margens extras */
+}
+
+footer .social-icons {
+    margin: 15px 0; /* Espaçamento para os ícones sociais */
+}
+
+footer .social-icons a {
+    margin: 0 10px; /* Espaço entre os ícones */
+    font-size: 1.5em; /* Tamanho dos ícones */
+    color: #fff; /* Cor dos ícones */
+}
+
+footer .social-icons a:hover {
+    color: #007ced; /* Cor dos ícones ao passar o mouse */
+}
+
+  </style>
 </head>
 <body>
     <h1>Tutoriais</h1>
@@ -151,10 +197,19 @@
         </div>
     </section>
 
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6176119186804571" data-ad-slot="3576883624" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+
+<footer>
+    <p>&copy; 2024 - Todos os direitos reservados.<a> TGA SISTEMAS</a> </p>
+    <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+    </div>
+</footer>
+
 </body>
 </html>
