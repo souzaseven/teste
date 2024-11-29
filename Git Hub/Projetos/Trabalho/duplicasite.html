@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir 10 Páginas</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #007ced, #3cb371);
+            color: #fff;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007ced;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background-color: #007ced;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        button:active {
+            background-color: #004a8f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Abrir 10 Páginas</h1>
+        <input type="text" id="linkInput" placeholder="Cole o link aqui" />
+        <button onclick="abrirAbas()">Abrir 10 Abas</button>
+    </div>
+
+    <script>
+        function abrirAbas() {
+            const link = document.getElementById('linkInput').value;
+            if (!link) {
+                alert('Por favor, insira um link válido.');
+                return;
+            }
+
+            // Adiciona um leve atraso para abrir cada aba
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    window.open(link, '_blank');
+                }, i * 200); // Abre uma aba a cada 200ms
+            }
+        }
+    </script>
+</body>
+</html>
