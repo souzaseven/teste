@@ -1,0 +1,255 @@
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #007ced;
+}
+
+/* Títulos principais */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtítulos */
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 2px solid #007ced;
+    padding-bottom: 5px;
+    color: #007ced;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+/* Container de busca */
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.search-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    max-width: 500px; /* Limita a largura em telas grandes */
+}
+
+/* Seções principais */
+section {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 95%;
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Garante que apenas 5 itens sejam visíveis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease; /* Suavidade na rolagem manual */
+    width: max-content; /* Ajusta dinamicamente para o conteúdo total */
+}
+
+/* Estilo de cada item de vídeo */
+.video-item {
+    width: 20%; /* Cada item ocupa 20% para caber 5 por vez */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* Inclui padding na largura total */
+    flex-shrink: 0; /* Evita que os itens encolham */
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ddd;
+}
+
+.video-title {
+    text-align: center;
+    padding: 10px;
+    background-color: #007ced;
+    color: #fff;
+    font-weight: bold;
+}
+
+.highlight {
+    border: 2px solid #0066cc !important;
+    background-color: #f0f8ff;
+}
+
+/* Botões para navegar no carrossel */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ffe1;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.carousel-button:hover {
+    transform: scale(1.2);
+    background-color: #00ffe1;
+    color: #007ced;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Botão "Ver Tudo" */
+.view-all a {
+    display: block;
+    padding: 15px;
+    background-color: #007ced;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.view-all a:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-icons a {
+    color: #007ced;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .video-item {
+        width: 45%; /* Exibe 2 itens por vez */
+        margin-bottom: 15px;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .video-item iframe {
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .view-all a {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-item {
+        width: 90%; /* Exibe 1 item por vez */
+        margin-bottom: 20px;
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    .video-item iframe {
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .view-all a {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}
