@@ -1,264 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YCYBG5BNL4');
-    </script>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="tutoriais.css">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
     <title>Tutoriais</title>
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #007ced; /* Fundo azul */
-}
 
-h1 {
-    text-align: center;
-    color: #fff;
-    margin: 20px;
-    font-size: 2em;
-    text-transform: uppercase;
-text-transform: uppercase; /* Transforma o texto em maiúsculas */
-    font-style: italic; /* Deixa o texto em itálico */
-font-weight: bold; /* Deixa o texto em negrito */
-text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-section {
-    background-color: #ffffff;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 95%;
-}
-
-section h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    text-align: center;
   
-    border-bottom: 2px solid #007ced;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.video-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Itens mais largos */
-    gap: 20px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.video-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.video-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.video-item iframe {
-    width: 100%;
-    height: 250px; /* Aumenta a altura dos vídeos */
-    border-bottom: 1px solid #ddd;
-}
-
-.video-title {
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007ced;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .video-item iframe {
-        height: 200px; /* Reduz a altura para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    .video-item iframe {
-        height: 180px; /* Altura menor em telas muito pequenas */
-    }
-}
-h2 {
-    font-size: 3.5em; /* Aumenta o tamanho do texto */
-    font-weight: bold; /* Deixa o texto em negrito */
-    color: #007ced; /* Cor do texto */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Sombra no texto para dar um efeito moderno */
-    letter-spacing: 1px; /* Espaçamento entre as letras para dar um visual mais moderno */
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
-}
-
-
-footer {
-    background-color: #333; /* Cor de fundo escura */
-    color: #fff; /* Cor do texto clara */
-    padding: 20px 0; /* Espaçamento vertical */
-    text-align: center; /* Alinha o texto ao centro */
-    font-size: 1rem; /* Tamanho de fonte */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil acima */
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #007ced; /* Cor azul para links */
-    text-decoration: none; /* Remove o sublinhado */
-    font-weight: bold;
-}
-
-footer a:hover {
-    text-decoration: underline; /* Sublinha o link ao passar o mouse */
-}
-
-footer p {
-    margin: 0; /* Remove margens extras */
-}
-
-footer .social-icons {
-    margin: 15px 0; /* Espaçamento para os ícones sociais */
-}
-
-footer .social-icons a {
-    margin: 0 10px; /* Espaço entre os ícones */
-    font-size: 1.5em; /* Tamanho dos ícones */
-    color: #fff; /* Cor dos ícones */
-}
-
-footer .social-icons a:hover {
-    color: #007ced; /* Cor dos ícones ao passar o mouse */
-}
-
-
-/*botao do whatsapp*/
-#WAButton { position: fixed; z-index: 9999; bottom: 25px; left: 25px; width: 60px; height: 60px; -webkit-border-radius: 50%; cursor: pointer; background-color: #0ba360; transition: .3s; display: flex; align-items: center; justify-content: center; }
-.whatsapp-plug-icon:hover { background-color: #15cc74; }
-#WAButton::after, #WAButton::before { content: ''; position: absolute; opacity: 0; border: 4px solid #0ba360; left: -10px; top: -10px; right: -10px; bottom: -10px; -webkit-border-radius: 50%; animation: WaveWhatsApp 1.5s ease infinite; }
-#WAButton::after { animation-delay: .5s; }
-#WAButton:hover::after { border: 4px solid #15cc74; }
-#WAButton:hover::before { border: 4px solid #15cc74; }
-@keyframes WaveWhatsApp {
-	0% { transform: scale(0.5); }
-	50% { opacity: 1; }
-	100% { transform: scale(1.2); opacity: 0; }
-}
-.floating-wpp { position: fixed; bottom: 15px; left: 15px; font-size: 14px; transition: bottom .2s; font-family: Arial }
-.floating-wpp .floating-wpp-button { position: relative; border-radius: 50%; box-shadow: 1px 1px 4px rgba(60, 60, 60, .4); transition: box-shadow .2s; cursor: pointer; overflow: hidden; display: none; }
-.floating-wpp .floating-wpp-button img, .floating-wpp .floating-wpp-button svg { position: absolute; width: 100%; height: auto; object-fit: cover; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0) }
-.floating-wpp:hover { bottom: 17px }
-.floating-wpp:hover .floating-wpp-button { box-shadow: 1px 2px 8px rgba(60, 60, 60, .4) }
-.floating-wpp .floating-wpp-popup { border-radius: 6px; background-color: #E5DDD5; position: absolute; overflow: hidden; padding: 0; box-shadow: 1px 2px 8px rgba(60, 60, 60, .25); width: 0; height: 0; bottom: 0; opacity: 0; transition: bottom .1s ease-out, opacity .2s ease-out; transform-origin: bottom }
-.floating-wpp .floating-wpp-popup.active { padding: 0 12px 12px; width: 260px; height: auto; bottom: 82px; opacity: 1 }
-.floating-wpp .floating-wpp-popup .floating-wpp-message { background-color: #fff; padding: 8px; border-radius: 0 5px 5px; box-shadow: 1px 1px 1px rgba(0, 0, 0, .15); opacity: 0; transition: opacity .2s }
-.floating-wpp .floating-wpp-popup.active .floating-wpp-message { opacity: 1; transition-delay: .2s }
-.floating-wpp .floating-wpp-popup .floating-wpp-head { text-align: right; color: #fff; margin: 0 -15px 10px; padding: 6px 12px; display: flex; justify-content: space-between; cursor: pointer }
-.floating-wpp .floating-wpp-input-message { background-color: #fff; margin: 10px -15px -15px; padding: 0 15px; display: flex; align-items: center }
-.floating-wpp .floating-wpp-input-message textarea { border: 1px solid #ccc; border-radius: 4px; box-shadow: none; padding: 8px; margin: 10px 0; width: 100%; max-width: 100%; font-size: 16px; resize: none }
-.floating-wpp .floating-wpp-btn-send { margin-left: 12px; font-size: 0; cursor: pointer }
-
-  </style>
 </head>
+
 <body>
     <h1>Tutoriais</h1>
 
-    <section>
-        <h2>PDV OFF</h2>
-        <div class="video-container">
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/dNGXF--kyXA" 
-                    title="TGA PDV OFF - Abrindo o caixa" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-title">TGA PDV OFF <br>Abrindo o Caixa</div>
-            </div>
+    <!-- Campo de Pesquisa -->
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar tutoriais...">
+    </div>
+<!--------------------------------PDV OFF-------------------------------->
+    <section data-title="PDV OFF">
+       <h2>PDV OFF <i class="fas fa-box"></i> </h2>
+        <div class="carousel-container">
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>
+            <div class="carousel-track">
+                <div class="video-item">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/dNGXF--kyXA?si=70vnkf60CoIWnfqX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Abrindo o Caixa</div>
+                </div>
 
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/0zF3fNJNaPI?si=_7Y_0AWF6BSaNxfC" 
-                    title="Realizando venda" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-title">TGA PDV OFF <br>Realizando Venda</div>
-            </div>
+                <div class="video-item">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/0zF3fNJNaPI?si=BMTNXd15_S5VI-pu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Realizando Venda</div>
+                </div>
 
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/RMQiccKfJwE?si=SGGzlsixIUelqHOV" 
-                    title="Aplicando desconto ou acréscimo na venda" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-title">TGA PDV OFF <br>Aplicando desconto ou acréscimo</div>
-            </div>
+                <div class="video-item">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/RMQiccKfJwE?si=-ELYHzkrv_bwPNjh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Aplicando desconto ou acréscimo</div>
+                </div>
 
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/aPOMJrXsFg0?si=7aYspNod2VHVizyR" 
-                    title="Cancelando um item da venda" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-title">TGA PDV OFF <br>Cancelando um item da venda</div>
-            </div>
-
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/jsLqiCmJ6VU?si=PFIkW9ghbsXPV-88" 
-                    title="Cancelando um item da venda" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-title">TGA PDV OFF <br>Cancelando um item</div>
-            </div>
-
-  <div class="video-item">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/XHqqtD6BS-s?si=1gbWWmp4cs0HMOvA&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div class="video-title" style="font-size: 14px;">TGA PDV OFF <br>Recebendo em múltiplas formas de pagamentos</div>
-            </div>
+   <div class="video-item">
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/aPOMJrXsFg0?si=PRYv5hP0a2B1AZk_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Cancelando um ítem Venda</div>
+                </div>
 
  <div class="video-item">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/X7ybRhPkQdY?si=BgyBaNnEy8R5sHtw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div class="video-title" style="font-size: 14px;">TGA PDV OFF <br>Reimprimindo a última venda</div>
-            </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jsLqiCmJ6VU?si=tLYE6dBrtzZ0cUgd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Informando o CPF do consumidor</div>
+                </div>
 
+ <div class="video-item">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/XHqqtD6BS-s?si=tXOCCMdRtxdNBajG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF<br>Recebendo em Múltiplas formas</div>
+                </div>
 
+ <div class="video-item">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/X7ybRhPkQdY?si=JvjChnI8RIL2E5y_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF<br>Reimprimindo a última via </div>
+                </div>
 
-        </div>
-    </section>
-<!--
-<section>TGA ESTOQUE</section>
-<section>TGA FINANCEIRO</section>-->
-
-  <!-- Botão WhatsApp -->
-<div id="WAButton" onclick="javascript:window.open('https://wa.me/+556596209006?text=Ol%C3%A1%2C%20o%20Anderson%20me%20indicou%20o%20sistema%2C%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20para%20contratar.');">
-	<svg width="24" height="24" viewBox="0 0 24 24">
-	<path id="wa_ico" fill="#fff" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
-</svg>
 </div>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6176119186804571" data-ad-slot="3576883624" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
 
-<footer>
-    <p>&copy; 2024 - Todos os direitos reservados.<a> TGA SISTEMAS</a> </p>
-    <div class="social-icons">
-        <a href="#" target="_blank" class="fab fa-facebook"></a>
-    </div>
-</footer>
+            </div>
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>
+        </div>
+        <div class="view-all">
+            <a href="./pdvoff/pdvoff.html">Ver todos os vídeos sobre PDF OFF</a>
+        </div>
 
+
+    </section>
+
+<!--------------------------------TGA ESTOQUE-------------------------------->
+<section data-title="TGA ESTOQUE">
+        <h2>TGA ESTOQUE <i class="fas fa-warehouse"></i></h2>
+        <div class="carousel-container">
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>
+            <div class="carousel-track">
+               <div class="video-item">
+    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+    <div class="video-title"><br></div>
+</div>
+<!--
+                 <div class="video-item">
+    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+    <div class="video-title"><br></div>
+</div>
+
+                <div class="video-item">
+    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+    <div class="video-title"><br></div>
+</div>
+-->
+   <div class="video-item">
+    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+    <div class="video-title"><br></div>
+</div>
+
+            </div>
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>
+        </div>
+        <div class="view-all">
+            <a href="#PDV OFF">Ver todos os vídeos sobre PDF OFF</a>
+        </div>
+    </section>
+
+<section data-title="TGA FINANCEIRO">
+        <h2>TGA FINANCEIRO <i class="fas fa-credit-card"></i> </h2>
+        <div class="carousel-container">
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>
+            <div class="carousel-track">
+                <div class="video-item">
+    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+    <div class="video-title"><br></div>
+</div>
+<!--
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/0zF3fNJNaPI" title="Realizando venda" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Realizando Venda</div>
+                </div>
+
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/RMQiccKfJwE" title="Aplicando desconto ou acréscimo na venda" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Aplicando desconto ou acréscimo</div>
+                </div>
+
+   <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/RMQiccKfJwE" title="Aplicando desconto ou acréscimo na venda" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-title">TGA PDV OFF <br>Aplicando desconto ou acréscimo</div>
+                </div>-->
+            </div>
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>
+        </div>
+        <div class="view-all">
+            <a href="#PDV OFF">Ver todos os vídeos sobre PDF OFF</a>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2024 - Todos os direitos reservados. <a href="https://tgasistemas.com.br/">TGA SISTEMAS</a></p>
+        <div class="social-icons">
+            <a href="#" target="_blank" class="fab fa-facebook"></a>
+        </div>
+    </footer>
+
+    <script src="./tutoriais.js"></script>
 </body>
+
 </html>
