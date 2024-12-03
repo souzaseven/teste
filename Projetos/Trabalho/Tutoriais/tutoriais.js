@@ -8,8 +8,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         sections.forEach(function (section) {
             const title = section.querySelector('h2').innerText.toLowerCase();
+            const downloadItems = section.querySelectorAll('.Dowloads-item');
             const videoItems = section.querySelectorAll('.video-item');
             let sectionVisible = title.includes(searchTerm);  // Verifica se o título da seção contém o termo
+
+            // Filtra downloads dentro de cada seção
+            downloadItems.forEach(function (downloadItem) {
+                const downloadTitle = downloadItem.querySelector('.Dowloads-title').innerText.toLowerCase();
+                if (downloadTitle.includes(searchTerm)) {
+                    downloadItem.style.display = 'block'; // Exibe o item de download se o título contiver o termo
+                } else {
+                    downloadItem.style.display = 'none'; // Oculta o item de download se não contiver o termo
+                }
+            });
 
             // Filtra vídeos dentro de cada seção
             videoItems.forEach(function (videoItem) {
@@ -21,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // Exibe ou oculta a seção com base no título
-            if (sectionVisible || Array.from(videoItems).some(item => item.style.display === 'block')) {
+            // Exibe ou oculta a seção com base no título ou se algum item for visível
+            if (sectionVisible || Array.from(downloadItems).some(item => item.style.display === 'block') || Array.from(videoItems).some(item => item.style.display === 'block')) {
                 section.style.display = 'block'; // Exibe a seção se ela corresponder à pesquisa
             } else {
                 section.style.display = 'none'; // Oculta a seção se não houver correspondência
@@ -33,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Evento para filtrar conteúdo ao digitar na pesquisa
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', filterContent);
+
+});
+
 
     // Função para mover o carrossel
     function moveCarousel(button, direction) {
@@ -92,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-});
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.querySelector(".carousel-track");
     const prevButton = document.querySelector(".carousel-button.prev");
