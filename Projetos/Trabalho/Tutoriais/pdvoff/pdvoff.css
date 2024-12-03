@@ -96,46 +96,248 @@ h2 {
     text-transform: uppercase; /* Transforma o texto em maiúsculas */
 }
 
-
+/*
 footer {
     background-color: #333; /* Cor de fundo escura */
-    color: #fff; /* Cor do texto clara */
-    padding: 20px 0; /* Espaçamento vertical */
-    text-align: center; /* Alinha o texto ao centro */
-    font-size: 1rem; /* Tamanho de fonte */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil acima */
-    position: relative;
-    bottom: 0;
+/*   color: #fff; /* Cor do texto clara */
+ /*   padding: 20px 0; /* Espaçamento vertical */
+ /*   text-align: center; /* Alinha o texto ao centro */
+  /*  font-size: 1rem; /* Tamanho de fonte */
+  /*  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil acima */
+  /*  position: relative;
+ /*   bottom: 0;
     width: 100%;
 }
 
 footer a {
     color: #007ced; /* Cor azul para links */
-    text-decoration: none; /* Remove o sublinhado */
-    font-weight: bold;
+/*    text-decoration: none; /* Remove o sublinhado */
+ /*   font-weight: bold;
 }
 
 footer a:hover {
-    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+    text-decoration: underline; /* Sublinha o link ao passar o mouse 
 }
 
 footer p {
-    margin: 0; /* Remove margens extras */
+    margin: 0; /* Remove margens extras 
 }
 
 footer .social-icons {
-    margin: 15px 0; /* Espaçamento para os ícones sociais */
+    margin: 15px 0; /* Espaçamento para os ícones sociais *
 }
 
 footer .social-icons a {
-    margin: 0 10px; /* Espaço entre os ícones */
-    font-size: 1.5em; /* Tamanho dos ícones */
-    color: #fff; /* Cor dos ícones */
+    margin: 0 10px; /* Espaço entre os ícones *
+    font-size: 1.5em; /* Tamanho dos ícones *
+    color: #fff; /* Cor dos ícones *
 }
 
 footer .social-icons a:hover {
-    color: #007ced; /* Cor dos ícones ao passar o mouse */
+    color: #007ced; /* Cor dos ícones ao passar o mouse *
+}/*
+
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
+
+footer .social-icons a {
+    color: #007ced;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+
+/* Estilo geral do rodapé */
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1px 0 0;
+    font-family: Arial, sans-serif;
+margin: 0; /* Remove espaçamento externo */
+    padding: 0; /* Remove espaçamento interno */
+    line-height: 1; /* Ajusta o espaçamento entre linhas */
+}
+
+/* Estilo para o container principal */
+#footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* Estilo para a linha principal */
+#footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Blocos do rodapé */
+#footer .footer-block {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+/* Estilo do bloco 1 (Logo e redes sociais) */
+#footer .logo-block img {
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto 10px;
+}
+
+#footer .social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0 0;
+}
+
+#footer .social-icons li a {
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+#footer .social-icons li a:hover {
+    color: #007ced;
+    transform: scale(1.2);
+}
+
+/* Estilo do bloco 2 (Atendimento) */
+#footer .footer-block h6 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #007ced;
+}
+
+#footer .footer-block p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+/* Estilo do bloco 3 (Endereço) */
+#footer .footer-block p {
+    line-height: 1.6;
+}
+
+/* Links de políticas na parte inferior */
+#footer .footer-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+#footer .footer-links a {
+    color: #007ced;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+#footer .footer-links a:hover {
+    color: #00ffe1;
+}
+
+/* Linha divisória */
+#footer hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 10px auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #footer .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer .footer-block {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .video-item {
+        width: 45%; /* Exibe 2 itens por vez */
+        margin-bottom: 15px;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .video-item iframe {
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .view-all a {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-item {
+        width: 90%; /* Exibe 1 item por vez */
+        margin-bottom: 20px;
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    .video-item iframe {
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .view-all a {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}
+
 
 
 /*botao do whatsapp*/
@@ -165,3 +367,19 @@ footer .social-icons a:hover {
 .floating-wpp .floating-wpp-btn-send { margin-left: 12px; font-size: 0; cursor: pointer }
 
 
+
+/* Container de busca */
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.search-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    max-width: 500px; /* Limita a largura em telas grandes */
+}
