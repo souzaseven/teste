@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Função para iniciar o carrossel automático
-    function startAutoCarousel() {
+   /* function startAutoCarousel() {
         const carousels = document.querySelectorAll('.carousel-container');
         carousels.forEach(carousel => {
             setInterval(function () {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Inicia o carrossel automático
-    startAutoCarousel();
+    startAutoCarousel();*/
 
     // Adiciona a funcionalidade de clicar nos botões
     const nextButtons = document.querySelectorAll('.carousel-button.next');
