@@ -474,7 +474,7 @@ footer #page-version {
 }
 
 #page-version {
-background-color: white;
+background-color: #333;
 margin-left: 90%;
 }
 
@@ -560,15 +560,15 @@ body.dark-mode .view-all a:hover {
     right: 20px;
     display: none; /* Esconde o botão inicialmente */
     padding: 10px 20px;
-    background-color: #007ced;
+    background-color: black;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: opacity 0.3s ease;
+ z-index: 9999; /* Garante que o botão fique sobreposto */
 }
-
 .scroll-to-top-button:hover {
     background-color: #005bb5;
 }
