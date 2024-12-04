@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Git Hub/Projetos/Trabalho/IMG/sqli.png" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>Consultas SQL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2e86de, #74b9ff);
+            color: #fff;
+            margin: 0;
+            display: flex;
+            padding: 2px;
+            margin-right: 3px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 65%;
+            padding: 20px;
+            background: #1e272e;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-right: 10px;
+            position: relative;
+            resize: both;
+            overflow: auto;
+            min-width: 300px;
+            min-height: 300px;
+        }
+        .query-block {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #34495e;
+            border-radius: 8px;
+            position: relative;
+        }
+        .query-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+color: #ecf0f1; /* Ou qualquer cor mais visível */
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #3498db;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+        #add-query-form {
+            margin-top: 20px;
+        }
+        #query-text {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+        }
+        #add-btn {
+            width: 100%;
+            padding: 10px;
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #add-btn:hover {
+            background: #229954;
+        }
+        .container2 {
+            width: 30%;
+            margin-right: 0;
+            background: #2f3640;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .container2 h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .container2 pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            background: #34495e;
+            padding: 10px;
+            border-radius: 8px;
+            color: #fff;
+        }
+        #search-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        #search-input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            background: #ecf0f1;
+        }
+        #search-btn {
+            padding: 10px 15px;
+            background: #3498db;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #search-btn:hover {
+            background: #2980b9;
+        }
+        .highlight {
+            background-color: yellow;
+            color: black;
+        }
+
+
+    /* Responsividade para telas menores */
+        @media screen and (max-width: 1024px) {
+            .container {
+                width: 80%; /* Aumenta a largura da container principal */
+                padding: 15px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 100%; /* Reduz para 100% em telas menores */
+                padding: 10px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 10px;
+            }
+            #search-input {
+                width: 80%; /* Maior largura para o campo de pesquisa */
+            }
+            #search-btn {
+                width: 15%;
+            }
+            #query-text {
+                height: 80px; /* Ajusta o tamanho do campo de texto */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 5px;
+            }
+            .container2 {
+                width: 100%;
+                padding: 5px;
+            }
+            .query-block {
+                padding: 8px; /* Ajusta o padding para telas pequenas */
+            }
+            #query-text {
+                height: 70px; /* Menor altura para telas pequenas */
+                font-size: 12px;
+            }
+            #add-btn {
+                padding: 8px;
+                font-size: 14px;
+            }
+            #search-input {
+                width: 75%;
+            }
+            #search-btn {
+                width: 20%;
+            }
+        }
+
+.delete-btn {
+    position: absolute;
+    top: 10px;
+padding: 50px;
+    right: 90px; /* Ajuste para ficar ao lado do botão de copiar */
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+button i {
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+  font-size: 1em; /* Ajuste o tamanho do ícone */
+  vertical-align: middle; /* Centraliza o ícone */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Consultas SQL</h1>
+
+        <!-- Campo de pesquisa -->
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Pesquise por uma consulta...">
+            <button id="search-btn">Buscar</button>
+        </div>
+
+        <div id="query-list">
+            <!-- Consultas serão inseridas dinamicamente aqui -->
+        </div>
+        <form id="add-query-form">
+            <textarea id="query-text" placeholder="Digite a nova consulta SQL aqui..."></textarea>
+            <button type="button" id="add-btn">Adicionar Consulta</button>
+        </form>
+    </div>
+    <div class="container2">
+        <h2>Campos de Exemplo</h2>
+       <pre id="example-fields" contenteditable="true">
+*************************************
+S I S T E M A   E S T O Q U E
+************************************* 
+- Status das Ordens de Serviço (Campo STATUS2 Tabela TMOV):
+  E - Encerrado
+  S - Em Serviço
+  A - Em Aberto 
+
+- Status dos Movimentos (Campo STATUS Tabela TMOV):
+  N - Normal
+  F - Faturado
+  P - Parc. Quitado
+  Q - Quitado
+  A - A Faturar
+  C - Cancelado 
+
+- Status dos Itens - TMoviItens (Campo STATUS Tabela TMOVITENS):
+  A - Atendido
+  D - Normal
+  P - Parcial Atendido 
+
+- Status dos Pedidos (Campo STATUSPEDIDO Tabela TMOV):
+  P - Parcialmente Atendido
+  A - Atendido
+  D ou Vazio - Pendente 
+
+- Status da Registradora (campo registarda Tabela TMOV):
+  null - Movimento NÃO configurado para registradora;
+  1 - Movimento configurado com Registradora, porém Venda ainda não foi registrada;
+  2 - Movimento configurado com Registradora, Venda Registrada;      
+
+>>Gerenciador Fiscal - Status NFS-e (Campo STATUS - Tabela: TNFEMUNICIPAL)
+D - Digitação
+P - Processamento
+R - Rejeitada
+E - Autorizada
+C - Cancelada 
+
+- Status NF-e - (Campo Statusnfe - Tabela: TNFE)
+DIGITADA = '0'
+AUTORIZADA = '1'
+CANCELADA = '2'
+DENEGADA = '3'
+PROCESSAMENTO = '4'
+REJEITADA = '5'
+INUTILIZADA = '6'   
+
+- Status NF-e Finalidade da Emissão - (Campo: NFEFINALIDADEEMISSAO - Tabela TMOV)
+NORMAL = 0 e 1
+COMPLEMENTAR = 2
+AJSUTE = 3
+DEVOLUÇÃO = 4 
+
+- Status CT-e - (Campo STATUS - Tabela: TCTE)
+CS_PROCESSAMENTO = 'P';
+CS_DIGITACAO = 'D';
+CS_REJEITADO = 'R';
+CS_AUTORIZADO = 'A';
+CS_CANCELADO = 'C';  
+
+- Status Manifesto do Destinatário Eletrônico - MDF-e (Campo STATUS - Tabela: TDFE)
+DIGITACAO = 0;
+PROCESSAMENTO = 1;
+AUTORIZADO = 2;
+ENCERRADO = 3;
+REJEITADO = 4;
+CANCELADO = 5; 
+
+- Status Manifesto do Destinatário - MD-e (Campo TPFE - Tabela: TDFE)
+CS_DIGITACAO = 0;
+CS_PROCESSAMENTO = 1;
+CS_AUTORIZADO = 2;
+CS_ENCERRADO = 3;
+CS_REJEITADO = 4;
+CS_CANCELADO = 5; 
+
+- Status MDF-e (Campo STATUS - Tabela: TMDFE)
+DIGITACAO = 0;
+PROCESSAMENTO = 1;
+AUTORIZADO = 2;
+ENCERRADO = 3;
+REJEITADO = 4;
+CANCELADO = 5; 
+
+Exemplo SQL para manter o Lançamento como Encerrado:
+update tmdfe set STATUS = 3 where idmov = ???? 
+*************************************
+S I S T E M A   F I N A N C E I R O
+*************************************
+- Status dos Lançamentos:
+  A - Aberto
+  B - Baixado
+  C - Cancelado
+  F - Faturado
+        </pre>
+    </div>
+<div id="queries-container"></div>
+
+
+    <script>
+
+// Salva o conteúdo do campo no localStorage
+function saveExampleFields(content) {
+    localStorage.setItem('exampleFields', content);
+}
+
+document.querySelector("#example-fields").addEventListener("blur", (e) => {
+    saveExampleFields(e.target.innerText);
+});
+
+// Função para carregar as queries do localStorage
+function loadQueries() {
+    const savedQueries = JSON.parse(localStorage.getItem("queries")) || [];
+    return savedQueries;
+}
+
+// Função para salvar as queries no localStorage
+function saveQueries(queries) {
+    localStorage.setItem('queries', JSON.stringify(queries));
+}
+
+// Função para renderizar as queries
+function renderQueries(queries) {
+    const queryList = document.getElementById('query-list');
+    queryList.innerHTML = ''; // Limpa a lista antes de renderizar novamente
+
+    queries.forEach((query, index) => {
+        const queryBlock = document.createElement('div');
+        queryBlock.classList.add('query-block');
+        
+        // Adiciona o conteúdo da consulta como um item editável
+        const preElement = document.createElement('pre');
+        preElement.id = `query-${index}`;
+        preElement.contentEditable = true;  // Permite edição do texto
+        preElement.textContent = query;  // Usar textContent para garantir que o texto seja puro
+
+        queryBlock.appendChild(preElement);
+
+        // Adiciona os botões
+        const copyButton = document.createElement('button');
+        copyButton.classList.add('copy-btn');
+        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+        copyButton.addEventListener('click', () => copyToClipboard(query));
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-btn');
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i> Excluir';
+        deleteButton.addEventListener('click', () => deleteQuery(index));
+
+        queryBlock.appendChild(copyButton);
+        queryBlock.appendChild(deleteButton);
+
+        // Evento para salvar a consulta ao ser editada
+        preElement.addEventListener("blur", () => {
+            const updatedQuery = preElement.textContent.trim(); // Pega o texto editado
+            const queries = loadQueries();
+            queries[index] = updatedQuery; // Atualiza a consulta no array
+            saveQueries(queries); // Salva no localStorage
+        });
+
+        queryList.appendChild(queryBlock);
+    });
+}
+
+// Função para copiar consulta para a área de transferência
+function copyToClipboard(query) {
+    navigator.clipboard.writeText(query).then(() => {
+        alert('Consulta copiada para a área de transferência!');
+    });
+}
+
+// Função para destacar a pesquisa
+function highlightSearchQuery(query) {
+    if (!query) return;
+
+    const regex = new RegExp(query, "gi");
+    const queries = loadQueries();
+    queries.forEach((q, index) => {
+        const queryElement = document.getElementById(`query-${index}`);
+        queryElement.innerHTML = q.replace(regex, match => `<span class="highlight">${match}</span>`);
+    });
+
+    // Destacar o campo de exemplo
+    const exampleFields = document.querySelector('.container2 pre');
+    exampleFields.innerHTML = exampleFields.textContent.replace(regex, match => `<span class="highlight">${match}</span>`);
+}
+
+document.getElementById('search-btn').addEventListener('click', () => {
+    const searchInput = document.getElementById('search-input').value.trim();
+    highlightSearchQuery(searchInput);
+});
+
+// Adicionar nova consulta
+document.getElementById('add-btn').addEventListener('click', () => {
+    const queryText = document.getElementById('query-text').value.trim();
+    if (queryText) {
+        const queries = loadQueries();
+        queries.push(queryText);
+        saveQueries(queries);
+        renderQueries(queries);
+        document.getElementById('query-text').value = '';
+    }
+});
+
+// Carregar e renderizar as consultas ao carregar a página
+window.onload = () => {
+    const queries = loadQueries();
+    renderQueries(queries);
+};
+
+// Carregar o campo de exemplo do localStorage
+window.addEventListener("load", () => {
+    const savedFields = localStorage.getItem("exampleFields");
+    if (savedFields) {
+        document.querySelector("#example-fields").textContent = savedFields;
+    }
+});
+
+// Função para excluir uma consulta
+function deleteQuery(index) {
+    const queries = loadQueries();
+    queries.splice(index, 1); // Remove a consulta do array
+    saveQueries(queries);
+    renderQueries(queries); // Atualiza a lista renderizada
+}
+
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6176119186804571" data-ad-slot="3576883624" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

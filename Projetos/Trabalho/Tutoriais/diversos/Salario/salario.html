@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Salário</title>
+   
+<link rel="stylesheet" href="style.css">
+
+    <!-- Importando Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Título principal -->
+        <h2>Cálculo de Salário</h2>
+
+        <!-- Campo de entrada para o salário -->
+        <label for="salario">Digite o salário mensal: </label>
+        <input type="number" id="salario" placeholder="Ex: 3000" oninput="calcularSalario()" />
+
+        <!-- Título do resultado (escondido até ser necessário) -->
+        <h3 id="resultado-title">Resultado:</h3>
+
+        <!-- Contêiner dos resultados (escondido até ser necessário) -->
+        <div class="result-container" id="result-container">
+            <div class="result-item">
+                <!-- Ícone e resultado do salário mensal -->
+                <i class="fas fa-calendar-alt"></i>
+                <p id="mensal" class="result-text"></p>
+            </div>
+            <div class="result-item">
+                <!-- Ícone e resultado do salário semanal -->
+                <i class="fas fa-calendar-week"></i>
+                <p id="semanal" class="result-text"></p>
+            </div>
+            <div class="result-item">
+                <!-- Ícone e resultado do salário diário -->
+                <i class="fas fa-calendar-day"></i>
+                <p id="diario" class="result-text"></p>
+            </div>
+            <div class="result-item">
+                <!-- Ícone e resultado do salário por hora -->
+                <i class="fas fa-clock"></i>
+                <p id="hora" class="result-text"></p>
+            </div>
+            <div class="result-item">
+                <!-- Ícone e resultado do salário por minuto -->
+                <i class="fas fa-stopwatch"></i>
+                <p id="minuto" class="result-text"></p>
+            </div>
+        </div>
+
+        <!-- Botão para limpar o conteúdo (escondido até ser necessário) -->
+        <button class="btn-clear" id="limpar-btn" onclick="limparConteudo()">
+            <i class="fas fa-trash-alt"></i> Limpar
+        </button>
+    </div>
+
+ <script src="./script.js"></script>
+</body>
+</html>
