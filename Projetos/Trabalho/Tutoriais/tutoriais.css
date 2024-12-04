@@ -466,3 +466,13 @@ margin: 0; /* Remove espaçamento externo */
         max-width: 80%; /* Menor tamanho para telas pequenas */
     }
 }
+
+footer #page-version {
+    font-weight: bold;
+    color: #007ced; /* Destaque para a versão */
+}
+
+#page-version {
+background-color: white;
+margin-left: 90%;
+}
