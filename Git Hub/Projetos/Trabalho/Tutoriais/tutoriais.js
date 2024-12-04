@@ -142,3 +142,34 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = `translateX(-${offset}px)`;
     }
 });
+
+// Função para alternar entre os modos claro e escuro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+}
+
+// Obtém o botão
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Mostra o botão quando o usuário rola até o final da página
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = "block"; // Exibe o botão
+    } else {
+        scrollToTopBtn.style.display = "none"; // Esconde o botão
+    }
+};
+
+// Função para rolar até o topo da página
+scrollToTopBtn.onclick = function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Rolagem suave
+    });
+};
