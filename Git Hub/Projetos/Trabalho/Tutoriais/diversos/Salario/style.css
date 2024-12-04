@@ -1,0 +1,115 @@
+   /* Estilização da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007ced;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Estilo do contêiner principal */
+        .container {
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Estilo do título */
+        h2 {
+            color: #007ced;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do label do campo de entrada */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Estilo do campo de entrada (input) */
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Estilo do título "Resultado" (escondido inicialmente) */
+        h3 {
+            color: #007ced;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: none; /* Escondido até o valor ser inserido */
+        }
+
+        /* Contêiner dos resultados (escondido inicialmente) */
+        .result-container {
+            display: none; /* Escondido até o salário ser informado */
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Estilo de cada item de resultado */
+        .result-item {
+            display: flex;
+            align-items: center;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo do ícone de cada item */
+        .result-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #007ced;
+        }
+
+        /* Estilo do texto do resultado */
+        .result-text {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Estilo do botão "Limpar" (escondido inicialmente) */
+        .btn-clear {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none; /* Escondido até o valor ser inserido */
+            align-items: center;
+        }
+
+        /* Estilo do ícone no botão "Limpar" */
+        .btn-clear i {
+            margin-right: 5px;
+        }
+
+        /* Estilo ao passar o mouse sobre o botão "Limpar" */
+        .btn-clear:hover {
+            background-color: #c82333;
+        }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-6176119186804571">
+
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCYBG5BNL4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-YCYBG5BNL4');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6176119186804571" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8542251167876044" crossorigin="anonymous"></script>
+
+    <!-- Ícone e Fontes -->
+    <link rel="shortcut icon" href="/Git Hub/Projetos/Trabalho/IMG/sqli.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>Atualização Automática</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #009b3a 25%, #ffdf00 25%, #ffdf00 50%, #002776 50%, #002776 75%, #ffffff 75%);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
+        }
+        .animation {
+            margin-bottom: 20px;
+        }
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #e0e0e0;
+            border-top: 8px solid #007ced;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        h1 {
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            font-weight: bold;
+        }
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="animation">
+            <div class="spinner"></div>
+        </div>
+        <h1>Comunicando novamente...</h1>
+        <!-- Google AdSense Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6176119186804571"
+             data-ad-slot="3576883624"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+
+<p style="text-align: center; font-size: 18px; color: #333;">
+    Visitantes<br>
+    <img src="https://profile-counter.glitch.me/site2/count.svg" alt="Contador de Visitantes" 
+         style="border: 2px solid #007ced; border-radius: 8px; background: #f4f4f4; padding: 5px;">
+</p>
+    </div>
+
+    <script>
+        // Define o tempo de atualização (60 segundos)
+       const updateInterval = 60000; // 60 segundos
+
+        // Contador de atualizações
+        let updateCount = localStorage.getItem('updateCount') || 0;
+
+        // Incrementa o contador
+        updateCount++;
+        localStorage.setItem('updateCount', updateCount);
+
+        // Verifica se já atualizou 10 vezes
+        if (updateCount >= 100) {
+            // Redireciona para a URL especificada
+            window.location.href = "https://www.tgasistemas.com.br";
+        } else {
+            // Esconde a animação antes da atualização
+            setTimeout(() => {
+                const content = document.getElementById('content');
+                content.classList.add('hide'); // Aplica a classe para esconder a animação
+                setTimeout(() => {
+                    location.reload(); // Recarrega a página
+                }, 500); // Aguarda a transição para recarregar
+            }, updateInterval - 500); // Aguarda o intervalo menos o tempo da animação
+        }
+    </script>
+</body>
+</html>

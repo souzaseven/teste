@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007ced;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #005bb5;
+    }
+
+    #scroll-to-top i {
+        font-size: 20px;
+    }
+</style>
+
+    <title>Scrool na pagina</title>
+</head>
+<body>
+    <a data-scroll="" href="javascript:;" id="scroll-to-top" style="display: inline;">
+    <i class="fa fa-chevron-up"></i>
+</a>
+<script>
+    document.getElementById('scroll-to-top').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Scroll suave
+        });
+    });
+</script>
+
+<script>
+    const scrollToTop = document.getElementById('scroll-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) { // Exibe quando passar 200px
+            scrollToTop.style.display = 'inline';
+        } else {
+            scrollToTop.style.display = 'none';
+        }
+    });
+</script>
+
+
+</body>
+</html>
