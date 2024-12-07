@@ -1,0 +1,11 @@
+v0.0.4
+botão de mudar a cor 
+botão de voltar pra cima
+secao de sites
+secao sefaz
+secao cmd
+secao consulta erro
+secao downloads
+secao pdf
+secao report
+secao diversos
