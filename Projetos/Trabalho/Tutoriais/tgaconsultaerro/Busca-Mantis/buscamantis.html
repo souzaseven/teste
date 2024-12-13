@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>Busca mantis</title>
+   
+<link rel="stylesheet" href="buscamantis.css">
+</head>
+<body>
+   <div class="container">
+        <div class="search-area">
+            <h1>Digite o número do Mantis</h1>
+            <label for="mantisNumber"></label>
+             <input type="number" id="mantisNumber" placeholder="Exemplo: 12345">
+            <button id="generateLink">Consultar</button>
+            <div class="link-container" id="linkContainer"></div>
+        </div>
+        <div class="history-area">
+            <h2>Histórico de Acessos</h2>
+            <div id="historyList"></div>
+            <button class="clear-history" id="clearHistory">Limpar <i class="fas fa-eraser"></i></button>
+        </div>
+    </div>
+    <script src="./buscamantis.js"></script>
+</body>
+</html>
