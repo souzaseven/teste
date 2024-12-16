@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrator de Texto de Imagem</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.4/tesseract.min.js"></script>
+    <link rel="stylesheet" href="extraimg.css">
+    <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        background: #007ced;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 1200px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        flex-direction: row; /* Colocar imagem e texto lado a lado */
+    }
+
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-container {
+        flex: 1;
+        padding: 20px;
+        border-left: 2px solid #ddd;
+        overflow-y: auto;
+        max-height: 50vh;
+    }
+
+    .chat {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        overflow-y: auto;
+        max-height: 50vh;
+    }
+
+    .message {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9f9f9;
+    }
+
+    .message img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .message p {
+        margin: 10px 0 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .upload-area {
+        border: 2px dashed #007ced;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .upload-area:hover {
+        background: rgba(0, 124, 237, 0.1);
+    }
+
+    .copy-btn {
+        align-self: center;
+        background: #007ced;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s ease;
+    }
+
+    .copy-btn:hover {
+        background: #005bb5;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="fileInput" class="upload-area" id="uploadArea">
+            <p>Arraste e solte uma imagem aqui, clique para selecionar ou pressione <strong>Ctrl+V</strong> para colar</p>
+        </label>
+        <input type="file" id="fileInput" accept="image/*">
+        <div class="chat" id="chat">
+            <div class="message">
+                <div class="image-container">
+                    <img id="uploadedImage" src="" alt="Imagem Enviada">
+                </div>
+                <div class="text-container">
+                    <p>Texto extraído aparecerá aqui...</p>
+                    <button class="copy-btn">Copiar Texto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./extraimg.js"></script>
+    <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const chat = document.getElementById('chat');
+    const uploadedImage = document.getElementById('uploadedImage');
+
+    // Abrir seletor de arquivos ao clicar na área de upload
+    uploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // Lidar com a seleção de arquivos
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image')) {
+            displayImage(file);
+        }
+    });
+
+    // Lidar com evento de colar imagem
+    document.addEventListener('paste', (event) => {
+        const items = event.clipboardData.items;
+        for (let item of items) {
+            if (item.type.startsWith('image')) {
+                const file = item.getAsFile();
+                displayImage(file);
+            }
+        }
+    });
+
+    // Lidar com arrastar e soltar
+    uploadArea.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        uploadArea.classList.add('hover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('hover');
+    });
+
+    uploadArea.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        if (file && file.type.startsWith('image')) {
+            displayImage(file);
+        }
+    });
+
+    // Exibir imagem e extrair texto
+    function displayImage(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const imageUrl = reader.result;
+            uploadedImage.src = imageUrl;
+
+            // Iniciar extração de texto
+            extractTextFromImage(imageUrl);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Extrair texto da imagem usando Tesseract.js
+    function extractTextFromImage(imageUrl) {
+        const textContainer = document.querySelector('.text-container p');
+        textContainer.textContent = "Extraindo texto...";
+
+        Tesseract.recognize(
+            imageUrl, // URL da imagem
+            'por',    // Idioma (Português)
+            {
+                logger: info => {
+                    console.log(info); // Opcional: Exibe progresso no console
+                }
+            }
+        ).then(({ data: { text } }) => {
+            // Exibir texto extraído com formatação de quebras de linha
+            textContainer.textContent = text;
+
+            // Configurar botão de cópia
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Texto copiado!');
+                });
+            });
+        }).catch(error => {
+            console.error(error);
+            textContainer.textContent = "Erro ao extrair texto.";
+        });
+    }
+    </script>
+</body>
+</html>

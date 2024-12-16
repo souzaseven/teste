@@ -1,0 +1,151 @@
+  body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 900px; /* Aumentei o tamanho máximo do container para caber mais conteúdo */
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            margin-bottom: 20px;
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: none;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .result {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .result-block {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            background-color: #28a745;
+            color: white;
+            flex: 1 1 calc(30% - 10px); /* Ajustado para caber 3 blocos em uma linha */
+        }
+
+        .result-block:hover {
+            background-color: #218838;
+        }
+
+        h2 {
+            color: #fff;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .label-textarea {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button i {
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        #limpar {
+            background-color: #e74c3c;
+        }
+
+        #limpar:hover {
+            background-color: #c0392b;
+        }
+
+        #copiar {
+            background-color: #3498db;
+        }
+
+        #copiar:hover {
+            background-color: #2980b9;
+        }
+
+        /* Ajustes para responsividade */
+        @media (max-width: 600px) {
+            .result-block {
+                flex: 1 1 calc(45% - 10px); /* Ajustado para 2 blocos por linha no celular */
+                font-size: 0.8rem;
+            }
+
+            button {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+
+            textarea {
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .result-block {
+                flex: 1 1 100%; /* Ajustado para blocos individuais no celular pequeno */
+                font-size: 0.8rem;
+            }
+
+            button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
