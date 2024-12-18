@@ -248,3 +248,22 @@ margin-left: 30%;
     color: #0056a3; /* Cor mais escura ao passar o mouse */
 }
 
+/* Estilização do botão de voltar */
+.btn-voltar {
+    position: fixed;
+    top: 20px; /* Distância do topo da tela */
+  /*  right: 20px;  Distância da lateral direita */
+left: 20px; /* Distância da lateral esquerda */
+    background-color: #007ced; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px;
+    border-radius: 11px;
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para o efeito de profundidade */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
+.btn-voltar:hover {
+    opacity: 0.8; /* Efeito de hover */
+}
