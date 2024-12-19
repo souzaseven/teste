@@ -1,3 +1,36 @@
+/*:root {
+    --font-family: Arial, sans-serif; /* Fonte */
+/*   --font-color: #333333; /* Cor do texto */
+/*   --font-size: 16px; /* Tamanho da fonte */
+/*    --primary-background: #007ced; /* Cor de fundo primária */
+/*    --secondary-background: #f5f5f5; /* Cor de fundo secundária */
+/*    --highlight-background: #ffcc00; /* Cor de fundo para destaque */
+/*}
+
+* {
+    font-family: var(--font-family); /* Aplica a fonte a todos os elementos */
+/*    color: var(--font-color); /* Aplica a cor a todos os elementos */
+/* font-size: var(--font-size); /* Aplica o tamanho da fonte a todos os elementos */
+/*   background-color: var(--primary-background); /* Aplica a cor de fundo primária a todos os elementos */
+/*}
+
+/* Para mudar o fundo de um elemento específico, como um cabeçalho */
+/*header {
+    background-color: var(--secondary-background);
+}
+
+/* Para um elemento com destaque, como um botão */
+/*button {
+/*   background-color: var(--highlight-background);
+}
+
+/* Para a cor de fundo de um footer */
+/*footer {
+    background-color: var(--primary-background);
+}
+
+
+
 /* Corpo da página */
 body {
     font-family: Arial, sans-serif;
@@ -106,11 +139,11 @@ section {
 }
 
 .highlight {
-    border: 2px solid #0066cc !important;
+    border: 2px solid  #007ced ;
     background-color: #f0f8ff;
 }
 
-/* Botões para navegar no carrossel */
+/* Botões para navegar no carrossel *//*
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -129,8 +162,8 @@ section {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background-color 0.3s;
-}
-
+}*/
+/*
 .carousel-button:hover {
     transform: scale(1.2);
     background-color: #00ffe1;
@@ -143,7 +176,7 @@ section {
 
 .carousel-button.next {
     right: 10px;
-}
+}*/
 
 /* Botão "Ver Tudo" */
 .view-all a {
@@ -297,44 +330,59 @@ margin: 0; /* Remove espaçamento externo */
     margin: 10px auto;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    #footer .row {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    #footer .footer-block {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-}
 
-  .download-link {
+ /* .download-link {
         color: white;
         text-decoration: none; /* Remove sublinhado */
-        font-size: 16px;
+/*       font-size: 16px;
         font-weight: bold;
         display: inline-flex;
         align-items: center;
         gap: 5px;
-    }
+/*    }
 
     .download-link:hover {
         color: black ; /* Cor ao passar o mouse */
-        text-decoration: underline; /* Adiciona sublinhado no hover */
-    }
+ /*       text-decoration: underline; /* Adiciona sublinhado no hover */
+ /*   }
 
     .download-link i {
         font-size: 18px;
     }
+*/
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .video-item {
-        width: 45%; /* Exibe 2 itens por vez */
-        margin-bottom: 15px;
-    }
+.download-link {
+    color: white;
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.download-link:hover {
+    color: black; /* Cor ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+.download-link i {
+    font-size: 18px;
+}
+
+.carousel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Downloads-item {
+    width: 48%; /* Define a largura dos itens */
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+
 
     .carousel-button {
         width: 40px;
@@ -360,13 +408,9 @@ margin: 0; /* Remove espaçamento externo */
         font-size: 0.9em;
         padding: 12px;
     }
-}
 
-@media (max-width: 480px) {
-    .video-item {
-        width: 90%; /* Exibe 1 item por vez */
-        margin-bottom: 20px;
-    }
+
+
 
     .carousel-button {
         width: 35px;
@@ -392,7 +436,7 @@ margin: 0; /* Remove espaçamento externo */
         font-size: 0.8em;
         padding: 10px;
     }
-}
+
 /* Estilo do container principal */
 .carousel-container {
     display: flex;
@@ -457,16 +501,7 @@ margin: 0; /* Remove espaçamento externo */
     color: black;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .Dowloads-item {
-        flex: 1 1 100%; /* Itens ocupam toda a largura */
-    }
 
-    .responsive-image-Dowloads {
-        max-width: 80%; /* Menor tamanho para telas pequenas */
-    }
-}
 
 footer #page-version {
     font-weight: bold;
@@ -474,7 +509,7 @@ footer #page-version {
 }
 
 #page-version {
-background-color: #333;
+background-color: black;
 margin-left: 90%;
 }
 
@@ -538,21 +573,6 @@ body.dark-mode .view-all a:hover {
 
 /* Outros ajustes conforme necessário... */
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .video-item {
-        width: 45%; /* Exibe 2 itens por vez */
-        margin-bottom: 15px;
-    }
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 480px) {
-    .video-item {
-        width: 90%; /* Exibe 1 item por vez */
-        margin-bottom: 20px;
-    }
-}
 
 .scroll-to-top-button {
     position: fixed;
@@ -572,3 +592,330 @@ body.dark-mode .view-all a:hover {
 .scroll-to-top-button:hover {
     background-color: #005bb5;
 }
+
+
+/* Estilo da barra de navegação */
+.navigation-bar {
+    background-color: #007ced;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navigation-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto; /* Adicionado para rolagem horizontal, caso necessário */
+    white-space: nowrap; /* Evita quebra de linha nos itens */
+}
+
+.navigation-menu li {
+    margin: 0 10px; /* Margem reduzida para telas menores */
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.9em; /* Tamanho ajustado para caber melhor */
+    color: white;
+    padding: 8px 10px; /* Espaçamento ajustado */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: white;
+    color: #007ced;
+}
+
+
+
+.responsive-video {
+
+
+    max-width: 100%; /* Limita a largura máxima ao tamanho da tela */
+    height: auto; /* Ajusta automaticamente a altura mantendo a proporção */
+    display: block; /* Garante que o vídeo se comporte como um bloco */
+    margin: 0 auto; /* Centraliza o vídeo horizontalmente */
+    border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra suave, opcional */
+}
+
+/**************parte da frase de boas vin******************/
+  .motivational-button {
+    background-color: white;
+    color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+
+ 
+
+  .motivational-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);  /* Escurece o fundo */
+    color: white;
+    padding: 30px 50px;
+    border-radius: 15px;
+    display: none;
+    z-index: 1000;
+    font-size: 2.5em;  /* Aumenta o tamanho da fonte */
+    text-align: center;
+    max-width: 90%;
+    border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);  /* Aplica o desfoque no fundo */
+  }
+
+  /* Efeito de desfocagem no fundo */
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  /* Estilo do ícone dentro do botão */
+  .motivational-button i {
+    margin-right: 8px;
+  }
+
+.pdf-button {
+    background-color: #007ced; 
+    color: white;
+    padding: 1px 1px;
+    border-radius: 5px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.pdf-button:hover {
+    background-color: #005fa3;  /* Cor do botão ao passar o mouse */
+}
+
+button {
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Downloads-item {
+    position: relative; /* Permite posicionamento relativo dos elementos internos */
+}
+
+.Downloads-item {
+    position: relative; /* Permite posicionamento relativo para elementos internos */
+}
+
+.Downloads-item {
+    position: relative;
+}
+
+.version-label {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.Downloads-item:hover .version-label,
+.Downloads-item:focus-within .version-label {
+    opacity: 1;
+}
+
+
+/**************responsividade de telas*****************/
+/* Ajuste para o layout em telas menores */
+/*@media (max-width: 1024px) {
+    .carousel-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .Downloads-item {
+        width: 48%; /* Define a largura para dois itens por linha */
+/*        margin-bottom: 10px; /* Espaçamento entre os itens */
+/*   }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .Downloads-item {
+        width: 48%; /* Dois itens por linha */
+/*        margin-bottom: 10px; /* Espaçamento entre os itens */
+/*  }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .Downloads-item {
+        width: 100%; /* Um item por linha em telas pequenas */
+/*    margin-bottom: 10px; /* Espaço entre os itens */
+/*  }
+}
+.container {
+/*display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+/* justify-content: space-between; /* Espaça os itens uniformemente */
+/*}
+
+.block {
+  flex: 1 1 45%; /* Ocupa 45% da largura disponível, com crescimento e encolhimento proporcionais */
+/*  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+/*}
+
+@media (max-width: 768px) {
+/* .block {
+    flex: 1 1 100%; /* Ocupa 100% da largura em telas menores */
+/* }
+}
+*/
+
+.contagem {
+    background-color: #007ced; /* Cor de fundo azul */
+    width: 1px; /* Largura mínima possível */
+    height: 1px; /* Altura mínima possível */
+    margin: 0; /* Remove espaçamentos ao redor */
+    padding: 0; /* Remove preenchimento interno */
+}
+
+/*******************************************************************************************************************/
+/* Estilos gerais */
+.carousel-track {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte */
+    gap: 10px; /* Espaço entre os itens ajustado para reduzir os espaços */
+    justify-content: center; /* Centraliza os itens */
+}
+
+.Dowloads-item {
+    flex: 1 1 calc(15.0% - 10px); /* Largura correta para 6 itens por linha (100% / 6) */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    text-align: center; /* Centraliza o conteúdo do item */
+    max-width: calc(16.6666% - 10px); /* Garante consistência com o flex */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1200px) {
+    .Dowloads-item {
+        flex: 1 1 calc(25% - 10px); /* Mostra quatro itens por linha */
+        max-width: calc(25% - 10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .Dowloads-item {
+        flex: 1 1 calc(33.33% - 10px); /* Mostra três itens por linha */
+        max-width: calc(33.33% - 10px);
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .Dowloads-item {
+        flex: 0 1 calc(40% - 20px); /* Cada item ocupa 50% menos o gap */
+        max-width: calc(40% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .Dowloads-item {
+        flex: 0 1 calc(40% - 20px); /* Mantém dois itens lado a lado */
+        max-width: calc(40% - 20px);
+    }
+}
+
+
+
+
+
+/* Comentários explicativos */
+/* 
+- O "flex: 1 1 calc(16.66% - 20px)" ajusta os itens para ocupar 16.66% da largura disponível para 6 itens por linha.
+- O @media (max-width: 1200px) ajusta para quatro itens por linha.
+- O @media (max-width: 992px) ajusta para três itens por linha.
+- O @media (max-width: 768px) ajusta para dois itens por linha.
+- O @media (max-width: 576px) ajusta para um item por linha.
+*/
+/********aparece o aviso para executar como adm**********/
+ .Downloads-item {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .video-title {
+        margin-top: 10px;
+    }
+
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+        color: #007ced;
+        text-decoration: none;
+    }
+
+    .custom-tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        opacity: 0;
+        width: 200px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Exibe acima do link */
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+        font-size: 14px;
+    }
+
+    .tooltip-text::after {
+        content: '';
+        position: absolute;
+        top: 100%; /* Ponta da dica */
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }

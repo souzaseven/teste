@@ -7,33 +7,29 @@ document.addEventListener('DOMContentLoaded', function () {
         const sections = document.querySelectorAll('section');
 
         sections.forEach(function (section) {
-            const title = section.querySelector('h2').innerText.toLowerCase();
-            const downloadItems = section.querySelectorAll('.Dowloads-item');
-            const videoItems = section.querySelectorAll('.video-item');
-            let sectionVisible = title.includes(searchTerm);  // Verifica se o título da seção contém o termo
+            const title = section.querySelector('h2') ? section.querySelector('h2').innerText.toLowerCase() : '';
+            const videoItems = section.querySelectorAll('.Dowloads-item'); // Busca itens com a classe "Dowloads-item"
+            let sectionVisible = title.includes(searchTerm); // Verifica se o título da seção contém o termo
 
-            // Filtra downloads dentro de cada seção
-            downloadItems.forEach(function (downloadItem) {
-                const downloadTitle = downloadItem.querySelector('.Dowloads-title').innerText.toLowerCase();
-                if (downloadTitle.includes(searchTerm)) {
-                    downloadItem.style.display = 'block'; // Exibe o item de download se o título contiver o termo
-                } else {
-                    downloadItem.style.display = 'none'; // Oculta o item de download se não contiver o termo
-                }
-            });
-
-            // Filtra vídeos dentro de cada seção
+            // Filtra vídeos e itens de download dentro de cada seção
             videoItems.forEach(function (videoItem) {
-                const videoTitle = videoItem.querySelector('.video-title').innerText.toLowerCase();
-                if (videoTitle.includes(searchTerm)) {
-                    videoItem.style.display = 'block'; // Exibe o vídeo se o título contiver o termo
+                const videoTitle = videoItem.querySelector('.video-title') ? videoItem.querySelector('.video-title').innerText.toLowerCase() : '';
+                const downloadLink = videoItem.querySelector('.download-link') ? videoItem.querySelector('.download-link').innerText.toLowerCase() : '';
+                const downloadTitle = videoItem.querySelector('.download-title') ? videoItem.querySelector('.download-title').innerText.toLowerCase() : '';
+                const dataTitle = videoItem.querySelector('.data-title') ? videoItem.querySelector('.data-title').innerText.toLowerCase() : '';
+
+                // Verifica se o termo de pesquisa está presente em qualquer campo relevante
+                const matchFound = [videoTitle, downloadLink, downloadTitle, dataTitle].some(field => field.includes(searchTerm));
+
+                if (matchFound) {
+                    videoItem.style.display = 'block'; // Exibe o item
                 } else {
-                    videoItem.style.display = 'none'; // Oculta o vídeo se não contiver o termo
+                    videoItem.style.display = 'none'; // Oculta o item
                 }
             });
 
-            // Exibe ou oculta a seção com base no título ou se algum item for visível
-            if (sectionVisible || Array.from(downloadItems).some(item => item.style.display === 'block') || Array.from(videoItems).some(item => item.style.display === 'block')) {
+            // Exibe ou oculta a seção com base no título ou itens visíveis
+            if (sectionVisible || Array.from(videoItems).some(item => item.style.display === 'block')) {
                 section.style.display = 'block'; // Exibe a seção se ela corresponder à pesquisa
             } else {
                 section.style.display = 'none'; // Oculta a seção se não houver correspondência
@@ -44,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Evento para filtrar conteúdo ao digitar na pesquisa
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', filterContent);
-
 });
+
 
 
     // Função para mover o carrossel
@@ -173,3 +169,111 @@ scrollToTopBtn.onclick = function() {
         behavior: "smooth" // Rolagem suave
     });
 };
+
+
+/***Função para exibir a mensagem motivacional************************/
+
+function showMotivationalMessage() {
+  const now = new Date();
+  const hours = now.getHours();
+  let message = '';
+
+  // Mensagem com base na hora do dia
+  if (hours < 12) {
+    message = "Bom dia! Seja bem-vindo(a).<br>Vamos conquistar o dia com energia e foco!";
+  } else if (hours < 18) {
+    message = "Boa tarde! Seja bem-vindo(a).<br>Continue firme, você está indo muito bem!";
+  } else {
+    message = "Boa noite! Seja bem-vindo(a).<br>Um excelente descanso para recarregar as energias!";
+  }
+
+  // Atualiza o conteúdo da mensagem
+  document.getElementById("message").innerHTML = message;
+
+  // Exibe a mensagem
+  const messageElement = document.getElementById("motivational-message");
+  messageElement.style.display = "flex"; // Torna o div visível
+
+  // Oculta a mensagem após 5 segundos
+  setTimeout(() => {
+    messageElement.style.display = "none"; // Esconde a mensagem após 5 segundos
+  }, 5000);
+}
+
+
+
+/**botoes para ver o manual */
+    const pdfUrl = './telefonia-evolux/manuaispdf/Manual do Operador - Versão 6.75.pdf'; // Caminho para o PDF
+
+    // Função para ver o PDF em segundo plano
+    function viewPdfInBackground() {
+        // Verifica se o iframe já existe para não adicionar mais de um
+        if (!document.getElementById('pdfIframe')) {
+            const iframe = document.createElement('iframe');
+            iframe.src = pdfUrl;
+            iframe.id = 'pdfIframe'; // Atribui um ID único ao iframe
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100vh';  // O iframe ocupa toda a altura da tela
+            iframe.style.zIndex = '999';   // Coloca o iframe acima de outros elementos
+            iframe.style.border = 'none';  // Sem bordas
+            document.body.appendChild(iframe); // Adiciona o iframe à página
+
+            // Criar o botão de fechar
+            const closeButton = document.createElement('button');
+            closeButton.innerText = 'Fechar';
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '20px';
+            closeButton.style.right = '20px';
+            closeButton.style.padding = '10px 15px';
+            closeButton.style.backgroundColor = '#FF5C5C';
+            closeButton.style.color = 'white';
+            closeButton.style.border = 'none';
+            closeButton.style.borderRadius = '5px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.zIndex = '1000'; // Garante que o botão fique acima do iframe
+            closeButton.addEventListener('click', closePdfInBackground);
+
+            // Adiciona o botão de fechar na página
+            document.body.appendChild(closeButton);
+        }
+    }
+
+    // Função para fechar o PDF em segundo plano
+    function closePdfInBackground() {
+        const iframe = document.getElementById('pdfIframe');
+        if (iframe) {
+            iframe.remove(); // Remove o iframe da página
+        }
+
+        const closeButton = document.querySelector('button[style*="position: absolute;"]');
+        if (closeButton) {
+            closeButton.remove(); // Remove o botão de fechar
+        }
+    }
+
+    // Função para baixar o PDF
+    function downloadPdf() {
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'Manual do Operador - Versão 6.75.pdf'; // Nome do arquivo que será baixado
+        link.click();
+    }
+
+    // Função para abrir o PDF em uma nova guia
+    function openPdfInNewTab() {
+        window.open(pdfUrl, '_blank');
+    }
+
+// Verifica se a mensagem já foi exibida antes
+if (!localStorage.getItem('motivationalMessageShown')) {
+  // Se não foi exibida, exibe a mensagem
+  showMotivationalMessage();
+
+  // Marca no localStorage que a mensagem foi exibida
+  localStorage.setItem('motivationalMessageShown', 'true');
+}
+
+ 

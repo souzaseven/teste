@@ -8,8 +8,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+<!--
+<link rel="shortcut icon" href="./img/bot-tga.png" type="image/x-icon">-->
+<link rel="icon" href="./img/icon bot tga.ico" type="image/x-icon">
 
-<link rel="shortcut icon" href="./img/bot-tga.png" type="image/x-icon">
 
 <link rel="stylesheet" href="tutoriais.css">
 
@@ -55,7 +57,79 @@
     <title>Tutoriais tga</title>
 
 
+<style>
+        /* Exibe apenas o ícone das três barrinhas inicialmente */
+        .menu-container {
+            display: block;
+        }
 
+        /* Estilo para o menu toggle */
+        .menu-toggle {
+            font-size: 30px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: block; /* O ícone das três barrinhas ficará visível */
+            margin-left: 20px;
+        }
+
+        /* Menu fixo na tela */
+        .nav {
+            position: fixed; /* Fixa o menu na tela */
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #333;
+            padding-top: 20px;
+            display: none; /* O menu é oculto inicialmente */
+            z-index: 1000; /* Garante que o menu fique sobre outros conteúdos */
+        }
+
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav ul li {
+            margin: 15px 0;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        /* Classe para ocultar o menu ao clicar */
+        .hidden {
+            display: none;
+        }
+
+    </style>
+
+    <script>
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            var menu = document.querySelector(".nav"); // Seleciona o menu
+            menu.classList.toggle("hidden"); // Alterna entre ocultar e mostrar o menu
+        }
+    </script>
+<script>
+// Função para alternar a visibilidade do menu
+function toggleMenu() {
+    var menu = document.getElementById("menu-container");
+    menu.classList.toggle("hidden"); // Alterna entre ocultar e mostrar o menu
+}
+
+</script>
 </head>
 
 <body>
@@ -69,6 +143,21 @@
             <i class="fas fa-adjust"></i> Mudar cor
         </button>
 
+ <!-- Botão de três barrinhas -->
+    <div class="menu-container">
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+    </div>
+
+    <!-- Menu de navegação oculto inicialmente -->
+    <div class="nav hidden">
+        <ul>
+            <li><a href="#iniciododia">INICIO DO DIA</a></li>
+            <li><a href="#sites">TGA SITES</a></li>
+            <li><a href="#contato">TGA CONTATOS</a></li>
+            <li><a href="#telefonia">TELEFONIA EVOLUX</a></li>
+        </ul>
+    </div>
+
     </head>
     <h1>Tutoriais tga</h1>
 
@@ -76,9 +165,6 @@
     <div class="search-container">
         <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar tutoriais...">
     </div>
-
-
-
 
 
 
@@ -94,68 +180,72 @@
             <div class="carousel-track">
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+
+                <div class="Dowloads-item"><a href="https://app.tangerino.com.br/Tangerino/;jsessionid=97e9ee82116306f438c91ea20523?wicket:interface=:1:body:loginForm:baterPontoFuncionario::ILinkListener::"
+                            target="_blank" class="download-link">
                     <img src="./iniciododia/solidespoonto.png" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Bater Ponto <i class="fas fa-clock"></i>
                         <br>
                         <a href="https://app.tangerino.com.br/Tangerino/;jsessionid=97e9ee82116306f438c91ea20523?wicket:interface=:1:body:loginForm:baterPontoFuncionario::ILinkListener::"
                             target="_blank" class="download-link">
-                            Acessar
                         </a>
-                    </div>
+                    </div></a>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://tgasistemas.evolux.io/monitor/agent" target="_blank" class="download-link">
                     <img src="./iniciododia/evoluxlogo.png" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Central Evolux <i class="fas fa-headset"></i>
                         </i><br>
                         <a href="https://tgasistemas.evolux.io/monitor/agent" target="_blank" class="download-link">
-                            Acessar
-                        </a>
-                    </div>
+                            
+                       </a>
+                    </div></a>
                 </div>
 
                 <!-- Item 3 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
                     <img src="./iniciododia/centralatendimento1.png" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Chat Tga <i class="fas fa-comment"></i> <br>
-                      <br>
+                        <br>
                         <a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
-                             Acessar
+                            
                         </a>
-                    </div>
+                    </div></a>
                 </div>
 
 
 
-                <!-- Item 4 -->
+                <!-- Item 4 --> <a href="https://mantis.tgasistemas.com.br/my_view_page.php" target="_blank"
+                            class="download-link">
                 <div class="Dowloads-item">
                     <img src="./iniciododia/mantislogo.png" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Mantis <i class="fas fa-bug"></i><br>
                         <a href="https://mantis.tgasistemas.com.br/my_view_page.php" target="_blank"
                             class="download-link">
-                            Acessar
+                            
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
 
                 <!-- Item 5 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://onvio.com.br/portaldoempregado/auth" target="_blank" class="download-link">
                     <img src="./iniciododia/onvio logo.png" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Portal do Funcionário<i class="fas fa-user-tie"></i><br>
                         <a href="https://onvio.com.br/portaldoempregado/auth" target="_blank" class="download-link">
-                            Acessar
+                            
                         </a>
-                    </div>
+                    </div></a>
                 </div>
 
-    <!-- Item 5 -->
-                <div class="Dowloads-item">
+                <!-- Item 5 -->
+                <div class="Dowloads-item"> <a href="https://app.tangerino.com.br/Tangerino/?wicket:interface=:3:baseContent:menuItemsListNivel1:2:menuItemsListNivel2:2:menuItemsListNivel3:1:menuItemLinkNivel3::ILinkListener::"
+                            target="_blank" class="download-link">
                     <img src="./img/em construção.webp" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Banco de Horas<br>
-                        <a href="https://app.tangerino.com.br/Tangerino/?wicket:interface=:3:baseContent:menuItemsListNivel1:2:menuItemsListNivel2:2:menuItemsListNivel3:1:menuItemLinkNivel3::ILinkListener::" target="_blank" class="download-link">
-                            Acessar
+                        <a href="https://app.tangerino.com.br/Tangerino/?wicket:interface=:3:baseContent:menuItemsListNivel1:2:menuItemsListNivel2:2:menuItemsListNivel3:1:menuItemLinkNivel3::ILinkListener::"
+                            target="_blank" class="download-link">
+                            
                         </a>
                     </div>
                 </div>
@@ -185,48 +275,60 @@
             <div class="carousel-track">
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://tgasistemas.com.br/" target="_blank" class="download-link">
                     <img src="./tgasites/img/sitetga.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Site TGA<br>
                         <a href="https://tgasistemas.com.br/" target="_blank" class="download-link">
-                            Acessar
+                            
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
                 <!-- Item 2 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
                     <img src="./tgasites/img/movidesk.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Chat de atendimento<br>
                         <a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
-                             Acessar
+                            
                         </a>
-                    </div>
+                    </div></a>
                 </div>
                 <!-- Outros itens -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://mantis.tgasistemas.com.br/my_view_page.php" target="_blank"
+                            class="download-link">
                     <img src="./tgasites/img/mantis_logo.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Mantis<br>
                         <a href="https://mantis.tgasistemas.com.br/my_view_page.php" target="_blank"
                             class="download-link">
-                             Acessar
+                            
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
 
 
-                <div class="Dowloads-item">
-                    <img src="./tgasites/img/tgaweb.jpg" alt="SITE" class="responsive-image-Dowloads">
+                <div class="Dowloads-item"><a href="https://sweb.tgasistemas.com.br/" target="_blank" class="download-link">
+                    <img src="./tgasites/img/tgaweb.jpg" alt="SITE" class="responsive-image-Dowloads"> 
                     <div class="video-title">
                         TGA Web<br>
                         <a href="https://sweb.tgasistemas.com.br/" target="_blank" class="download-link">
-                            Acessar
+                            
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                    <!-- Item 1 -->
+
+  <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/Schedule" target="_blank" class="download-link">
+                    <img src="./tgasites/img/agendamovidesk.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Agenda Movidesk<br>
+                        <a href="https://atendimento.tgasistemas.com.br/Schedule" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div></a>
+                </div>
+
+                <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
                     <div class="video-title"><br></div>
@@ -246,51 +348,53 @@
     <section data-title="TGA contato">
         <h2 id="contato">TGA CONTATO <i class="fas fa-phone"></i> <i class="fas fa-comment"></i> </h2>
         <div class="carousel-container">
-            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')"><!--◀️--></button>
+
             <div class="carousel-track">
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="tel:+556533390800" target="_blank" class="download-link">
                     <img src="./tgacontato/img/telefone.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">Central de atendimento<br>
                         <a href="tel:+556533390800" class="call-link">
 
                             <a href="tel:+556533390800" target="_blank" class="download-link">
                                 Ligar
-                               <i class="fas fa-phone-volume"></i> </a>
-                    </div>
+                                <i class="fas fa-phone-volume"></i> </a>
+                    </div></a>
                 </div>
 
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
                     <img src="./tgasites/img/movidesk.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Chat de atendimento<br>
                         <a href="https://atendimento.tgasistemas.com.br/" target="_blank" class="download-link">
                             Acessar <i class="fas fa-arrow-right"></i>
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://api.whatsapp.com/send/?phone=%2B556596829739&text&type=phone_number&app_absent=0"
+                            class="download-link" target="_blank">
                     <img src="./tgacontato/img/tgafinanceiroqrcode.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">Whatsapp Financeiro<br>
                         <a href="https://api.whatsapp.com/send/?phone=%2B556596829739&text&type=phone_number&app_absent=0"
                             class="download-link" target="_blank">
                             Enviar mensagem <i class="fab fa-whatsapp"></i>
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://api.whatsapp.com/send/?phone=%2B556596209006&text&type=phone_number&app_absent=0"
+                            target="_blank" class="download-link">
                     <img src="./tgacontato/img/tgacomercialqrcode.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">Whatsapp Comercial<br>
                         <a href="https://api.whatsapp.com/send/?phone=%2B556596209006&text&type=phone_number&app_absent=0"
                             target="_blank" class="download-link">
                             Enviar mensagem <i class="fab fa-whatsapp"></i>
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-      <!-- Item 1 -->
+                <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
                     <div class="video-title"><br></div>
@@ -307,47 +411,62 @@
         <h2 id="telefonia">Telefonia EVOLUX <i class="fas fa-phone"></i></h2>
 
         <div class="carousel-container">
-            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')"><!--◀️--></button>
+            <!--<button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="./telefonia-evolux/telefonia.html"  class="download-link">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Manuais Evolux<br>
+                        <a href="./telefonia-evolux/telefonia.html"  class="download-link">
+                            
+                        </a>
+                    </div></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://tgasistemas.evolux.io/monitor/agent" target="_blank" class="download-link">
                     <img src="./telefonia-evolux/img/evoluxbr_logo.jpg" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Central Evolux<br>
-                        <a href="./telefonia-evolux/telefonia.html" target="_blank" class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
+                        <a href="https://tgasistemas.evolux.io/monitor/agent" target="_blank" class="download-link">
+                            
+                    </div></a>
                 </div>
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./telefonia-evolux/img/operador2.jpg" alt="" class="responsive-image-Dowloads">
                     <div class="video-title">Manual do Operador<br>
-                        <a href="" target="_blank" class="download-link">
-                            <!-- Botão para ver o PDF em segundo plano -->
-                            <!--<button onclick="viewPdfInBackground()" class="pdf-button">Ver PDF</button>-->
+                        <!-- Botão para ver o PDF em segundo plano -->
+                        <!--<button onclick="viewPdfInBackground()" class="pdf-button">Ver PDF</button>-->
 
-                            <!-- Botão para baixar o PDF -->
-                            <button onclick="downloadPdf()" class="pdf-button">Baixar PDF</button>
-                            <!-- Botão para abrir o PDF em uma nova guia -->
-                            <button onclick="openPdfInNewTab()" class="pdf-button">Abrir em nova guia</button>
+                        <!-- Botão para baixar o PDF -->
+                        <button onclick="downloadPdf()" class="pdf-button">Baixar</button>
+                        <!-- Botão para abrir o PDF em uma nova guia -->
+                        <button onclick="openPdfInNewTab()" class="pdf-button">Abrir</button>
                     </div>
                     </a>
                 </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Supervisor<br></div>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Gerente<br></div>
+                </div>
+
             </div>
-            <!--
-                <div class="video-item">
-    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
-    <div class="video-title"><br></div>
-</div>
--->
 
             <!--
-            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>
         </div>
         <div class="view-all">
             <a href="./telefonia-evolux/telefonia.html" target="_blank">Ver mais sobre a Evolux</a>
-        </div>
+        </div>-->
     </section>
 
 
@@ -358,37 +477,39 @@
             <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508838/versao-24-12-01?menuId=35619-97968-508838&ticketId=&q="
+                            target="_blank" class="download-link">
                     <img src="./NovidadesVersao/24-12.png"" alt=" vERSÃO ATUAL" class="responsive-image">
                     <div class="video-title">Versão Atual<br>
                         <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508838/versao-24-12-01?menuId=35619-97968-508838&ticketId=&q="
                             target="_blank" class="download-link">
-                            Acessar
+                           
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/category/01-novidades-da-versao?ticketId=&q=&kbCategoryId=97967"
+                            target="_blank" class="download-link">
                     <img src="./img/novidadeversao1_LE_upscale_balanced_x4.jpg" alt="vERSÃO " class="responsive-image"
                         class="responsive-image">
                     <div class="video-title">Novidades da Versão<br>
                         <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/category/01-novidades-da-versao?ticketId=&q=&kbCategoryId=97967"
                             target="_blank" class="download-link">
-                            Acessar
+                            
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="./NovidadesVersao/novidadeversao.html"  class="download-link">
                     <img src="./NovidadesVersao/completo.png" alt="vERSÃO " class="responsive-image"
                         class="responsive-image">
                     <div class="video-title">Todas versões<br>
-                        <a href="./NovidadesVersao/novidadeversao.html" target="_blank" class="download-link">
-                            Acessar
+                        <a href="./NovidadesVersao/novidadeversao.html" class="download-link">
+                            
                         </a>
-                    </div>
+                    </div></a>
                 </div>
 
                 <!--
@@ -404,64 +525,67 @@
         <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo&tipoConteudo=7PhJ+gAVw2g=&AspxAutoDetectCookieSupport=1"
+                            target="_blank" class="download-link">
                     <img src="./tgasefaz/img/nfe.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
-                        Portal da NF-e<br>
+                        Portal da NF-e <br> Baixar XML NF-e
                         <a href="https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo&tipoConteudo=7PhJ+gAVw2g=&AspxAutoDetectCookieSupport=1"
                             target="_blank" class="download-link">
-                            Baixar XML NF-e <i class="fas fa-external-link-alt"></i>
+                             <!--<i class="fas fa-external-link-alt"></i>-->
                         </a>
-                    </div>
+                    </div> </a>
                 </div>
                 <!-- Item 2 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://www.sefaz.mt.gov.br/nfce/consultanfce" target="_blank" class="download-link">
                     <img src="./tgasefaz/img/portal nfce.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Consulta NFC-e<br>
                         <a href="https://www.sefaz.mt.gov.br/nfce/consultanfce" target="_blank" class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
+                            <!--Acessar <i class="fas fa-external-link-alt"></i>-->
                         </a>
-                    </div>
+                    </div></a>
                 </div>
                 <!-- Outros itens -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://www.nfe.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=inutilizacao&tipoConteudo=nDmpH/MjKrg="
+                            target="_blank" class="download-link">
                     <img src="./tgasefaz/img/inutilizacao.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Consulta inutilização<br>
                         <a href="https://www.nfe.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=inutilizacao&tipoConteudo=nDmpH/MjKrg="
                             target="_blank" class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
+                           <!--Acessar <i class="fas fa-external-link-alt"></i>-->
                         </a>
-                    </div>
+                    </div></a>
                 </div>
 
-                <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="https://dfe-portal.svrs.rs.gov.br/Mdfe" target="_blank" class="download-link">
                     <img src="./tgasefaz/img/mdfe.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Consulta MDF-e<br>
                         <a href="https://dfe-portal.svrs.rs.gov.br/Mdfe" target="_blank" class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
+                           <!--Acessar <i class="fas fa-external-link-alt"></i>-->
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://dfe-portal.svrs.rs.gov.br/Cte" target="_blank" class="download-link">
                     <img src="./tgasefaz/img/CTe.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Consulta CT-e<br>
                         <a href="https://dfe-portal.svrs.rs.gov.br/Cte" target="_blank" class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
+                           <!--Acessar <i class="fas fa-external-link-alt"></i>-->
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-             
-                <div class="Dowloads-item">
+
+                <div class="Dowloads-item"> <a href="https://monitor.tecnospeed.com.br/?&filter-doc=nfe" target="_blank"
+                            class="download-link">
                     <img src="./tgasefaz/img/MONITORTECNOSPEED.jpg" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Monitor Sefaz<br>
                         <a href="https://monitor.tecnospeed.com.br/?&filter-doc=nfe" target="_blank"
                             class="download-link">
-                            Acessar <i class="fas fa-external-link-alt"></i>
+                           <!--Acessar <i class="fas fa-external-link-alt"></i>-->
                         </a>
                     </div>
                 </div>
@@ -471,9 +595,11 @@
         <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
         </div>
         <div class="view-all">
-            <a href="./tgasefaz/tgasefaz.html" target="_blank">Ver todos os sites</a>
+            <a href="./tgasefaz/tgasefaz.html" >Ver todos os sites</a>
         </div>
     </section>
+
+
 
 
     <!--------------------------------TGA Downloads-------------------------------->
@@ -483,69 +609,156 @@
         <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/0DXKB7B89EM5/Suporte%20TGA.exe"
+                            class="download-link">
                     <img src="./img/conexão-suporte-300x300.png" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Anydesk TGA<br>
                         <a href="https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/0DXKB7B89EM5/Suporte%20TGA.exe"
                             class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                         <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
                     </div>
                 </div>
                 <!-- Item 2 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="./tgadownloads/arquivos/Firebird versões.rar" class="download-link">
                     <img src="./img/firebird-logo-1000-300x300.png" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Firebird 2.5<br>
                         <a href="./tgadownloads/arquivos/Firebird versões.rar" class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                            <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
-                    </div>
+                    </div></a>
                 </div>
                 <!-- Outros itens -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://anydesk.com/pt/downloads/thank-you?dv=win_exe" class="download-link">
                     <img src="./img/anydesk-logo.webp" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Anydesk<br>
                         <a href="https://anydesk.com/pt/downloads/thank-you?dv=win_exe" class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                             <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="./tgadownloads/arquivos/RedExpert-2024.01-windows-x86_64.exe" class="download-link">
                     <img src="./img/redeexpert.png" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         RedExpert<br>
                         <a href="./tgadownloads/arquivos/RedExpert-2024.01-windows-x86_64.exe" class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                             <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="./tgadownloads/arquivos/TGA Busca MySuite.rar" class="download-link">
                     <img src="./img/lupa azul.avif" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Tga Busca<br>
                         <a href="./tgadownloads/arquivos/TGA Busca MySuite.rar" class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                            <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
-                    </div>
+                    </div></a>
                 </div>
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="./tgadownloads/arquivos/dbeaver-ce-24.2.4-x86_64-setup.exe" class="download-link">
                     <img src="./img/dbeaver.webp" alt="DOWNLOAD" class="responsive-image-Dowloads">
                     <div class="video-title">
                         DBeaver<br>
                         <a href="./tgadownloads/arquivos/dbeaver-ce-24.2.4-x86_64-setup.exe" class="download-link">
-                            <i class="fa fa-download"></i> DOWNLOAD
+                            <!--  <i class="fa fa-download"></i> DOWNLOAD--> 
                         </a>
-                    </div>
+                    </div></a>
                 </div>
             </div><!--
         <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
         </div>
         <div class="view-all">
-            <a href="./tgadownloads/downloads.html" target="_blank">Todos os DOWNLOADS</a>
+            <a href="./tgadownloads/downloads.html" >Todos os DOWNLOADS</a>
         </div>
+    </section>
+
+
+    <!--------------------------------TGA QUESTIONÁRIOS-------------------------------->
+    <section data-title="TGA QUESTIONÁRIOS">
+        <h2 id="QUESTIONÁRIOS">TGA QUESTIONÁRIOS <i class="fas fa-clipboard-list"></i>
+            <i class="fas fa-pencil-alt"></i>
+        </h2>
+        <div class="carousel-container"><!--
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track">
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                    <img src="./tgaquestionarios/IMG/trocaderegime.png" alt=" vERSÃO ATUAL" class="responsive-image">
+                    <div class="video-title">Troca de Regime<br>
+                        <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                    <img src="./tgaquestionarios/IMG/NFe.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Emissão NF-e<br>
+                        <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">  <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                    <img src="./tgaquestionarios/IMG/NFSe.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Emissão NFS-e<br>
+                        <a href="./tgaquestionarios/Questionario Fiscal 1.docx" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"><a href="./tgaquestionarios/MDF-e informações necessárias.txt" target="_blank"
+                            class="download-link">
+                    <img src="./tgaquestionarios/IMG/cte.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Emissão MDF-e<br>e CT-e<br>
+                        <a href="./tgaquestionarios/MDF-e informações necessárias.txt" target="_blank"
+                            class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"><a href="./tgaquestionarios/INFORMACOES NECESSARIAS PARA CONFIGURACAO DE BOLETOS bancarios.docx"
+                            target="_blank" class="download-link">
+                    <img src="./tgaquestionarios/IMG/boleto-facil-1.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Emissão de boletos<br>
+                        <a href="./tgaquestionarios/INFORMACOES NECESSARIAS PARA CONFIGURACAO DE BOLETOS bancarios.docx"
+                            target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="./tgaquestionarios/Questionario_cadastro_de_filial.docx" target="_blank"
+                            class="download-link">
+                    <img src="./tgaquestionarios/IMG/novafilial.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Nova Filial<br>
+                        <a href="./tgaquestionarios/Questionario_cadastro_de_filial.docx" target="_blank"
+                            class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!--
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+            </div>
+
     </section>
 
 
@@ -640,7 +853,8 @@
             <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
 
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="./tgamobile/Mobile/Mobile ON - FV/24.12.01/TGAON_v2.4.0-29-g4f82769.apk" target="_blank"
+                        class="download-link">
 
                     <img src="./tgamobile/TGA-MOBILE512.png" alt="Realizando venda" class="responsive-image">
                     <div class="video-title">Mobile ON<br></div>
@@ -651,7 +865,8 @@
                     </a>
                 </div>
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="https://apps.apple.com/br/app/tga-mobile/id1591660759" class="download-link"
+                        target="_blank">
                     <img src="./tgamobile/mobilert512-.png" alt="Realizando venda" class="responsive-image">
                     <div class="video-title">Mobile OFF<br></div>
                     <a href="https://apps.apple.com/br/app/tga-mobile/id1591660759" class="download-link"
@@ -659,6 +874,47 @@
                         AppStore <i class="fa fa-download"></i></a>
                     </a>
                 </div>
+
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="./NovidadesVersao/novidadeversao.html" class="download-link">
+                    <img src="./NovidadesVersao/completo.png" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Todas versões<br>
+                        <a href="./NovidadesVersao/novidadeversao.html" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/384388/novidades-versao-230501?menuId=35609-95535-384388&ticketId=&q="
+                            target="_blank" class="download-link">
+                    <img src="./tgamobile/iosouandoidmobile.jpg" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Novidades RT<br>
+                        <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/384388/novidades-versao-230501?menuId=35609-95535-384388&ticketId=&q="
+                            target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/480571/versao-230401?menuId=35609-95536-480571&ticketId=&q="
+                            target="_blank" class="download-link">
+                    <img src="./tgamobile/tgamobile.jpg" alt="vERSÃO " class="responsive-image"
+                        class="responsive-image">
+                    <div class="video-title">Novidades ON<br>
+                        <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/480571/versao-230401?menuId=35609-95536-480571&ticketId=&q="
+                            target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
@@ -704,36 +960,360 @@
 </div>-->
 
                 <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/371266/instrucoes-para-configurar-tef-no-tga?menuId=35610-97983-371266&ticketId=&q="
+                        target="_blank" class="download-link">
                     <img src="./tgatef/img/introducaoaotef.png" alt="Realizando venda" class="responsive-image">
                     <div class="video-title">Introdução ao TEF<br></div>
-<a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/371266/instrucoes-para-configurar-tef-no-tga?menuId=35610-97983-371266&ticketId=&q=" target="_blank" class="download-link">Acessar</a>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/371266/instrucoes-para-configurar-tef-no-tga?menuId=35610-97983-371266&ticketId=&q="
+                        target="_blank" class="download-link"></a>
                 </div>
 
-     <!-- Item 1 -->
-                <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474955/configurando-forma-de-pagamento-para-ser-utilizado-sem-integraca?menuId=35610-97983-474955&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/sem tef.jpg" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando forma de pagamento para ser utilizado sem integração TEF<br>
+                    </div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474955/configurando-forma-de-pagamento-para-ser-utilizado-sem-integraca?menuId=35610-97983-474955&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474942/configurando-tef-para-ser-utilizado-na-baixa-de-lancamentos-f8?menuId=35610-97983-474942&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/baixalancamentos.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando TEF para ser utilizado na baixa de lançamentos (F8)<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474942/configurando-tef-para-ser-utilizado-na-baixa-de-lancamentos-f8?menuId=35610-97983-474942&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474841/configurando-tef-para-utilizar-no-modulo-pdv-on?menuId=35610-97983-474841&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/pdvon.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando TEF para ser utilizado no Módulo PDV ON<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474841/configurando-tef-para-utilizar-no-modulo-pdv-on?menuId=35610-97983-474841&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474850/configurando?menuId=35610-97983-474850&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/movimentovenda.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando TEF para ser utilizado no movimento de venda<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/474850/configurando?menuId=35610-97983-474850&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/459779/parametrizacao-para-transmissao-de-nf-e-nfc-e-atraves-da-registr?menuId=35610-97983-459779&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/registradora.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando TEF para ser utilizado na Registradora<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/459779/parametrizacao-para-transmissao-de-nf-e-nfc-e-atraves-da-registr?menuId=35610-97983-459779&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q="
+                        target="_blank" class="download-link">
                     <img src="./tgatef/img/gerenciadordetransacao.png" alt="Realizando venda" class="responsive-image">
                     <div class="video-title">Limpar venda travada Smart POS<br></div>
-<a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q=" 
-target="_blank" class="download-link">Acessar</a>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q="
+                        target="_blank" class="download-link"></a>
                 </div>
 
-               <div class="Dowloads-item">
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q="
+                        target="_blank" class="download-link">
                     <img src="./tgatef/img/smartstoneteste.png" alt="Realizando venda" class="responsive-image">
-                    <div class="video-title">Configurando Smart Pos<br></div>
-<a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q=" 
-target="_blank" class="download-link">Acessar</a>
+                    <div class="video-title">Configurando <br>Smart Pos<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/509328/usando-gerenciador-de-transacao?menuId=35610-97983-509328&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item"> <a href="./tgatef/LIMPAR CACHE POS.mp4" target="_blank" class="download-link">
+                    <img src="./tgatef/img/limpacache.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Limpar Cache<br>Smart Pos<br></div>
+                    <a href="./tgatef/LIMPAR CACHE POS.mp4" target="_blank" class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item"> <a href="./tgatef/img/Manual-solicitação-código-loja.pdf" target="_blank"
+                        class="download-link">
+                    <img src="./tgatef/img/codigoloja.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Como solicitar <br>o código loja</div>
+                    <a href="./tgatef/img/Manual-solicitação-código-loja.pdf" target="_blank"
+                        class="download-link"></a>
+                </div>
+
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/467970/configurando-impressoras-elgin?menuId=35610-97983-467970&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgatef/img/impressoraElgin.png" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">Configurando Impressora Elgin<br></div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/467970/configurando-impressoras-elgin?menuId=35610-97983-467970&ticketId=&q="
+                        target="_blank" class="download-link"></a>
                 </div>
 
             </div><!--
             <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
         </div>
-        <div class="view-all">
-            <a href="#PDV OFF">Ver mais sobre TEF</a>
+
+    </section>
+
+    <!--------------API PIX--------------------------->
+    <section data-title="TGA API PIX">
+        <h2 id="#PIX">TGA API PIX <i class="fas fa-qrcode"></i>
+            <i class="fas fa-exchange-alt"></i><i class="fas fa-desktop"></i></i>
+        </h2>
+        <div class="carousel-container"><!--
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track"><!--
+      <div class="Dowloads-item">
+<video class="responsive-video" controls>
+        <source src="./tgatef/LIMPAR CACHE POS.mp4" type="video/mp4" alt="limpar cache" class="responsive-image">
+        Seu navegador não suporta a reprodução de vídeo.
+    </video>
+    <div class="video-title"><br></div>
+</div>-->
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/426089/manual-de-integracao-api-pix-v2-banco-do-brasil-tga-gestao?menuId=35610-97992-426089&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/brasil.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix V2 Brasil</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/426089/manual-de-integracao-api-pix-v2-banco-do-brasil-tga-gestao?menuId=35610-97992-426089&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/405520/manual-de-integracao-pix-sicredi-tga-sistemas?menuId=35610-110145-405520&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/sicredi.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix Sicredi</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/405520/manual-de-integracao-pix-sicredi-tga-sistemas?menuId=35610-110145-405520&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/405730/manual-de-integracao-pix-sicoob-tga-sistemas?menuId=35610-110338-405730&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/sicoob.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix Sicoob</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/405730/manual-de-integracao-pix-sicoob-tga-sistemas?menuId=35610-110338-405730&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/407702/manual-de-integracao-pix-banco-santander-tga-gestao?menuId=35610-110403-407702&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/santander.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix Santander</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/407702/manual-de-integracao-pix-banco-santander-tga-gestao?menuId=35610-110403-407702&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/422424/manual-de-integracao-pix-banco-inter-tga-gestao?menuId=35610-113829-422424&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/inter.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix Inter</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/422424/manual-de-integracao-pix-banco-inter-tga-gestao?menuId=35610-113829-422424&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508740/manual-de-integracao-pix-banco-itau?menuId=35610-132773-508740&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgapix/img/itau.png" alt="PIX" class="responsive-image">
+                    <div class="video-title"><br>API Pix Itaú</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508740/manual-de-integracao-pix-banco-itau?menuId=35610-132773-508740&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+            </div><!--
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
         </div>
+
     </section>
 
 
+    <!--Informações adicionais API-->
+
+    <!--------------API PIX--------------------------->
+    <section data-title="TGA API">
+        <h2 id="#API">INFORMAÇÕES ADICIONAIS API <i class="fas fa-qrcode"></i>
+            <i class="fas fa-exchange-alt"></i><i class="fas fa-desktop"></i></i>
+        </h2>
+        <div class="carousel-container"><!--
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track"><!--
+      <div class="Dowloads-item">
+<video class="responsive-video" controls>
+        <source src="./tgatef/LIMPAR CACHE POS.mp4" type="video/mp4" alt="limpar cache" class="responsive-image">
+        Seu navegador não suporta a reprodução de vídeo.
+    </video>
+    <div class="video-title"><br></div>
+</div>-->
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"><a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/467967/configurando-boleto-imprimir-sem-registrar?menuId=35610-97981-467967&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/imprimesemregistrar.png" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Imprimir sem registrar boleto</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/467967/configurando-boleto-imprimir-sem-registrar?menuId=35610-97981-467967&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"><a href="./tgacertificados/Sicredi.rar" target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/em construção.webp" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Certificados Sicredi</div>
+                    <a href="./tgacertificados/Sicredi.rar" target="_blank" class="download-link">Baixar</a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="./tgacertificados/Brasil.rar" target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/em construção.webp" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Certificados Banco do Brasil</div>
+                    <a href="./tgacertificados/Brasil.rar" target="_blank" class="download-link">Baixar</a>
+                </div>
+
+            </div><!--
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+        </div>
+
+    </section>
+
+
+    <!--------------------API COBRANÇA - BOLETOS-->
+    <section data-title="TGA API COBRANÇA">
+        <h2 id="#COBRANÇA">TGA API COBRANÇA <i class="fas fa-file-invoice"></i>
+            <i class="fas fa-exchange-alt"></i><i class="fas fa-receipt"></i>
+        </h2>
+        <div class="carousel-container"><!--
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track"><!--
+      <div class="Dowloads-item">
+<video class="responsive-video" controls>
+        <source src="./tgatef/LIMPAR CACHE POS.mp4" type="video/mp4" alt="limpar cache" class="responsive-image">
+        Seu navegador não suporta a reprodução de vídeo.
+    </video>
+    <div class="video-title"><br></div>
+</div>-->
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./tgacobranca/img/brasil.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Brasil</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/426767/manual-de-integracao-api-de-cobranca-banco-do-brasil-tga-gestao?menuId=35610-97986-426767&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/423553/manual-de-integracao-api-de-cobranca-cooperativa-sicredi?menuId=35610-97987-423553&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/sicredi.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Sicredi</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/423553/manual-de-integracao-api-de-cobranca-cooperativa-sicredi?menuId=35610-97987-423553&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/423555/manual-de-integracao-api-de-cobranca-cooperativa-sicoob-tga-gest?menuId=35610-97988-423555&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/sicoob.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Sicoob</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/423555/manual-de-integracao-api-de-cobranca-cooperativa-sicoob-tga-gest?menuId=35610-97988-423555&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/460595/manual-de-integracao-api-de-cobranca-banco-santander-tga-gestao?menuId=35610-122864-460595&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/santander.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Santander</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/460595/manual-de-integracao-api-de-cobranca-banco-santander-tga-gestao?menuId=35610-122864-460595&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/415440/manual-de-integracao-api-de-cobranca-banco-inter?menuId=35610-112077-415440&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/inter.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Inter</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/415440/manual-de-integracao-api-de-cobranca-banco-inter?menuId=35610-112077-415440&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508737/manual-de-integracao-api-de-cobranca-banco-itau?menuId=35610-132774-508737&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgacobranca/img/itau.png" alt="cobranca" class="responsive-image">
+                    <div class="video-title"><br>API Cobrança Itaú</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/508737/manual-de-integracao-api-de-cobranca-banco-itau?menuId=35610-132774-508737&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+            </div><!--
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+        </div>
+
+    </section>
+
+
+    <!--------------API WHATSAPP--------------------------->
+    <section data-title="TGA Whatsapp">
+        <h2 id="#whatsapp">TGA API WHATSAPP <i class="fab fa-whatsapp"></i>
+
+            <i class="fas fa-exchange-alt"></i><i class="fas fa-desktop"></i></i>
+        </h2>
+        <div class="carousel-container"><!--
+            <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track"><!--
+      <div class="Dowloads-item">
+<video class="responsive-video" controls>
+        <source src="./tgatef/LIMPAR CACHE POS.mp4" type="video/mp4" alt="limpar cache" class="responsive-image">
+        Seu navegador não suporta a reprodução de vídeo.
+    </video>
+    <div class="video-title"><br></div>
+</div>-->
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/413562/manual-de-integracao-api-whatsapp?menuId=35610-112252-413562&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgawhatsapp/img/tgawhats.png" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Manual de integração API WhatsApp</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/413562/manual-de-integracao-api-whatsapp?menuId=35610-112252-413562&ticketId=&q="
+                        target="_blank" class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">  <a href="./tgawhatsapp/mensagenstxt/mensagens.html" 
+                        class="download-link">
+                    <img src="./tgawhatsapp/img/exemplomsg.png" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Mensagens Exemplo</div>
+                    <a href="./tgawhatsapp/mensagenstxt/mensagens.html" 
+                        class="download-link"></a>
+                </div>
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/483594/configurando-envio-de-confirmacaolembrete-no-modulo-clinicas-w?menuId=35610-112252-483594&ticketId=&q="
+                        target="_blank" class="download-link">
+                    <img src="./tgawhatsapp/img/whatsclinica.png" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Configurando envio de confirmação/lembrete no módulo clínicas</div>
+                    <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/483594/configurando-envio-de-confirmacaolembrete-no-modulo-clinicas-w?menuId=35610-112252-483594&ticketId=&q="
+                         class="download-link"></a>
+                </div>
+
+
+
+                <!-- Item 1 -->
+                <div class="Dowloads-item"><a href="./NovidadesVersao/WHATSAPP/TGAService_v3.3.0.msi" target="_blank"
+                        class="download-link">
+                    <img src="./tgawhatsapp/img/em construção.webp" alt="API" class="responsive-image">
+                    <div class="video-title"><br>Service</div>
+                    <a href="./NovidadesVersao/WHATSAPP/TGAService_v3.3.0.msi" target="_blank"
+                        class="download-link">Baixar</a>
+                </div>
+
+            </div><!--
+            <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+        </div>
+
+    </section>
 
     <!--
     <footer>
@@ -751,119 +1331,161 @@ target="_blank" class="download-link">Acessar</a>
             <div class="carousel-track">
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
-                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
-                    <div class="video-title"><br></div>
+                    <img src="./tgacmd/img/CMD LOGO.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Adiciona Múltiplas Instâncias<br>
+                        <a href="./tgacmd/BAT/Multiplas Instancias.reg" target="_blank" class="download-link">
+                            Baixar
+                        </a>
+                    </div>
                 </div>
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
-                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
-                    <div class="video-title"><br></div>
+                    <img src="./tgacmd/img/CMD LOGO.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Remove Múltiplas Instâncias<br>
+                        <a href="./tgacmd/BAT/Remove Multiplas Instacias.reg" target="_blank" class="download-link">
+                            Baixar
+                        </a>
+                    </div>
                 </div>
+
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
-                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
-                    <div class="video-title"><br></div>
+                    <img src="./tgacmd/img/cmdlogo1.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Libera portas Atualizador<br>
+                        <span class="custom-tooltip">
+                            Reinicia Envio Whats<br>
+                            <span class="tooltip-text">Execute o texto como administrador no CMD</span>
+                        </span>
+                        <a href="./tgacmd/BAT/Portas Atualizador.txt" target="_blank" class="download-link">
+                            Ver
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!-- Item 2 --><!--
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/portal nfce.png" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta NFC-e<br>
-                      <a href="https://www.sefaz.mt.gov.br/nfce/consultanfce" class="download-link">
-                        Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
-            </div>
-            <!-- Outros itens 
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/inutilizacao.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta inutilização<br>
-                      <a href="https://www.nfe.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=inutilizacao&tipoConteudo=nDmpH/MjKrg=" class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
-            </div>
 
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/mdfe.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta MDF-e<br>
-                     <a href="https://tgasistemas.com.br/" class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./tgacmd/img/cmdlogo1.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Fecha sistema<br>
+                        <span class="custom-tooltip">
+                            R<br>
+                            <span class="tooltip-text">Execute o texto como administrador no CMD</span>
+                        </span>
+                        <a href="./tgacmd/BAT/Libera estoque+financeiro travado.txt" target="_blank"
+                            class="download-link">
+                            Ver
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/CTe.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta CT-e<br>
-                    <a href="https://dfe-portal.svrs.rs.gov.br/Cte" class="download-link">
-                        Acessar <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/disponibilidade sefaz.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Disponibilidade SEFAZ<br>
-                    <a href="https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx?versao=0.00&tipoConteudo=P2c98tUpxrI="class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/MONITORTECNOSPEED.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Monitor Sefaz<br>
-                      <a href="https://monitor.tecnospeed.com.br/?&filter-doc=nfe" class="download-link">
-                       Acessar  <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
-            </div> -->
 
-        </div>
-        </div><!--
-        <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
-        </div>
-        <div class="view-all">
-            <a href="https://tgameajuda.com/">Ver todos arquivos</a>
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./tgacmd/img/cmdlogo1.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Reinicia Envio Whats<br>
+                        <span class="custom-tooltip">
+                            R<br>
+                            <span class="tooltip-text">Execute o texto como administrador no CMD</span>
+                        </span>
+                        <a href="./tgacmd/BAT/RESTART whats .txt" target="_blank" class="download-link">
+                            Ver
+                        </a>
+                    </div>
+                </div>
+
+                <div class="Dowloads-item">
+                    <img src="./tgacmd/img/cmdlogo1.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Libera Portas<br>
+                        <span class="custom-tooltip">
+                            R<br>
+                            <span class="tooltip-text">Execute o texto como administrador no CMD</span>
+                        </span>
+                        <a href="./tgacmd/BAT/Libera portas pdv.txt" target="_blank" class="download-link">
+                            Ver
+                        </a>
+                    </div>
+                </div>
+
+  <div class="Dowloads-item">
+                    <img src="./tgacmd/img/cmdlogo1.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                       Cria Regras FireWall - TGA+<br>
+                        <span class="custom-tooltip">
+                            R<br>
+                            <span class="tooltip-text">Execute o texto como administrador no CMD</span>
+                        </span>
+                        <a href="./tgacmd/BAT/Cria Regras FireWall - TGA+.txt" target="_blank" class="download-link">
+                            Ver
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </section>
 
 
-    <!--------------------------------TGA CMD-------------------------------->
-    <section data-title="TGA Sites">
+    <!--------------------------------TGA CONSULTA ERRO-------------------------------->
+    <section data-title="TGA CONSULTA ERRO">
         <h2>TGA consulta erro</h2>
         <div class="carousel-container"><!--
         <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
+
+                <div class="Dowloads-item"><a href="./tgaconsultaerro/Consulta-erro/consultaerro.html" 
+                            class="download-link">
+                    <img src="./tgaconsultaerro/img/erro.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Consulta Erro<br>
+                        <a href="./tgaconsultaerro/Consulta-erro/consultaerro.html" 
+                            class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
-                    <div class="video-title"><br></div>
+                    <div class="video-title"><br>
+                    </div>
+
+                </div>
+                <!-- Item 2 -->
+                <div class="Dowloads-item"> <a href="./tgaconsultaerro/Busca-Mantis/buscamantis.html" target="_blank" class="download-link">
+                    <img src="./tgaconsultaerro/Busca-Mantis/img/lupa azul.avif" alt="SITE"
+                        class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Consulta Mantis<br>
+                        <a href="./tgaconsultaerro/Busca-Mantis/buscamantis.html"  class="download-link">
+                            
+                        </a>
+                    </div>
                 </div>
 
-            
-            <!-- Item 2 -->
-            <div class="Dowloads-item">
-                <img src="./tgaconsultaerro/Busca-Mantis/img/lupa azul.avif" alt="SITE" class="responsive-image-Dowloads">
-                <div class="video-title">
-                    Consulta Mantis<br>
-                      <a href="./tgaconsultaerro/Busca-Mantis/buscamantis.html" target="_blank" class="download-link">
-                        Acessar 
-                    </a>
+                <!-- Item 2 -->
+                <div class="Dowloads-item"> <a href="./tgaconsultaerro/Busca-Ticket/buscaticket.html" target="_blank" class="download-link">
+                    <img src="./tgaconsultaerro/Busca-Ticket/img/movidesk.png" alt="SITE"
+                        class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Consulta Ticket<br>
+                        <a href="./tgaconsultaerro/Busca-Ticket/buscaticket.html"  class="download-link">
+                            
+                        </a>
+                    </div>
                 </div>
+
             </div>
-           
-
-        </div>
         </div><!--
         <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
-        </div>
+        </div><!--
         <div class="view-all">
-            <a href="https://tgameajuda.com/">Ver todos arquivos</a>
+            <a href="https://tgameajuda.com/">Ver todos arquivos</a>-->
         </div>
     </section>
 
@@ -889,155 +1511,23 @@ target="_blank" class="download-link">Acessar</a>
                     <div class="video-title">Relatórios<br></div>
                 </div>
 
-            </div>
-            <!-- Item 2 --><!--
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/portal nfce.png" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta NFC-e<br>
-                      <a href="https://www.sefaz.mt.gov.br/nfce/consultanfce" class="download-link">
-                        Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title">WorkFlow<br></div>
                 </div>
-            </div>
-            <!-- Outros itens 
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/inutilizacao.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta inutilização<br>
-                      <a href="https://www.nfe.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=inutilizacao&tipoConteudo=nDmpH/MjKrg=" class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
-            </div>
 
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/mdfe.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta MDF-e<br>
-                     <a href="https://tgasistemas.com.br/" class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
             </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/CTe.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Consulta CT-e<br>
-                    <a href="https://dfe-portal.svrs.rs.gov.br/Cte" class="download-link">
-                        Acessar <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/disponibilidade sefaz.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Disponibilidade SEFAZ<br>
-                    <a href="https://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx?versao=0.00&tipoConteudo=P2c98tUpxrI="class="download-link">
-                       Acessar <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="Dowloads-item">
-                <img src="./tgasefaz/img/MONITORTECNOSPEED.jpg" alt="SITE" class="responsive-image-Dowloads">
-                <div class="Dowloads-title">
-                    Monitor Sefaz<br>
-                      <a href="https://monitor.tecnospeed.com.br/?&filter-doc=nfe" class="download-link">
-                       Acessar  <i class="fas fa-external-link-alt"></i> 
-                    </a>
-                </div>
-            </div> -->
+        
 
         </div>
         </div><!--
         <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
         </div>
         <div class="view-all">
-            <a href="https://tgameajuda.com/">Ver todos arquivos</a>
+            <a href="./tgareport/arquivosReport.html" >Ver todos arquivos</a>
         </div>
     </section>
-
-
-
-
-    <!--------------------------------TGA diversos-------------------------------->
-    <section data-title="TGA diversos">
-        <h2 id="diversos">Diversos <i class="fas fa-th"></i></h2>
-        <div class="carousel-container"><!--
-        <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
-            <div class="carousel-track">
-           
-
-
-                <!-- Item 2 -->
-                <div class="Dowloads-item">
-                    <img src="./diversos/IMG/sql.webp" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Salva SQL<br>
-                        <a href="./diversos/SQL/consultas-sqlv3.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-                <!-- Outros itens -->
-                <div class="Dowloads-item">
-                    <img src="./diversos/IMG/cupomxnota.png" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Verifica chave de acesso <br>
-                        <a href="./diversos/Valida chave/validachave.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-
-                <div class="Dowloads-item">
-                    <img src="./diversos/IMG/BOLETO.png" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Verifica boleto<br>
-                        <a href="./diversos/Valida boleto/validaboletoauto.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-
-                <div class="Dowloads-item">
-                    <img src="./diversos/Qrcode/qrcode.webp" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Gera Qrcode<br>
-                        <a href="./diversos/Qrcode/qrcode.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-  <div class="Dowloads-item">
-                    <img src="./diversos/IMG/conta texto.webp" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Conta Texto<br>
-                        <a href="./diversos/Conta texto/contatexto-auto.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-
- <div class="Dowloads-item">
-                    <img src="./img/em construção.webp" alt="SITE" class="responsive-image-Dowloads">
-                    <div class="video-title">
-                        Extrai Texto<br>
-                        <a href="./diversos/extrairimg/index.html" target="_blank" class="download-link">
-                            Acessar 
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div><!--
-        <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
-        </div>
-        <div class="view-all">
-            <a href="https://tgameajuda.com/">Ver todos arquivos</a>
-        </div>
-    </section>
-
 
     <!--------------------------------PDV OFF-------------------------------->
     <section data-title="PDV OFF">
@@ -1046,46 +1536,52 @@ target="_blank" class="download-link">Acessar</a>
             <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
             <div class="carousel-track">
 
-      <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="./diversos/Valida boleto/validaboletoauto.html" target="_blank" class="download-link">
                     <img src="./pdvoff/img/PAINEL.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Configurando PDF OFF<br>
                         <a href="./diversos/Valida boleto/validaboletoauto.html" target="_blank" class="download-link">
-                            Acessar 
+                            
                         </a>
                     </div>
                 </div>
 
-      <div class="Dowloads-item">
+                <div class="Dowloads-item">  <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351429/01-tutoriais-basicos"
+                            target="_blank" class="download-link">
                     <img src="./pdvoff/img/caixa512x512-1.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Tutoriais Básicos<br>
-                      <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351429/01-tutoriais-basicos" target="_blank" class="download-link">
-                            Acessar 
+                        <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351429/01-tutoriais-basicos"
+                            target="_blank" class="download-link">
+                            
                         </a>
                     </div>
                 </div>
-      <div class="Dowloads-item">
+                <div class="Dowloads-item"> <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351435/01-tutoriais-avancados?menuId=35611-99226-351435&ticketId=&q="
+                            target="_blank" class="download-link">
                     <img src="./pdvoff/img/painelconfig512x512-1.png" alt="SITE" class="responsive-image-Dowloads">
                     <div class="video-title">
                         Tutoriais Avançados<br>
-                      <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351435/01-tutoriais-avancados?menuId=35611-99226-351435&ticketId=&q=" target="_blank" class="download-link">
-                            Acessar 
+                        <a href="https://atendimento.tgasistemas.com.br/kb/pt-br/article/351435/01-tutoriais-avancados?menuId=35611-99226-351435&ticketId=&q="
+                            target="_blank" class="download-link">
+                            
                         </a>
                     </div>
                 </div>
 
-      <div class="Dowloads-item">
-                    <img src="./pdvoff/img/novidadeversao1_LE_upscale_balanced_x4.jpg" alt="SITE" class="responsive-image-Dowloads">
+                <div class="Dowloads-item"> <a href="./NovidadesVersao/novidadeversao.html"  class="download-link">
+                    <img src="./pdvoff/img/novidadeversao1_LE_upscale_balanced_x4.jpg" alt="SITE"
+                        class="responsive-image-Dowloads">
                     <div class="video-title">
                         Versões Exe<br>
-                      <a href="./NovidadesVersao/novidadeversao.html" target="_blank" class="download-link">
-                            Acessar 
+                        <a href="./NovidadesVersao/novidadeversao.html"  class="download-link">
+                            
                         </a>
                     </div>
                 </div>
 
-<!--
+
+                <!--
                 <div class="video-item">
                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dNGXF--kyXA?si=70vnkf60CoIWnfqX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <div class="video-title">TGA PDV OFF <br>Abrindo o Caixa</div>
@@ -1141,7 +1637,7 @@ target="_blank" class="download-link">Acessar</a>
         <div class="view-all">
             <a href="./pdvoff/pdvoff.html">Ver todos os vídeos sobre PDV OFF</a>
         </div>-->
-             
+
                 <!-- Item 1 -->
                 <div class="Dowloads-item">
                     <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
@@ -1149,6 +1645,192 @@ target="_blank" class="download-link">Acessar</a>
                 </div>
             </div>
     </section>
+
+
+<!--------------------------------TGA email-------------------------------->
+    <section data-title="TGA email">
+        <h2 id="email">TGA Email <i class="fas fa-envelope"></i>
+</h2>
+        <div class="carousel-container"><!--
+        <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track">
+                <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title"> Duas Etapas Gmail<br>Copiar</div>
+                </div>
+           <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title"> Duas Etapas Outlook <br>Copiar</div>
+                </div>
+
+ <!-- Item 1 -->
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="Realizando venda" class="responsive-image">
+                    <div class="video-title"> Configuração Email<br>Ver</div>
+                </div>
+
+            </div>
+        
+
+        </div>
+        </div><!--
+        <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>-->
+        </div>
+       
+    </section>
+
+    <!--------------------------------TGA diversos-------------------------------->
+    <section data-title="TGA diversos">
+        <h2 id="diversos">Diversos <i class="fas fa-th"></i></h2>
+        <div class="carousel-container"><!--
+        <button class="carousel-button prev" onclick="moveCarousel(this, 'prev')">◀️</button>-->
+            <div class="carousel-track">
+
+
+      <div class="Dowloads-item"><a href="./diversos/Provas/provas.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/conhecimento.webp" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                      Teste de Conhecimento<br>
+                        <a href="./diversos/Provas/provas.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="Dowloads-item"> <a href="./diversos/SQL/consultas-sqlv3.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/sql.webp" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Salva SQL<br>
+                        <a href="./diversos/SQL/consultas-sqlv3.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+                <!-- Outros itens -->
+                <div class="Dowloads-item"><a href="./diversos/Valida chave/validachave.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/cupomxnota.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Verifica chave de acesso <br>
+                        <a href="./diversos/Valida chave/validachave.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <div class="Dowloads-item"><a href="./diversos/Valida boleto/validaboletoauto.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/BOLETO.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Verifica boleto<br>
+                        <a href="./diversos/Valida boleto/validaboletoauto.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <div class="Dowloads-item"><a href="./diversos/Qrcode/qrcode.html" target="_blank" class="download-link">
+                    <img src="./diversos/Qrcode/qrcode.webp" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Gera Qrcode<br>
+                        <a href="./diversos/Qrcode/qrcode.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+                <div class="Dowloads-item"><a href="./diversos/Conta texto/contatexto-auto.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/conta texto.webp" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Conta Texto<br>
+                        <a href="./diversos/Conta texto/contatexto-auto.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+      <div class="Dowloads-item"><a href="./diversos/Link Whats/link-whatsapp.html" target="_blank" class="download-link">
+                    <img src="./diversos/IMG/whatspp link.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Inicia conversa<br>
+                        <a href="./diversos/Link Whats/link-whatsapp.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+ <div class="Dowloads-item"> <a href="./diversos/Muda cor de fundo/index.html" target="_blank" class="download-link">
+                    <img src="./diversos/Muda cor de fundo/painel.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Muda cor de Fundo<br>
+                        <a href="./diversos/Muda cor de fundo/index.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+ <div class="Dowloads-item">  <a href="./diversos/Anotacoes/index.html" target="_blank" class="download-link">
+                    <img src="./diversos/Anotacoes/painel bloco.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Salva Anotações<br>
+                        <a href="./diversos/Anotacoes/index.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+
+    <div class="Dowloads-item"> <a href="./diversos/Boletim/boletim.html" target="_blank" class="download-link">
+                    <img src="./diversos/Boletim/boletim.jpg" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Boletim<br>
+                        <a href="./diversos/Boletim/boletim.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+    <div class="Dowloads-item"> <a href="./diversos/Remove fundo/index.html" target="_blank" class="download-link">
+                    <img src="./diversos/Remove fundo/painel.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Remove Fundo IMG<br>
+                        <a href="./diversos/Remove fundo/index.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+
+    <div class="Dowloads-item"> <a href="./diversos/Compactar arquivo/index.html" target="_blank" class="download-link">
+                    <img src="./diversos/Compactar arquivo/painel.png" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Compacta Arquivo<br>
+                        <a href="./diversos/Compactar arquivo/index.html" target="_blank" class="download-link">
+                            
+                        </a>
+                    </div>
+                </div>
+
+<!--
+                <div class="Dowloads-item">
+                    <img src="./img/em construção.webp" alt="SITE" class="responsive-image-Dowloads">
+                    <div class="video-title">
+                        Extrai Texto<br>
+                        <a href="./diversos/extrairimg/index.html" target="_blank" class="download-link">
+                            Acessar
+                        </a>
+                    </div>
+                </div>-->
+
+            </div>
+        </div><!--
+        <button class="carousel-button next" onclick="moveCarousel(this, 'next')">▶️</button>
+        </div>
+        <div class="view-all">
+            <a href="https://tgameajuda.com/">Ver todos arquivos</a>
+        </div>-->
+    </section>
+
     <script src="./tutoriais.js"></script>
 
     <!--souza system  display-->
@@ -1182,83 +1864,91 @@ target="_blank" class="download-link">Acessar</a>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-<section class="contagem">
-<p style="text-align: center; font-size: 18px; color:#007ced;">
-    <br>
-    <img src="https://profile-counter.glitch.me/tga/count.svg" alt="Contador de Visitantes" 
-         style="border: 2px solid; border-radius: 8px; background: transparent; padding: 5px;">
-</p></section>
-<br><br><br><br>
-   <footer>
-<section id="footer" class="footer white-bg pad-min-top-half">
-    <div class="container">
-<h4>Todos os direitos reservados para TGA Sistemas.</h4>
-        <!-- Linha principal com os 3 blocos -->
-        <div class="row">
-            <!-- Bloco 1: Logo e ícones sociais -->
-            <div class="footer-block logo-block">
-                <a href="https://tgasistemas.com.br/">
-                    <img src="https://tgasistemas.com.br/wp-content/themes/tgasistemas/images/logo-w.png" target="_blank" alt="Logo">
-                </a>
-                <ul class="social-icons">
-                    <li class="instagram">
-                        <a href="https://www.instagram.com/tga.sistemas/" target="_blank">
-                            <i class="fa fa-instagram"></i>
+    <section class="contagem">
+        <p style="text-align: center; font-size: 18px; color:#007ced;">
+            <br>
+            <img src="https://profile-counter.glitch.me/tga/count.svg" alt="Contador de Visitantes"
+                style="border: 2px solid; border-radius: 8px; background: transparent; padding: 5px;">
+        </p>
+    </section>
+    <br><br><br><br>
+    <footer>
+        <section id="footer" class="footer white-bg pad-min-top-half">
+            <div class="container">
+                <h4>Todos os direitos reservados para TGA Sistemas.</h4>
+                <!-- Linha principal com os 3 blocos -->
+                <div class="row">
+                    <!-- Bloco 1: Logo e ícones sociais -->
+                    <div class="footer-block logo-block">
+                        <a href="https://tgasistemas.com.br/">
+                            <img src="https://tgasistemas.com.br/wp-content/themes/tgasistemas/images/logo-w.png"
+                                target="_blank" alt="Logo">
                         </a>
-                    </li>
-                    <li class="youtube">
-                        <a href="https://www.youtube.com/channel/UCU-LLe2pv7ILzVXK-5M4t1w" target="_blank">
-                            <i class="fa fa-youtube-play"></i>
-                        </a>
-                    </li>
-                    <li class="facebook">
-                        <a href="https://www.facebook.com/tgasistemas" target="_blank">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                    </li>
-                </ul>
+                        <ul class="social-icons">
+                            <li class="instagram">
+                                <a href="https://www.instagram.com/tga.sistemas/" target="_blank">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="youtube">
+                                <a href="https://www.youtube.com/channel/UCU-LLe2pv7ILzVXK-5M4t1w" target="_blank">
+                                    <i class="fa fa-youtube-play"></i>
+                                </a>
+                            </li>
+                            <li class="facebook">
+                                <a href="https://www.facebook.com/tgasistemas" target="_blank">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Bloco 2: Atendimento -->
+                    <div class="footer-block">
+                        <h6>Atendimento</h6>
+                        <p>Segunda à Sexta-feira: 7h30 às 11h30 / 13h às 18h</p>
+                        <p>Sábado: 7h30 às 12h</p>
+                    </div>
+                    <!-- Bloco 3: Endereço -->
+                    <div class="footer-block">
+                        <h6>Endereço</h6>
+                        <p>Rua Antônio Ribeiro da Rocha, 75N</p>
+                        <p>Jardim do Lago, Tangará da Serra - MT</p>
+                    </div>
+                </div>
+                <!-- Links de políticas -->
+                <div class="footer-links">
+                    <hr>
+                    <p>
+                        <a href="https://tgasistemas.com.br/termos-de-uso/" target="_blank">Termos de Uso</a> |
+                        <a href="https://tgasistemas.com.br/politica-de-privacidade/" target="_blank">Política de
+                            Privacidade</a> |
+                        <a href="https://tgasistemas.com.br/lgpd/" target="_blank">Proteção de Dados</a>
+                    </p>
+
+                    <a href="./versao/v0.0.16.txt">
+                        <p style="margin-right: 1px; text-align: right;"><span id="page-version">Versão 0.0.16</span>
+                        </p>
+                    </a>
+                </div>
             </div>
-            <!-- Bloco 2: Atendimento -->
-            <div class="footer-block">
-                <h6>Atendimento</h6>
-                <p>Segunda à Sexta-feira: 7h30 às 11h30 / 13h às 18h</p>
-                <p>Sábado: 7h30 às 12h</p>
-            </div>
-            <!-- Bloco 3: Endereço -->
-            <div class="footer-block">
-                <h6>Endereço</h6>
-                <p>Rua Antônio Ribeiro da Rocha, 75N</p>
-                <p>Jardim do Lago, Tangará da Serra - MT</p>
-            </div>
-        </div>
-        <!-- Links de políticas -->
-        <div class="footer-links">
-            <hr>
-            <p>
-                <a href="https://tgasistemas.com.br/termos-de-uso/" target="_blank">Termos de Uso</a> | 
-                <a href="https://tgasistemas.com.br/politica-de-privacidade/" target="_blank" >Política de Privacidade</a> | 
-                <a href="https://tgasistemas.com.br/lgpd/" target="_blank" >Proteção de Dados</a>
-            </p>
 
-<a href="./versao/v0.0.11.txt">  
-<p style="margin-right: 1px; text-align: right;"><span id="page-version">Versão 0.0.11</span></p></a>
-        </div>
-    </div>
-
-<footer style="background-color: #f1f1f1; padding: 10px; text-align: center; border-top: 0px solid #ccc; font-family: Arial, sans-serif;">
-    <p style="margin: 0; font-size: 14px; color: #333;">
-        Desenvolvido por 
-        <a href="https://www.linkedin.com/in/anderson-s-352605137/" target="_blank" style="color: #007ced; text-decoration: none; font-weight: bold;" aria-label="Visite o portfólio de Anderson de Souza">
-            Anderson de Souza
-        </a>
-    </p>
-</footer>
+            <footer
+                style="background-color: #f1f1f1; padding: 10px; text-align: center; border-top: 0px solid #ccc; font-family: Arial, sans-serif;">
+                <p style="margin: 0; font-size: 14px; color: #333;">
+                    Desenvolvido por
+                    <a href="https://www.linkedin.com/in/anderson-s-352605137/" target="_blank"
+                        style="color: #007ced; text-decoration: none; font-weight: bold;"
+                        aria-label="Visite o portfólio de Anderson de Souza">
+                        Anderson de Souza
+                    </a>
+                </p>
+            </footer>
 
 
 
-</section>
-</footer>
-</section>
+        </section>
+    </footer>
+    </section>
 </body>
 
 </html>
