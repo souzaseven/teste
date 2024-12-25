@@ -1,0 +1,111 @@
+================================================= 
+** Novidades da Versao v0.0.20**  
+=================================================  
+
+ **Secao Início do Dia**  
+- Adicionado **Banco de Horas**.  
+
+ **Secao TGA sites**  
+- Adicionado **Agenda Movidesk**.  
+
+ **Contato Financeiro/Comercial**  
+- Adicionado **QR Code na Imagem**.  
+
+ **Secao Telefonia Evolux**  
+- Adicionado **Manuais Evolux**.  
+
+ **Secao TGA Versoes**  
+- Adicionado:  
+  - **Versao Atual**.  
+  - **Novidades**.  
+  - **Arquivos de Todas as Versoes**.  
+
+ **Secao TGA Sefaz**  
+- Adicionado: **Ver Todos os Sites**.  
+
+ **Secao TGA Downloads**  
+- Adicionado botão **Todos os Downloads**.  
+
+ **Secao TGA Questionários**  
+- Adicionado **Arquivos para Baixar**.  
+
+ **Secao TGA Estoque e TGA Financeiro**  
+- **Botão de Ver Todos** removido.  
+
+ **Secao Mobile**  
+- Adicionado:  
+  - **APK Android**.  
+  - **Link APK iOS**.  
+  - **Campo de Versoes e Novidades**.  
+
+ **Secao TGA TEF**  
+- Adicionado:  
+  - **Limpar Venda Travada**.  
+  - **Configurar Smart POS**.  
+  - **Vídeo de Limpar Cache**.  
+  - **Codigo Loja**.  
+  - **Impressora Elgin**.  
+
+ **Secao API PIX**  
+- Adicionado **Links das Configuracões**.  
+
+ **Secao Informacões Adicionais API**  
+- Adicionado **Certificados**.  
+
+ **Secao TGA API Cobranca**  
+- Adicionado **Links de Configuracão**.  
+
+ **Secao TGA API WhatsApp**  
+- Adicionado:  
+  - **Manual**.  
+  - **EXE do Servico de Envio Automático (Service)**.  
+  - **Mensagens de Exemplo para Uso**.  
+
+ **Secao TGA CMD**  
+- Adicionados **Novos Arquivos**.  
+
+ **Secao TGA Consulta Erro**  
+- Adicionado:  
+  - **Consulta Erro**: busca informacões no banco de dados do MySuite.  
+  - **Consulta Mantis**.  
+  - **Consulta Ticket por Número**.  
+
+ **Secao TGA Report**  
+- Adicionado botão **Ver Todos Arquivos**.  
+
+ **Secao PDV OFF**  
+- Adicionado campos de **Tutoriais e Versoes**.  
+
+ **Secao TGA E-mail**  
+- Adicionado:  
+  - **Links de Configuracão de Duas Etapas** (Gmail e Outlook).  
+  - **PDF de Portas e Configuracões de E-mail**.  
+
+ **Secao TGA Backup**  
+- Adicionado **Arquivo e Manual**.  
+
+---
+
+** Diversos**  
+- **Teste de Conhecimento**.  
+- **Salva SQL**.  
+- **Gera QR Code**.  
+- **Verifica Chaves de NF-e e NFC-e com Links**.  
+- **Verifica Boleto** mostrando os campos.  
+- **Conta Texto**.  
+- **Inicia Conversa no WhatsApp por Link**.  
+- **Muda Cor de Fundo da Imagem**.  
+- **Bloco de Notas para Anotacões**.  
+- **Boletim para Ver Aprovacão/Reprovacão**.  
+- **Remove Fundo da Imagem**.  
+- **Compacta Arquivo** (igual ao WinRAR).  
+
+---
+
+** Contador de Acessos**  
+- Adicionado contador para monitorar acessos à página.  
+
+** Rodape**  
+- Incluído rodape com direitos de uso da **TGA Sistemas** e Versao atual.  
+
+---

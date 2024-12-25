@@ -1,0 +1,18 @@
+v0.0.12
+secao inicio do dia
+contato financeiro 
+contato comercial 
+secao telefonia evolux
+secao tga versões
+tga sefaz (ver todos sites)
+secao mobile
+secao tga tef
+secao api pix
+secao informações adicionais api
+secao tga api cobrança
+tga api whatsapp
+tga consulta mantis
+diversos - gera qrcode
+diversos - conta texto
+secao pdv off
+bloco mensagens whats
