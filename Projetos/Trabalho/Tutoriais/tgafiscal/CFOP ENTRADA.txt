@@ -1,0 +1,39 @@
+1.2.01  - Compra de mercadorias NF-e (SPED)
+51**    -    1.102.01              Entrada dentro de estado Tributada 
+54**    -    1.405.01             Entrada dentro de estado Substituição Tributária
+61**    -    2.102.01             Entrada fora do estado Tributada
+64**    -    2.403.01            Entrada fora do estado Substituição Tributária
+
+ 
+
+1.2.05  - Entrada de material de uso e consumo (SPED)
+51**    -    1.556.01              Entrada dentro de estado Tributada 
+54**    -    1.407.01             Entrada dentro de estado Substituição Tributária 
+61**    -    2.556.01             Entrada fora do estado Tributada 
+64**    -    2.407.01            Entrada fora do estado Substituição Tributária
+
+ 
+
+1.2.10 - Compra de bem ou ativo imobilizado (SPED) 
+51**    -    1.551.01              Entrada dentro de estado Tributada
+54**    -    1.406.01             Entrada dentro de estado Substituição Tributária
+61**    -    2.551.01             Entrada fora do estado Tributada 
+64**    -    2.406.01            Entrada fora do estado Substituição Tributária
+
+ 
+
+1.2.06  - Aquisiçao de servico de transporte (SPED) 
+1.353.01
+2.353.01
+
+ 
+
+1.2.04 - Aquisiçao de serviço de telecomunicação (SPED)
+1.303.01
+2.303.01
+
+ 
+
+1.2.03 - Aquisição de energia eletrica (SPED)
+1.253.01
+2.253.01

@@ -1,0 +1,93 @@
++------------------------------+
+|Dicas e Truques - Sistema TGA |
++------------------------------+
+|      __________              | 
+|     /____     o\             |
+|    /____     ___\            |
+|   /____     /  TGA           |
+|  /_________/ Sistemas        |
+|                              |
+|Para quem procura Resultados !|
++------------------------------+
+
+Teclas de Atalho
+----------------
+
+Menu Principal – TGA Estoque 
+F3 – Pesquisa de Produtos;
+F4 – Pesquisa de Cliente/Fornecedor;
+F8 – Movimentos de Compra;
+F9 – Movimentos de Venda;
+F10 – Movimentos de Transferência / Outros;
+
+Tela de Pesquisa de Produtos
+ALT+P – Selecionar campo a ser pesquisado;
+ALT+E – Selecionar campo do conteúdo a ser pesquisado;
+ALT+R – Selecionar Aba de resultado da pesquisa;
+ALT+D – Selecionar Aba de Pedidos;
+ALT+L – Consultar saldos e custos do produto;
+CTRL+R – Atualizar dados;
+F12 – Registrar solicitação de compras;
+(-)Menos – Alterar cadastro de produtos
+
+Tela de Pesquisa de Cliente/Fornecedor
+ALT+P – Selecionar campo a ser pesquisado;
+ALT+E – Selecionar campo do conteúdo a ser pesquisado;
+ALT+R – Selecionar Aba de resultado da pesquisa;
+ALT+D – Selecionar Aba de Pedidos/Orçamentos;
+ALT+O – Selecionar Aba de Observações/Lembrete
+CTRL+R – Atualizar dados;
+Barra de Espaço – Consultar posição financeiro do Cliente;
+(-)Menos – Alterar cadastro de Cliente/Fornecedor;
+
+Menu Principal – TGA Financeiro
+F4 – Pesquisa de Cliente/Fornecedor
+F7 – Cadastro de Lançamentos;
+F8 – Manutenção de Lançamentos;
+F9 – Lançamentos de Extrato;
+F10 – Manutenção de Extratos;
+
+Teclas Genéricas:
+F2 – Agenda de Contatos
+F5 – Calculadora;
+F6 – Calendário;
+F11 – Solicitações de Liberação de bloqueio;
+(+) Mais – Abrir tela de pesquisa de cadastro;
+(-) Menos – Abre tela de cadastro para edição;
+(Enter) – Avançar campos;
+(Esc) – Retornar ao campo anterior;
+(ALT+F4) – Fechar tela corrente;
+(CTRL+D) – Desconectar usuário corrente (fecha todos os menus) sem fechar o sistema;
+(CTRL+O) – Conectar no sistema;
+(CTRL+S) – Sair do Sistema;
+
+
+Calcular Fator da condição de Pagamento
+---------------------------------------
+
+Prazo Médio: (30+60+90) sem entrada = 120/3 = 40 dias
+             (30+60+90) com entrada = 120/4 = 30 dias
+
+Formula Índice= (taxa de Juros / 30) * Prazo médio
+
+Prazo Médio: 40 dias
+Taxa de Juros: 6% a.m.
+Índice= (6% / 30 dias) * 40 =  8 %
+
+
+
+Diversos
+--------
+
+- Quando alguma letra do rótulo de algum campo estiver sublinhada basta pressionar a tela ALT+ a letra sublinhada para mudar o foco para o respectivo campo.
+-  É aconselhável digitar palavras em maiúsculo e sem acentos e cedilhas, pois o sistema faz diferenciação entre maiúsculas, minúsculas e acentos na hora da pesquisa;
+- Sempre que o sistema começar a avisar que vai bloquear para fazer a verificação de cópia o usuário já entrar em contato com a TGA Sistema para fazer a liberação, para isso é só entrar no menu Ajuda/Sobre e clicar no botão “Registrar” e informar a chave, evitando assim transtornos no caso do sistema bloquear fora do horário comercial;
+
+
+:) A TGA Sistemas agradece a você cliente por ter nos escolhido como parceiros. Teremos a maior satisfação em atendê-lo e esclarecer quaisquer dúvidas referente ao funcionamento de nossos sistemas.
+
+Depto de Suporte Técnico: (65)3325-0653 / 3326-6419
+E-mail: suporte@tgasistemas.com.br 
+Home Page: http://www.tgasistemas.com.br/contato.asp
+
+® 2001,2005 TGA Sistemas de Informática Ltda. Todos os direitos reservados.
